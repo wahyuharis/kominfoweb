@@ -155,7 +155,7 @@
                         </a>
                     </li>
 
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'level') echo 'active' ?>"><a href="<?= base_url() ?>admin/user_level">
+                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'user_level') echo 'active' ?>"><a href="<?= base_url() ?>admin/user_level">
                             <i class="fa fa-circle-o"></i>
                             <span>User Level</span>
                         </a>
