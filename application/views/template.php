@@ -155,43 +155,43 @@
                         </a>
                     </li>
 
-                    <li class="<?php if (strtolower($this->uri->segment(1)) == 'level') echo 'active' ?>"><a href="<?= base_url() ?>user_level">
+                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'level') echo 'active' ?>"><a href="<?= base_url() ?>admin/user_level">
                             <i class="fa fa-circle-o"></i>
                             <span>User Level</span>
                         </a>
                     </li>
 
-                    <li class="<?php if (strtolower($this->uri->segment(1)) == 'slider') echo 'active' ?>"><a href="<?= base_url() ?>slider">
+                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'slider') echo 'active' ?>"><a href="<?= base_url() ?>admin/slider">
                             <i class="fa fa-circle-o"></i>
                             <span>Slider</span>
                         </a>
                     </li>
 
-                    <li class="<?php if (strtolower($this->uri->segment(1)) == 'galeri') echo 'active' ?>"><a href="<?= base_url() ?>galery">
+                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'galeri') echo 'active' ?>"><a href="<?= base_url() ?>admin/galery">
                             <i class="fa fa-circle-o"></i>
                             <span>Galeri</span>
                         </a>
                     </li>
 
 
-                    <li class="<?php if (strtolower($this->uri->segment(1)) == 'blog') echo 'active' ?>"><a href="<?= base_url() ?>blog">
+                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'blog') echo 'active' ?>"><a href="<?= base_url() ?>admin/blog">
                             <i class="fa fa-circle-o"></i>
                             <span>Blog</span>
                         </a>
                     </li>
 
-                    <li class="<?php if (strtolower($this->uri->segment(1)) == 'download') echo 'active' ?>"><a href="<?= base_url() ?>download">
+                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'download') echo 'active' ?>"><a href="<?= base_url() ?>admin/download">
                             <i class="fa fa-circle-o"></i>
                             <span>Download</span>
                         </a>
                     </li>
-                    <li class="<?php if (strtolower($this->uri->segment(1)) == 'link_terkait') echo 'active' ?>"><a href="<?= base_url() ?>link">
+                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'link_terkait') echo 'active' ?>"><a href="<?= base_url() ?>admin/link">
                             <i class="fa fa-circle-o"></i>
                             <span>Link Terkait</span>
                         </a>
                     </li>
 
-                    <li class="<?php if (strtolower($this->uri->segment(1)) == 'halamant') echo 'active' ?>"><a href="<?= base_url() ?>halaman">
+                    <li class="<?php if (strtolower($this->uri->segment(1)) == 'halamant') echo 'active' ?>"><a href="<?= base_url() ?>admin/halaman">
                             <i class="fa fa-circle-o"></i>
                             <span>Halaman</span>
                         </a>
