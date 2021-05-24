@@ -4,36 +4,36 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title><?= "ADMIN " . NAMA_APLIKASI ?></title>
-        <!-- Tell the browser to be responsive to screen width -->
-        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <!-- Bootstrap 3.3.7 -->
-        <link rel="stylesheet" href="<?= base_url() ?>lte/bower_components/bootstrap/dist/css/bootstrap.min.css">
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="<?= base_url() ?>lte/bower_components/font-awesome/css/font-awesome.min.css">
-        <!-- Ionicons -->
-        <link rel="stylesheet" href="<?= base_url() ?>lte/bower_components/Ionicons/css/ionicons.min.css">
-        <!-- Theme style -->
-        <link rel="stylesheet" href="<?= base_url() ?>lte/dist/css/AdminLTE.min.css">
-        <!-- AdminLTE Skins. Choose a skin from the css/skins
+    <title><?= "ADMIN " . NAMA_APLIKASI ?></title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="<?= base_url() ?>lte/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="<?= base_url() ?>lte/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="<?= base_url() ?>lte/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="<?= base_url() ?>lte/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
-        <link rel="stylesheet" href="<?= base_url() ?>lte/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>lte/dist/css/skins/_all-skins.min.css">
 
-        <?php if (isset($css_files)) : ?>
-            <?php foreach ($css_files as $file) : ?>
-                <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
-            <?php endforeach; ?>
-        <?php endif; ?>
+    <?php if (isset($css_files)) : ?>
+        <?php foreach ($css_files as $file) : ?>
+            <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+        <?php endforeach; ?>
+    <?php endif; ?>
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <!-- Google Font -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -139,9 +139,7 @@
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
-                    <li class="active treeview">
 
-                        <!-- <a href="#"> <i class="fa fa-dashboard"></i> <span>Dashboard</span> -->
 
 
                     <li class="<?php if (strtolower($this->uri->segment(2)) == 'home' || strtolower($this->uri->segment(1)) == '') echo 'active' ?>"><a href="<?= base_url() ?>admin/home">
@@ -162,8 +160,12 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'sample') echo 'active' ?>"><a href="<?= base_url() ?>admin/sample"><i class="fa fa-user-plus"></i> User</a></li>
-                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'user_level') echo 'active' ?>"><a href="<?= base_url() ?>admin/user_level"><i class="fa fa-users"></i> User Level</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'sample') echo 'active' ?>">
+                                <a href="<?= base_url() ?>admin/sample"><i class="fa fa-user-plus"></i> User</a>
+                            </li>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'user_level') echo 'active' ?>">
+                                <a href="<?= base_url() ?>admin/user_level"><i class="fa fa-users"></i> User Level</a>
+                            </li>
                         </ul>
                     </li>
                     <!-- End User -->
@@ -242,7 +244,6 @@
                             <li><a href="#"><i class="fa fa-circle-o"></i> Taulah Apalah</a></li> -->
                     </li>
                 </ul>
-                </li>
                 <!-- End Informasi -->
 
                 <!-- Agenda -->
@@ -573,7 +574,9 @@
     <script src="<?= base_url() ?>lte/dist/js/demo.js"></script>
     <script>
         $(document).ready(function() {
-            $('.sidebar-menu').tree()
+            $('.sidebar-menu').tree();
+
+
         })
     </script>
 </body>
