@@ -167,7 +167,7 @@
                         </a>
                     </li>
 
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'galeri') echo 'active' ?>"><a href="<?= base_url() ?>admin/galery">
+                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'galery') echo 'active' ?>"><a href="<?= base_url() ?>admin/galery">
                             <i class="fa fa-circle-o"></i>
                             <span>Galeri</span>
                         </a>
