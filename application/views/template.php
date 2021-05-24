@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Blank Page</title>
+    <title>Admin Diskominfo</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -46,7 +46,7 @@
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>A</b>LT</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Admin</b>LTE</span>
+                <span class="logo-lg"><b>Admin</b>Diskominfo</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -73,8 +73,8 @@
                                     <img src="<?= base_url() ?>lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                     <p>
-                                        Alexander Pierce - Web Developer
-                                        <small>Member since Nov. 2012</small>
+                                        Tim IT Diskominfo - Web Developer
+                                        <small>Member since May. 2021</small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -141,7 +141,7 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="active treeview">
 
-                        <a href="#"> <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                        <!-- <a href="#"> <i class="fa fa-dashboard"></i> <span>Dashboard</span> -->
 
 
                     <li class="<?php if (strtolower($this->uri->segment(2)) == 'home' || strtolower($this->uri->segment(1)) == '') echo 'active' ?>"><a href="<?= base_url() ?>admin/home">
@@ -152,7 +152,7 @@
 
 
                     <!-- Start Menu -->
-
+                    <!-- User -->
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-cogs"></i>
@@ -164,50 +164,157 @@
                         <ul class="treeview-menu">
                             <li class="<?php if (strtolower($this->uri->segment(2)) == 'sample') echo 'active' ?>"><a href="<?= base_url() ?>admin/sample"><i class="fa fa-user-plus"></i> User</a></li>
                             <li class="<?php if (strtolower($this->uri->segment(2)) == 'user_level') echo 'active' ?>"><a href="<?= base_url() ?>admin/user_level"><i class="fa fa-users"></i> User Level</a></li>
-
-
-                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'slider') echo 'active' ?>"><a href="<?= base_url() ?>admin/slider">
-                                    <i class="fa fa-circle-o"></i>
-                                    <span>Slider</span>
-                                </a>
-                            </li>
-
-                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'galery') echo 'active' ?>"><a href="<?= base_url() ?>admin/galery">
-                                    <i class="fa fa-circle-o"></i>
-                                    <span>Galeri</span>
-                                </a>
-                            </li>
-
-
-                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'blog') echo 'active' ?>"><a href="<?= base_url() ?>admin/blog">
-                                    <i class="fa fa-circle-o"></i>
-                                    <span>Blog</span>
-                                </a>
-                            </li>
-
-                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'download') echo 'active' ?>"><a href="<?= base_url() ?>admin/download">
-                                    <i class="fa fa-circle-o"></i>
-                                    <span>Download</span>
-                                </a>
-                            </li>
-                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'link') echo 'active' ?>"><a href="<?= base_url() ?>admin/link">
-                                    <i class="fa fa-circle-o"></i>
-                                    <span>Link Terkait</span>
-                                </a>
-                            </li>
-
-                            <li class="<?php if (strtolower($this->uri->segment(1)) == 'halamant') echo 'active' ?>"><a href="<?= base_url() ?>admin/halaman">
-                                    <i class="fa fa-circle-o"></i>
-                                    <span>Halaman</span>
-                                </a>
-                            </li>
-
-                            <li class="header">LABELS</li>
-
-
                         </ul>
-            </section>
-            <!-- /.sidebar -->
+                    </li>
+                    <!-- End User -->
+
+
+                    <!-- Download -->
+                    <li class="treeview">
+                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'download') echo 'active' ?>"><a href="<?= base_url() ?>admin/download">
+                            <i class="fa fa-download"></i> <span>Download</span>
+                            <span class="pull-right-container">
+                                <!-- <i class="fa fa-angle-left pull-right"></i> -->
+                            </span>
+                        </a>
+
+                    </li>
+                    <!-- End Download -->
+
+
+                    <!-- Profil -->
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-pie-chart"></i>
+                            <span>Profil</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Struktur Organisasi</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Sejarah Dinas</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(1)) == 'halamant') echo 'active' ?>"><a href="<?= base_url() ?>admin/halaman"><i class="fa fa-circle-o"></i> Visi Dan Misi</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Tugas Dan Fungsi</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Profil Diskominfo</a></li>
+                        </ul>
+                    </li>
+                    <!-- End Profil -->
+
+                    <!-- Regulasi -->
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-pie-chart"></i>
+                            <span>Regulasi</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Undang-Undang</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Peraturan Presiden</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Peraturan Menteri</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Peraturan Gubernur</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Peraturan Bupati</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Peraturan Daerah</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> SK Bupati</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> SE Presiden</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> SE Gubernur</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> SE Bupati</a></li>
+                        </ul>
+                    </li>
+                    <!-- End Regulasi -->
+
+                    <!-- Informasi -->
+                    </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-laptop"></i>
+                            <span>Informasi</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'blog') echo 'active' ?>"><a href="<?= base_url() ?>admin/blog"><i class="fa fa-circle-o"></i> Blog Dan Berita</a></li>
+                            <!-- <li class="treeview">
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Taulah Apalah</a></li> -->
+                    </li>
+                </ul>
+                </li>
+                <!-- End Informasi -->
+
+                <!-- Agenda -->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-edit"></i> <span>Agenda</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+
+                </li>
+                <!-- End Agenda -->
+
+                <!-- Slider -->
+                <li class="treeview">
+                <li class="<?php if (strtolower($this->uri->segment(2)) == 'slider') echo 'active' ?>"><a href="<?= base_url() ?>admin/slider">
+                        <i class="fa fa-slideshare"></i><span>Slider</span>
+                        <span class="pull-right-container">
+                            <!-- <i class="fa fa-angle-left pull-right"></i> -->
+                        </span>
+                    </a>
+                </li>
+                <!-- End Slider -->
+
+                <!-- Gallery -->
+                <li class="treeview">
+                <li class="<?php if (strtolower($this->uri->segment(2)) == 'galery') echo 'active' ?>"><a href="<?= base_url() ?>admin/galery">
+                        <i class="fa fa-folder"></i> <span>Gallery</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                </li>
+                <!-- <ul class="treeview-menu">
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Video</a></li>
+                            <li class="treeview">
+                            <li><a href="#"><i class="fa fa-circle-o"></i> Foto</a></li> -->
+                <!-- End Gallery -->
+
+
+
+                <!-- LInk Terkait -->
+                <li>
+                <li class="<?php if (strtolower($this->uri->segment(2)) == 'link') echo 'active' ?>"><a href="<?= base_url() ?>admin/link">
+                        <i class="fa fa-link"></i> <span>Link Terkait</span>
+                        <!-- <span class="pull-right-container"> -->
+
+                        </span>
+                    </a>
+                </li>
+                <!-- End Link Terkait -->
+
+                <!-- Setting -->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-cogs"></i> <span>Setting</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Header</a></li>
+                        <li class="treeview">
+                        <li><a href="#"><i class="fa fa-circle-o"></i> Footer</a></li>
+                </li>
+                </ul>
+                </li>
+                <!-- End Setting -->
+
+
+                <!-- /.sidebar -->
         </aside>
 
         <!-- =============================================== -->
@@ -245,7 +352,7 @@
             <div class="pull-right hidden-xs">
                 <b>Version</b> 2.4.0
             </div>
-            <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+            <strong>Copyright &copy; 2021 <a href="https://adminlte.io">Tim IT Diskominfo Kab.Jember</a>.</strong> All rights
             reserved.
         </footer>
 
