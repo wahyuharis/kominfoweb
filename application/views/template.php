@@ -149,7 +149,7 @@
                     </li>
 
 
-                    <li class="<?php if (strtolower($this->uri->segment(1)) == 'user') echo 'active' ?>"><a href="<?= base_url() ?>sample">
+                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'sample') echo 'active' ?>"><a href="<?= base_url() ?>admin/sample">
                             <i class="fa fa-circle-o"></i>
                             <span>User</span>
                         </a>
