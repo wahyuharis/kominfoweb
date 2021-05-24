@@ -142,7 +142,7 @@
                     <li class="header">MAIN NAVIGATION</li>
 
 
-                    <li class="<?php if (strtolower($this->uri->segment(1)) == 'home' || strtolower($this->uri->segment(1)) == '') echo 'active' ?>"><a href="<?= base_url() ?>">
+                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'home' || strtolower($this->uri->segment(1)) == '') echo 'active' ?>"><a href="<?= base_url() ?>admin/home">
                             <i class="fa fa-dashboard"></i>
                             <span>Blank Page</span>
                         </a>
