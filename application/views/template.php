@@ -139,68 +139,73 @@
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
-                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="active treeview">
+
+                        <a href="#"> <i class="fa fa-dashboard"></i> <span>Dashboard</span>
 
 
                     <li class="<?php if (strtolower($this->uri->segment(2)) == 'home' || strtolower($this->uri->segment(1)) == '') echo 'active' ?>"><a href="<?= base_url() ?>admin/home">
-                            <i class="fa fa-dashboard"></i>
-                            <span>Blank Page</span>
+                            <i class="fa fa-home"></i>
+                            <span>Home</span>
                         </a>
                     </li>
 
 
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'sample') echo 'active' ?>"><a href="<?= base_url() ?>admin/sample">
-                            <i class="fa fa-circle-o"></i>
+                    <!-- Start Menu -->
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-cogs"></i>
                             <span>User</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
                         </a>
-                    </li>
-
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'user_level') echo 'active' ?>"><a href="<?= base_url() ?>admin/user_level">
-                            <i class="fa fa-circle-o"></i>
-                            <span>User Level</span>
-                        </a>
-                    </li>
-
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'slider') echo 'active' ?>"><a href="<?= base_url() ?>admin/slider">
-                            <i class="fa fa-circle-o"></i>
-                            <span>Slider</span>
-                        </a>
-                    </li>
-
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'galery') echo 'active' ?>"><a href="<?= base_url() ?>admin/galery">
-                            <i class="fa fa-circle-o"></i>
-                            <span>Galeri</span>
-                        </a>
-                    </li>
+                        <ul class="treeview-menu">
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'sample') echo 'active' ?>"><a href="<?= base_url() ?>admin/sample"><i class="fa fa-user-plus"></i> User</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'user_level') echo 'active' ?>"><a href="<?= base_url() ?>admin/user_level"><i class="fa fa-users"></i> User Level</a></li>
 
 
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'blog') echo 'active' ?>"><a href="<?= base_url() ?>admin/blog">
-                            <i class="fa fa-circle-o"></i>
-                            <span>Blog</span>
-                        </a>
-                    </li>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'slider') echo 'active' ?>"><a href="<?= base_url() ?>admin/slider">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Slider</span>
+                                </a>
+                            </li>
 
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'download') echo 'active' ?>"><a href="<?= base_url() ?>admin/download">
-                            <i class="fa fa-circle-o"></i>
-                            <span>Download</span>
-                        </a>
-                    </li>
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'link_terkait') echo 'active' ?>"><a href="<?= base_url() ?>admin/link">
-                            <i class="fa fa-circle-o"></i>
-                            <span>Link Terkait</span>
-                        </a>
-                    </li>
-
-                    <li class="<?php if (strtolower($this->uri->segment(1)) == 'halamant') echo 'active' ?>"><a href="<?= base_url() ?>admin/halaman">
-                            <i class="fa fa-circle-o"></i>
-                            <span>Halaman</span>
-                        </a>
-                    </li>
-
-                    <li class="header">LABELS</li>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'galery') echo 'active' ?>"><a href="<?= base_url() ?>admin/galery">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Galeri</span>
+                                </a>
+                            </li>
 
 
-                </ul>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'blog') echo 'active' ?>"><a href="<?= base_url() ?>admin/blog">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Blog</span>
+                                </a>
+                            </li>
+
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'download') echo 'active' ?>"><a href="<?= base_url() ?>admin/download">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Download</span>
+                                </a>
+                            </li>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'link') echo 'active' ?>"><a href="<?= base_url() ?>admin/link">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Link Terkait</span>
+                                </a>
+                            </li>
+
+                            <li class="<?php if (strtolower($this->uri->segment(1)) == 'halamant') echo 'active' ?>"><a href="<?= base_url() ?>admin/halaman">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Halaman</span>
+                                </a>
+                            </li>
+
+                            <li class="header">LABELS</li>
+
+
+                        </ul>
             </section>
             <!-- /.sidebar -->
         </aside>
