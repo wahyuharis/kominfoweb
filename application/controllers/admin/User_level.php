@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class User_level extends CI_Controller
 {
 
-    private $title = "Title";
+    private $title = "User Level";
 
     public function __construct()
     {

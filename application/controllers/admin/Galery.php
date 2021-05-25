@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Galery extends CI_Controller
 {
 
-    private $title = "Title";
+    private $title = "Galery";
 
     public function __construct()
     {

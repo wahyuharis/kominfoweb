@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Blog extends CI_Controller
 {
 
-    private $title = "Title";
+    private $title = "Blog";
 
     public function __construct()
     {

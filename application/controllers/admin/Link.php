@@ -2,10 +2,10 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Galery extends CI_Controller
+class Link extends CI_Controller
 {
 
-    private $title = "Title";
+    private $title = "Link Terkait";
 
     public function __construct()
     {

@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Download extends CI_Controller
 {
 
-    private $title = "Title";
+    private $title = "Download";
 
     public function __construct()
     {
