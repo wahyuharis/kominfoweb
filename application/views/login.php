@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Log in</title>
+    <title><?=NAMA_APLIKASI?>| Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -32,8 +32,8 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="<?= base_url() . 'lte/' ?>index2.html"><b><?=NAMA_APLIKASI?> </b><br>
-            Admin Web
+            <a href="<?= base_url() . 'lte/' ?>index2.html"><b><?= NAMA_APLIKASI ?> </b><br>
+                Admin Web
             </a>
         </div>
         <!-- /.login-logo -->
@@ -42,7 +42,7 @@
 
             <form action="<?= base_url() . 'login/submit/' ?>" method="post">
                 <div class="form-group has-feedback">
-                    <input type="email" name="email" placeholder="Email" class="form-control" >
+                    <input type="email" name="email" placeholder="Email" class="form-control">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -51,7 +51,7 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-8">
-                        
+
                     </div>
                     <!-- /.col -->
                     <div class="col-xs-4">
@@ -60,10 +60,18 @@
                     <!-- /.col -->
                 </div>
             </form>
-
-
         </div>
         <!-- /.login-box-body -->
+        <br>
+
+        <?php if (strlen($this->session->flashdata('error_message')) > 0) { ?>
+            <div class="callout callout-danger">
+                <h4>Maaf</h4>
+
+                <p><?=$this->session->flashdata('error_message')?></p>
+            </div>
+        <?php } ?>
+
     </div>
     <!-- /.login-box -->
 
