@@ -25,7 +25,7 @@ class Galery extends CI_Controller
         $crud->fields('category', 'caption', 'image');
         $crud->display_as('category', 'Kategori');
         $crud->display_as('caption', 'Caption');
-        $crud->display_as('image', 'Image');
+        $crud->display_as('image', 'File Upload');
         // $crud->display_as('email', 'Email'); untuk membuat display sendiri" /fields
 
 

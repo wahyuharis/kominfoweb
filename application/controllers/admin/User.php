@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Sample extends CI_Controller
+class User extends CI_Controller
 {
 
     private $title = "Title";
@@ -25,8 +25,8 @@ class Sample extends CI_Controller
         $crud->fields('user_level_id', 'email', 'fullname', 'password');
         $crud->display_as('user_level_id', 'User Level');
 
-        $crud->required_fields('user_level_id', 'email','password');
-        $crud->set_rules('email','Email','trim|required|valid_email');
+        $crud->required_fields('user_level_id', 'email', 'password');
+        $crud->set_rules('email', 'Email', 'trim|required|valid_email');
 
         $column = array( /*kolom yang ditampilkan */
             'user_level_id',
