@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Halaman extends CI_Controller
 {
 
-    private $title = "Title";
+    private $title = "Halaman";
 
     public function __construct()
     {

@@ -1,21 +1,23 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Home extends CI_Controller {
-    
-    private $title="Title";
+class Home extends CI_Controller
+{
 
-    public function __construct() {
+    private $title = "Home";
+
+    public function __construct()
+    {
         parent::__construct();
     }
 
-    public function index() {
-        
-        $template_data['content']='';
-        $template_data['content_title']= $this->title;
-        
-        $this->load->view('template',$template_data);
-    }
+    public function index()
+    {
 
+        $template_data['content'] = '';
+        $template_data['content_title'] = $this->title;
+
+        $this->load->view('template', $template_data);
+    }
 }
