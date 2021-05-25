@@ -575,7 +575,8 @@
     <script>
         $(document).ready(function() {
             $('.sidebar-menu').tree();
-
+            $('.sidebar-menu').find('li.active').parent().css('display','block');
+            $('.sidebar-menu').find('li.active').parent().parent().addClass('active');
 
         })
     </script>
