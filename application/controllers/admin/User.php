@@ -26,7 +26,7 @@ class User extends CI_Controller
 
         $crud->set_theme('bootstrap');
         $crud->set_table('users');
-        $crud->fields('email','password','fullname','user_level_id');
+        $crud->fields('email', 'password', 'fullname', 'user_level_id');
         $crud->display_as('user_level_id', 'User Level');
 
         $crud->required_fields('user_level_id', 'email', 'password');
@@ -46,7 +46,7 @@ class User extends CI_Controller
 
         $crud->callback_before_update(array($this, '_encrypt_password_callback'));
         $crud->callback_before_insert(array($this, '_encrypt_password_callback'));
-        $crud->callback_field('password',array($this,'_field_password'));
+        $crud->callback_field('password', array($this, '_field_password'));
 
 
         $output = $crud->render();
@@ -65,7 +65,8 @@ class User extends CI_Controller
         return $post_array;
     }
 
-    function _field_password($value = '', $primary_key = null){
+    function _field_password($value = '', $primary_key = null)
+    {
         return '<input type="password" value="" name="password" class="form-control">';
     }
 }
