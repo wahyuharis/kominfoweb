@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Slider extends CI_Controller
 {
 
-    private $title = "Title";
+    private $title = "Slider";
 
     public function __construct()
     {
