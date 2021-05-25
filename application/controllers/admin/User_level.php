@@ -27,28 +27,12 @@ class User_level extends CI_Controller
         $crud->set_theme('bootstrap');
         $crud->set_table('user_levels');
         $crud->fields('user_level');
-        // $crud->display_as('user_level_id', 'User Level');
-        // $crud->display_as('email', 'Email'); untuk membuat display sendiri" /fields
+        $crud->required_fields('user_level');
 
-
-        // $COLUMN = array( /*kolom yang ditampilkan */
-        //     'user_level_id',
-        //     'email',
-        //     'fullname',
-
-        // );
-
-        // $crud->columns($COLUMN); /*menampilkan kolom*/
-
-
-        // $crud->set_relation('user_level_id', 'user_levels', 'user_level');
-
+        $columns=array('user_level');
+        $crud->columns($columns);
 
         $crud->set_subject('User Level');
-
-        // $crud->required_fields('lastName');
-
-        // $crud->set_field_upload('file_url', 'assets/uploads/files');
 
         $output = $crud->render();
 
