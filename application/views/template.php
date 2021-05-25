@@ -163,8 +163,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'sample') echo 'active' ?>">
-                                <a href="<?= base_url() ?>admin/sample"><i class="fa fa-user-plus"></i> User</a>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'user') echo 'active' ?>">
+                                <a href="<?= base_url() ?>admin/user"><i class="fa fa-user-plus"></i> User</a>
                             </li>
                             <li class="<?php if (strtolower($this->uri->segment(2)) == 'user_level') echo 'active' ?>">
                                 <a href="<?= base_url() ?>admin/user_level"><i class="fa fa-users"></i> User Level</a>
