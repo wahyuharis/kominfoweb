@@ -14,6 +14,11 @@ class Examples extends CI_Controller
         $this->load->helper('url');
 
         $this->load->library('grocery_CRUD');
+
+
+        $this->load->library('Auth');
+        $auth = new Auth();
+        $auth->is_logged_in();
     }
 
     public function _example_output($output = null)
