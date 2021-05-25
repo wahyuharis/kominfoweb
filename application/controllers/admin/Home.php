@@ -19,7 +19,6 @@ class Home extends CI_Controller
 
     public function index()
     {
-
         $template_data['content'] = '';
         $template_data['content_title'] = $this->title;
 
