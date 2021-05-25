@@ -6,3 +6,9 @@ RewriteCond $1 !^(index\.php|resources|robots\.txt)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+
+
+<FilesMatch "db\.php|dump\.sql">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
