@@ -25,8 +25,8 @@ class Login extends CI_Controller
 
         if (empty(trim($error_message))) {
             redirect('admin');
-        }else{
-            $this->session->set_flashdata('error_message',$error_message);
+        } else {
+            $this->session->set_flashdata('error_message', $error_message);
             redirect('login');
         }
     }

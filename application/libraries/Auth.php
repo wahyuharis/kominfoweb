@@ -20,7 +20,6 @@ class Auth
         if ($db->num_rows() < 1) {
             $error_message = "Email Salah";
         } else {
-
             //============VALIDASI PASSWORD===========================
             $db = $ci->db->where('email', $email)
                 ->where('password', md5($password))
@@ -45,10 +44,6 @@ class Auth
 
         }
         //============VALIDASI EMAIL===========================
-
-
-
-
         return $error_message;
     }
 
