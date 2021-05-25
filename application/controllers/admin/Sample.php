@@ -24,17 +24,17 @@ class Sample extends CI_Controller
         $crud->set_table('users');
         $crud->fields('user_level_id', 'email', 'fullname', 'password');
         $crud->display_as('user_level_id', 'User Level');
-        // $crud->display_as('email', 'Email'); untuk membuat display sendiri" /fields
 
+        $crud->required_fields('user_level_id', 'email','password');
+        $crud->set_rules('email','Email','trim|required|valid_email');
 
-        $COLUMN = array( /*kolom yang ditampilkan */
+        $column = array( /*kolom yang ditampilkan */
             'user_level_id',
             'email',
             'fullname',
-
         );
 
-        $crud->columns($COLUMN); /*menampilkan kolom*/
+        $crud->columns($column); /*menampilkan kolom*/
 
 
         $crud->set_relation('user_level_id', 'user_levels', 'user_level');
