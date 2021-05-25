@@ -11,6 +11,10 @@ class User extends CI_Controller
     {
         parent::__construct();
         $this->load->library('grocery_CRUD');
+
+        $this->load->library('Auth');
+        $auth = new Auth();
+        $auth->is_logged_in()->is_administrator();
     }
 
     public function index()
@@ -36,15 +40,13 @@ class User extends CI_Controller
 
         $crud->columns($column); /*menampilkan kolom*/
 
-
         $crud->set_relation('user_level_id', 'user_levels', 'user_level');
-
 
         $crud->set_subject('Users');
 
-        // $crud->required_fields('lastName');
+        $crud->callback_before_update(array($this, '_encrypt_password_callback'));
+        $crud->callback_before_insert(array($this, '_encrypt_password_callback'));
 
-        // $crud->set_field_upload('file_url', 'assets/uploads/files');
 
         $output = $crud->render();
 
@@ -54,5 +56,11 @@ class User extends CI_Controller
         $template_data['css_files'] = $output->css_files;
 
         $this->load->view('template', $template_data);
+    }
+
+    function _encrypt_password_callback($post_array, $primary_key = null)
+    {
+        $post_array['password'] = md5($post_array['password']);
+        return $post_array;
     }
 }

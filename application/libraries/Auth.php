@@ -48,9 +48,35 @@ class Auth
     }
 
 
-    function is_login()
+    function is_logged_in()
     {
+        $ci = &get_instance();
+
+        $email = $ci->session->userdata('email');
+        $password = $ci->session->userdata('password');
+
+        $db = $ci->db->where('email', $email)
+            ->where('password', $password)
+            ->get('users');
+
+        if ($db->num_rows() < 1) {
+            $ci->session->set_flashdata('error_message', "Maaf Anda Belum Login");
+            redirect('login');
+        }
 
         return $this;
+    }
+
+    function is_administrator()
+    {
+        //Administrator //user_level
+
+        $ci = &get_instance();
+        $user_level=$ci->session->userdata('user_level');
+
+        if (!(strtolower($user_level) == strtolower('administrator'))) {
+            //pass
+            redirect('home');
+        }
     }
 }
