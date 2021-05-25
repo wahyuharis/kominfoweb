@@ -24,11 +24,11 @@ class Link extends CI_Controller
         $crud->unset_jquery(); /*wajib ada karena boostrap grocery bentrok dengan jquery adminlte*/
 
         $crud->set_theme('bootstrap');
-        $crud->set_table('galleries');
+        $crud->set_table('url');
         // $crud->fields('user_level');
-        $crud->display_as('category', 'Kategori');
-        $crud->display_as('caption', 'Caption');
-        $crud->display_as('image', 'Image');
+        $crud->display_as('url', 'Link URL');
+        $crud->display_as('icon', 'Ikon');
+        // $crud->display_as('image', 'Image');
         // $crud->display_as('email', 'Email'); untuk membuat display sendiri" /fields
 
 
@@ -45,7 +45,7 @@ class Link extends CI_Controller
         // $crud->set_relation('user_level_id', 'user_levels', 'user_level');
 
 
-        $crud->set_subject('Galeri');
+        $crud->set_subject('Link');
 
         // $crud->required_fields('lastName');
 
