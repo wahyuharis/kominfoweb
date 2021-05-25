@@ -1,6 +1,7 @@
 <?php
 
-class Login extends CI_Controller{
+class Login extends CI_Controller
+{
 
     function __construct()
     {
@@ -8,19 +9,25 @@ class Login extends CI_Controller{
         $this->load->library('Auth');
     }
 
-    function index(){
+    function index()
+    {
         $this->load->view('login');
     }
 
-    function submit(){
-        $auth=new Auth();
+    function submit()
+    {
+        $auth = new Auth();
 
-        $email=$this->input->post('email');
-        $password=$this->input->post('password');
+        $email = $this->input->post('email');
+        $password = $this->input->post('password');
 
-        $auth->login($email,$password);
+        $error_message = $auth->login($email, $password);
 
-        print_r2($_POST);
+        if (empty(trim($error_message))) {
+            redirect('admin');
+        }else{
+            $this->session->set_flashdata('error_message',$error_message);
+            redirect('login');
+        }
     }
-
 }

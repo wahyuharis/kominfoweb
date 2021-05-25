@@ -19,33 +19,43 @@ class Auth
 
         if ($db->num_rows() < 1) {
             $error_message = "Email Salah";
+        } else {
+
+            //============VALIDASI PASSWORD===========================
+            $db = $ci->db->where('email', $email)
+                ->where('password', md5($password))
+                ->get('users');
+
+            if ($db->num_rows() < 1) {
+                $error_message = "Password Salah";
+            } else {
+                $sess = array();
+
+                $db = $ci->db->where('email', $email)
+                    ->where('password', md5($password))
+                    ->join('user_levels', 'user_levels.id=users.user_level_id', 'left')
+                    ->get('users');
+
+                $sess = $db->row_array();
+
+
+                $ci->session->set_userdata($sess);
+            }
+            //============VALIDASI PASSWORD===========================
+
         }
         //============VALIDASI EMAIL===========================
 
-        //============VALIDASI PASSWORD===========================
-        $db = $ci->db->where('email', $email)
-            ->where('password', $password)
-            ->get('users');
 
-        if ($db->num_rows() < 1) {
-            $error_message = "Password Salah";
-        } else {
-            $user_data = $db->result_array();
-
-            $db = $ci->db->where('id', $user_data['user_level_id'])
-                ->get('user_level');
-            
-                
-
-            $sess = array(
-                
-            );
-
-            $ci->session->set_userdata($sess);
-        }
-        //============VALIDASI PASSWORD===========================
 
 
         return $error_message;
+    }
+
+
+    function is_login()
+    {
+
+        return $this;
     }
 }
