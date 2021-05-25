@@ -30,7 +30,8 @@ class Auth
             } else {
                 $sess = array();
 
-                $db = $ci->db->where('email', $email)
+                $db = $ci->db->select('users.*,user_levels.user_level')    
+                    ->where('email', $email)
                     ->where('password', md5($password))
                     ->join('user_levels', 'user_levels.id=users.user_level_id', 'left')
                     ->get('users');
