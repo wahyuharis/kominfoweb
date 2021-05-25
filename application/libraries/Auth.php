@@ -76,20 +76,9 @@ class Auth
 
         if (!(strtolower($user_level) == strtolower('administrator'))) {
             //pass
-            redirect('home');
+            redirect('admin/home');
         }
         
     }
-    function is_editing()
-    {
-        //Administrator //user_level
 
-        $ci = &get_instance();
-        $user_level=$ci->session->userdata('user_level');
-
-        if (!(strtolower($user_level) == strtolower('editing'))) {
-            //pass
-            redirect('home');
-        }
-    }
 }

@@ -36,7 +36,7 @@
             <!-- Logo -->
             <a href="<?= base_url() ?>lte/index2.html" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>A</b>LT</span>
+                <span class="logo-mini"><b>A</b>K</span>
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg"><b><?= "ADMIN " . NAMA_APLIKASI ?></b></span>
             </a>
@@ -57,7 +57,7 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="<?= base_url() ?>lte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs"><?=$this->session->userdata('fullname')?></span>
+                                <span class="hidden-xs"><?= $this->session->userdata('fullname') ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -65,8 +65,8 @@
                                     <img src="<?= base_url() ?>lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                     <p>
-                                        Diskominfo Jember - <?=$this->session->userdata('user_level')?>
-                                        <small><?=$this->session->userdata('email')?></small>
+                                        Diskominfo Jember - <?= $this->session->userdata('user_level') ?>
+                                        <small><?= $this->session->userdata('email') ?></small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -76,7 +76,7 @@
                                             <!-- <a href="#">Followers</a> -->
                                         </div>
                                         <div class="col-xs-4 text-center">
-                                            <a href="#"><?=$this->session->userdata('fullname')?></a>
+                                            <a href="#"><?= $this->session->userdata('fullname') ?></a>
                                         </div>
                                         <div class="col-xs-4 text-center">
                                             <!-- <a href="#">Friends</a> -->
@@ -90,7 +90,7 @@
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="<?=base_url('logout')?>" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="<?= base_url('logout') ?>" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -114,7 +114,7 @@
                         <img src="<?= base_url() ?>lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>Alexander Pierce</p>
+                        <p><?= $this->session->userdata('fullname') ?></p>
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
@@ -131,16 +131,11 @@
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
-
-
-
                     <li class="<?php if (strtolower($this->uri->segment(2)) == 'home' || strtolower($this->uri->segment(1)) == '') echo 'active' ?>"><a href="<?= base_url() ?>admin/home">
                             <i class="fa fa-home"></i>
                             <span>Home</span>
                         </a>
                     </li>
-
-
                     <!-- Start Menu -->
                     <!-- User -->
                     <li class="treeview">
@@ -161,19 +156,6 @@
                         </ul>
                     </li>
                     <!-- End User -->
-
-
-                    <!-- Download -->
-                    <li class="treeview">
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'download') echo 'active' ?>"><a href="<?= base_url() ?>admin/download">
-                            <i class="fa fa-download"></i> <span>Download</span>
-                            <span class="pull-right-container">
-                                <!-- <i class="fa fa-angle-left pull-right"></i> -->
-                            </span>
-                        </a>
-
-                    </li>
-                    <!-- End Download -->
 
 
                     <!-- Profil -->
@@ -270,21 +252,13 @@
                         </span>
                     </a>
                 </li>
-                <!-- <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Video</a></li>
-                            <li class="treeview">
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Foto</a></li> -->
-                <!-- End Gallery -->
+
 
 
 
                 <!-- LInk Terkait -->
-                <li>
                 <li class="<?php if (strtolower($this->uri->segment(2)) == 'link') echo 'active' ?>"><a href="<?= base_url() ?>admin/link">
                         <i class="fa fa-link"></i> <span>Link Terkait</span>
-                        <!-- <span class="pull-right-container"> -->
-
-                        </span>
                     </a>
                 </li>
                 <!-- End Link Terkait -->
@@ -299,13 +273,22 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="#"><i class="fa fa-circle-o"></i> Header</a></li>
-                        <li class="treeview">
                         <li><a href="#"><i class="fa fa-circle-o"></i> Footer</a></li>
-                </li>
-                </ul>
+                    </ul>
                 </li>
                 <!-- End Setting -->
 
+
+                <!-- Download -->
+                <li class="<?php if (strtolower($this->uri->segment(2)) == 'download') echo 'active' ?>"><a href="<?= base_url() ?>admin/download">
+                        <i class="fa fa-download"></i> <span>Download</span>
+                        <span class="pull-right-container">
+                            <!-- <i class="fa fa-angle-left pull-right"></i> -->
+                        </span>
+                    </a>
+
+                </li>
+                <!-- End Download -->
 
                 <!-- /.sidebar -->
         </aside>
