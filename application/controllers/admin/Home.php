@@ -11,6 +11,10 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->library('Auth');
+
+        $this->load->library('Auth');
+        $auth = new Auth();
+        $auth->is_logged_in();
     }
 
     public function index()
