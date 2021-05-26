@@ -1,0 +1,104 @@
+.header-area .header-bottom{
+    background: #0a68a1;
+    color: #ecf0f1;
+}
+
+.main-header .main-menu ul li a{
+    color: #ecf0f1;
+}
+
+.main-header .main-menu ul ul.submenu>li{
+    margin-left: 0px;
+    padding-left: 7px;
+}
+
+.main-header .main-menu ul li:hover>a{
+    color: #fff;
+    text-shadow: 0 0 1px #ecf0f1;
+}
+
+.header-area .header-bottom{
+    border-top: none;
+}
+
+.main-header .main-menu ul ul.submenu{
+    /* background-color: #0a68a1; */
+    background-color: #353b48;
+    /* border-top:  10px solid #353b48;  */
+    border-top:  10px solid #0a68a1; 
+    
+}
+.main-header .main-menu ul ul.submenu>li:hover {
+    background-color:#0a68a1 ;
+}
+.main-header .main-menu ul ul.submenu>li>a{
+    color: #ecf0f1;
+}
+.main-header .main-menu ul ul.submenu>li>a:hover{
+    color:#fff;
+}
+
+.trending-area .trending-main .trand-right-single .trand-right-cap span {
+    color: #ecf0f1;
+}
+.trending-area .trending-main .trending-bottom .single-bottom .trend-bottom-cap span{
+    color: #ecf0f1;
+}
+.whats-news-area .whats-news-caption .single-what-news .what-cap span, .about-area .whats-news-caption .single-what-news .what-cap span, .contact-section .whats-news-caption .single-what-news .what-cap span{
+    color: #ecf0f1;
+}
+.weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-caption span{
+    color: #ecf0f1;
+}
+.color1{
+	background:#0a68a1;
+}
+.color2{
+	background:#0a68a1;
+    
+}
+.color3{
+	background:#0a68a1;
+
+}
+.color4{
+	background:#0a68a1;
+}
+
+.trending-area .trending-main .trending-bottom .single-bottom .trend-bottom-cap h4 a:hover{
+    color: #0066fe;
+}
+.whats-news-area .whats-news-caption .single-what-news .what-cap h4 a:hover, .about-area .whats-news-caption .single-what-news .what-cap h4 a:hover, .contact-section .whats-news-caption .single-what-news .what-cap h4 a:hover{
+    color: #0066fe;
+}
+.weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-caption h4 a:hover{
+    color: #0066fe;
+}
+
+.weekly2-news-area .weekly2-wrapper .dot-style .slick-active button{
+    background:#0066fe;
+}
+
+.main-header .main-menu ul ul.submenu2{
+    background: #353b48;
+}
+.main-header .main-menu ul ul.submenu2>li>a{
+    color: #ecf0f1;
+
+}
+.main-header .main-menu ul ul.submenu2>li>a:hover{
+    color: #fff;
+}
+.main-header .main-menu ul ul.submenu2>li:hover{
+    background-color:#0a68a1 ;
+}
+.main-header .main-menu ul ul.submenu2>li{
+    margin-left: 0px;
+    padding-left: 7px;
+}
+.main-header .main-menu ul li:hover{
+    background: #07456b;
+}
+.slicknav_menu .slicknav_icon-bar {
+    color: #ecf0f1 !important;
+}
