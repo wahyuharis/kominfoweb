@@ -75,7 +75,7 @@ class Blog extends CI_Controller
 
     function _callback_before_update($post_array, $primary_key = null)
     {
-        $post_array['slug'] = url_title($post_array['title']);
+        // $post_array['slug'] = url_title($post_array['title']);
 
         return $post_array;
     }
