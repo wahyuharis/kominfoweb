@@ -2660,7 +2660,7 @@ hr {
 .main-header .main-menu ul li a {
 	color: #002e5b;
 	font-weight: 500;
-	padding: 39px 19px;
+	padding: 10px 19px;
 	display: block;
 	font-size: 14px;
 	-webkit-transition: all .3s ease-out 0s;
@@ -2711,7 +2711,7 @@ hr {
 }
 
 .main-header .main-menu ul ul.submenu>li>a {
-	padding: 6px 10px !important;
+	padding: 6px 10px;
 	font-size: 14px;
 	color: #0b1c39;
 	text-transform: capitalize
@@ -2769,6 +2769,11 @@ hr {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	.header-sticky.sticky-bar.sticky .main-menu .submenu {
+		right: 0;
+		left: inherit
+	}
+
+	.header-sticky.sticky-bar.sticky .main-menu .submenu2 {
 		right: 0;
 		left: inherit
 	}
