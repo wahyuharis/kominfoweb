@@ -26,30 +26,16 @@ class Slider extends CI_Controller
         $crud->set_theme('bootstrap');
         $crud->set_table('sliders');
         $crud->fields('headline', 'sub_headline', 'image');
+
+        $crud->columns('headline','sub_headline','image');
+
         $crud->display_as('headline', 'Headline');
         $crud->display_as('sub_headline', 'Sub Headline');
         $crud->display_as('image', 'Image');
-        // $crud->display_as('email', 'Email'); untuk membuat display sendiri" /fields
 
-
-        // // $COLUMN = array( /*kolom yang ditampilkan */
-        // //     'user_level_id',
-        // //     'email',
-        // //     'fullname',
-
-        // // );
-
-        // $crud->columns($COLUMN); /*menampilkan kolom*/
-
-
-        // $crud->set_relation('user_level_id', 'user_levels', 'user_level');
-
+        $crud->set_field_upload('image','assets/uploads/files');
 
         $crud->set_subject('Sliders');
-
-        // $crud->required_fields('lastName');
-
-        // $crud->set_field_upload('file_url', 'assets/uploads/files');
 
         $output = $crud->render();
 

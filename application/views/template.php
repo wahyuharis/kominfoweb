@@ -238,9 +238,8 @@
                 <!-- End Agenda -->
 
                 <!-- Slider -->
-                <li class="treeview">
                 <li class="<?php if (strtolower($this->uri->segment(2)) == 'slider') echo 'active' ?>"><a href="<?= base_url() ?>admin/slider">
-                        <i class="fa fa-slideshare"></i><span>Slider</span>
+                        <i class="fa fa-slideshare"></i> <span>Slider</span>
                         <span class="pull-right-container">
                             <!-- <i class="fa fa-angle-left pull-right"></i> -->
                         </span>
@@ -248,13 +247,8 @@
                 </li>
                 <!-- End Slider -->
 
-                <!-- Gallery -->
-                <li class="treeview">
                 <li class="<?php if (strtolower($this->uri->segment(2)) == 'galery') echo 'active' ?>"><a href="<?= base_url() ?>admin/galery">
                         <i class="fa fa-folder"></i> <span>Gallery</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
                     </a>
                 </li>
 
@@ -566,7 +560,6 @@
             $('.sidebar-menu').tree();
             $('.sidebar-menu').find('li.active').parent().css('display', 'block');
             $('.sidebar-menu').find('li.active').parent().parent().addClass('active');
-
         })
     </script>
 </body>

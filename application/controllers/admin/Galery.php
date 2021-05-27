@@ -27,31 +27,18 @@ class Galery extends CI_Controller
 
         $crud->set_theme('bootstrap');
         $crud->set_table('galleries');
+        
+        $crud->columns('category', 'caption', 'image');
         $crud->fields('category', 'caption', 'image');
+
         $crud->display_as('category', 'Kategori');
         $crud->display_as('caption', 'Caption');
         $crud->display_as('image', 'File Upload');
-        // $crud->display_as('email', 'Email'); untuk membuat display sendiri" /fields
 
-
-        // $COLUMN = array( /*kolom yang ditampilkan */
-        //     'user_level_id',
-        //     'email',
-        //     'fullname'
-
-        // );
-
-        // $crud->columns($COLUMN); /*menampilkan kolom*/
-
-
-        // $crud->set_relation('user_level_id', 'user_levels', 'user_level');
+        $crud->set_field_upload('image', 'assets/uploads/files');
 
 
         $crud->set_subject('Galeri');
-
-        // $crud->required_fields('lastName');
-
-        // $crud->set_field_upload('file_url', 'assets/uploads/files');
 
         $output = $crud->render();
 
