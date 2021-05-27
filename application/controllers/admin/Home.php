@@ -22,6 +22,6 @@ class Home extends CI_Controller
         $template_data['content'] = '';
         $template_data['content_title'] = $this->title;
 
-        $this->load->view('template', $template_data);
+        $this->load->view('admin/template', $template_data);
     }
 }

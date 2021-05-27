@@ -56,7 +56,7 @@ class User extends CI_Controller
         $template_data['js_files'] = $output->js_files;
         $template_data['css_files'] = $output->css_files;
 
-        $this->load->view('template', $template_data);
+        $this->load->view('admin/template', $template_data);
     }
 
     function _encrypt_password_callback($post_array, $primary_key = null)

@@ -62,7 +62,7 @@ class Blog extends CI_Controller
         $output = $crud->render();
 
         $view_data['output'] = $output->output;
-        $content = $this->load->view('blog/blog', $view_data, true);
+        $content = $this->load->view('admin/blog/blog', $view_data, true);
 
         $template_data['content'] = $content;
         $template_data['content_title'] = $this->title;
@@ -70,7 +70,7 @@ class Blog extends CI_Controller
         $template_data['css_files'] = $output->css_files;
         $template_data['box'] = False;
 
-        $this->load->view('template', $template_data);
+        $this->load->view('admin/template', $template_data);
     }
 
     function _callback_before_update($post_array, $primary_key = null)
