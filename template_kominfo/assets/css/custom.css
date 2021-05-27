@@ -101,6 +101,7 @@
 
 .main-header .main-menu ul li:hover{
     background: #07456b;
+	z-index: 99;
 }
 .slicknav_menu .slicknav_icon-bar {
     color: #ecf0f1 !important;
@@ -145,4 +146,12 @@
 	visibility: visible;
 	opacity: 1;
 	top: 30%
+}
+
+.whats-news-area .nav-tabs .nav-item.show .nav-link, .whats-news-area .nav-tabs .nav-link.active, .about-area .nav-tabs .nav-item.show .nav-link, .about-area .nav-tabs .nav-link.active, .contact-section .nav-tabs .nav-item.show .nav-link, .contact-section .nav-tabs .nav-link.active{
+color: #0066fe;	
+}
+.trending-area .trending-main .trand-right-single .trand-right-cap h4 a:hover{
+color: #0066fe;	
+
 }
