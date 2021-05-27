@@ -571,7 +571,7 @@ hr {
 }
 
 #scrollUp {
-	background: #fc3f00;
+	background: #0a68a1;
 	height: 50px;
 	width: 50px;
 	right: 31px;
@@ -2575,13 +2575,14 @@ hr {
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
 	.header-area .header-bottom {
-		border-top: 0
+		border-top: 0;
+		
 	}
 }
 
 @media (max-width: 767px) {
 	.header-area .header-bottom {
-		border-top: 0
+		border-top: 0;
 	}
 }
 
@@ -2660,7 +2661,7 @@ hr {
 .main-header .main-menu ul li a {
 	color: #002e5b;
 	font-weight: 500;
-	padding: 39px 19px;
+	padding: 10px 19px;
 	display: block;
 	font-size: 14px;
 	-webkit-transition: all .3s ease-out 0s;
@@ -2711,7 +2712,7 @@ hr {
 }
 
 .main-header .main-menu ul ul.submenu>li>a {
-	padding: 6px 10px !important;
+	padding: 6px 10px;
 	font-size: 14px;
 	color: #0b1c39;
 	text-transform: capitalize
@@ -2750,16 +2751,16 @@ hr {
 }
 
 .header-sticky ul li a {
-	padding: 10px 19px
+	padding: 10px 13px
 }
 
 .header-sticky.sticky-bar.sticky .main-menu ul>li>a {
-	padding: 33px 15px
+	padding: 15px 9px
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	.header-sticky.sticky-bar.sticky .main-menu ul>li>a {
-		padding: 33px 13px
+		padding: 13px 10px
 	}
 }
 
@@ -2772,10 +2773,16 @@ hr {
 		right: 0;
 		left: inherit
 	}
+
+	.header-sticky.sticky-bar.sticky .main-menu .submenu2 {
+		right: 0;
+		left: inherit
+	}
 }
 
 .slicknav_menu .slicknav_icon-bar {
-	background-color: #fc3f00 !important
+	background-color: #fc3f00;
+	margin-top: 22px;
 }
 
 .slicknav_nav {
@@ -2798,7 +2805,8 @@ hr {
 
 .slicknav_menu {
 	background: transparent;
-	margin-top: -6px !important
+	margin-top: -6px !important;
+	
 }
 
 .mobile_menu {
@@ -2813,7 +2821,7 @@ hr {
 }
 
 .header-sticky.sticky-bar.sticky .sticky-logo {
-	display: block !important
+	display: block !important;
 }
 
 .sticky-logo {
@@ -2833,7 +2841,7 @@ hr {
 }
 
 .sticky-logo.info-open {
-	padding: 12px
+	padding: 8px
 }
 
 .trending-area .trending-main {
@@ -3024,7 +3032,7 @@ hr {
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: 500;
-	background: #ff0b0b;
+	background: #0a68a1;
 	padding: 11px 0px;
 	line-height: 1;
 	margin-bottom: 15px;
