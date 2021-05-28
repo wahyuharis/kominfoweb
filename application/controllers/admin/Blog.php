@@ -22,15 +22,14 @@ class Blog extends CI_Controller
     {
 
         // print_r2($_SESSION);
-
         $crud = new grocery_CRUD();
         $crud->unset_bootstrap(); /*wajib ada karena boostrap grocery bentrok dengan boodtrap adminlte*/
         $crud->unset_jquery(); /*wajib ada karena boostrap grocery bentrok dengan jquery adminlte*/
 
         $crud->set_theme('bootstrap');
         $crud->set_table('feeds');
-        $crud->columns('title', 'slug', 'image', 'date', 'user_id');
-        $crud->fields('title', 'slug', 'image', 'content',  'date', 'user_id');
+        $crud->columns('title', 'slug', 'deskripsi','kata_kunci','image', 'date', 'user_id');
+        $crud->fields('title', 'slug','deskripsi','kata_kunci', 'image', 'content',  'date', 'user_id');
         $crud->display_as('category', 'Kategori');
         $crud->display_as('title', 'Judul');
         $crud->display_as('content', 'Konten');
