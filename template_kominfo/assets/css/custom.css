@@ -155,3 +155,15 @@ color: #0066fe;
 color: #0066fe;	
 
 }
+.header-area .header-mid .logo img{
+	width: 83px;
+    height: 100%;
+    margin-top: 16px;
+}
+.header-area .header-mid .logo{
+	text-align: right;
+}
+.header-area .header-mid .header-text{
+	/* text-align: center; */
+	color: #ecf0f1;
+}
