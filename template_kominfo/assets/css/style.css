@@ -2950,8 +2950,8 @@ hr {
 }
 
 .trending-area .trending-main .trand-right-single {
-	margin-bottom: 20px;
-	padding-bottom: 20px;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
 	border-bottom: 1px solid #eee
 }
 
@@ -2964,22 +2964,23 @@ hr {
 }
 
 .trending-area .trending-main .trand-right-single .trand-right-cap {
-	padding-left: 18px
+	padding-left: 10px
 }
 
 .trending-area .trending-main .trand-right-single .trand-right-cap span {
 	color: #000;
 	text-transform: uppercase;
-	font-size: 11px;
+	font-size: 9px;
 	font-weight: 400;
-	padding: 10px 15px;
+	padding: 6px 10px;
 	line-height: 1;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 	display: inline-block
 }
 
 .trending-area .trending-main .trand-right-single .trand-right-cap h4 {
-	font-size: 18px
+	font-size: 12.5px;
+	margin-bottom: 0px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -3843,7 +3844,7 @@ hr {
 }
 
 .footer-bottom-area .footer-copy-right p {
-	color: #838383;
+	color: #ecf0f1;
 	font-weight: 300;
 	font-size: 16px;
 	line-height: 2;
@@ -3851,11 +3852,11 @@ hr {
 }
 
 .footer-bottom-area .footer-copy-right p i {
-	color: #f27420
+	color: #2596be
 }
 
 .footer-bottom-area .footer-copy-right p a {
-	color: #f27420
+	color: #2596be
 }
 
 .footer-bottom-area .footer-copy-right p a:hover {
