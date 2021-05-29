@@ -21,12 +21,13 @@ class Blog extends CI_Controller
     public function index()
     {
 
-        // print_r2($_SESSION);
+        //##### inisiasi ##################
         $crud = new grocery_CRUD();
-        $crud->unset_bootstrap(); /*wajib ada karena boostrap grocery bentrok dengan boodtrap adminlte*/
-        $crud->unset_jquery(); /*wajib ada karena boostrap grocery bentrok dengan jquery adminlte*/
-
+        $crud->unset_bootstrap(); 
+        $crud->unset_jquery(); 
         $crud->set_theme('bootstrap');
+        //##### inisiasi ##################
+
         $crud->set_table('feeds');
         $crud->columns('title', 'slug', 'deskripsi','kata_kunci','image', 'date', 'user_id');
         $crud->fields('title', 'slug','deskripsi','kata_kunci', 'image', 'content',  'date', 'user_id');
@@ -36,20 +37,21 @@ class Blog extends CI_Controller
         $crud->display_as('image', 'Image');
         $crud->display_as('date', 'Tanggal');
         $crud->display_as('user_id', 'User');
+        // $crud->display_as('id', 'Id');
+
+        $crud->set_relation('user_id', 'users', 'email');
 
         if ($crud->getstate() == 'list') {
             $crud->set_relation('user_id', 'users', 'email');
         } else {
             $crud->field_type('user_id', 'hidden', $this->session->userdata('id'));
         }
-
        
         $crud->set_subject('Blog');
         $crud->set_field_upload('image', 'assets/uploads/files');
         $crud->required_fields('title', 'slug','image', 'date');
 
         // print_r2($crud->getstate());
-
         if ($crud->getstate() == 'insert_validation') {
             $crud->set_rules('slug','Slug','trim|required|is_unique[feeds.slug]');
         }

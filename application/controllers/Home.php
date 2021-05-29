@@ -12,6 +12,10 @@ class Home extends CI_Controller
     public function index()
     {
         $view_data['slider']=$this->db->get('sliders')->result_array();
+        
+
+
+
 
         // print_r2($view_data['slider'] );
 

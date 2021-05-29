@@ -1,14 +1,45 @@
+<?php
+$ci = &get_instance();
+
+//############## get headers value as object #####################
+$header = array();
+$db = $ci->db->get('header');
+foreach ($db->result_array() as $row) {
+    $header[$row['header_name']] = $row;
+}
+$header = json_decode(json_encode($header));
+// print_r2($header);
+//############## get headers value as object #####################
+
+//############## berita sisi kanan ####################
+$berita_kanan = $ci->db->where('deleted_at', null)
+    ->select('feeds.*,users.fullname')
+    ->join('users', 'users.id=feeds.user_id')
+    ->order_by('id', 'desc')
+    ->limit(3)
+    ->get('feeds')
+    ->result_array();
+
+// print_r2($berita_kanan);
+
+//############## berita sisi kanan ####################
+
+
+
+
+?>
+
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html lang="id">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>News HTML-5 Template </title>
+    <title><?= NAMA_APLIKASI ?> </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>template_kominfo/assets/img/favicon.ico">
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="icon" href="<?= base_url('assets/uploads/files/' . $header->tab_title->image) ?>">
 
     <!-- CSS here -->
     <link rel="stylesheet" href="<?= base_url() ?>template_kominfo/assets/css/bootstrap.min.css">
@@ -43,13 +74,12 @@
                             <!-- Logo -->
                             <div class="col-2">
                                 <div class="logo">
-                                    <a href="index.html"><img src="<?= base_url() ?>template_kominfo/assets/img/logo/logo-kominfo.png" alt="" width="100%" ></a>
+                                    <a href="#"><img src="<?= base_url('assets/uploads/files/' . $header->logo_header_atas->image) ?>" alt="" width="100%"></a>
                                 </div>
                             </div>
 
-                            <div class="col-8 pt-4">
-                                <h3 class="header-text" >DINAS KOMUNIKASI DAN INFORMATIKA</h3>
-                                <h3 class="header-text">KABUPATEN JEMBER</h3>
+                            <div class="col-8 pt-4 header-text">
+                                <?= $header->logo_header_atas->content ?>
                             </div>
                             <div class="col-2">
 
@@ -196,13 +226,13 @@
 
                                     <?php $i = 0; ?>
                                     <?php foreach ($slider as $slide) : ?>
-                                        <div class="carousel-item <?php if($i<1) echo 'active' ?>">
+                                        <div class="carousel-item <?php if ($i < 1) echo 'active' ?>">
                                             <div class="trending-top mb-30">
                                                 <div class="trend-top-img">
-                                                    <img src="<?= base_url('assets/uploads/files/'.$slide['image']) ?>" alt="Second slide">
+                                                    <img src="<?= base_url('assets/uploads/files/' . $slide['image']) ?>" alt="Second slide">
                                                     <div class="trend-top-cap">
                                                         <!-- <span>Appetizers</span> -->
-                                                        <h2><a href="#"><?= ( $slide['headline'] ) ?></a></h2>
+                                                        <h2><a href="#"><?= ($slide['headline']) ?></a></h2>
                                                     </div>
                                                 </div>
                                             </div>
@@ -301,33 +331,18 @@
                                 <h3>Berita Pemkab Terbaru</h3>
                             </div>
 
-                            <div class="trand-right-single d-flex">
-                                <div class="trand-right-img">
-                                    <img src="<?= base_url() ?>template_kominfo/assets/img/trending/right2.jpg" alt="">
+                            <?php foreach ($berita_kanan as $bkanan) : ?>
+                                <div class="trand-right-single d-flex">
+                                    <div class="trand-right-img">
+                                        <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="">
+                                    </div>
+                                    <div class="trand-right-cap hover-show">
+                                        <span class="color3">Berita</span>
+                                        <h4 class="short-title" ><a href="#"><?= substr($bkanan['title'] ,0,50) ?>...</a></h4>
+                                        <h4 class="long-title" ><a href="#"><?= $bkanan['title'] ?></a></h4>
+                                    </div>
                                 </div>
-                                <div class="trand-right-cap">
-                                    <span class="color3">sea beach</span>
-                                    <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
-                                </div>
-                            </div>
-                            <div class="trand-right-single d-flex">
-                                <div class="trand-right-img">
-                                    <img src="<?= base_url() ?>template_kominfo/assets/img/trending/right3.jpg" alt="">
-                                </div>
-                                <div class="trand-right-cap">
-                                    <span class="color2">Bike Show</span>
-                                    <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
-                                </div>
-                            </div>
-                            <div class="trand-right-single d-flex">
-                                <div class="trand-right-img">
-                                    <img src="<?= base_url() ?>template_kominfo/assets/img/trending/right4.jpg" alt="">
-                                </div>
-                                <div class="trand-right-cap">
-                                    <span class="color4">See beach</span>
-                                    <h4><a href="details.html">Welcome To The Best Model Winner Contest</a></h4>
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
 
                         </div>
                     </div>
@@ -755,11 +770,7 @@
                         <!-- New Poster -->
                         <div class="news-poster">
                             <center>
-                                <iframe src="https://www.youtube.com/embed/rIz00N40bag" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                <br>
-                                <iframe src="https://www.youtube.com/embed/CONfhrASy44" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                <br>
-                                <iframe src="https://www.youtube.com/embed/lq6fL2ROWf8" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/videoseries?list=PLDDx9qSJIISMesf6jENuYDzYgJHt7RHou" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </center>
                         </div>
                     </div>
@@ -948,8 +959,9 @@
     <script src="<?= base_url() ?>template_kominfo/assets/js/vendor/modernizr-3.5.0.min.js"></script>
     <!-- Jquery, Popper, Bootstrap -->
     <script src="<?= base_url() ?>template_kominfo/assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="<?= base_url() ?>template_kominfo/assets/js/popper.min.js"></script>
     <script src="<?= base_url() ?>template_kominfo/assets/js/bootstrap.min.js"></script>
+    <script src="<?= base_url() ?>template_kominfo/assets/js/popper.min.js"></script>
+
     <!-- Jquery Mobile Menu -->
     <script src="<?= base_url() ?>template_kominfo/assets/js/jquery.slicknav.min.js"></script>
 
