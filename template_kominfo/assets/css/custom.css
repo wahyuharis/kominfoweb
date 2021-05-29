@@ -178,7 +178,6 @@
 }
 
 .header-area .header-mid .header-text p, .header-area .header-mid .header-text, .header-area .header-mid .header-text span {
-	/* text-align: center; */
 	color: #ecf0f1;
 	font-size: 25px;
 }
@@ -196,4 +195,49 @@
 
 .trending-area .trending-main .trand-right-single .trand-right-cap .long-title {
 	display: none;
+}
+
+
+.vert .carousel-item-next.carousel-item-left,
+.vert .carousel-item-prev.carousel-item-right {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+}
+
+.vert .carousel-item-next,
+.vert .active.carousel-item-right {
+    -webkit-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100% 0);
+}
+
+.vert .carousel-item-prev,
+.vert .active.carousel-item-left {
+-webkit-transform: translate3d(0,-100%, 0);
+        transform: translate3d(0,-100%, 0);
+}
+
+.data-list {
+	height: 350px;
+	width: 350px;
+	padding: 10px 10px;
+	overflow-y: hidden;
+	/* border: 1px solid #222;
+	border-radius: 5px; */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.trand-right-cap p{
+	font-size:11px;
+	line-height:21px;
+	margin-bottom:0px
+}
+
+.trending-area .trending-main .trending-bottom .single-bottom .trend-bottom-cap p {
+	font-size: 13px;
+	/* line-height:20px; */
+	/* margin-top:2px; */
+	float: right;
 }

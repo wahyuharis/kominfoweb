@@ -110,7 +110,7 @@
         <!-- =============================================== -->
 
         <!-- Left side column. contains the sidebar -->
-        <aside class="main-sidebar">
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background: #141313;">
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
                 <!-- Sidebar user panel -->
@@ -145,7 +145,7 @@
                     <!-- User -->
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-cogs"></i>
+                            <i class="fa fa-cog"></i>
                             <span>User</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -185,7 +185,7 @@
                     <!-- Regulasi -->
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-pie-chart"></i>
+                            <i class="fa fa-book"></i>
                             <span>Regulasi</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
