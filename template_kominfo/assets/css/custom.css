@@ -193,10 +193,13 @@
 	height: 100px;
 }
 
-.trending-area .trending-main .trand-right-single .trand-right-cap .long-title {
+/* .trending-area .trending-main .trand-right-single .trand-right-cap .long-title {
+	display: none;
+} */
+
+.long-title{
 	display: none;
 }
-
 
 .vert .carousel-item-next.carousel-item-left,
 .vert .carousel-item-prev.carousel-item-right {
