@@ -4,6 +4,42 @@
 	border-top: none;
 }
 
+.header-sticky.sticky-bar.sticky .sticky-logo {
+	max-width: 200px;
+}
+
+.header-sticky.sticky-bar.sticky .sticky-logo img {
+	height: 35px;
+	/* width: 100%; */
+}
+
+.header-sticky.sticky-bar.sticky .sticky-title {
+	/* font-size: 10px; */
+	/* max-width: 185px; */
+}
+
+/* .header-sticky.sticky-bar.sticky .title-logo {
+	display: none !important;
+} */
+
+@media (max-width: 767px) {
+	.header-sticky.sticky-bar.sticky .title-logo {
+		display: none !important
+	}
+}
+
+@media (max-width: 1204px) {
+	.header-sticky.sticky-bar.sticky .title-logo {
+		display: none !important
+	}
+}
+
+.header-sticky.sticky-bar.sticky .title-logo {
+	font-size: 10px;
+	padding-top: 10px;
+	margin-left: -35px;
+}
+
 .main-header .main-menu ul li a {
 	color: #ecf0f1;
 }
@@ -197,26 +233,23 @@
 	display: none;
 } */
 
-.long-title{
+.long-title {
 	display: none;
 }
 
-.vert .carousel-item-next.carousel-item-left,
-.vert .carousel-item-prev.carousel-item-right {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
+.vert .carousel-item-next.carousel-item-left, .vert .carousel-item-prev.carousel-item-right {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
 }
 
-.vert .carousel-item-next,
-.vert .active.carousel-item-right {
-    -webkit-transform: translate3d(0, 100%, 0);
-            transform: translate3d(0, 100% 0);
+.vert .carousel-item-next, .vert .active.carousel-item-right {
+	-webkit-transform: translate3d(0, 100%, 0);
+	transform: translate3d(0, 100% 0);
 }
 
-.vert .carousel-item-prev,
-.vert .active.carousel-item-left {
--webkit-transform: translate3d(0,-100%, 0);
-        transform: translate3d(0,-100%, 0);
+.vert .carousel-item-prev, .vert .active.carousel-item-left {
+	-webkit-transform: translate3d(0, -100%, 0);
+	transform: translate3d(0, -100%, 0);
 }
 
 .data-list {
@@ -232,10 +265,10 @@
 	display: none;
 }
 
-.trand-right-cap p{
-	font-size:11px;
-	line-height:21px;
-	margin-bottom:0px
+.trand-right-cap p {
+	font-size: 11px;
+	line-height: 21px;
+	margin-bottom: 0px
 }
 
 .trending-area .trending-main .trending-bottom .single-bottom .trend-bottom-cap p {

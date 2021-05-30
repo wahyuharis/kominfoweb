@@ -314,6 +314,7 @@
 
 
   $('.sticky-logo').addClass('info-open');
+  $('.title-logo').addClass('info-open');
 
 
   // Remove clas

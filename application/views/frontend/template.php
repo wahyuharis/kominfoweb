@@ -60,7 +60,7 @@ $header = json_decode(json_encode($header));
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left">
                                     <ul>
-                                        <li><img src="<?=base_url()?>template_kominfo/assets/img/logo/header-black-logo.png" alt="">PEMERINTAH KABUPATEN JEMBER - DINAS KOMUNIKASI DAN INFORMATIKA </li>
+                                        <li><img src="<?= base_url() ?>template_kominfo/assets/img/logo/header-black-logo.png" alt="">PEMERINTAH KABUPATEN JEMBER - DINAS KOMUNIKASI DAN INFORMATIKA </li>
                                         <!-- <li><img src="assets/img/icon/header_icon1.png" alt=""></li> -->
                                     </ul>
                                 </div>
@@ -103,20 +103,29 @@ $header = json_decode(json_encode($header));
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                                 <!-- sticky -->
                                 <div class="sticky-logo">
-                                    <!-- <div class="col-6"> -->
-                                    <a href="index.html"><img src="<?= base_url() ?>template_kominfo/assets/img/logo/panjang.png" alt="" height="35"></a>
-                                    <!-- </div> -->
-                                    <!-- <div> -->
-
-                                    <!-- </div> -->
+                                        <a href="#"><img src="<?= base_url('assets/uploads/files/' . $header->logo_header_sticky->image) ?>" alt=""></a>
                                 </div>
 
-                                <!-- Main-menu -->
+                                <div class="sticky-logo title-logo" >
+                                Dinas Komunikasi dan Informatika<br>
+                                Kabupaten Jember
+                                </div>
 
                                 <div class="main-menu d-none d-md-block">
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="index.html">Beranda</a></li>
+                                            <li><a href="#">Berita</a>
+                                                <ul class="submenu">
+                                                    <li class=""><a href="#">Berita Kominfo</a></li>
+                                                    <li class=""><a href="#">Berita Pemerintahan</a></li>
+                                                    <li class=""><a href="#">Siaran Pers</a></li>
+                                                    <li class=""><a href="#">Sorotan Media</a></li>
+                                                    <li class=""><a href="#">Artikel</a></li>
+                                                    <li class=""><a href="#">Jember Pandalungan</a></li>
+                                                </ul>
+                                            </li>
+
                                             <li><a href="#">Profil</a>
                                                 <ul class="submenu">
                                                     <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
