@@ -10,13 +10,16 @@
                             <div class="blog_item_img">
                                 <img class="card-img rounded-0" src="<?= base_url('assets/uploads/files/' . $beritabl['image']) ?>" alt="">
                                 <a href="#" class="blog_item_date">
-                                    <h3>15</h3>
-                                    <p>Jan</p>
+                                    <h3><?php
+                                    $var = date_create($beritabl['date']);
+                                    echo date_format($var, "d");
+                                    ?></h3>
+                                    <p><?=bulan_indo(date_format($var, "m"))?></p>
                                 </a>
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="<?=base_url('content/'.$beritabl['slug'])?>">
+                                <a class="d-inline-block" href="<?= base_url('content/' . $beritabl['slug']) ?>">
                                     <h2><?= $beritabl['title'] ?></h2>
                                 </a>
                                 <p><?= getFirstParagraph($beritabl['content']) ?></p>
@@ -28,26 +31,7 @@
                     <?php endforeach; ?>
 
                     <nav class="blog-pagination justify-content-center d-flex">
-                        <!-- <ul class="pagination">
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Previous">
-                                    <i class="ti-angle-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">1</a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link" aria-label="Next">
-                                    <i class="ti-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul> -->
-                    <?= $pagination ?>
-
+                        <?= $pagination ?>
                     </nav>
 
                 </div>
@@ -112,15 +96,7 @@
 
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Recent Post</h3>
-                        <div class="media post_item">
-                            <img src="<?= base_url('template_kominfo/') ?>assets/img/post/post_1.png" alt="post">
-                            <div class="media-body">
-                                <a href="single-blog.html">
-                                    <h3>From life was you fish...</h3>
-                                </a>
-                                <p>January 12, 2019</p>
-                            </div>
-                        </div>
+
                         <?php foreach ($berita_kanan as $bkanan) : ?>
                             <div class="media post_item">
                                 <img style="width: 80px; height: 80px;" src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post">
@@ -130,6 +106,7 @@
                                             <h3 class="long-title"><a href="#"><?= $bkanan['title'] ?></a></h4>
                                     </a>
                                     <p><?= waktu_ymd_to_dmy($bkanan['date']) ?></p>
+                                    
                                 </div>
                             </div>
                         <?php endforeach; ?>

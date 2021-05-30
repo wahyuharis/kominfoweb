@@ -114,7 +114,7 @@ $header = json_decode(json_encode($header));
                                 <div class="main-menu d-none d-md-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="index.html">Beranda</a></li>
+                                            <li><a href="<?=base_url()?>">Beranda</a></li>
                                             <li><a href="<?=base_url('blog')?>">Berita</a>
                                                 <!-- <ul class="submenu">
                                                     <li class=""><a href="#">Berita Kominfo</a></li>
@@ -278,22 +278,12 @@ $header = json_decode(json_encode($header));
                                     Copyright &copy;
                                     <script>
                                         document.write(new Date().getFullYear());
-                                    </script> Dinas Kominfo Kabupaten
-                                    Jember | This template is made with <i class="ti-heart" aria-hidden="true"></i> by
-                                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                                    </script> Dinas Komunikasi Dan Informatika Kabupaten Jember.
                                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 </p>
                             </div>
                         </div>
-                        <!-- <div class="col-lg-6">
-                            <div class="footer-menu f-right">
-                                <ul>                             
-                                    <li><a href="#">Terms of use</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                </ul>
-                            </div>
-                        </div> -->
+                        
                     </div>
                 </div>
             </div>

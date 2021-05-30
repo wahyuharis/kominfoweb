@@ -1,27 +1,31 @@
 <?php
 
-function get_enum_values( $table, $field )
+// use Carbon\Carbon;
+
+function get_enum_values($table, $field)
 {
-    $ci=&get_instance();
-    $type = $ci->db->query( "SHOW COLUMNS FROM {$table} WHERE Field = '{$field}'" )->row( 0 )->Type;
+    $ci = &get_instance();
+    $type = $ci->db->query("SHOW COLUMNS FROM {$table} WHERE Field = '{$field}'")->row(0)->Type;
     preg_match("/^enum\(\'(.*)\'\)$/", $type, $matches);
     $enum = explode("','", $matches[1]);
-    
-    $return=array();
-    foreach($enum as $row){
-        $return[$row]=$row;
+
+    $return = array();
+    foreach ($enum as $row) {
+        $return[$row] = $row;
     }
-    
+
     return $return;
 }
 
-function waktu_ymd_to_dmy($waktu_str) {
+function waktu_ymd_to_dmy($waktu_str)
+{
 
     $var = date_create($waktu_str);
     return date_format($var, "d/m/Y");
 }
 
-function waktu_dmy_to_ymd($waktu_str) {
+function waktu_dmy_to_ymd($waktu_str)
+{
     error_reporting(0);
     if (!is_date_dmy($waktu_str)) {
         $waktu_str = '00/00/0000';
@@ -32,13 +36,77 @@ function waktu_dmy_to_ymd($waktu_str) {
     return date_format($var, "Y-m-d");
 }
 
-function daterange_parse($tanggal) {
+function bulan_indo($m)
+{
+    $bulan = array(
+        '01' => 'JANUARI',
+        '02' => 'FEBRUARI',
+        '03' => 'MARET',
+        '04' => 'APRIL',
+        '05' => 'MEI',
+        '06' => 'JUNI',
+        '07' => 'JULI',
+        '08' => 'AGUSTUS',
+        '09' => 'SEPTEMBER',
+        '10' => 'OKTOBER',
+        '11' => 'NOVEMBER',
+        '12' => 'DESEMBER',
+    );
+
+    $bulan_out = 'Undefined';
+
+    foreach ($bulan as $key => $val) {
+
+        if ($key == $m) {
+            $bulan_out = $val;
+        }
+    }
+
+
+    return $bulan_out;
+}
+
+function hari($day)
+{
+    $hari = $day;
+
+    switch ($hari) {
+        case "Sun":
+            $hari = "Minggu";
+            break;
+        case "Mon":
+            $hari = "Senin";
+            break;
+        case "Tue":
+            $hari = "Selasa";
+            break;
+        case "Wed":
+            $hari = "Rabu";
+            break;
+        case "Thu":
+            $hari = "Kamis";
+            break;
+        case "Fri":
+            $hari = "Jum'at";
+            break;
+        case "Sat":
+            $hari = "Sabtu";
+            break;
+        default:
+            $hari = "Undefined";
+    }
+    return $hari;
+}
+
+
+function daterange_parse($tanggal)
+{
     $str_date = [];
     $str_date[0] = '';
     $str_date[1] = '';
     $str_date = explode('-', $tanggal);
 
-//    error_reporting(0);
+    //    error_reporting(0);
 
     if (!isset($str_date[0])) {
         $str_date[0] = "";
@@ -51,30 +119,33 @@ function daterange_parse($tanggal) {
     $start = waktu_dmy_to_ymd(trim(($str_date[0])));
     $end = waktu_dmy_to_ymd(trim(($str_date[1])));
 
-//    error_reporting(E_ALL);
+    //    error_reporting(E_ALL);
 
 
     $tanggal_arr = (object) array(
-                'start' => $start . " 00:00:00",
-                'end' => $end . " 23:59:59",
+        'start' => $start . " 00:00:00",
+        'end' => $end . " 23:59:59",
     );
 
     return $tanggal_arr;
 }
 
-function print_r2($var) {
+function print_r2($var)
+{
     echo "<pre>";
     print_r($var);
     die();
 }
 
-function intval2($str) {
+function intval2($str)
+{
     $int = str_replace(',', '', $str);
     $int = intval($int);
     return $int;
 }
 
-function is_float2($float) {
+function is_float2($float)
+{
     $float = floatval($float) . "";
     $pos = strpos($float, '.');
     if ($pos > 0) {
@@ -84,13 +155,15 @@ function is_float2($float) {
     }
 }
 
-function floatval2($str) {
+function floatval2($str)
+{
     $int = str_replace(',', '', $str);
     $int = floatval($int);
     return $int;
 }
 
-function dropdown_array($result_array, $index, $label, $placeholder = "", $empty_opt = true) {
+function dropdown_array($result_array, $index, $label, $placeholder = "", $empty_opt = true)
+{
     $output = array();
 
     if ($empty_opt) {
@@ -103,7 +176,8 @@ function dropdown_array($result_array, $index, $label, $placeholder = "", $empty
     return $output;
 }
 
-function base_url_from_array($arr_url) {
+function base_url_from_array($arr_url)
+{
     $ci = &get_instance();
     $ci->load->helper('url');
     $output = array();
@@ -114,29 +188,35 @@ function base_url_from_array($arr_url) {
 }
 
 
-function mask_uriformat($var) {
+function mask_uriformat($var)
+{
     $output = urlencode(base64_encode($var));
     return $output;
 }
 
-function unmask_uriformat($var) {
+function unmask_uriformat($var)
+{
     $output = base64_decode(urldecode($var));
     return $output;
 }
 
-function header_json() {
+function header_json()
+{
     header('Content-Type: application/json');
 }
 
-function header_text() {
+function header_text()
+{
     header("Content-Type: text/plain");
 }
 
-function header_cross_domain(){
+function header_cross_domain()
+{
     header("Access-Control-Allow-Origin: *");
 }
 
-function multidim_search($column, $value, $array) {
+function multidim_search($column, $value, $array)
+{
     foreach ($array as $key => $val) {
         if ($val[$column] == $value) {
             return $key;
@@ -145,7 +225,8 @@ function multidim_search($column, $value, $array) {
     return null;
 }
 
-function set_datatype($str) {
+function set_datatype($str)
+{
     $arr0 = explode(',', $str);
     $arr1 = array();
     foreach ($arr0 as $key => $ls0) {
@@ -159,7 +240,8 @@ function set_datatype($str) {
     return $arr1;
 }
 
-function is_date_dmy($tgl, $spliter = "/") {
+function is_date_dmy($tgl, $spliter = "/")
+{
     $length = strlen($tgl);
     $bool = false;
     $split = str_split($tgl, 1);
@@ -174,8 +256,9 @@ function is_date_dmy($tgl, $spliter = "/") {
     return $bool;
 }
 
-function get_table_column($table, $column, $where = array()) {
-    $ci = & get_instance();
+function get_table_column($table, $column, $where = array())
+{
+    $ci = &get_instance();
 
     $ci->db->where($where);
     $ci->db->limit(1);
@@ -188,8 +271,9 @@ function get_table_column($table, $column, $where = array()) {
     return $output;
 }
 
-function generate_code($table, $column = 'kode', $label = 'KODE') {
-    $ci = & get_instance();
+function generate_code($table, $column = 'kode', $label = 'KODE')
+{
+    $ci = &get_instance();
 
     $primary = "";
     $fields = $ci->db->field_data($table);
@@ -214,7 +298,7 @@ function generate_code($table, $column = 'kode', $label = 'KODE') {
 
         $explode = explode('/', $result);
         $idx = $explode[4];
-        $kode = $label . "/" . date('y/m/d') . "/" . ( intval($idx) + 1 );
+        $kode = $label . "/" . date('y/m/d') . "/" . (intval($idx) + 1);
     } else {
         $kode = $label . "/" . date('y/m/d') . "/1";
     }
@@ -222,7 +306,8 @@ function generate_code($table, $column = 'kode', $label = 'KODE') {
     return $kode;
 }
 
-function get_column($table, $where, $column) {
+function get_column($table, $where, $column)
+{
     $ci = &get_instance();
 
     $ci->db->where($where);
@@ -236,7 +321,8 @@ function get_column($table, $where, $column) {
     return $output;
 }
 
-function get_row($table, $where) {
+function get_row($table, $where)
+{
     $ci = &get_instance();
 
     $ci->db->where($where);
@@ -250,7 +336,22 @@ function get_row($table, $where) {
     return $output;
 }
 
-function getFirstParagraph($paragraph){
+function page_to_start($page, $limit)
+{
+    $page = intval($page);
+    if ($page < 1) {
+        $page = 1;
+    }
+
+    $page = $page - 1;
+
+    $start = $page * $limit;
+
+    return $start;
+}
+
+function getFirstParagraph($paragraph)
+{
     $paragraph_arr = explode('</p>', $paragraph);
     $paragraph_arr2 = array();
     $first_paragraph = 0;
@@ -259,7 +360,7 @@ function getFirstParagraph($paragraph){
     foreach ($paragraph_arr as $row) {
         $buff = str_replace('<p>', '', $row);
         if (!$found) {
-            if (strlen(trim( html_entity_decode(strip_tags($buff)) ))  > 0) {
+            if (strlen(trim(html_entity_decode(strip_tags($buff))))  > 0) {
                 $found = true;
                 $first_paragraph = $incr;
                 // array_push($first_paragraph,$incr);
@@ -272,4 +373,3 @@ function getFirstParagraph($paragraph){
 
     return $paragraph_arr[$first_paragraph];
 }
-
