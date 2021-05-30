@@ -54,6 +54,28 @@ $header = json_decode(json_encode($header));
         <!-- Header Start -->
         <div class="header-area">
             <div class="main-header">
+                <div class="header-top black-bg d-none d-md-block">
+                    <div class="container">
+                        <div class="col-xl-12">
+                            <div class="row d-flex justify-content-between align-items-center">
+                                <div class="header-info-left">
+                                    <ul>
+                                        <li><img src="<?=base_url()?>template_kominfo/assets/img/logo/header-black-logo.png" alt="">PEMERINTAH KABUPATEN JEMBER - DINAS KOMUNIKASI DAN INFORMATIKA </li>
+                                        <!-- <li><img src="assets/img/icon/header_icon1.png" alt=""></li> -->
+                                    </ul>
+                                </div>
+                                <div class="header-info-right">
+                                    <ul class="header-social">
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                        <li> <a href="#"><i class="fab fa-youtube"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="header-mid d-none d-md-block" style="background-image: url('<?= base_url() ?>template_kominfo/assets/img/banner/header.png'); height: 130px;">
                     <div class="container">
                         <div class="row d-flex align-items-center">
@@ -176,7 +198,7 @@ $header = json_decode(json_encode($header));
     </header>
 
     <main>
-        <?=$content?>
+        <?= $content ?>
     </main>
 
     <footer>
