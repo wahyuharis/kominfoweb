@@ -10,17 +10,7 @@
 
 .header-sticky.sticky-bar.sticky .sticky-logo img {
 	height: 35px;
-	/* width: 100%; */
 }
-
-.header-sticky.sticky-bar.sticky .sticky-title {
-	/* font-size: 10px; */
-	/* max-width: 185px; */
-}
-
-/* .header-sticky.sticky-bar.sticky .title-logo {
-	display: none !important;
-} */
 
 @media (max-width: 767px) {
 	.header-sticky.sticky-bar.sticky .title-logo {
@@ -276,4 +266,20 @@
 	/* line-height:20px; */
 	/* margin-top:2px; */
 	float: right;
+}
+
+.blog_right_sidebar .search_widget .input-group button {
+	background-color: #0a68a1;
+}
+
+.boxed-btn {
+	color: #0a68a1 !important;
+	border-color: #0a68a1;
+}
+
+.boxed-btn:hover {
+	color: #ecf0f1 !important;
+	background-color: #0a68a1;
+	border-color: #0a68a1;
+	
 }

@@ -249,3 +249,27 @@ function get_row($table, $where) {
 
     return $output;
 }
+
+function getFirstParagraph($paragraph){
+    $paragraph_arr = explode('</p>', $paragraph);
+    $paragraph_arr2 = array();
+    $first_paragraph = 0;
+    $found = false;
+    $incr = 0;
+    foreach ($paragraph_arr as $row) {
+        $buff = str_replace('<p>', '', $row);
+        if (!$found) {
+            if (strlen(trim( html_entity_decode(strip_tags($buff)) ))  > 0) {
+                $found = true;
+                $first_paragraph = $incr;
+                // array_push($first_paragraph,$incr);
+                // echo strlen($buff) ." - $incr <br>";
+            }
+        }
+        array_push($paragraph_arr2, $buff);
+        $incr++;
+    }
+
+    return $paragraph_arr[$first_paragraph];
+}
+

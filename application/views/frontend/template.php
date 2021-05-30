@@ -115,15 +115,15 @@ $header = json_decode(json_encode($header));
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="index.html">Beranda</a></li>
-                                            <li><a href="#">Berita</a>
-                                                <ul class="submenu">
+                                            <li><a href="<?=base_url('blog')?>">Berita</a>
+                                                <!-- <ul class="submenu">
                                                     <li class=""><a href="#">Berita Kominfo</a></li>
                                                     <li class=""><a href="#">Berita Pemerintahan</a></li>
                                                     <li class=""><a href="#">Siaran Pers</a></li>
                                                     <li class=""><a href="#">Sorotan Media</a></li>
                                                     <li class=""><a href="#">Artikel</a></li>
                                                     <li class=""><a href="#">Jember Pandalungan</a></li>
-                                                </ul>
+                                                </ul> -->
                                             </li>
 
                                             <li><a href="#">Profil</a>
@@ -189,7 +189,6 @@ $header = json_decode(json_encode($header));
                                     <div class="search-box">
                                         <form action="#">
                                             <input type="text" placeholder="Cari berita ..">
-
                                         </form>
                                     </div>
                                 </div>
