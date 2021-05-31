@@ -13,7 +13,6 @@ class Content extends CI_Controller
 
         $content_data = [];
 
-
         $view_data['content'] = $this->load->view('frontend/content', $content_data, true);
 
         $this->load->view('frontend/template', $view_data);

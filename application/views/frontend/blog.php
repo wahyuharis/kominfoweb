@@ -211,8 +211,6 @@
                         <h4 class="widget_title">Instagram Feeds</h4>
                         <iframe src="https://snapwidget.com/embed/940247" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; height:510px"></iframe>
                     </aside>
-
-
                 </div>
             </div>
         </div>
