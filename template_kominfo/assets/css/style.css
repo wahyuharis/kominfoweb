@@ -349,7 +349,7 @@ hr {
 }
 
 .section-padding {
-	padding-top: 120px;
+	padding-top: 50px;
 	padding-bottom: 120px
 }
 
@@ -4447,7 +4447,7 @@ hr {
 }
 
 .blog_details a {
-	color: #ff8b23
+	color: #ff8b23;
 }
 
 .blog_details a:hover {
@@ -4485,7 +4485,7 @@ hr {
 .blog-info-link li::after {
 	content: "|";
 	padding-left: 10px;
-	padding-right: 10px
+	padding-right: 10px;
 }
 
 .blog-info-link li:last-child::after {

@@ -64,13 +64,13 @@ $header = json_decode(json_encode($header));
                                         <!-- <li><img src="assets/img/icon/header_icon1.png" alt=""></li> -->
                                     </ul>
                                 </div>
-                                <div class="header-info-right">
+                                <!-- <div class="header-info-right">
                                     <ul class="header-social">
                                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                         <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                                         <li> <a href="#"><i class="fab fa-youtube"></i></a></li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -332,6 +332,7 @@ $header = json_decode(json_encode($header));
     <!-- Jquery Plugins, main Jquery -->
     <script src="<?= base_url() ?>template_kominfo/assets/js/plugins.js"></script>
     <script src="<?= base_url() ?>template_kominfo/assets/js/main.js"></script>
+    <script src="<?= base_url() ?>template_kominfo/assets/js/jquery.autoscroll.js" type="text/javascript" charset="utf-8"></script>
 </body>
 
 </html>
