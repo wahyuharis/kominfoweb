@@ -271,8 +271,8 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="<?php if (strtolower($this->uri->segment(2)) == 'header') echo 'active' ?>" >
-                            <a href="<?=base_url('admin/header/')?>">
+                        <li class="<?php if (strtolower($this->uri->segment(2)) == 'header') echo 'active' ?>">
+                            <a href="<?= base_url('admin/header/') ?>">
                                 <i class="fa fa-circle-o"></i>
                                 Header
                             </a>
