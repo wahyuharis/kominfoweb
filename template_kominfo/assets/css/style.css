@@ -350,7 +350,7 @@ hr {
 
 .section-padding {
 	padding-top: 50px;
-	padding-bottom: 120px
+	padding-bottom: 50px
 }
 
 .separator {
@@ -4550,7 +4550,7 @@ hr {
 
 .blog_right_sidebar .widget_title {
 	font-size: 20px;
-	margin-bottom: 40px
+	margin-bottom: 25px
 }
 
 .blog_right_sidebar .widget_title::after {
@@ -4644,7 +4644,7 @@ hr {
 .blog_right_sidebar .post_category_widget .cat-list li {
 	border-bottom: 1px solid #f0e9ff;
 	transition: all 0.3s ease 0s;
-	padding-bottom: 12px
+	padding-bottom: 10px;
 }
 
 .blog_right_sidebar .post_category_widget .cat-list li:last-child {
@@ -4662,7 +4662,7 @@ hr {
 }
 
 .blog_right_sidebar .post_category_widget .cat-list li+li {
-	padding-top: 15px
+	padding-top: 5px
 }
 
 .blog_right_sidebar .popular_post_widget .post_item .media-body {
@@ -4674,7 +4674,7 @@ hr {
 .blog_right_sidebar .popular_post_widget .post_item .media-body h3 {
 	font-size: 16px;
 	line-height: 20px;
-	margin-bottom: 6px;
+	margin-bottom: 2px;
 	transition: all 0.3s linear
 }
 
