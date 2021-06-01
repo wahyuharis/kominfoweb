@@ -11,10 +11,10 @@
                                 <img class="card-img rounded-0" src="<?= base_url('assets/uploads/files/' . $beritabl['image']) ?>" alt="">
                                 <a href="#" class="blog_item_date">
                                     <h3><?php
-                                    $var = date_create($beritabl['date']);
-                                    echo date_format($var, "d");
-                                    ?></h3>
-                                    <p><?=bulan_indo(date_format($var, "m"))?></p>
+                                        $var = date_create($beritabl['date']);
+                                        echo date_format($var, "d");
+                                        ?></h3>
+                                    <p><?= bulan_indo(date_format($var, "m")) ?></p>
                                 </a>
                             </div>
 
@@ -97,8 +97,8 @@
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Berita Pemkab Terbaru</h3>
                         <!-- <ul class="data-list" data-autoscroll> -->
-                            <!-- <li> -->
-                            <?php foreach ($berita_kanan as $bkanan) : ?>
+                        <!-- <li> -->
+                        <?php foreach ($berita_kanan as $bkanan) : ?>
                             <div class="media post_item">
                                 <img style="width: 75px; height: 65px; border-radius:3px;" src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post">
                                 <div class="media-body hover-show">
@@ -107,75 +107,74 @@
                                             <h3 class="long-title"><a href="#"><?= $bkanan['title'] ?></a></h4>
                                     </a>
                                     <p><?= waktu_ymd_to_dmy($bkanan['date']) ?></p>
-                                    
                                 </div>
                             </div>
                         <?php endforeach; ?>
-                            <!-- </li> -->
+                        <!-- </li> -->
                         <!-- </ul> -->
-                        
+
                     </aside>
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Berita PPID Terbaru</h3>
                         <ul class="data-list" data-autoscroll>
-          
-          <div class="media post_item">
-                  <img src="assets/img/post/post_1.png" alt="post" width="65px" height="65px" style="border-radius: 5px;">
-                <div class="media-body">
-                  <span class="color4">See beach</span>
-                    <a href="single-blog.html">
-                    <h3>From life was you fish...</h3>
-                    </a>
-                  <p>January 12, 2019</p>
-                </div>
-              </div>
-      
-      
-          <div class="media post_item">
-                  <img src="assets/img/post/post_2.png" alt="post" width="65px" height="65px" style="border-radius: 5px;">
-                <div class="media-body">
-                  <span class="color2">Bike Show</span>
-                    <a href="single-blog.html">
-                    <h3>From life was you fish...</h3>
-                    </a>
-                  <p>January 12, 2019</p>
-                </div>
-              </div>
 
-      <div class="media post_item">
-                  <img src="assets/img/post/post_3.png" alt="post" width="65px" height="65px" style="border-radius: 5px;">
-                <div class="media-body">
-                  <span class="color4">See beach</span>
-                    <a href="single-blog.html">
-                    <h3>From life was you fish...</h3>
-                    </a>
-                  <p>January 12, 2019</p>
-                </div>
-              </div>
+                            <div class="media post_item">
+                                <img src="assets/img/post/post_1.png" alt="post" width="65px" height="65px" style="border-radius: 5px;">
+                                <div class="media-body">
+                                    <span class="color4">See beach</span>
+                                    <a href="single-blog.html">
+                                        <h3>From life was you fish...</h3>
+                                    </a>
+                                    <p>January 12, 2019</p>
+                                </div>
+                            </div>
 
-      <div class="media post_item">
-                  <img src="assets/img/post/post_4.png" alt="post" width="65px" height="65px" style="border-radius: 5px;">
-                <div class="media-body">
-                  <span class="color2">Bike Show</span>
-                    <a href="single-blog.html">
-                    <h3>From life was you fish...</h3>
-                    </a>
-                  <p>January 12, 2019</p>
-                </div>
-              </div>
-     <div class="media post_item">
-                  <img src="assets/img/post/post_6.png" alt="post" width="65px" height="65px" style="border-radius: 5px;">
-                <div class="media-body">
-                  <span class="color4">See beach</span>
-                    <a href="single-blog.html">
-                    <h3>From life was you fish...</h3>
-                    </a>
-                  <p>January 12, 2019</p>
-                </div>
-              </div>
-     
-  </ul>
-                        
+
+                            <div class="media post_item">
+                                <img src="assets/img/post/post_2.png" alt="post" width="65px" height="65px" style="border-radius: 5px;">
+                                <div class="media-body">
+                                    <span class="color2">Bike Show</span>
+                                    <a href="single-blog.html">
+                                        <h3>From life was you fish...</h3>
+                                    </a>
+                                    <p>January 12, 2019</p>
+                                </div>
+                            </div>
+
+                            <div class="media post_item">
+                                <img src="assets/img/post/post_3.png" alt="post" width="65px" height="65px" style="border-radius: 5px;">
+                                <div class="media-body">
+                                    <span class="color4">See beach</span>
+                                    <a href="single-blog.html">
+                                        <h3>From life was you fish...</h3>
+                                    </a>
+                                    <p>January 12, 2019</p>
+                                </div>
+                            </div>
+
+                            <div class="media post_item">
+                                <img src="assets/img/post/post_4.png" alt="post" width="65px" height="65px" style="border-radius: 5px;">
+                                <div class="media-body">
+                                    <span class="color2">Bike Show</span>
+                                    <a href="single-blog.html">
+                                        <h3>From life was you fish...</h3>
+                                    </a>
+                                    <p>January 12, 2019</p>
+                                </div>
+                            </div>
+                            <div class="media post_item">
+                                <img src="assets/img/post/post_6.png" alt="post" width="65px" height="65px" style="border-radius: 5px;">
+                                <div class="media-body">
+                                    <span class="color4">See beach</span>
+                                    <a href="single-blog.html">
+                                        <h3>From life was you fish...</h3>
+                                    </a>
+                                    <p>January 12, 2019</p>
+                                </div>
+                            </div>
+
+                        </ul>
+
                     </aside>
                     <aside class="single_sidebar_widget tag_cloud_widget">
                         <h4 class="widget_title">Tag Berita</h4>
@@ -208,42 +207,10 @@
                     </aside>
 
 
-                    <!-- <aside class="single_sidebar_widget instagram_feeds">
+                    <aside class="single_sidebar_widget instagram_feeds">
                         <h4 class="widget_title">Instagram Feeds</h4>
-                        <ul class="instagram_row flex-wrap">
-                            <li>
-                                <a href="#">
-                                    <img class="img-fluid" src="<?= base_url('template_kominfo/') ?>assets/img/post/post_5.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img class="img-fluid" src="<?= base_url('template_kominfo/') ?>assets/img/post/post_6.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img class="img-fluid" src="<?= base_url('template_kominfo/') ?>assets/img/post/post_7.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img class="img-fluid" src="<?= base_url('template_kominfo/') ?>assets/img/post/post_8.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img class="img-fluid" src="<?= base_url('template_kominfo/') ?>assets/img/post/post_9.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img class="img-fluid" src="<?= base_url('template_kominfo/') ?>assets/img/post/post_10.png" alt="">
-                                </a>
-                            </li>
-                        </ul>
-                    </aside> -->
-
+                        <iframe src="https://snapwidget.com/embed/940247" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; height:510px"></iframe>
+                    </aside>
                 </div>
             </div>
         </div>

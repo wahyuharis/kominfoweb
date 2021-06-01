@@ -266,18 +266,17 @@
 	color: #ecf0f1 !important;
 	background-color: #0a68a1;
 	border-color: #0a68a1;
-	
 }
 
 .footer-area {
-    background: #2f3640;
+	background: #2f3640;
 }
 
 .blog_item_img .blog_item_date {
 	background-color: #0a68a1;
 }
 
-.blog_item_img .blog_item_date a:hover{
+.blog_item_img .blog_item_date a:hover {
 	color: #fff;
 }
 
@@ -289,8 +288,7 @@
 	text-align: justify;
 }
 
-.blog_area a:hover,
-.blog_area a :hover {
+.blog_area a:hover, .blog_area a :hover {
 	background: -webkit-linear-gradient(131deg, #0a68a1 0%, #0a68a1 99%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
@@ -313,4 +311,73 @@
 .blog_right_sidebar .tag_cloud_widget ul li a:hover {
 	background: #0a68a1;
 	color: #fff !important;
+}
+
+.collapsible {
+	background-color: #f9f9ff;
+	color: #888888;
+	cursor: pointer;
+	padding: 8px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+	font-family: "Roboto", sans-serif;
+}
+
+.activecollapse, .collapsible:hover {
+	background-color: #f1f8fe;
+}
+
+.collapsible2 {
+	background-color: #f9f9ff;
+	color: #888888;
+	cursor: pointer;
+	padding: 8px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+}
+
+.activecollapse, .collapsible2:hover {
+	background-color: #f1f8fe;
+}
+
+.collapsible:after {
+	content: '\002B';
+	color: #007bfe;
+	font-weight: bold;
+	float: right;
+	margin-left: 5px;
+}
+
+.activecollapse:after {
+	content: "\2212";
+}
+
+.content {
+	padding: 0 18px;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+	background-color: #f7f7f7;
+}
+
+.media-body span {
+	color: #000;
+	text-transform: uppercase;
+	font-size: 9px;
+	font-weight: 500;
+	padding: 6px 10px;
+	line-height: 1;
+	margin-bottom: 3px;
+	display: inline-block
+}
+
+.blog-pagination .page-item.active .page-link{
+	background-color: #0a68a1;
+	color: #ecf0f1;
 }
