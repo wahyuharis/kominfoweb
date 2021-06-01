@@ -33,18 +33,25 @@ class Halaman extends CI_Controller
         $crud->display_as('headline', 'Headline');
         $crud->display_as('sub_headline', 'Sub Headline');
         $crud->display_as('description', 'Deskripsi');
+        $crud->set_field_upload('featured_image', 'assets/uploads/files');
 
         // $crud->display_as('email', 'Email'); untuk membuat display sendiri" /fields
 
 
-        // $COLUMN = array( /*kolom yang ditampilkan */
-        //     'user_level_id',
-        //     'email',
-        //     'fullname',
+        $COLUMN = array( /*kolom yang ditampilkan */
+            'id',
+            'featured_image',
+            'headline',
+            'sub_headline',
+            'description',
+            'counter',
+            'featured',
+            'pages',
+            'social_media'
 
-        // );
+        );
 
-        // $crud->columns($COLUMN); /*menampilkan kolom*/
+        $crud->columns($COLUMN); /*menampilkan kolom*/
 
 
         // $crud->set_relation('user_level_id', 'user_levels', 'user_level');
