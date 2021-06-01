@@ -377,7 +377,15 @@
 	display: inline-block
 }
 
-.blog-pagination .page-item.active .page-link{
+.blog-pagination .page-item.active .page-link {
 	background-color: #0a68a1;
 	color: #ecf0f1;
 }
+
+/* .blog_area a:hover, .blog_area a :hover {
+	background: none;
+	-webkit-background-clip: unset;
+	-webkit-text-fill-color: unset;
+	text-decoration: none;
+	transition: .4s;
+} */

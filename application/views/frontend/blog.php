@@ -9,13 +9,13 @@
                         <article class="blog_item">
                             <div class="blog_item_img">
                                 <img class="card-img rounded-0" src="<?= base_url('assets/uploads/files/' . $beritabl['image']) ?>" alt="">
-                                <a href="#" class="blog_item_date">
+                                <span class="blog_item_date">
                                     <h3><?php
                                         $var = date_create($beritabl['date']);
                                         echo date_format($var, "d");
                                         ?></h3>
                                     <p><?= bulan_indo(date_format($var, "m")) ?></p>
-                                </a>
+                                </span>
                             </div>
 
                             <div class="blog_details">
