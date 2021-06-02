@@ -4,34 +4,42 @@
             <div class="col-lg-8 posts-list">
                <div class="single-post">
                   <div class="feature-img">
-                     <img class="img-fluid" src="assets/img/blog/single_blog_1.png" alt="">
+                     <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $berita_detail->image ) ?>" alt="">
                   </div>
                   <div class="blog_details">
                      <h2>
                      <?=$berita_detail->title?>
                      </h2>
+                     <br>
                      
+                     <ul class="blog-info-link mt-3 mb-4">
+                        <li><a href="#"><i class="fa fa-user"></i> <?=$berita_detail->fullname ?></a></li>
+                        <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($berita_detail->date)  ?></a></li>
+                     </ul>
+                     <br>
+
                      <?=$berita_detail->content?>
+
+                    
                   </div>
                </div>
                <div class="navigation-top">
                   <div class="d-sm-flex justify-content-between text-center">
-                     <p class="like-info"><span class="align-middle"><i class="fa fa-eye"></i></span> Lily and 4
-                        people like this</p>
+                     <p class="like-info"><span class="align-middle"><i class="fa fa-eye"></i></span>  
+                     <?=$berita_detail->view?>
+                        kali dilihat </p>
                      <div class="col-sm-4 text-center my-2 my-sm-0">
                         <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
                      </div>
                      <ul class="social-icons">
                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fab fa-behance"></i></a></li>
                      </ul>
                   </div>
                   <div class="navigation-area">
                      <div class="row">
                         <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-                           <div class="thumb">
+                           <!-- <div class="thumb">
                               <a href="#">
                                  <img class="img-fluid" src="assets/img/post/preview.png" alt="">
                               </a>
@@ -40,7 +48,7 @@
                               <a href="#">
                                  <span class="lnr text-white ti-arrow-left"></span>
                               </a>
-                           </div>
+                           </div> -->
                            <div class="detials">
                               <p>Prev Post</p>
                               <a href="#">
@@ -55,7 +63,7 @@
                                  <h4>Telescopes 101</h4>
                               </a>
                            </div>
-                           <div class="arrow">
+                           <!-- <div class="arrow">
                               <a href="#">
                                  <span class="lnr text-white ti-arrow-right"></span>
                               </a>
@@ -64,23 +72,12 @@
                               <a href="#">
                                  <img class="img-fluid" src="assets/img/post/next.png" alt="">
                               </a>
-                           </div>
+                           </div> -->
                         </div>
                      </div>
                   </div>
                </div>
-               <div class="blog-author">
-                  <div class="media align-items-center">
-                     <img src="assets/img/blog/author.png" alt="">
-                     <div class="media-body">
-                        <a href="#">
-                           <h4>Harvard milan</h4>
-                        </a>
-                        <p>Second divided from form fish beast made. Every of seas all gathered use saying you're, he
-                           our dominion twon Second divided from</p>
-                     </div>
-                  </div>
-               </div>
+              
 
             </div>
             <div class="col-lg-4">

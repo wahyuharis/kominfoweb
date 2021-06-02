@@ -76,8 +76,15 @@ class Blog extends CI_Controller
             ->result_array();
 
         $berita_detail=$this->db
+        ->select('feeds.*,users.fullname')
         ->where('slug',$slug)
+        ->join('users', 'users.id=feeds.user_id')
         ->get('feeds')->row_object();
+
+        $berita_detail_prev=$this->db->next_row();
+        // $berita_detail_prev=$this->db->next_row();
+
+        print_r2($berita_detail_prev);
 
         $content_data['berita_detail'] = $berita_detail;
 

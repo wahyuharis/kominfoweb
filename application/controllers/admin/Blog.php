@@ -37,25 +37,21 @@ class Blog extends CI_Controller
         $crud->display_as('image', 'Image');
         $crud->display_as('date', 'Tanggal');
         $crud->display_as('user_id', 'User');
-        // $crud->display_as('id', 'Id');
 
         $crud->set_relation('user_id', 'users', 'email');
+        $crud->callback_field('user_id',array($this,'_callback_user_id'));
 
-        if ($crud->getstate() == 'list') {
-            $crud->set_relation('user_id', 'users', 'email');
-        } else {
-            $crud->field_type('user_id', 'hidden', $this->session->userdata('id'));
-        }
-       
         $crud->set_subject('Blog');
         $crud->set_field_upload('image', 'assets/uploads/files');
         $crud->required_fields('title', 'slug','image', 'date');
 
-        // print_r2($crud->getstate());
+
         if ($crud->getstate() == 'insert_validation') {
             $crud->set_rules('slug','Slug','trim|required|is_unique[feeds.slug]');
         }
 
+
+        // print_r2($this->session->userdata());
 
         $crud->callback_before_update(array($this, '_callback_before_update'));
         $crud->callback_before_insert(array($this, '_callback_before_update'));
@@ -74,9 +70,15 @@ class Blog extends CI_Controller
         $this->load->view('admin/template', $template_data);
     }
 
+    function _callback_user_id($value = '', $primary_key = null){
+        $field='<input type="hidden" value="'.$this->session->userdata('id').'" name="user_id" >';
+        $field.='<p>'.$this->session->userdata('email').'</p>';
+        $field.='<p>'.$this->session->userdata('fullname').'</p>';
+        return $field;
+    }
+
     function _callback_before_update($post_array, $primary_key = null)
     {
-        // $post_array['slug'] = url_title($post_array['title']);
 
         return $post_array;
     }
