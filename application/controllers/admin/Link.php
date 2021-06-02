@@ -28,6 +28,9 @@ class Link extends CI_Controller
         // $crud->fields('user_level');
         $crud->display_as('url', 'Link URL');
         $crud->display_as('icon', 'Ikon');
+
+        $crud->required_fields('url', 'icon');
+
         $crud->set_field_upload('icon', 'assets/uploads/files');
         // $crud->display_as('image', 'Image');
         // $crud->display_as('email', 'Email'); untuk membuat display sendiri" /fields
