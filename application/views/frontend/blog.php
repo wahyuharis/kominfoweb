@@ -3,6 +3,12 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mb-5 mb-lg-0">
+
+            
+                <div class="section-tittle mb-30">
+                    <h2>BERITA</h2>
+                </div>
+
                 <div class="blog_left_sidebar">
 
                     <?php foreach ($berita_blog_list as $beritabl) : ?>
@@ -19,7 +25,7 @@
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="<?=base_url('blog/detail/'.$beritabl['slug'])?>">
+                                <a class="d-inline-block" href="<?= base_url('blog/detail/' . $beritabl['slug']) ?>">
                                     <h2><?= $beritabl['title'] ?></h2>
                                 </a>
                                 <p><?= getFirstParagraph($beritabl['content']) ?></p>
@@ -56,29 +62,24 @@
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Berita PPID Terbaru</h3>
                         <ul class="data-list" data-autoscroll>
-
                             <?php foreach ($berita_kanan as $bkanan) : ?>
-
                                 <div class="media post_item">
                                     <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" width="65px" height="65px" style="border-radius: 5px;">
                                     <div class="media-body hover-show">
                                         <span class="color2">See beach</span>
-                                        <a href="<?=base_url('blog/detail/'.$bkanan['slug'])?>">
+                                        <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
                                             <h3 class="short-title"><?= substr($bkanan['title'], 0, 50) ?>...</h3>
                                             <h3 class="long-title"><?= ($bkanan['title']) ?></h3>
                                         </a>
                                         <p><?= waktu_ymd_to_dmy($bkanan['date']) ?></p>
                                     </div>
                                 </div>
-
                             <?php endforeach; ?>
-
-
                         </ul>
 
                     </aside>
-                    
-                    <aside class="single_sidebar_widget tag_cloud_widget">
+
+                    <!-- <aside class="single_sidebar_widget tag_cloud_widget">
                         <h4 class="widget_title">Tag Berita</h4>
                         <ul class="list">
                             <li>
@@ -106,7 +107,7 @@
                                 <a href="#">illustration</a>
                             </li>
                         </ul>
-                    </aside>
+                    </aside> -->
 
 
                     <aside class="single_sidebar_widget instagram_feeds">

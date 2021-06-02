@@ -27,11 +27,8 @@ class Blog extends CI_Controller
 
 
         $page = $this->input->get('page');
-        $limit = 5;
+        $limit = 3;
         $start = page_to_start($page, $limit);
-
-
-        // print_r2($start);
 
         $berita_blog_list = $this->db->where('deleted_at', null)
             ->select('feeds.*,users.fullname')
@@ -66,6 +63,17 @@ class Blog extends CI_Controller
 
     function detail($slug){
         $content_data = [];
+
+        $content_data = [];
+
+        $berita_kanan = $this->db->where('deleted_at', null)
+            ->select('feeds.*,users.fullname')
+            ->join('users', 'users.id=feeds.user_id')
+            ->order_by('id', 'desc')
+            ->limit(10)
+            ->get('feeds')
+            ->result_array();
+
 
         $view_data['content'] = $this->load->view('frontend/content', $content_data, true);
 
