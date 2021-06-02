@@ -28,10 +28,17 @@ class Download extends CI_Controller
         $crud->set_theme('bootstrap');
         $crud->set_table('downloads');
         $crud->fields('category', 'title', 'description', 'file');
+
         $crud->display_as('category', 'Kategori');
         $crud->display_as('title', 'Judul');
         $crud->display_as('description', 'Deskripsi');
         $crud->display_as('file', 'File Download');
+
+        $crud->set_rules('category', 'Kategori', 'trim|required');
+        $crud->set_rules('title', 'Judul', 'trim|required');
+        $crud->set_rules('description', 'Deskripsi', 'trim|required');
+        $crud->set_rules('file', 'File Download', 'trim|required|jpg|png|doc|docx');
+
         // $crud->display_as('email', 'Email'); untuk membuat display sendiri" /fields
 
 

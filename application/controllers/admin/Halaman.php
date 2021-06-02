@@ -27,6 +27,7 @@ class Halaman extends CI_Controller
         $crud->set_table('halaman');
         $crud->fields('kategori', 'judul', 'konten', 'gambar');
 
+        $crud->set_rules('kategori', 'Kategori', 'trim|required');
         $crud->set_rules('judul', 'Judul', 'trim|required');
         $crud->set_rules('konten', 'Konten', 'trim|required');
         $crud->set_rules('gambar', 'Gambar', 'trim|required|png|jpg');
