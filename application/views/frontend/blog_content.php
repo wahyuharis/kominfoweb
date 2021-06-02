@@ -4,29 +4,29 @@
             <div class="col-lg-8 posts-list">
                <div class="single-post">
                   <div class="feature-img">
-                     <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $berita_detail->image ) ?>" alt="">
+                     <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $berita_detail->image) ?>" alt="">
                   </div>
                   <div class="blog_details">
                      <h2>
-                     <?=$berita_detail->title?>
+                        <?= $berita_detail->title ?>
                      </h2>
                      <br>
-                     
+
                      <ul class="blog-info-link mt-3 mb-4">
-                        <li><a href="#"><i class="fa fa-user"></i> <?=$berita_detail->fullname ?></a></li>
+                        <li><a href="#"><i class="fa fa-user"></i> <?= $berita_detail->fullname ?></a></li>
                         <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($berita_detail->date)  ?></a></li>
                      </ul>
                      <br>
 
-                     <?=$berita_detail->content?>
+                     <?= $berita_detail->content ?>
 
-                    
+
                   </div>
                </div>
                <div class="navigation-top">
                   <div class="d-sm-flex justify-content-between text-center">
-                     <p class="like-info"><span class="align-middle"><i class="fa fa-eye"></i></span>  
-                     <?=$berita_detail->view?>
+                     <p class="like-info"><span class="align-middle"><i class="fa fa-eye"></i></span>
+                        <?= $berita_detail->view ?>
                         kali dilihat </p>
                      <div class="col-sm-4 text-center my-2 my-sm-0">
                         <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
@@ -39,56 +39,67 @@
                   <div class="navigation-area">
                      <div class="row">
                         <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-                           <!-- <div class="thumb">
-                              <a href="#">
-                                 <img class="img-fluid" src="assets/img/post/preview.png" alt="">
-                              </a>
-                           </div>
-                           <div class="arrow">
-                              <a href="#">
-                                 <span class="lnr text-white ti-arrow-left"></span>
-                              </a>
-                           </div> -->
-                           <div class="detials">
-                              <p>Prev Post</p>
-                              <a href="#">
-                                 <h4>Space The Final Frontier</h4>
-                              </a>
-                           </div>
+                           <?php if (!is_null($berita_detail_prev)) { ?>
+
+                              <div class="thumb">
+                                 <a href="<?= base_url('blog/detail/' . $berita_detail_prev->slug) ?>">
+                                    <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $berita_detail_prev->image) ?>" alt="">
+                                 </a>
+                              </div>
+                              <div class="arrow">
+                                 <a href="<?= base_url('blog/detail/' . $berita_detail_prev->slug) ?>">
+                                    <span class="lnr text-white ti-arrow-left"></span>
+                                 </a>
+                              </div>
+                              <div class="detials hover-show" style="max-width: 174px;">
+                                 <p>Prev Post</p>
+                                 <a href="<?= base_url('blog/detail/' . $berita_detail_prev->slug) ?>">
+                                    <h4 class="long-title"><?= $berita_detail_prev->title ?></h4>
+                                    <h4 class="short-title"><?= substr($berita_detail_prev->title, 0, 20) ?> ... </h4>
+                                 </a>
+                              </div>
+                           <?php } ?>
+
                         </div>
                         <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
-                           <div class="detials">
-                              <p>Next Post</p>
-                              <a href="#">
-                                 <h4>Telescopes 101</h4>
-                              </a>
-                           </div>
-                           <!-- <div class="arrow">
-                              <a href="#">
-                                 <span class="lnr text-white ti-arrow-right"></span>
-                              </a>
-                           </div>
-                           <div class="thumb">
-                              <a href="#">
-                                 <img class="img-fluid" src="assets/img/post/next.png" alt="">
-                              </a>
-                           </div> -->
+                           <?php if (!is_null($berita_detail_next)) { ?>
+
+                              <div class="detials hover-show" style="max-width: 174px;">
+                                 <p>Next Post</p>
+                                 <a href="<?= base_url('blog/detail/' . $berita_detail_next->slug) ?>">
+                                    <h4 class="long-title"><?= $berita_detail_next->title ?></h4>
+                                    <h4 class="short-title"><?= substr($berita_detail_next->title, 0, 20) ?> ... </h4>
+                                 </a>
+                              </div>
+                              <div class="arrow">
+                                 <a href="<?= base_url('blog/detail/' . $berita_detail_next->slug) ?>">
+                                    <span class="lnr text-white ti-arrow-right"></span>
+                                 </a>
+                              </div>
+                              <div class="thumb">
+                                 <a href="<?= base_url('blog/detail/' . $berita_detail_next->slug) ?>">
+                                    <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $berita_detail_next->image) ?>" alt="">
+                                 </a>
+                              </div>
+                           <?php } ?>
+
+
                         </div>
                      </div>
                   </div>
                </div>
-              
+
 
             </div>
             <div class="col-lg-4">
                <div class="blog_right_sidebar">
                   <aside class="single_sidebar_widget search_widget">
-                     <form action="#">
+                     <form action="" method="get">
                         <div class="form-group">
                            <div class="input-group mb-3">
-                              <input type="text" class="form-control" placeholder='Search Keyword' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
+                              <input type="text" name="search" class="form-control" placeholder='Search Keyword' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
                               <div class="input-group-append">
-                                 <button class="btns" type="button"><i class="ti-search"></i></button>
+                                 <button class="btns" type="submit"><i class="ti-search"></i></button>
                               </div>
                            </div>
                         </div>

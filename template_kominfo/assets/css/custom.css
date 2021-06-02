@@ -394,6 +394,16 @@
 	color: #ecf0f1;
 }
 
+.single-post-area .navigation-area .nav-left .thumb img{
+	height: 60px;
+	width: 60px;
+}
+
+.single-post-area .navigation-area .nav-right .thumb img{
+	height: 60px;
+	width: 60px;
+}
+
 /* .blog_area a:hover, .blog_area a :hover {
 	background: none;
 	-webkit-background-clip: unset;

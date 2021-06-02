@@ -29,7 +29,7 @@ class Blog extends CI_Controller
         //##### inisiasi ##################
 
         $crud->set_table('feeds');
-        $crud->columns('title', 'slug', 'deskripsi','kata_kunci','image', 'date', 'user_id');
+        $crud->columns('id','title', 'slug', 'deskripsi','kata_kunci','image', 'date', 'user_id');
         $crud->fields('title', 'slug','deskripsi','kata_kunci', 'image', 'content',  'date', 'user_id');
         $crud->display_as('category', 'Kategori');
         $crud->display_as('title', 'Judul');
