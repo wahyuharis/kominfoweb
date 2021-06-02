@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `downloads`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `downloads` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `category` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'Download',
+  `category` enum('Download','Jurnal','Renja','Sakip') COLLATE utf8_unicode_ci DEFAULT 'Download',
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `file` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -371,4 +371,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-02 10:13:12
+-- Dump completed on 2021-06-02 10:34:17

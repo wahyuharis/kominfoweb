@@ -26,6 +26,13 @@ class Halaman extends CI_Controller
         $crud->set_theme('bootstrap');
         $crud->set_table('halaman');
         $crud->fields('kategori', 'judul', 'konten', 'gambar');
+
+        $crud->set_rules('kategori', 'Kategori', 'trim|required');
+        $crud->set_rules('judul', 'Judul', 'trim|required');
+        $crud->set_rules('konten', 'Konten', 'trim|required');
+        $crud->set_rules('gambar', 'Gambar', 'trim|required|png|jpg');
+
+
         // $crud->display_as('featured_image', 'Gambar');
         // $crud->display_as('headline', 'Headline');
         // $crud->display_as('sub_headline', 'Sub Headline');
