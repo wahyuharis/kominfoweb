@@ -22,6 +22,8 @@
                     </div>
                 </div>
             </div>
+
+            
             <div class="row">
                 <div class="col-lg-8">
                     <!-- Trending Top -->
@@ -113,21 +115,22 @@
                         <h3>Berita Pemkab Terbaru</h3>
                     </div>
 
-                    <?php foreach ($berita_kanan as $bkanan) : ?>
-                        <div class="trand-right-single d-flex">
-                            <div class="trand-right-img">
-                                <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="">
-                            </div>
-                            <div class="trand-right-cap hover-show">
-                                <span class="color3">News</span>
-                                <h4 class="short-title"><a href="#"><?= substr($bkanan['title'], 0, 50) ?>...</a></h4>
-                                <h4 class="long-title"><a href="#"><?= $bkanan['title'] ?></a></h4>
-                                <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($btengah['date']) ?></p>
+                    <div class="data-list" data-autoscroll>
+                        <?php foreach ($berita_kanan as $bkanan) : ?>
+                            <div class="trand-right-single d-flex">
+                                <div class="trand-right-img">
+                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="">
+                                </div>
+                                <div class="trand-right-cap hover-show">
+                                    <span class="color3">News</span>
+                                    <h4 class="short-title"><a href="#"><?= substr($bkanan['title'], 0, 50) ?>...</a></h4>
+                                    <h4 class="long-title"><a href="#"><?= $bkanan['title'] ?></a></h4>
+                                    <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($btengah['date']) ?></p>
 
+                                </div>
                             </div>
-                        </div>
-                    <?php endforeach; ?>
-
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
         </div>

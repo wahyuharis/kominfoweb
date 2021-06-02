@@ -54,7 +54,7 @@ $header = json_decode(json_encode($header));
         <!-- Header Start -->
         <div class="header-area">
             <div class="main-header">
-                <div class="header-top black-bg d-none d-md-block">
+                <div class="header-top bg-custom-theme d-none d-md-block">
                     <div class="container">
                         <div class="col-xl-12">
                             <div class="row d-flex justify-content-between align-items-center">
@@ -64,13 +64,13 @@ $header = json_decode(json_encode($header));
                                         <!-- <li><img src="assets/img/icon/header_icon1.png" alt=""></li> -->
                                     </ul>
                                 </div>
-                                <!-- <div class="header-info-right">
+                                <div class="header-info-right">
                                     <ul class="header-social">
                                         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                         <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                                         <li> <a href="#"><i class="fab fa-youtube"></i></a></li>
                                     </ul>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -238,7 +238,7 @@ $header = json_decode(json_encode($header));
                                 <div class="footer-social">
                                     <a href="#"><i class="fab fa-twitter"></i></a>
                                     <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                                    <a href="#"><i class="fab fa-youtube"></i></a>
                                 </div>
                             </div>
                         </div>
