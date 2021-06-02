@@ -61,7 +61,8 @@ class Blog extends CI_Controller
         $this->load->view('frontend/template', $view_data);
     }
 
-    function detail($slug){
+    function detail($slug)
+    {
         $content_data = [];
 
         $content_data = [];
@@ -74,8 +75,17 @@ class Blog extends CI_Controller
             ->get('feeds')
             ->result_array();
 
+        $berita_detail=$this->db
+        ->where('slug',$slug)
+        ->get('feeds')->row_object();
 
-        $view_data['content'] = $this->load->view('frontend/content', $content_data, true);
+        $content_data['berita_detail'] = $berita_detail;
+
+        // print_r2($content_data['berita_detail']);
+
+        $content_data['berita_kanan'] = $berita_kanan;
+
+        $view_data['content'] = $this->load->view('frontend/blog_content', $content_data, true);
 
         $this->load->view('frontend/template', $view_data);
     }
