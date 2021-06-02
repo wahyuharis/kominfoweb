@@ -27,13 +27,15 @@ class Slider extends CI_Controller
         $crud->set_table('sliders');
         $crud->fields('headline', 'sub_headline', 'image');
 
-        $crud->columns('headline','sub_headline','image');
+        $crud->columns('headline', 'sub_headline', 'image');
 
         $crud->display_as('headline', 'Headline');
         $crud->display_as('sub_headline', 'Sub Headline');
         $crud->display_as('image', 'Image');
 
-        $crud->set_field_upload('image','assets/uploads/files');
+        $crud->required_fields('headline', 'sub_headline', 'image');
+
+        $crud->set_field_upload('image', 'assets/uploads/files');
 
         $crud->set_subject('Sliders');
 
