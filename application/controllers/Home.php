@@ -17,7 +17,7 @@ class Home extends CI_Controller
             ->select('feeds.*,users.fullname')
             ->join('users', 'users.id=feeds.user_id')
             ->order_by('id', 'desc')
-            ->limit(3)
+            ->limit(10)
             ->get('feeds')
             ->result_array();
 

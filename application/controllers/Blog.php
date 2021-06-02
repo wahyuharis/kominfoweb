@@ -21,7 +21,7 @@ class Blog extends CI_Controller
             ->select('feeds.*,users.fullname')
             ->join('users', 'users.id=feeds.user_id')
             ->order_by('id', 'desc')
-            ->limit(3)
+            ->limit(10)
             ->get('feeds')
             ->result_array();
 
@@ -60,6 +60,14 @@ class Blog extends CI_Controller
 
 
         $view_data['content'] = $this->load->view('frontend/blog', $content_data, true);
+
+        $this->load->view('frontend/template', $view_data);
+    }
+
+    function detail($slug){
+        $content_data = [];
+
+        $view_data['content'] = $this->load->view('frontend/content', $content_data, true);
 
         $this->load->view('frontend/template', $view_data);
     }
