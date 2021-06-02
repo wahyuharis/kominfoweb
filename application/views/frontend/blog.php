@@ -60,7 +60,7 @@
 
 
                     <aside class="single_sidebar_widget popular_post_widget">
-                        <h3 class="widget_title">Berita PPID Terbaru</h3>
+                        <h3 class="widget_title">Berita Terbaru</h3>
                         <ul class="data-list" data-autoscroll>
                             <?php foreach ($berita_kanan as $bkanan) : ?>
                                 <div class="media post_item">
