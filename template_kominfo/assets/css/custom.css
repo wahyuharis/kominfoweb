@@ -382,6 +382,19 @@
 	color: #ecf0f1;
 }
 
+.bg-custom-theme{
+	background-color: #34495e;
+}
+
+.header-area .header-top .header-info-right .header-social li a:hover{
+	color: #0097e6;
+}
+
+.footer-area .footer-social a i{
+	color: #ecf0f1;
+
+}
+
 /* .blog_area a:hover, .blog_area a :hover {
 	background: none;
 	-webkit-background-clip: unset;
