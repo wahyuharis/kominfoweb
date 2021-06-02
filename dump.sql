@@ -1,13 +1,13 @@
--- MariaDB dump 10.17  Distrib 10.4.13-MariaDB, for Win64 (AMD64)
+-- MySQL dump 10.16  Distrib 10.1.36-MariaDB, for Win32 (AMD64)
 --
 -- Host: localhost    Database: db_infokom
 -- ------------------------------------------------------
--- Server version	10.4.13-MariaDB
+-- Server version	10.1.36-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -60,13 +60,13 @@ CREATE TABLE `feeds` (
   `deskripsi` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `kata_kunci` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `content` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` longtext COLLATE utf8_unicode_ci,
   `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `view` int(11) DEFAULT 0,
+  `view` int(11) DEFAULT '0',
   `penanggungjawab` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `jam` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `slug` (`slug`)
@@ -112,6 +112,35 @@ INSERT INTO `galleries` VALUES (2,'Gallery','slogan 3B','imLI8AyTVHII0vHcv8vqJD0
 UNLOCK TABLES;
 
 --
+-- Table structure for table `halaman`
+--
+
+DROP TABLE IF EXISTS `halaman`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `halaman` (
+  `id_halaman` int(11) NOT NULL,
+  `kategori` enum('Personil Diskominfo','Sejarah Dinas','Struktur Organisasi','Tupoksi','Visi Misi') NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `konten` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `gambar` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_halaman`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `halaman`
+--
+
+LOCK TABLES `halaman` WRITE;
+/*!40000 ALTER TABLE `halaman` DISABLE KEYS */;
+/*!40000 ALTER TABLE `halaman` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `header`
 --
 
@@ -121,7 +150,7 @@ DROP TABLE IF EXISTS `header`;
 CREATE TABLE `header` (
   `id_header` int(11) NOT NULL AUTO_INCREMENT,
   `header_name` varchar(50) DEFAULT NULL,
-  `content` text DEFAULT NULL,
+  `content` text,
   `image` varchar(200) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
@@ -176,10 +205,10 @@ CREATE TABLE `profiles` (
   `headline` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sub_headline` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `counter` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `featured` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `pages` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
-  `social_media` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `counter` text COLLATE utf8_unicode_ci,
+  `featured` text COLLATE utf8_unicode_ci,
+  `pages` longtext COLLATE utf8_unicode_ci,
+  `social_media` text COLLATE utf8_unicode_ci,
   `created_at` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
@@ -342,4 +371,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-02  9:55:54
+-- Dump completed on 2021-06-02 10:13:12
