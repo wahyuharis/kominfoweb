@@ -23,7 +23,6 @@
                 </div>
             </div>
 
-            
             <div class="row">
                 <div class="col-lg-8">
                     <!-- Trending Top -->
@@ -39,6 +38,7 @@
                                             <div class="trend-top-cap">
                                                 <!-- <span>Appetizers</span> -->
                                                 <h2><a href="#"><?= ($slide['headline']) ?></a></h2>
+                                                <p><?= $slide['sub_headline'] ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@
                                         </div>
                                         <div class="trend-bottom-cap">
                                             <span class="color1">Hot News <?= $btengah['view'] ?> view </span>
-                                            <h4><a href="#"><?= $btengah['title'] ?></a></h4>
+                                            <h4><a href="<?= base_url('blog/detail/' . $btengah['slug']) ?>"><?= $btengah['title'] ?></a></h4>
                                             <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($btengah['date']) ?></p>
                                         </div>
                                     </div>
@@ -123,10 +123,9 @@
                                 </div>
                                 <div class="trand-right-cap hover-show">
                                     <span class="color3">News</span>
-                                    <h4 class="short-title"><a href="#"><?= substr($bkanan['title'], 0, 50) ?>...</a></h4>
-                                    <h4 class="long-title"><a href="#"><?= $bkanan['title'] ?></a></h4>
+                                    <h4 class="short-title"><a href="<?=base_url('blog/detail/'.$bkanan['slug'])?>"><?= substr($bkanan['title'], 0, 50) ?>...</a></h4>
+                                    <h4 class="long-title"><a href="<?=base_url('blog/detail/'.$bkanan['slug'])?>"><?= $bkanan['title'] ?></a></h4>
                                     <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($btengah['date']) ?></p>
-
                                 </div>
                             </div>
                         <?php endforeach; ?>
@@ -160,7 +159,6 @@
                                     <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Agenda</a>
                                     <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Artikel</a>
                                     <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Infografis</a>
-
                                 </div>
                             </nav>
                             <!--End Nav Button  -->
@@ -185,8 +183,8 @@
                                                     </div>
                                                     <div class="what-cap hover-show">
                                                         <span class="color1">NEWS</span>
-                                                        <h4 class="short-title"><a href="#"><?= substr($bbawah['title'], 0, 50) ?>...</a></h4>
-                                                        <h4 class="long-title"><a href="#"><?= $bbawah['title'] ?></a></h4>
+                                                        <h4 class="short-title"><a href="<?= base_url('blog/detail/' . $bbawah['slug']) ?>"><?= substr($bbawah['title'], 0, 50) ?>...</a></h4>
+                                                        <h4 class="long-title"><a href="<?= base_url('blog/detail/' . $bbawah['slug']) ?>"><?= $bbawah['title'] ?></a></h4>
                                                     </div>
                                                 </div>
                                             </div>

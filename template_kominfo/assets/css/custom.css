@@ -413,6 +413,10 @@
 	height: 229px;
 }
 
+.carousel-item p{
+	color: #fff;
+}
+
 /* .blog_area a:hover, .blog_area a :hover {
 	background: none;
 	-webkit-background-clip: unset;
