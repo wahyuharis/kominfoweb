@@ -25,6 +25,8 @@ class Visi_Misi extends CI_Controller
 
         $crud->set_theme('bootstrap');
         $crud->set_table('profile_visi_misi');
+
+        $crud->fields('kategori', 'judul', 'konten', 'gambar');
         $crud->required_fields('kategori', 'judul', 'konten', 'gambar');
 
         $crud->columns('kategori', 'judul', 'konten', 'gambar');

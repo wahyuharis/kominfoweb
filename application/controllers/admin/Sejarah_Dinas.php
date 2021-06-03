@@ -25,6 +25,7 @@ class Sejarah_Dinas extends CI_Controller
 
         $crud->set_theme('bootstrap');
         $crud->set_table('profile_sejarah_dinas');
+        $crud->fields('kategori', 'judul', 'konten', 'gambar');
         $crud->required_fields('kategori', 'judul', 'konten', 'gambar');
 
         $crud->columns('kategori', 'judul', 'konten', 'gambar');

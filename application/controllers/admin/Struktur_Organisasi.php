@@ -33,6 +33,8 @@ class Struktur_Organisasi extends CI_Controller
         $crud->display_as('judul', 'Judul');
         $crud->display_as('gambar', 'Gambar');
 
+        $crud->fields('kategori', 'judul', 'gambar');
+
         $crud->required_fields('kategori', 'judul', 'gambar');
 
         $crud->set_field_upload('gambar', 'assets/uploads/files');

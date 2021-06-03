@@ -27,6 +27,8 @@ class Tupoksi extends CI_Controller
         $crud->set_table('profile_tupoksi');
         $crud->required_fields('kategori', 'judul', 'konten', 'gambar');
 
+        $crud->fields('kategori', 'judul', 'konten', 'gambar');
+
         $crud->columns('kategori', 'judul', 'konten', 'gambar');
 
         $crud->display_as('kategori', 'Kategori');
