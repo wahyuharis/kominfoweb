@@ -28,6 +28,7 @@ class Regulasi extends CI_Controller
         $crud->set_theme('bootstrap');
         $crud->set_table('regulasi');
         $crud->fields('kategori', 'nama_produk', 'nomor', 'tanggal_terbit', 'upload_file');
+        $crud->columns('kategori', 'nama_produk', 'nomor', 'tanggal_terbit', 'upload_file');
 
         $crud->display_as('kategori', 'Kategori');
         $crud->display_as('nama_produk', 'Nama Produk Hukum');

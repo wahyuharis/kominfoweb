@@ -53,5 +53,6 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['content/(:any)'] = 'content/index/';
+// $route['admin/struktur_organisasi/'] = 'admin/struktur_organisasi/index/edit/1';
 
 $route['logout'] = 'login/logout';

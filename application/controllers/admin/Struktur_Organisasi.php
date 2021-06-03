@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Struktur_Organisasi extends CI_Controller
+class Struktur_organisasi extends CI_Controller
 {
 
     private $title = "Struktur Organisasi";
@@ -25,17 +25,21 @@ class Struktur_Organisasi extends CI_Controller
 
         $crud->set_theme('bootstrap');
         $crud->set_table('profile_struktur_organisasi');
-        $crud->required_fields('kategori', 'judul', 'gambar');
+        $crud->required_fields( 'judul', 'gambar');
+        $crud->unset_list();
+        $crud->unset_add();
+        $crud->unset_delete();
+        $crud->unset_back_to_list();
 
-        $crud->columns('kategori', 'judul', 'gambar');
+        $crud->columns('judul', 'gambar');
 
-        $crud->display_as('kategori', 'Kategori');
+        // $crud->display_as('kategori', 'Kategori');
         $crud->display_as('judul', 'Judul');
         $crud->display_as('gambar', 'Gambar');
 
-        $crud->fields('kategori', 'judul', 'gambar');
+        $crud->fields('judul', 'gambar');
 
-        $crud->required_fields('kategori', 'judul', 'gambar');
+        $crud->required_fields( 'judul', 'gambar');
 
         $crud->set_field_upload('gambar', 'assets/uploads/files');
 

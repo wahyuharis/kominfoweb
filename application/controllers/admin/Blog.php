@@ -73,8 +73,9 @@ class Blog extends CI_Controller
 
     function _callback_user_id($value = '', $primary_key = null){
         $field='<input type="hidden" value="'.$this->session->userdata('id').'" name="user_id" >';
-        $field.='<p>'.$this->session->userdata('email').'</p>';
-        $field.='<p>'.$this->session->userdata('fullname').'</p>';
+        $field='<input type="text" value="'.$this->session->userdata('email').'" readonly="" class="form-control" >';
+        // $field.='<p>'.$this->session->userdata('email').'</p>';
+        // $field.='<p>'.$this->session->userdata('fullname').'</p>';
         return $field;
     }
 

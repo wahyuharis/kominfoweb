@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Sejarah_Dinas extends CI_Controller
+class Sejarah_dinas extends CI_Controller
 {
 
     private $title = "Sejarah Dinas";
@@ -25,20 +25,23 @@ class Sejarah_Dinas extends CI_Controller
 
         $crud->set_theme('bootstrap');
         $crud->set_table('profile_sejarah_dinas');
-        $crud->fields('kategori', 'judul', 'konten', 'gambar');
+        $crud->fields('judul', 'konten', 'gambar');
         $crud->required_fields('kategori', 'judul', 'konten', 'gambar');
 
-        $crud->columns('kategori', 'judul', 'konten', 'gambar');
+        $crud->unset_list();
+        $crud->unset_add();
+        $crud->unset_delete();
+        $crud->unset_back_to_list();
 
-        $crud->display_as('kategori', 'Kategori');
+        $crud->columns('judul', 'konten', 'gambar');
+
         $crud->display_as('judul', 'Judul');
         $crud->display_as('konten', 'Konten');
         $crud->display_as('gambar', 'Gambar');
 
-        $crud->required_fields('kategori', 'judul', 'konten', 'gambar');
+        $crud->required_fields('judul', 'konten', 'gambar');
 
         $crud->set_field_upload('gambar', 'assets/uploads/files');
-
 
         $crud->set_subject('Sejarah Dinas');
 
