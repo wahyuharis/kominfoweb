@@ -39,7 +39,7 @@ class Penghargaan extends CI_Controller
         $crud->display_as('content', 'Konten');
         $crud->display_as('image', 'Gambar');
         $crud->display_as('view', 'Tampilan');
-        $crud->display_as('penanggungjawab', 'Penanggungjawab');
+        $crud->display_as('penanggungjawab', 'Penanggung Jawab');
         $crud->display_as('jam', 'Jam');
 
         $crud->required_fields('date', 'category', 'slug', 'deskripsi', 'kata_kunci', 'title', 'content', 'image', 'penanggungjawab', 'jam');
