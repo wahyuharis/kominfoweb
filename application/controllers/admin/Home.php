@@ -20,9 +20,11 @@ class Home extends CI_Controller
     public function index()
     {
 
-
-        $template_data['content'] = '';
+        $content = $this->load->view('admin/home', [], true);
+        $template_data['box'] = true;
+        $template_data['content'] = $content;
         $template_data['content_title'] = $this->title;
+
 
         $this->load->view('admin/template', $template_data);
     }
