@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
+//coba ubah config
 /*
 | -------------------------------------------------------------------
 | DATABASE CONNECTIVITY SETTINGS
