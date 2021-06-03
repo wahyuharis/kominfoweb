@@ -126,7 +126,7 @@
                 <!-- search form -->
                 <form action="#" class="sidebar-form">
                     <div class="input-group">
-                        <input type="text" id="side_filter"  class="form-control" placeholder="Search...">
+                        <input type="text" id="side_filter" class="form-control" placeholder="Search...">
                         <span class="input-group-btn">
                             <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                             </button>
@@ -173,25 +173,26 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Struktur Organisasi</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Sejarah Dinas</a></li>
-                            <li class="<?php if (strtolower($this->uri->segment(1)) == 'halamant') echo 'active' ?>"><a href="<?= base_url() ?>admin/halaman"><i class="fa fa-circle-o"></i> Visi Dan Misi</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Tugas Dan Fungsi</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Profil Diskominfo</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(1)) == 'penghargaan') echo 'active' ?>"><a href="<?= base_url() ?>admin/Penghargaan"><i class="fa fa-circle-o"></i> Penghargaan</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(1)) == 'struktur_organisasi') echo 'active' ?>"><a href="<?= base_url() ?>admin/Struktur_Organisasi"><i class="fa fa-circle-o"></i> Struktur Organisasi</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(1)) == 'sejarah_dinas') echo 'active' ?>"><a href="<?= base_url() ?>admin/Sejarah_Dinas"><i class="fa fa-circle-o"></i> Sejarah Dinas</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(1)) == 'visi_misi') echo 'active' ?>"><a href="<?= base_url() ?>admin/Visi_Misi"><i class="fa fa-circle-o"></i> Visi Dan Misi</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(1)) == 'tupoksi') echo 'active' ?>"><a href="<?= base_url() ?>admin/Tupoksi"><i class="fa fa-circle-o"></i> Tugas Dan Fungsi</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(1)) == 'personil') echo 'active' ?>"><a href="<?= base_url() ?>admin/Personil"><i class="fa fa-circle-o"></i> Personil Diskominfo</a></li>
                         </ul>
                     </li>
                     <!-- End Profil -->
 
                     <!-- Regulasi -->
-                    <li class="treeview">
-                        <a href="#">
+                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'regulasi') echo 'active' ?>"><a href="<?= base_url() ?>admin/Regulasi">
                             <i class="fa fa-book"></i>
                             <span>Regulasi</span>
-                            <span class="pull-right-container">
+                            <!-- <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
-                            </span>
+                            </span> -->
                         </a>
-                        <ul class="treeview-menu">
+                    </li>
+                    <!-- <ul class="treeview-menu">
                             <li><a href="#"><i class="fa fa-circle-o"></i> Undang-Undang</a></li>
                             <li><a href="#"><i class="fa fa-circle-o"></i> Peraturan Presiden</a></li>
                             <li><a href="#"><i class="fa fa-circle-o"></i> Peraturan Menteri</a></li>
@@ -202,8 +203,8 @@
                             <li><a href="#"><i class="fa fa-circle-o"></i> SE Presiden</a></li>
                             <li><a href="#"><i class="fa fa-circle-o"></i> SE Gubernur</a></li>
                             <li><a href="#"><i class="fa fa-circle-o"></i> SE Bupati</a></li>
-                        </ul>
-                    </li>
+                        </ul> -->
+
                     <!-- End Regulasi -->
 
                     <!-- Informasi -->

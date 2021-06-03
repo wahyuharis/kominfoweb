@@ -1,13 +1,13 @@
--- MariaDB dump 10.17  Distrib 10.4.13-MariaDB, for Win64 (AMD64)
+-- MySQL dump 10.16  Distrib 10.1.36-MariaDB, for Win32 (AMD64)
 --
 -- Host: localhost    Database: db_infokom
 -- ------------------------------------------------------
--- Server version	10.4.13-MariaDB
+-- Server version	10.1.36-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -60,13 +60,13 @@ CREATE TABLE `feeds` (
   `deskripsi` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `kata_kunci` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `content` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` longtext COLLATE utf8_unicode_ci,
   `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `view` int(11) DEFAULT 0,
+  `view` int(11) DEFAULT '0',
   `penanggungjawab` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `jam` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `slug` (`slug`)
@@ -98,7 +98,7 @@ CREATE TABLE `galleries` (
   `created_at` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,6 +112,35 @@ INSERT INTO `galleries` VALUES (2,'Gallery','slogan 3B','imLI8AyTVHII0vHcv8vqJD0
 UNLOCK TABLES;
 
 --
+-- Table structure for table `halaman`
+--
+
+DROP TABLE IF EXISTS `halaman`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `halaman` (
+  `id_halaman` int(11) NOT NULL,
+  `kategori` enum('Personil Diskominfo','Sejarah Dinas','Struktur Organisasi','Tupoksi','Visi Misi') NOT NULL,
+  `judul` varchar(255) NOT NULL,
+  `konten` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `gambar` varchar(255) NOT NULL,
+  PRIMARY KEY (`id_halaman`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `halaman`
+--
+
+LOCK TABLES `halaman` WRITE;
+/*!40000 ALTER TABLE `halaman` DISABLE KEYS */;
+/*!40000 ALTER TABLE `halaman` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `header`
 --
 
@@ -121,7 +150,7 @@ DROP TABLE IF EXISTS `header`;
 CREATE TABLE `header` (
   `id_header` int(11) NOT NULL AUTO_INCREMENT,
   `header_name` varchar(50) DEFAULT NULL,
-  `content` text DEFAULT NULL,
+  `content` text,
   `image` varchar(200) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
@@ -179,13 +208,13 @@ CREATE TABLE `profile_penghargaan` (
   `deskripsi` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `kata_kunci` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `content` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` longtext COLLATE utf8_unicode_ci,
   `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `view` int(11) DEFAULT 0,
+  `view` int(11) DEFAULT '0',
   `penanggungjawab` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `jam` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id_penghargaan`) USING BTREE,
   UNIQUE KEY `slug` (`slug`)
@@ -214,8 +243,8 @@ CREATE TABLE `profile_personil` (
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_personil`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -243,8 +272,8 @@ CREATE TABLE `profile_sejarah_dinas` (
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_sejarah_dinas`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -271,8 +300,8 @@ CREATE TABLE `profile_struktur_organisasi` (
   `kategori` enum('Personil Diskominfo','Sejarah Dinas','Struktur Organisasi','Tupoksi','Visi Misi') NOT NULL,
   `judul` varchar(255) NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_struktur_organisasi`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -300,8 +329,8 @@ CREATE TABLE `profile_tupoksi` (
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_tupoksi`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -329,8 +358,8 @@ CREATE TABLE `profile_visi_misi` (
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_visi_misi`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -358,10 +387,10 @@ CREATE TABLE `profiles` (
   `headline` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sub_headline` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `counter` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `featured` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `pages` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
-  `social_media` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `counter` text COLLATE utf8_unicode_ci,
+  `featured` text COLLATE utf8_unicode_ci,
+  `pages` longtext COLLATE utf8_unicode_ci,
+  `social_media` text COLLATE utf8_unicode_ci,
   `created_at` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
@@ -376,6 +405,36 @@ LOCK TABLES `profiles` WRITE;
 /*!40000 ALTER TABLE `profiles` DISABLE KEYS */;
 INSERT INTO `profiles` VALUES (1,'Cr8NUeZKk57jbhrJjLExIkTr0qocIvTJ6QScFza5hJ1bH9cjnqVea99kpyNT.jpeg','Dinas Komunikasi dan Informatika','Kominfo Connecting The City','DISKOMINFO Kabupaten Jember menuju pada JEMBER SATU DATA dan JEMBER SMART CITY','[\"2551214\",\"3293.34\",\"0\",\"144\"]','[\"{\\\"url\\\":\\\"http:\\\\\\/\\\\\\/absensi.jemberkab.go.id\\\\\\/auth\\\\\\/login\\\",\\\"image\\\":\\\"kkbl1ypt86ApYofvAQfe8z2MC5VCDGI6lOlibgv6ZkfgMeAHa9zLmMOUELbM.jpeg\\\"}\",\"{\\\"url\\\":\\\"https:\\\\\\/\\\\\\/web.kominfo.go.id\\\\\\/\\\",\\\"image\\\":\\\"kHHjSRYDnljNgsofhSjeYSYhFX5D1G6hfL1WlvQ9Ow0Ddp8SzRFGGSfy1s1x.jpeg\\\"}\",\"{\\\"url\\\":\\\"http:\\\\\\/\\\\\\/surat.jemberkab.go.id\\\\\\/login\\\",\\\"image\\\":\\\"bG2UySACva4LxkQmFqQEBsvjbJ0aANj68fZ0aLQSgJqG8WUEUtduutsHUds1.png\\\"}\",\"{\\\"url\\\":\\\"http:\\\\\\/\\\\\\/surat.jemberkab.go.id\\\\\\/\\\",\\\"image\\\":\\\"PB2mVRplDMAMAEyUkmJKILKej726pLgz1z2yQEB9tMVz0TdwZPp0XWTdCT59.jpeg\\\"}\",\"{\\\"url\\\":\\\"https:\\\\\\/\\\\\\/www.facebook.com\\\\\\/Dinas-Komunikasi-Informatika-Kabupaten-Jember-1911954692385233\\\\\\/\\\",\\\"image\\\":\\\"RlHpR7orOedlqmeMCYtQfOItzw8QskKwf8PeceFixeRvjO9s1KZgPR8ZFlWn.png\\\"}\",\"{\\\"url\\\":\\\"https:\\\\\\/\\\\\\/instagram.com\\\\\\/kominfojember?igshid=9qaq6s11xwfv\\\",\\\"image\\\":\\\"Ad8WCvFKVj4vWichXQcYv4reD1IV0Yi8R9iOCAuOuiBNkgJP0QN7GICRA4S3.png\\\"}\"]','{\"selayang\":\"47fiqWKE9mlodFxZlnh381WjTaK8fsWz4JwkroC9h9YD6RRC6FOeFDQQlZiI.txt\",\"visi\":\"zqa4RoCaXmnDoHjh5c7UI55kEw6atxKhCg2hyOZAq7oxnJB44djTI7DjmIuZ.txt\",\"struktur\":\"QV58peI3p4An2gGzHi0RgQRMY1F9qjpn1akF25IthLBLGbjiwAVSVXBWGdeX.txt\",\"layanan\":\"CdyIwuQ1a5ziP237IWGxvA5HCHuyeFJKVZ5hISW0OwEJdkTBuiAMC0ANJGtd.txt\",\"alamat\":\"5cDuZ2xpypcOH9ZUJGMSVJBzrFcOzGlMx2s1zLcpfNx3FjWKTQistREmaOUN.txt\",\"kontak\":\"ygGaLQi3GSicW3t3HUMkoAkaQXI4aq75IfTDCaH6JCR8MtT4pax3RUo5LwIO.txt\",\"ppid\":\"bjvenRcjVWwd5ubw4iU5q97dV3WkTF2eraXDp95xOsq0TVpmUgAzCuh3UqPm.txt\"}','[\"https:\\/\\/www.facebook.com\\/ppidkabjember\\/?modal=admin_todo_tour\",\"tes\",\"tes\",\"tes\"]','2018-11-29 09:32:25','2021-05-13 11:39:56'),(2,NULL,'','','',NULL,NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `profiles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `regulasi`
+--
+
+DROP TABLE IF EXISTS `regulasi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `regulasi` (
+  `id_regulasi` int(11) NOT NULL AUTO_INCREMENT,
+  `kategori` enum('Undang-Undang','Peraturan Presiden','Peraturan Menteri','Peraturan Gubernur','Peraturan Bupati','Peraturan Daerah','SK Bupati','SE Presiden','SE Gubernur','SE Bupati') DEFAULT NULL,
+  `nama_produk` varchar(255) DEFAULT NULL,
+  `nomor` varchar(20) DEFAULT NULL,
+  `tanggal_terbit` date NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `upload_file` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_regulasi`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `regulasi`
+--
+
+LOCK TABLES `regulasi` WRITE;
+/*!40000 ALTER TABLE `regulasi` DISABLE KEYS */;
+/*!40000 ALTER TABLE `regulasi` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -445,7 +504,7 @@ CREATE TABLE `user_levels` (
   `created_at` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -524,4 +583,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-02 14:46:08
+-- Dump completed on 2021-06-03 12:42:53
