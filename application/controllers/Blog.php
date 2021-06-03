@@ -3,8 +3,6 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-
-
 class Blog extends CI_Controller
 {
     public function __construct()
@@ -16,6 +14,8 @@ class Blog extends CI_Controller
     {
 
         $content_data = [];
+
+        $search = $this->input->get('search');
 
         $berita_kanan = $this->db->where('deleted_at', null)
             ->select('feeds.*,users.fullname')
@@ -31,18 +31,24 @@ class Blog extends CI_Controller
         $start = page_to_start($page, $limit);
 
         $berita_blog_list = $this->db->where('deleted_at', null)
+            ->group_start()
+            ->or_like('title', $search)
+            ->or_like('content', $search)
+            ->group_end()
             ->select('feeds.*,users.fullname')
-            ->join('users', 'users.id=feeds.user_id','left')
+            ->join('users', 'users.id=feeds.user_id', 'left')
             ->order_by('id', 'desc')
             ->limit($limit, intval($start))
             ->get('feeds')
             ->result_array();
 
-            // echo $this->db->last_query();
-            // die();
+        
 
         $total_row = $this->db->where('deleted_at', null)
-            ->select('feeds.id')
+            ->group_start()
+            ->or_like('title', $search)
+            ->or_like('content', $search)
+            ->group_end()
             ->get('feeds')
             ->num_rows();
 
@@ -70,11 +76,10 @@ class Blog extends CI_Controller
     {
         $content_data = [];
 
-        $content_data = [];
 
         $berita_kanan = $this->db->where('deleted_at', null)
             ->select('feeds.*,users.fullname')
-            ->join('users', 'users.id=feeds.user_id','left')
+            ->join('users', 'users.id=feeds.user_id', 'left')
             ->order_by('id', 'desc')
             ->limit(10)
             ->get('feeds')
@@ -83,23 +88,23 @@ class Blog extends CI_Controller
         $berita_detail = $this->db
             ->select('feeds.*,users.fullname')
             ->where('slug', $slug)
-            ->join('users', 'users.id=feeds.user_id','left')
+            ->join('users', 'users.id=feeds.user_id', 'left')
             ->get('feeds')
             ->row_object();
 
         $berita_detail_next = $this->db
             ->select('feeds.*,users.fullname')
             ->where('feeds.id < ', $berita_detail->id)
-            ->join('users', 'users.id=feeds.user_id','left')
-            ->order_by('feeds.id','desc')
+            ->join('users', 'users.id=feeds.user_id', 'left')
+            ->order_by('feeds.id', 'desc')
             ->get('feeds')
             ->row_object();
 
         $berita_detail_prev = $this->db
             ->select('feeds.*,users.fullname')
             ->where('feeds.id > ', $berita_detail->id)
-            ->join('users', 'users.id=feeds.user_id','left')
-            ->order_by('feeds.id','desc')
+            ->join('users', 'users.id=feeds.user_id', 'left')
+            ->order_by('feeds.id', 'desc')
             ->get('feeds')
             ->row_object();
 

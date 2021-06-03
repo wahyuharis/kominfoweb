@@ -403,6 +403,15 @@
 	height: 60px;
 	width: 60px;
 }
+.trending-area .trending-main .trand-right-single .trand-right-cap h4{
+	font-size: 16px;
+}
+.trending-area .trending-main .trending-bottom .single-bottom .trend-bottom-img img{
+	height: 158px;
+}
+.whats-news-area .whats-news-caption .single-what-news .what-img img, .about-area .whats-news-caption .single-what-news .what-img img, .contact-section .whats-news-caption .single-what-news .what-img img{
+	height: 229px;
+}
 
 /* .blog_area a:hover, .blog_area a :hover {
 	background: none;

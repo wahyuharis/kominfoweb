@@ -124,9 +124,9 @@
                     </div>
                 </div>
                 <!-- search form -->
-                <form action="#" method="get" class="sidebar-form">
+                <form action="#" class="sidebar-form">
                     <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
+                        <input type="text" id="side_filter"  class="form-control" placeholder="Search...">
                         <span class="input-group-btn">
                             <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                             </button>
@@ -565,6 +565,24 @@
             $('.sidebar-menu').tree();
             $('.sidebar-menu').find('li.active').parent().css('display', 'block');
             $('.sidebar-menu').find('li.active').parent().parent().addClass('active');
+
+            $("#side_filter").keyup(function() {
+                var filter = $(this).val(),
+                    count = 0;
+
+                $('.sidebar-menu').find('li').each(function() {
+                    if (filter == "") {
+                        $(this).css("visibility", "visible");
+                        $(this).fadeIn();
+                    } else if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                        $(this).css("visibility", "hidden");
+                        $(this).fadeOut();
+                    } else {
+                        $(this).css("visibility", "visible");
+                        $(this).fadeIn();
+                    }
+                });
+            });
         })
     </script>
 </body>

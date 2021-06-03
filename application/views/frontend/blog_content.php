@@ -82,8 +82,6 @@
                                  </a>
                               </div>
                            <?php } ?>
-
-
                         </div>
                      </div>
                   </div>
@@ -94,7 +92,7 @@
             <div class="col-lg-4">
                <div class="blog_right_sidebar">
                   <aside class="single_sidebar_widget search_widget">
-                     <form action="<?=base_url('blog')?>" method="get">
+                     <form action="<?= base_url('blog') ?>" method="get">
                         <div class="form-group">
                            <div class="input-group mb-3">
                               <input type="text" name="search" class="form-control" placeholder='Search Keyword' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
@@ -138,3 +136,13 @@
          </div>
       </div>
    </section>
+   <script>
+      $(document).ready(function() {
+         $('.blog_details').find('p').css('font-family','"Roboto", sans-serif');
+         $('.blog_details').find('span').css('font-family','"Roboto", sans-serif');
+         $('.blog_details').find('table').addClass('table');
+         $('.blog_details').find('table').addClass('table-bordered');
+         $('.blog_details').find('table').removeAttr('border');
+
+      });
+   </script>

@@ -35,7 +35,7 @@
                                 <div class="carousel-item <?php if ($i < 1) echo 'active' ?>">
                                     <div class="trending-top mb-30">
                                         <div class="trend-top-img">
-                                            <img src="<?= base_url('assets/uploads/files/' . $slide['image']) ?>" alt="Second slide">
+                                            <img style="height: 500px;" src="<?= base_url('assets/uploads/files/' . $slide['image']) ?>" alt="Second slide">
                                             <div class="trend-top-cap">
                                                 <!-- <span>Appetizers</span> -->
                                                 <h2><a href="#"><?= ($slide['headline']) ?></a></h2>

@@ -29,6 +29,10 @@ class User_level extends CI_Controller
         $crud->fields('user_level');
         $crud->required_fields('user_level');
 
+        $crud->unset_add();
+        $crud->unset_edit();
+        $crud->unset_delete();
+
         $columns=array('user_level');
         $crud->columns($columns);
 

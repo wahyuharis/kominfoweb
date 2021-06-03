@@ -42,6 +42,7 @@ $header = json_decode(json_encode($header));
     <link rel="stylesheet" href="<?= base_url() ?>template_kominfo/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url() ?>template_kominfo/assets/css/custom.css">
 
+    <script src="<?= base_url() ?>template_kominfo/assets/js/vendor/jquery-1.12.4.min.js"></script>
 </head>
 
 <body>
@@ -187,8 +188,8 @@ $header = json_decode(json_encode($header));
                                 <div class="header-right-btn f-right d-none d-lg-block">
                                     <i class="fas fa-search special-tag"></i>
                                     <div class="search-box">
-                                        <form action="#">
-                                            <input type="text" placeholder="Cari berita ..">
+                                        <form action="<?=base_url('blog/')?>">
+                                            <input name="search" type="text" placeholder="Cari berita ..">
                                         </form>
                                     </div>
                                 </div>
@@ -296,7 +297,6 @@ $header = json_decode(json_encode($header));
     <!-- All JS Custom Plugins Link Here here -->
     <script src="<?= base_url() ?>template_kominfo/assets/js/vendor/modernizr-3.5.0.min.js"></script>
     <!-- Jquery, Popper, Bootstrap -->
-    <script src="<?= base_url() ?>template_kominfo/assets/js/vendor/jquery-1.12.4.min.js"></script>
     <script src="<?= base_url() ?>template_kominfo/assets/js/bootstrap.min.js"></script>
     <script src="<?= base_url() ?>template_kominfo/assets/js/popper.min.js"></script>
 

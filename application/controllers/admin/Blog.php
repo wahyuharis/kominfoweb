@@ -50,13 +50,14 @@ class Blog extends CI_Controller
             $crud->set_rules('slug','Slug','trim|required|is_unique[feeds.slug]');
         }
 
-
-        // print_r2($this->session->userdata());
-
         $crud->callback_before_update(array($this, '_callback_before_update'));
         $crud->callback_before_insert(array($this, '_callback_before_update'));
 
+        // $crud->unset_texteditor('content');
+
         $output = $crud->render();
+
+        // print_r2($output);
 
         $view_data['output'] = $output->output;
         $content = $this->load->view('admin/blog/blog', $view_data, true);
