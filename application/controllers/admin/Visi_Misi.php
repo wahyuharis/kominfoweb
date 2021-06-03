@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Visi_Misi extends CI_Controller
 {
 
-    private $title = "Profile Visi Misi";
+    private $title = "Visi Misi";
 
     public function __construct()
     {
@@ -38,7 +38,7 @@ class Visi_Misi extends CI_Controller
 
         $crud->set_field_upload('gambar', 'assets/uploads/files');
 
-        $crud->set_subject('Profile Visi Misi');
+        $crud->set_subject('Visi Misi');
 
         $output = $crud->render();
 

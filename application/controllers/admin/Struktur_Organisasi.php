@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Struktur_Organisasi extends CI_Controller
 {
 
-    private $title = "Profile Struktur_Organisasi";
+    private $title = "Struktur Organisasi";
 
     public function __construct()
     {
@@ -37,7 +37,7 @@ class Struktur_Organisasi extends CI_Controller
 
         $crud->set_field_upload('gambar', 'assets/uploads/files');
 
-        $crud->set_subject('Profile Struktur Organisasi');
+        $crud->set_subject('Struktur Organisasi');
 
         $output = $crud->render();
 

@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Personil extends CI_Controller
 {
 
-    private $title = "Profil Personil";
+    private $title = "Personil";
 
     public function __construct()
     {
@@ -38,7 +38,7 @@ class Personil extends CI_Controller
 
         $crud->set_field_upload('gambar', 'assets/uploads/files');
 
-        $crud->set_subject('Profil Personil');
+        $crud->set_subject('Personil');
 
         $output = $crud->render();
 

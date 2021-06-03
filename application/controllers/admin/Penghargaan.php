@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Penghargaan extends CI_Controller
 {
 
-    private $title = "Profi Penghargaan";
+    private $title = "Penghargaan";
 
     public function __construct()
     {
@@ -46,7 +46,7 @@ class Penghargaan extends CI_Controller
 
         $crud->set_field_upload('image', 'assets/uploads/files');
 
-        $crud->set_subject('Profi Penghargaan');
+        $crud->set_subject('Penghargaan');
 
         $output = $crud->render();
 

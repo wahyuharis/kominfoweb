@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Tupoksi extends CI_Controller
 {
 
-    private $title = "Profile Tupoksi";
+    private $title = "Tugas Pokok Dan Fungsi";
 
     public function __construct()
     {
@@ -38,7 +38,7 @@ class Tupoksi extends CI_Controller
 
         $crud->set_field_upload('gambar', 'assets/uploads/files');
 
-        $crud->set_subject('Profile Tupoksi');
+        $crud->set_subject('Tugas Pokok Dan Fungsi');
 
         $output = $crud->render();
 

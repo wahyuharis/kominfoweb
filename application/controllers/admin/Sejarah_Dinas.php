@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Sejarah_Dinas extends CI_Controller
 {
 
-    private $title = "Profil Sejarah Dinas";
+    private $title = "Sejarah Dinas";
 
     public function __construct()
     {
@@ -39,7 +39,7 @@ class Sejarah_Dinas extends CI_Controller
         $crud->set_field_upload('gambar', 'assets/uploads/files');
 
 
-        $crud->set_subject('Profil Sejarah Dinas');
+        $crud->set_subject('Sejarah Dinas');
 
         $output = $crud->render();
 
