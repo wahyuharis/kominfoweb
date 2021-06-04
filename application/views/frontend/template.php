@@ -104,88 +104,22 @@ $header = json_decode(json_encode($header));
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                                 <!-- sticky -->
                                 <div class="sticky-logo">
-                                        <a href="#"><img src="<?= base_url('assets/uploads/files/' . $header->logo_header_sticky->image) ?>" alt=""></a>
+                                    <a href="#"><img src="<?= base_url('assets/uploads/files/' . $header->logo_header_sticky->image) ?>" alt=""></a>
                                 </div>
 
-                                <div class="sticky-logo title-logo" >
-                                Dinas Komunikasi dan Informatika<br>
-                                Kabupaten Jember
+                                <div class="sticky-logo title-logo">
+                                    Dinas Komunikasi dan Informatika<br>
+                                    Kabupaten Jember
                                 </div>
 
-                                <div class="main-menu d-none d-md-block">
-                                    <nav>
-                                        <ul id="navigation">
-                                            <li><a href="<?=base_url()?>">Beranda</a></li>
-                                            <li><a href="#">Berita</a>
-                                                <ul class="submenu">
-                                                    <li class=""><a href="<?=base_url('blog')?>">Berita</a></li>
-                                                    <li class=""><a href="#">Agenda</a></li>
-                                                    <li class=""><a href="#">Artikel</a></li>
-                                                </ul>
-                                            </li>
-
-                                            <li><a href="#">Profil</a>
-                                                <ul class="submenu">
-                                                    <li><a href="struktur-organisasi.html">Struktur Organisasi</a></li>
-                                                    <li><a href="sejarah-dinas.html">Sejarah Dinas</a></li>
-                                                    <li><a href="visi.html">Visi & Misi</a></li>
-                                                    <li><a href="single-blog.html">Tupoksi</a>
-                                                        <ul class="submenu2">
-                                                            <li><a href="single-blog.html">Diskominfo</a></li>
-                                                            <li><a href="elements.html">Kepala Dinas</a></li>
-                                                            <li><a href="blog.html">Sekretariat</a></li>
-                                                            <li><a href="blog.html">Bidang Komunikasi & Pos</a></li>
-                                                            <li><a href="blog.html">Bidang Teknologi Informatika</a>
-                                                            </li>
-                                                            <li><a href="blog.html">Bidang Statistik</a></li>
-                                                            <li><a href="blog.html">Bidang Informasi & Publikasi</a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li><a href="single-blog.html">Personil Diskominfo</a></li>
-                                                    <li><a href="single-blog.html">Penghargaan</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Informasi Publik</a>
-                                                <ul class="submenu">
-                                                    <li><a href="single-blog.html">Profil PPID Kominfo</a></li>
-                                                    <li><a href="elements.html">Informasi Berkala</a></li>
-                                                    <li><a href="blog.html">Informasi Setiap Saat</a></li>
-                                                    <li><a href="single-blog.html">Informasi Serta Merta</a></li>
-                                                    <li><a href="single-blog.html">Permohonan Informasi</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Regulasi</a>
-                                                <ul class="submenu">
-                                                    <li><a href="single-blog.html">Undang-undang</a></li>
-                                                    <li><a href="elements.html">Perpres</a></li>
-                                                    <li><a href="blog.html">Permen</a></li>
-                                                    <li><a href="single-blog.html">Pergub</a></li>
-                                                    <li><a href="single-blog.html">Perbup</a></li>
-                                                    <li><a href="single-blog.html">SE Presiden</a></li>
-                                                    <li><a href="single-blog.html">SE Gubernur</a></li>
-                                                    <li><a href="single-blog.html">SE Bupati</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="about.html">Pengumuman</a></li>
-                                            <li><a href="latest_news.html">Layanan</a></li>
-                                            <li><a href="#">Dokumen Media</a>
-                                                <ul class="submenu">
-                                                    <li><a href="single-blog.html">Album Galeri</a></li>
-                                                    <li><a href="elements.html">Album Video</a></li>
-                                                    <li><a href="blog.html">Album Majalah/Publikasi</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
+                                <?php require_once 'template_navigation.php' ?>
 
                             </div>
                             <div class="col-xl-2 col-lg-2 col-md-4">
                                 <div class="header-right-btn f-right d-none d-lg-block">
                                     <i class="fas fa-search special-tag"></i>
                                     <div class="search-box">
-                                        <form action="<?=base_url('blog/')?>">
+                                        <form action="<?= base_url('blog/') ?>">
                                             <input name="search" type="text" placeholder="Cari berita ..">
                                         </form>
                                     </div>
@@ -281,7 +215,7 @@ $header = json_decode(json_encode($header));
                                 </p>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
