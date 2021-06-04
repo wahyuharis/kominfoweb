@@ -145,8 +145,8 @@
 
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-laptop"></i>
-                            <span>Informasi</span>
+                            <i class="fa fa-newspaper-o"></i>
+                            <span>Berita</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
@@ -159,7 +159,7 @@
 
                     <!-- Slider -->
                     <li class="<?php if (strtolower($this->uri->segment(2)) == 'slider') echo 'active' ?>"><a href="<?= base_url() ?>admin/slider">
-                            <i class="fa fa-slideshare"></i> <span>Slider</span>
+                            <i class="fa fa-image"></i> <span>Slider</span>
                             <span class="pull-right-container">
                                 <!-- <i class="fa fa-angle-left pull-right"></i> -->
                             </span>

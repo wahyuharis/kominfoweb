@@ -26,35 +26,15 @@ class Link extends CI_Controller
         $crud->set_theme('bootstrap');
         $crud->set_table('url');
         // $crud->fields('user_level');
+        $crud->display_as('title', 'Judul');
         $crud->display_as('url', 'Link URL');
         $crud->display_as('icon', 'Ikon');
 
-        $crud->required_fields('url', 'icon');
+        $crud->required_fields('title','url', 'icon');
 
         $crud->set_field_upload('icon', 'assets/uploads/files');
-        // $crud->display_as('image', 'Image');
-        // $crud->display_as('email', 'Email'); untuk membuat display sendiri" /fields
-
-
-        // $COLUMN = array( /*kolom yang ditampilkan */
-        //     'user_level_id',
-        //     'email',
-        //     'fullname'
-
-        // );
-
-        // $crud->columns($COLUMN); /*menampilkan kolom*/
-
-
-        // $crud->set_relation('user_level_id', 'user_levels', 'user_level');
-
 
         $crud->set_subject('Link');
-
-        // $crud->required_fields('lastName');
-
-        // $crud->set_field_upload('file_url', 'assets/uploads/files');
-
         $output = $crud->render();
 
         $template_data['content'] = $output->output;

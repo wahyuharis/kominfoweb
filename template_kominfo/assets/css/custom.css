@@ -123,9 +123,6 @@
 	color: #0066fe;
 }
 
-.weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-caption h4 a:hover {
-	color: #0066fe;
-}
 
 .weekly2-news-area .weekly2-wrapper .dot-style .slick-active button {
 	background: #0066fe;
@@ -416,7 +413,24 @@
 .carousel-item p{
 	color: #fff;
 }
+.weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-caption{
+	text-align: center;
+}
 
+.weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-caption span{
+	visibility: hidden;
+}
+
+.weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-img{
+	text-align: center;
+}
+
+.weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-img img{
+	width: 100px;
+	height: 100px;
+	border-radius: 6px;
+	display: inline;
+}
 /* .blog_area a:hover, .blog_area a :hover {
 	background: none;
 	-webkit-background-clip: unset;

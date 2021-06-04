@@ -67,8 +67,8 @@ $header = json_decode(json_encode($header));
                                 </div>
                                 <div class="header-info-right">
                                     <ul class="header-social">
-                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="https://twitter.com/kominfojember"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="https://www.instagram.com/kominfojember/"><i class="fab fa-instagram"></i></a></li>
                                         <li> <a href="#"><i class="fab fa-youtube"></i></a></li>
                                     </ul>
                                 </div>
@@ -116,15 +116,12 @@ $header = json_decode(json_encode($header));
                                     <nav>
                                         <ul id="navigation">
                                             <li><a href="<?=base_url()?>">Beranda</a></li>
-                                            <li><a href="<?=base_url('blog')?>">Berita</a>
-                                                <!-- <ul class="submenu">
-                                                    <li class=""><a href="#">Berita Kominfo</a></li>
-                                                    <li class=""><a href="#">Berita Pemerintahan</a></li>
-                                                    <li class=""><a href="#">Siaran Pers</a></li>
-                                                    <li class=""><a href="#">Sorotan Media</a></li>
+                                            <li><a href="#">Berita</a>
+                                                <ul class="submenu">
+                                                    <li class=""><a href="<?=base_url('blog')?>">Berita</a></li>
+                                                    <li class=""><a href="#">Agenda</a></li>
                                                     <li class=""><a href="#">Artikel</a></li>
-                                                    <li class=""><a href="#">Jember Pandalungan</a></li>
-                                                </ul> -->
+                                                </ul>
                                             </li>
 
                                             <li><a href="#">Profil</a>
@@ -237,8 +234,8 @@ $header = json_decode(json_encode($header));
                                 </div>
                                 <!-- social -->
                                 <div class="footer-social">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://twitter.com/kominfojember"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.instagram.com/kominfojember/"><i class="fab fa-instagram"></i></a>
                                     <a href="#"><i class="fab fa-youtube"></i></a>
                                 </div>
                             </div>
