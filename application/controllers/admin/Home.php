@@ -21,7 +21,7 @@ class Home extends CI_Controller
     {
 
         $content = $this->load->view('admin/home', [], true);
-        $template_data['box'] = true;
+        $template_data['box'] = false;
         $template_data['content'] = $content;
         $template_data['content_title'] = $this->title;
 
