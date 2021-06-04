@@ -5,6 +5,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Blog extends CI_Controller
 {
+
+    private $description = "";
+    private $keywords = "";
+
     public function __construct()
     {
         parent::__construct();
@@ -12,7 +16,6 @@ class Blog extends CI_Controller
 
     public function index()
     {
-
         $content_data = [];
 
         $search = $this->input->get('search');
@@ -42,7 +45,7 @@ class Blog extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-        
+
 
         $total_row = $this->db->where('deleted_at', null)
             ->group_start()
@@ -65,7 +68,6 @@ class Blog extends CI_Controller
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['berita_blog_list'] = $berita_blog_list;
         $content_data['pagination'] = $this->pagination->create_links();
-
 
         $view_data['content'] = $this->load->view('frontend/blog', $content_data, true);
 
@@ -93,6 +95,9 @@ class Blog extends CI_Controller
             ->get('feeds')
             ->row_object();
 
+        $this->description = $berita_detail->deskripsi;
+        $this->keywords = $berita_detail->kata_kunci;
+
         $berita_detail_next = $this->db
             ->select('feeds.*,users.fullname')
             ->where('deleted_at', null)
@@ -114,17 +119,12 @@ class Blog extends CI_Controller
         $content_data['berita_detail'] = $berita_detail;
         $content_data['berita_detail_next'] = $berita_detail_next;
         $content_data['berita_detail_prev'] = $berita_detail_prev;
-
-        // print_r2($content_data['berita_detail']);
-
-        // header_text();
-        // echo $berita_detail->id;
-        // echo "\n";
-        // echo $berita_detail_prev->id;
-        // die();
-
         $content_data['berita_kanan'] = $berita_kanan;
 
+        $view_data['description'] = $this->description;
+        $view_data['keywords'] = $this->keywords;
+
+        // print_r2($view_data);
         $view_data['content'] = $this->load->view('frontend/blog_content', $content_data, true);
 
         $this->load->view('frontend/template', $view_data);

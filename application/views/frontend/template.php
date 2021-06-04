@@ -8,10 +8,17 @@ foreach ($db->result_array() as $row) {
     $header[$row['header_name']] = $row;
 }
 $header = json_decode(json_encode($header));
-// print_r2($header);
+// print_r2($description);
 //############## get headers value as object #####################
 
 //############## berita sisi kanan ####################
+if (!isset($description)) {
+    $description = "";
+}
+if (!isset($keywords)) {
+    $keywords = "";
+}
+
 
 ?>
 
@@ -22,7 +29,15 @@ $header = json_decode(json_encode($header));
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title><?= NAMA_APLIKASI ?> </title>
-    <meta name="description" content="">
+    
+    <?php if (isset($description) && !empty(trim($description))) { ?>
+        <meta name="description" content="<?= $description ?>">
+    <?php } ?>
+
+    <?php if (isset($keywords) && !empty(trim($keywords))) {  ?>
+        <meta name="keywords" content="<?= $keywords ?>">
+    <?php } ?>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="manifest" href="site.webmanifest"> -->
     <link rel="icon" href="<?= base_url('assets/uploads/files/' . $header->tab_title->image) ?>">
