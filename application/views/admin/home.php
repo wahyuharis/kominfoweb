@@ -17,21 +17,21 @@
             </ol>
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="<?= base_url() ?>assets/slider/slider1.jpg" style="width: 1500px;" alt="First slide">
+                    <img src="<?= base_url() ?>assets/slider/slider1.jpg" style="width: 1500px; height:700px;" alt="First slide">
 
                     <div class="carousel-caption">
                         First Slide
                     </div>
                 </div>
                 <div class="item">
-                    <img src="<?= base_url() ?>assets/slider/slider1.jpg" style="width: 1500px;" alt="Second slide">
+                    <img src="<?= base_url() ?>assets/slider/slider1.jpg" style="width: 1500px; height:700px;" alt="Second slide">
 
                     <div class="carousel-caption">
                         Second Slide
                     </div>
                 </div>
                 <div class="item">
-                    <img src="<?= base_url() ?>assets/slider/slider1.jpg" style="width: 1500px;" alt="Third slide">
+                    <img src="<?= base_url() ?>assets/slider/slider1.jpg" style="width: 1500px; height:700px;" alt="Third slide">
 
                     <div class="carousel-caption">
                         Third Slide
