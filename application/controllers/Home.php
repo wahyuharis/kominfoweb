@@ -37,6 +37,14 @@ class Home extends CI_Controller
             ->get('feeds')
             ->result_array();
 
+        $link = $this->db->select('*')
+            ->get('url')
+            ->result_array();
+
+        // print_r2($link);
+
+
+        $content_data['link'] = $link;
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['berita_tengah'] = $berita_tengah;
         $content_data['berita_bawah'] = $berita_bawah;

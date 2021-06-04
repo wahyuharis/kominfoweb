@@ -123,8 +123,8 @@
                                 </div>
                                 <div class="trand-right-cap hover-show">
                                     <span class="color3">News</span>
-                                    <h4 class="short-title"><a href="<?=base_url('blog/detail/'.$bkanan['slug'])?>"><?= substr($bkanan['title'], 0, 50) ?>...</a></h4>
-                                    <h4 class="long-title"><a href="<?=base_url('blog/detail/'.$bkanan['slug'])?>"><?= $bkanan['title'] ?></a></h4>
+                                    <h4 class="short-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= substr($bkanan['title'], 0, 50) ?>...</a></h4>
+                                    <h4 class="long-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= $bkanan['title'] ?></a></h4>
                                     <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($btengah['date']) ?></p>
                                 </div>
                             </div>
@@ -286,7 +286,22 @@
             <div class="row">
                 <div class="col-12">
                     <div class="weekly2-news-active dot-style d-flex dot-style">
-                        <div class="weekly2-single">
+                        <!-- assets/uploads/files -->
+                        <?php foreach ($link  as $link_row) : ?>
+
+                            <div class="weekly2-single">
+                                <div class="weekly2-img">
+                                    <img src="<?= base_url('/assets/uploads/files/' . $link_row['icon']) ?>" style="width: 100px; height:100px;" alt="">
+                                </div>
+                                <div class="weekly2-caption">
+                                    <!-- <span class="color1">Link ke-1</span> -->
+
+                                    <h4><a href="<?= $link_row['url'] ?>"></a>-</h4>
+                                </div>
+                            </div>
+
+                        <?php endforeach; ?>
+                        <!-- <div class="weekly2-single">
                             <div class="weekly2-img">
                                 <img src="<?= base_url() ?>template_kominfo/assets/img/banner/kartini.png" alt="">
                             </div>
@@ -335,7 +350,7 @@
 
                                 <h4><a href="#">Link Produk Hukum Pemerintah Kabupaten Jember</a></h4>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
