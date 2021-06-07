@@ -4,11 +4,11 @@
             <div class="col-lg-8 posts-list">
                 <div class="single-post">
                     <div class="feature-img">
-                        <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $visi_misi->gambar) ?>" alt="">
+                        <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $struktur_organisasi->gambar) ?>" alt="">
                     </div>
                     <div class="blog_details">
                         <h2>
-                            <?= $visi_misi->judul ?>
+                            <?= $struktur_organisasi->judul ?>
                         </h2>
                         <br>
 
@@ -17,8 +17,8 @@
                             <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($berita_detail->date)  ?></a></li> -->
                         </ul>
                         <br>
-
-                        <?= $visi_misi->konten ?>
+                        <!-- 
+                        <?= $struktur_organisasi->konten ?> -->
 
 
                     </div>
@@ -26,7 +26,7 @@
                 <div class="navigation-top">
                     <div class="d-sm-flex justify-content-between text-center">
                         <p class="like-info"><span class="align-middle"><i class="fa fa-eye"></i></span>
-                            <?= $visi_misi->judul ?>
+                            <?= $struktur_organisasi->judul ?>
                             kali dilihat </p>
                         <div class="col-sm-4 text-center my-2 my-sm-0">
                             <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->

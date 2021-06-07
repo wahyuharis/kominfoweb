@@ -4,21 +4,21 @@
             <div class="col-lg-8 posts-list">
                 <div class="single-post">
                     <div class="feature-img">
-                        <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $visi_misi->gambar) ?>" alt="">
+                        <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $penghargaan->image) ?>" alt="">
                     </div>
                     <div class="blog_details">
                         <h2>
-                            <?= $visi_misi->judul ?>
+                            <?= $penghargaan->title ?>
                         </h2>
                         <br>
 
-                        <!-- <ul class="blog-info-link mt-3 mb-4">
-                            <li><a href="#"><i class="fa fa-user"></i> <?= $berita_detail->fullname ?></a></li>
-                            <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($berita_detail->date)  ?></a></li> -->
+                        <ul class="blog-info-link mt-3 mb-4">
+                            <!-- <li><a href="#"><i class="fa fa-user"></i> <?= $berita_detail->fullname ?></a></li> -->
+                            <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($penghargaan->jam)  ?></a></li>
                         </ul>
                         <br>
 
-                        <?= $visi_misi->konten ?>
+                        <?= $penghargaan->content ?>
 
 
                     </div>
@@ -26,7 +26,7 @@
                 <div class="navigation-top">
                     <div class="d-sm-flex justify-content-between text-center">
                         <p class="like-info"><span class="align-middle"><i class="fa fa-eye"></i></span>
-                            <?= $visi_misi->judul ?>
+                            <?= $penghargaan->title ?>
                             kali dilihat </p>
                         <div class="col-sm-4 text-center my-2 my-sm-0">
                             <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
