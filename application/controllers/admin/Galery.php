@@ -27,11 +27,14 @@ class Galery extends CI_Controller
 
         $crud->set_theme('bootstrap');
         $crud->set_table('galleries');
+        $crud->unset_add();
+        $crud->unset_edit();
 
-        $crud->columns('category', 'caption', 'image');
-        $crud->fields('category', 'caption', 'image');
+        $crud->add_action('edit', '', 'admin/galery/edit/', 'fa fa-pencil');
 
-        $crud->display_as('category', 'Kategori');
+        $crud->columns('caption', 'image');
+        $crud->fields('caption', 'image');
+
         $crud->display_as('caption', 'Caption');
         $crud->display_as('image', 'File Upload');
 
@@ -44,11 +47,20 @@ class Galery extends CI_Controller
 
         $output = $crud->render();
 
-        $template_data['content'] = $output->output;
+        $content_data['output'] = $output->output;
+
+        $content = $this->load->view('admin/galery/galery', $content_data, true);
+
+        $template_data['content'] = $content;
         $template_data['content_title'] = $this->title;
         $template_data['js_files'] = $output->js_files;
         $template_data['css_files'] = $output->css_files;
+        $template_data['box'] = false;
 
         $this->load->view('admin/template', $template_data);
+    }
+
+    function add(){
+        
     }
 }
