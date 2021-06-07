@@ -26,17 +26,13 @@ class Personil_diskominfo extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-        // print_r2($personil);
 
 
         $content_data['personil'] = $personil;
         $content_data['berita_kanan'] = $berita_kanan;
 
-        // $view_data['description'] = $this->description;
-        // $view_data['keywords'] = $this->keywords;
         $view_data['content'] = $this->load->view('frontend/profile/personil_diskominfo', $content_data, true);
 
-        // print_r2($view_data);
 
         $this->load->view('frontend/template', $view_data);
     }
