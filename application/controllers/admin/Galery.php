@@ -30,7 +30,7 @@ class Galery extends CI_Controller
         $crud->unset_add();
         $crud->unset_edit();
 
-        $crud->add_action('edit', '', 'admin/galery/edit/', 'fa fa-pencil');
+        // $crud->add_action('edit', '', 'admin/galery/edit/', 'fa fa-pencil');
 
         $crud->columns('caption', 'image');
         $crud->fields('caption', 'image');
@@ -60,7 +60,7 @@ class Galery extends CI_Controller
         $this->load->view('admin/template', $template_data);
     }
 
-    function add(){
+    // function add(){
         
-    }
+    // }
 }
