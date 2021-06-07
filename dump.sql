@@ -1,13 +1,13 @@
--- MariaDB dump 10.17  Distrib 10.4.13-MariaDB, for Win64 (AMD64)
+-- MySQL dump 10.16  Distrib 10.1.36-MariaDB, for Win32 (AMD64)
 --
 -- Host: localhost    Database: db_infokom
 -- ------------------------------------------------------
--- Server version	10.4.13-MariaDB
+-- Server version	10.1.36-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -60,13 +60,13 @@ CREATE TABLE `feeds` (
   `deskripsi` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `kata_kunci` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `content` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` longtext COLLATE utf8_unicode_ci,
   `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `view` int(11) DEFAULT 0,
+  `view` int(11) DEFAULT '0',
   `penanggungjawab` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `jam` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `slug` (`slug`)
@@ -147,7 +147,7 @@ CREATE TABLE `halaman` (
   `kategori` enum('Personil Diskominfo','Sejarah Dinas','Struktur Organisasi','Tupoksi','Visi Misi') NOT NULL,
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `gambar` varchar(255) NOT NULL,
@@ -174,7 +174,7 @@ DROP TABLE IF EXISTS `header`;
 CREATE TABLE `header` (
   `id_header` int(11) NOT NULL AUTO_INCREMENT,
   `header_name` varchar(50) DEFAULT NULL,
-  `content` text DEFAULT NULL,
+  `content` text,
   `image` varchar(200) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
@@ -232,17 +232,17 @@ CREATE TABLE `profile_penghargaan` (
   `deskripsi` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `kata_kunci` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `content` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` longtext COLLATE utf8_unicode_ci,
   `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `view` int(11) DEFAULT 0,
+  `view` int(11) DEFAULT '0',
   `penanggungjawab` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `jam` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id_penghargaan`) USING BTREE,
   UNIQUE KEY `slug` (`slug`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -251,6 +251,7 @@ CREATE TABLE `profile_penghargaan` (
 
 LOCK TABLES `profile_penghargaan` WRITE;
 /*!40000 ALTER TABLE `profile_penghargaan` DISABLE KEYS */;
+INSERT INTO `profile_penghargaan` VALUES (1,16,'2021-06-01','','Penghargaan-Contoh-1','penghargaan diberikan kepada Yth','penghargaan contoh 1','Penghargaan Contoh 1','<p>\n	<span style=\"color: rgb(0, 0, 0); font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif;\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris.</span></p>\n','30713-tutor-mas-hariz.png',0,NULL,NULL,'2021-06-07 09:43:09','2021-06-07 09:43:09',NULL);
 /*!40000 ALTER TABLE `profile_penghargaan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -267,11 +268,11 @@ CREATE TABLE `profile_personil` (
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_personil`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -280,6 +281,7 @@ CREATE TABLE `profile_personil` (
 
 LOCK TABLES `profile_personil` WRITE;
 /*!40000 ALTER TABLE `profile_personil` DISABLE KEYS */;
+INSERT INTO `profile_personil` VALUES (1,'Personil Diskominfo','Personil Contoh 1','<p>\n	<span style=\"color: rgb(0, 0, 0); font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif;\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris.</span></p>\n','86ffb-bn1.jpg','2021-06-07 03:19:34','2021-06-07 02:57:23',NULL);
 /*!40000 ALTER TABLE `profile_personil` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -296,11 +298,11 @@ CREATE TABLE `profile_sejarah_dinas` (
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_sejarah_dinas`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -309,6 +311,7 @@ CREATE TABLE `profile_sejarah_dinas` (
 
 LOCK TABLES `profile_sejarah_dinas` WRITE;
 /*!40000 ALTER TABLE `profile_sejarah_dinas` DISABLE KEYS */;
+INSERT INTO `profile_sejarah_dinas` VALUES (1,'Personil Diskominfo','x','x','x','2021-06-07 03:07:54','2021-06-07 03:07:54',NULL);
 /*!40000 ALTER TABLE `profile_sejarah_dinas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -324,11 +327,11 @@ CREATE TABLE `profile_struktur_organisasi` (
   `kategori` enum('Personil Diskominfo','Sejarah Dinas','Struktur Organisasi','Tupoksi','Visi Misi') NOT NULL,
   `judul` varchar(255) NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_struktur_organisasi`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -337,6 +340,7 @@ CREATE TABLE `profile_struktur_organisasi` (
 
 LOCK TABLES `profile_struktur_organisasi` WRITE;
 /*!40000 ALTER TABLE `profile_struktur_organisasi` DISABLE KEYS */;
+INSERT INTO `profile_struktur_organisasi` VALUES (1,'Personil Diskominfo','Struktur Contoh 1','xxx','2021-06-07 03:17:17','2021-06-07 03:17:17',NULL);
 /*!40000 ALTER TABLE `profile_struktur_organisasi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -353,11 +357,11 @@ CREATE TABLE `profile_tupoksi` (
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_tupoksi`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -366,6 +370,7 @@ CREATE TABLE `profile_tupoksi` (
 
 LOCK TABLES `profile_tupoksi` WRITE;
 /*!40000 ALTER TABLE `profile_tupoksi` DISABLE KEYS */;
+INSERT INTO `profile_tupoksi` VALUES (1,'Personil Diskominfo','Contoh Tupoksi 1','<p>\n	<span style=\"color: rgb(0, 0, 0); font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif;\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris.</span></p>\n','a7b23-bbn2.jpg','2021-06-07 03:23:46','2021-06-07 03:23:46',NULL);
 /*!40000 ALTER TABLE `profile_tupoksi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -382,11 +387,11 @@ CREATE TABLE `profile_visi_misi` (
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_visi_misi`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -395,6 +400,7 @@ CREATE TABLE `profile_visi_misi` (
 
 LOCK TABLES `profile_visi_misi` WRITE;
 /*!40000 ALTER TABLE `profile_visi_misi` DISABLE KEYS */;
+INSERT INTO `profile_visi_misi` VALUES (1,'Personil Diskominfo','visi misi','<p>\n	<span style=\"color: rgb(0, 0, 0); font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif;\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris.</span></p>\n','8ce2e-tutor-mas-hariz.png','2021-06-07 01:31:57','2021-06-07 01:27:55',NULL);
 /*!40000 ALTER TABLE `profile_visi_misi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -411,10 +417,10 @@ CREATE TABLE `profiles` (
   `headline` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sub_headline` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `counter` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `featured` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `pages` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
-  `social_media` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `counter` text COLLATE utf8_unicode_ci,
+  `featured` text COLLATE utf8_unicode_ci,
+  `pages` longtext COLLATE utf8_unicode_ci,
+  `social_media` text COLLATE utf8_unicode_ci,
   `created_at` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
@@ -444,8 +450,8 @@ CREATE TABLE `regulasi` (
   `nama_produk` varchar(255) DEFAULT NULL,
   `nomor` varchar(20) DEFAULT NULL,
   `tanggal_terbit` date NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `upload_file` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_regulasi`)
@@ -608,4 +614,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-04 18:45:15
+-- Dump completed on 2021-06-07 13:31:48
