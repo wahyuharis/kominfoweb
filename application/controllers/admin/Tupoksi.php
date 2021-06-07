@@ -25,17 +25,18 @@ class Tupoksi extends CI_Controller
 
         $crud->set_theme('bootstrap');
         $crud->set_table('profile_tupoksi');
-        $crud->required_fields( 'judul', 'konten', 'gambar');
+        $crud->required_fields('tupoksi_kategori', 'konten', 'gambar');
 
-        $crud->fields( 'judul', 'konten', 'gambar');
+        $crud->fields('tupoksi_kategori', 'konten', 'gambar');
+        $crud->columns('tupoksi_kategori', 'konten', 'gambar');
 
-        $crud->columns( 'judul', 'konten', 'gambar');
-
-        $crud->display_as('judul', 'Judul');
+        $crud->display_as('tupoksi_kategori', 'Tupoksi');
         $crud->display_as('konten', 'Konten');
         $crud->display_as('gambar', 'Gambar');
 
-        $crud->required_fields( 'judul', 'konten', 'gambar');
+        $crud->set_relation('tupoksi_kategori','profile_tupoksi_kategori','kategori_tupoksi');
+
+        $crud->required_fields('tupoksi_kategori','konten', 'gambar');
 
         $crud->set_field_upload('gambar', 'assets/uploads/files');
 
