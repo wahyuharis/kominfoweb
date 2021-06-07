@@ -90,7 +90,7 @@ class Image_moo
 	public $width=0;
 	public $height=0;
 
-	function Image_moo()
+	function __construct()
 	//----------------------------------------------------------------------------------------------------------
 	// create stuff here as needed
 	//----------------------------------------------------------------------------------------------------------
@@ -611,7 +611,7 @@ class Image_moo
 		// check it
 		if(!is_resource($this->temp_image))
 		{
-			$this->set_error('Unable to create temp image sized '.$x2-$x1.' x '.$y2-$y1);
+			$this->set_error('Unable to create temp image sized ' . ($x2 - $x1) .' x '. ($y2 - $y1));
 			return $this;
 		}
 
