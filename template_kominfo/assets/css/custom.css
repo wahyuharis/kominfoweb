@@ -123,7 +123,6 @@
 	color: #0066fe;
 }
 
-
 .weekly2-news-area .weekly2-wrapper .dot-style .slick-active button {
 	background: #0066fe;
 }
@@ -378,59 +377,73 @@
 	background-color: #0a68a1;
 	color: #ecf0f1;
 }
+
 .bg-custom-theme {
 	background-color: #34495e;
 }
+
 .header-area .header-top .header-info-right .header-social li a:hover {
 	color: #0097e6;
 }
+
 .footer-area .footer-social a i {
 	color: #ecf0f1;
 }
+
 .media-body span {
 	color: #ecf0f1;
 }
 
-.single-post-area .navigation-area .nav-left .thumb img{
+.single-post-area .navigation-area .nav-left .thumb img {
 	height: 60px;
 	width: 60px;
 }
 
-.single-post-area .navigation-area .nav-right .thumb img{
+.single-post-area .navigation-area .nav-right .thumb img {
 	height: 60px;
 	width: 60px;
 }
-.trending-area .trending-main .trand-right-single .trand-right-cap h4{
+
+.trending-area .trending-main .trand-right-single .trand-right-cap h4 {
 	font-size: 16px;
 }
-.trending-area .trending-main .trending-bottom .single-bottom .trend-bottom-img img{
+
+.trending-area .trending-main .trending-bottom .single-bottom .trend-bottom-img img {
 	height: 158px;
 }
-.whats-news-area .whats-news-caption .single-what-news .what-img img, .about-area .whats-news-caption .single-what-news .what-img img, .contact-section .whats-news-caption .single-what-news .what-img img{
+
+.whats-news-area .whats-news-caption .single-what-news .what-img img, .about-area .whats-news-caption .single-what-news .what-img img, .contact-section .whats-news-caption .single-what-news .what-img img {
 	height: 229px;
 }
 
-.carousel-item p{
+.carousel-item p {
 	color: #fff;
 }
-.weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-caption{
+
+.weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-caption {
 	text-align: center;
 }
 
-.weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-caption span{
+.weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-caption span {
 	visibility: hidden;
 }
 
-.weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-img{
+.weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-img {
 	text-align: center;
 }
 
-.weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-img img{
+.weekly2-news-area .weekly2-wrapper .weekly2-single .weekly2-img img {
 	width: 100px;
 	height: 100px;
 	border-radius: 6px;
 	display: inline;
 }
+
+a {
+	color: #212529;
+	font-weight: bold;
+}
+
 /* .blog_area a:hover, .blog_area a :hover {
 	background: none;
 	-webkit-background-clip: unset;

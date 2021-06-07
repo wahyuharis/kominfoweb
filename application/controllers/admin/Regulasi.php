@@ -22,46 +22,21 @@ class Regulasi extends CI_Controller
     {
 
         $crud = new grocery_CRUD();
-        $crud->unset_bootstrap(); /*wajib ada karena boostrap grocery bentrok dengan boodtrap adminlte*/
-        $crud->unset_jquery(); /*wajib ada karena boostrap grocery bentrok dengan jquery adminlte*/
-
+        $crud->unset_bootstrap();
+        $crud->unset_jquery();
         $crud->set_theme('bootstrap');
         $crud->set_table('regulasi');
-        $crud->fields('kategori', 'nama_produk', 'nomor', 'tanggal_terbit', 'upload_file');
-        $crud->columns('kategori', 'nama_produk', 'nomor', 'tanggal_terbit', 'upload_file');
-
-        $crud->display_as('kategori', 'Kategori');
-        $crud->display_as('nama_produk', 'Nama Produk Hukum');
-        $crud->display_as('nomor', 'Nomor');
-        $crud->display_as('tanggal_terbit', 'Tanggal Terbit');
-        $crud->display_as('upload_file', 'Upload File');
-
-        $crud->required_fields('kategori', 'nama_produk', 'nomor', 'tanggal_terbit', 'upload_file');
-        $crud->set_rules('upload_file', 'Upload File', 'trim|required|pdf');
-
-        $crud->set_field_upload('upload_file', 'assets/uploads/files');
-
-        // $crud->display_as('email', 'Email'); untuk membuat display sendiri" /fields
-
-
-        // $COLUMN = array( /*kolom yang ditampilkan */
-        //     'user_level_id',
-        //     'email',
-        //     'fullname'
-
-        // );
-
-        // $crud->columns($COLUMN); /*menampilkan kolom*/
-
-
-        // $crud->set_relation('user_level_id', 'user_levels', 'user_level');
-
 
         $crud->set_subject('Regulasi');
 
-        // $crud->required_fields('lastName');
+        $crud->columns('id_kategori', 'nama_produk', 'nomor', 'tanggal_terbit', 'document');
+        $crud->fields('id_kategori', 'nama_produk', 'nomor', 'tanggal_terbit', 'document');
+        $crud->set_field_upload('document', 'assets/uploads/files');
+        $crud->required_fields();
 
-        // $crud->set_field_upload('file_url', 'assets/uploads/files');
+        $crud->set_relation('id_kategori','regulasi_kategori','nama_kategori');
+
+        $crud->callback_before_upload(array($this, '_callback_upload'));
 
         $output = $crud->render();
 
@@ -71,5 +46,22 @@ class Regulasi extends CI_Controller
         $template_data['css_files'] = $output->css_files;
 
         $this->load->view('admin/template', $template_data);
+    }
+
+    function _callback_upload($files_to_upload, $field_info)
+    {
+        $return = true;
+
+        // print_r2($files_to_upload);
+
+        $type = $files_to_upload[$field_info->encrypted_field_name]['type'];
+
+        if ($type == 'application/pdf') {
+            $return = true;
+        } else {
+            $return = "Maaf File Harap Dalam Format PDF";
+        }
+
+        return $return;
     }
 }
