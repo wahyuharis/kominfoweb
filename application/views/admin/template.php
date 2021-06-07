@@ -190,7 +190,7 @@
                             <li class="<?php if (strtolower($this->uri->segment(2)) == 'sejarah_dinas') echo 'active' ?>"><a href="<?= base_url() ?>admin/sejarah_dinas/index/edit/1"><i class="fa fa-circle-o"></i> Sejarah Dinas</a></li>
                             <li class="<?php if (strtolower($this->uri->segment(2)) == 'visi_misi') echo 'active' ?>"><a href="<?= base_url() ?>admin/visi_misi/index/edit/1"><i class="fa fa-circle-o"></i> Visi Dan Misi</a></li>
                             <li class="<?php if (strtolower($this->uri->segment(2)) == 'tupoksi') echo 'active' ?>"><a href="<?= base_url() ?>admin/tupoksi"><i class="fa fa-circle-o"></i> Tugas Dan Fungsi</a></li>
-                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'personil') echo 'active' ?>"><a href="<?= base_url() ?>admin/personil"><i class="fa fa-circle-o"></i> Personil Diskominfo</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'personil') echo 'active' ?>"><a href="<?= base_url() ?>admin/personil/index/edit/1"><i class="fa fa-circle-o"></i> Personil Diskominfo</a></li>
                         </ul>
                     </li>
                     <!-- End Profil -->
