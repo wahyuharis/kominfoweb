@@ -15,10 +15,10 @@
                     <li class="<?php if (strtolower($this->uri->segment(2)) == 'struktur_organisasi') echo 'active' ?>"><a href="<?= base_url() ?>struktur_organisasi">Struktur Organisasi</a></li>
                     <li class="<?php if (strtolower($this->uri->segment(2)) == 'sejarah_dinas') echo 'active' ?>"><a href="<?= base_url() ?>sejarah_dinas">Sejarah Dinas</a></li>
                     <li class="<?php if (strtolower($this->uri->segment(2)) == 'visi_misi') echo 'active' ?>"><a href="<?= base_url() ?>visi_misi">Visi & Misi</a></li>
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'tupoksi') echo 'active' ?>"><a href="<?= base_url() ?>tupoksi">Tupoksi</a>
+                    <li><a href="#">Tupoksi</a>
                         <ul class="submenu2">
-                            <li><a href="#">Diskominfo</a></li>
-                            <li><a href="#">Kepala Dinas</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'tupoksi') echo 'active' ?>"><a href="<?= base_url() ?>tupoksi">Diskominfo</a></li>
+                            <li><a href=" #">Kepala Dinas</a></li>
                             <li><a href="#">Sekretariat</a></li>
                             <li><a href="#">Bidang Komunikasi & Pos</a></li>
                             <li><a href="#">Bidang Teknologi Informatika</a>

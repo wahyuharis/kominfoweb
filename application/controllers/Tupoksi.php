@@ -12,11 +12,14 @@ class Tupoksi extends CI_Controller
         parent::__construct();
     }
 
-    public function index()
+    public function index($id = null)
     {
-        $tupoksi = $this->db->select('*')
+        $tupoksi = $this->db->select('profile_tupoksi.*,profile_tupoksi_kategori.kategori_tupoksi')
+            ->where('profile_tupoksi_kategori.id_tupoksi_kategori', $id)
+            ->join('profile_tupoksi_kategori', 'profile_tupoksi_kategori.id_tupoksi_kategori=profile_tupoksi.id_tupoksi')
             ->get('profile_tupoksi')
             ->row_object();
+
 
         $berita_kanan = $this->db->where('deleted_at', null)
             ->select('feeds.*,users.fullname')
@@ -26,7 +29,7 @@ class Tupoksi extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-        // print_r2($visi_misi);
+        // print_r2($tupoksi);
 
 
         $content_data['tupoksi'] = $tupoksi;
