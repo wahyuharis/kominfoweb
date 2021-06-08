@@ -394,7 +394,7 @@ CREATE TABLE `profile_tupoksi_kategori` (
 
 LOCK TABLES `profile_tupoksi_kategori` WRITE;
 /*!40000 ALTER TABLE `profile_tupoksi_kategori` DISABLE KEYS */;
-INSERT INTO `profile_tupoksi_kategori` VALUES (1,'Diskominfo','0'),(2,'Kepala Dinas','0'),(3,'Sekretariat','0'),(4,'Bidang Komunikasi & Pos','0'),(5,'Bidang Teknologi Informatika','0'),(6,'Bidang Statistik','0'),(7,'Bidang Informasi & Publikasi','0'),(8,'Sub Bagian Umum Dan Kepegawaian','3'),(9,'Sub Bagian Keuangan','3'),(10,'Sub Bagian Perencanaan Dan Pelaporan','3');
+INSERT INTO `profile_tupoksi_kategori` VALUES (1,'Diskominfo','0'),(2,'Kepala Dinas','0'),(3,'Sekretariat','0'),(4,'Bidang Komunikasi & Pos','0'),(5,'Bidang Teknologi Informatika','0'),(6,'Bidang Statistik','0'),(7,'Bidang Informasi & Publikasi','0');
 /*!40000 ALTER TABLE `profile_tupoksi_kategori` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -665,4 +665,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-08 14:17:09
+-- Dump completed on 2021-06-08 15:12:43

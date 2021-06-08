@@ -20,7 +20,6 @@
 
                         <?= $tupoksi->konten ?>
 
-
                     </div>
                 </div>
                 <div class="navigation-top">

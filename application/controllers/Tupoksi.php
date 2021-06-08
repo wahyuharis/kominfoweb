@@ -14,13 +14,18 @@ class Tupoksi extends CI_Controller
 
     public function index($id = null)
     {
-
         // $coba = $this->db->query('SELECT pt.*, kt.kategori_tupoksi FROM `profile_tupoksi` AS pt JOIN profile_tupoksi_kategori AS kt ON pt.tupoksi_kategori = kt.id_tupoksi_kategori WHERE pt.id_tupoksi=3')->row();
         $tupoksi = $this->db->where('profile_tupoksi.tupoksi_kategori', $id)
             ->select('profile_tupoksi.*,profile_tupoksi_kategori.kategori_tupoksi')
             ->join('profile_tupoksi_kategori', 'profile_tupoksi_kategori.id_tupoksi_kategori=profile_tupoksi.id_tupoksi', 'left')
             ->get('profile_tupoksi')
             ->row_object();
+
+        // $bawahan = $this->db->select('*')
+        //     ->where('atasan', $id)
+        //     ->get('profile_tupoksi_kategori')
+        //     ->result_array();
+
 
 
         $berita_kanan = $this->db->where('deleted_at', null)
@@ -36,6 +41,7 @@ class Tupoksi extends CI_Controller
 
         $content_data['tupoksi'] = $tupoksi;
         $content_data['berita_kanan'] = $berita_kanan;
+        // $content_data['bawahan'] = $bawahan;
 
         // $view_data['description'] = $this->description;
         // $view_data['keywords'] = $this->keywords;
