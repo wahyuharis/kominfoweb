@@ -41,16 +41,18 @@
                     <li><a href="#">Permohonan Informasi</a></li>
                 </ul>
             </li>
-            <li><a href="#">Regulasi</a>
+            <li><a href="<?=base_url('regulasi')?>">Regulasi</a>
                 <ul class="submenu">
-                    <li><a href="#">Undang-undang</a></li>
-                    <li><a href="#">Perpres</a></li>
-                    <li><a href="#">Permen</a></li>
-                    <li><a href="#">Pergub</a></li>
-                    <li><a href="#">Perbup</a></li>
-                    <li><a href="#">SE Presiden</a></li>
-                    <li><a href="#">SE Gubernur</a></li>
-                    <li><a href="#">SE Bupati</a></li>
+                    <li><a href="<?=base_url('regulasi?slug=undang-undang')?>">Undang-undang</a></li>
+                    <li><a href="<?=base_url('regulasi?slug=peraturan-presiden')?>">Peraturan Presiden</a></li>
+                    <li><a href="<?=base_url('regulasi?slug=peraturan-menteri')?>">Peraturan Menteri</a></li>
+                    <li><a href="<?=base_url('regulasi?slug=peraturan-gubernur')?>">Peraturan Gubernur</a></li>
+                    <li><a href="<?=base_url('regulasi?slug=peraturan-bupati')?>">Peraturan Bupati</a></li>
+                    <li><a href="<?=base_url('regulasi?slug=peraturan-daerah')?>">Peraturan Daerah</a></li>
+                    <li><a href="<?=base_url('regulasi?slug=sk-bupati')?>">SK Bupati</a></li>
+                    <li><a href="<?=base_url('regulasi?slug=se-presiden')?>">SE Presiden</a></li>
+                    <li><a href="<?=base_url('regulasi?slug=se-gubernur')?>">SE Gubernur</a></li>
+                    <li><a href="<?=base_url('regulasi?slug=se-bupati')?>">SE Bupati</a></li>
                 </ul>
             </li>
             <li><a href="#">Pengumuman</a></li>
