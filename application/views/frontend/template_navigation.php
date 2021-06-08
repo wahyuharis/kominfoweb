@@ -17,14 +17,14 @@
                     <li class="<?php if (strtolower($this->uri->segment(2)) == 'visi_misi') echo 'active' ?>"><a href="<?= base_url() ?>visi_misi">Visi & Misi</a></li>
                     <li><a href="#">Tupoksi</a>
                         <ul class="submenu2">
-                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'tupoksi') echo 'active' ?>"><a href="<?= base_url() ?>tupoksi">Diskominfo</a></li>
-                            <li><a href=" #">Kepala Dinas</a></li>
-                            <li><a href="#">Sekretariat</a></li>
-                            <li><a href="#">Bidang Komunikasi & Pos</a></li>
-                            <li><a href="#">Bidang Teknologi Informatika</a>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'tupoksi') echo 'active' ?>"><a href="<?= base_url('tupoksi/index/' . $id = 1) ?>">Diskominfo</a></li>
+                            <li><a href="<?= base_url('tupoksi/index/' . $id = 2) ?>">Kepala Dinas</a></li>
+                            <li><a href="<?= base_url('tupoksi/index/' . $id = 3) ?>">Sekretariat</a></li>
+                            <li><a href="<?= base_url('tupoksi/index/' . $id = 4) ?>">Bidang Komunikasi & Pos</a></li>
+                            <li><a href="<?= base_url('tupoksi/index/' . $id = 5) ?>">Bidang Teknologi Informatika</a>
                             </li>
-                            <li><a href="#">Bidang Statistik</a></li>
-                            <li><a href="#">Bidang Informasi & Publikasi</a>
+                            <li><a href="<?= base_url('tupoksi/index/' . $id = 6) ?>">Bidang Statistik</a></li>
+                            <li><a href="<?= base_url('tupoksi/index/' . $id = 7) ?>">Bidang Informasi & Publikasi</a>
                             </li>
                         </ul>
                     </li>

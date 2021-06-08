@@ -25,7 +25,7 @@ class Struktur_organisasi extends CI_Controller
 
         $crud->set_theme('bootstrap');
         $crud->set_table('profile_struktur_organisasi');
-        $crud->required_fields( 'judul', 'gambar');
+        $crud->required_fields('judul', 'gambar');
         $crud->unset_list();
         $crud->unset_add();
         $crud->unset_delete();
@@ -38,8 +38,6 @@ class Struktur_organisasi extends CI_Controller
         $crud->display_as('gambar', 'Gambar');
 
         $crud->fields('judul', 'gambar');
-
-        $crud->required_fields( 'judul', 'gambar');
 
         $crud->set_field_upload('gambar', 'assets/uploads/files');
 
