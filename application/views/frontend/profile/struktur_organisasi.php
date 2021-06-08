@@ -2,15 +2,15 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 posts-list">
-                <div class="single-post">
-                    <div class="feature-img">
-                        <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $struktur_organisasi->gambar) ?>" alt="">
-                    </div>
-                    <div class="blog_details">
-                        <h2>
-                            <?= $struktur_organisasi->judul ?>
-                        </h2>
-                        <br>
+                <div class="blog_details">
+                    <h2>
+                        <?= $struktur_organisasi->judul ?>
+                    </h2>
+                    <br>
+                    <div class="single-post">
+                        <div class="feature-img">
+                            <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $struktur_organisasi->gambar) ?>" alt="">
+                        </div>
 
                         <!-- <ul class="blog-info-link mt-3 mb-4">
                             <li><a href="#"><i class="fa fa-user"></i> <?= $berita_detail->fullname ?></a></li>
