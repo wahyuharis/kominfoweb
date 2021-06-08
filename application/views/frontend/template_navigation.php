@@ -12,12 +12,12 @@
 
             <li><a href="#">Profil</a>
                 <ul class="submenu">
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'struktur_organisasi') echo 'active' ?>"><a href="<?= base_url() ?>struktur_organisasi">Struktur Organisasi</a></li>
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'sejarah_dinas') echo 'active' ?>"><a href="<?= base_url() ?>sejarah_dinas">Sejarah Dinas</a></li>
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'visi_misi') echo 'active' ?>"><a href="<?= base_url() ?>visi_misi">Visi & Misi</a></li>
+                    <li><a href="<?= base_url() ?>struktur_organisasi">Struktur Organisasi</a></li>
+                    <li><a href="<?= base_url() ?>sejarah_dinas">Sejarah Dinas</a></li>
+                    <li><a href="<?= base_url() ?>visi_misi">Visi & Misi</a></li>
                     <li><a href="#">Tupoksi</a>
                         <ul class="submenu2">
-                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'tupoksi') echo 'active' ?>"><a href="<?= base_url('tupoksi/index/' . $id = 1) ?>">Diskominfo</a></li>
+                            <li><a href="<?= base_url('tupoksi/index/' . $id = 1) ?>">Diskominfo</a></li>
                             <li><a href="<?= base_url('tupoksi/index/' . $id = 2) ?>">Kepala Dinas</a></li>
                             <li><a href="<?= base_url('tupoksi/index/' . $id = 3) ?>">Sekretariat</a></li>
                             <li><a href="<?= base_url('tupoksi/index/' . $id = 4) ?>">Bidang Komunikasi & Pos</a></li>
@@ -28,8 +28,8 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'personil_diskominfo') echo 'active' ?>"><a href="<?= base_url() ?>personil_diskominfo">Personil Diskominfo</a></li>
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'penghargaan') echo 'active' ?>"><a href="<?= base_url() ?>penghargaan">Penghargaan</a></li>
+                    <li><a href="<?= base_url() ?>personil_diskominfo">Personil Diskominfo</a></li>
+                    <li><a href="<?= base_url() ?>penghargaan">Penghargaan</a></li>
                 </ul>
             </li>
             <li><a href="#">Informasi Publik</a>

@@ -25,9 +25,11 @@ class Tupoksi extends CI_Controller
 
         $crud->set_theme('bootstrap');
         $crud->set_table('profile_tupoksi');
+        // $crud->where(['profile_tupoksi_kategori.atasan' => '3']);
         $crud->required_fields('judul', 'tupoksi_kategori', 'konten', 'gambar');
-
         $crud->fields('judul', 'tupoksi_kategori', 'konten', 'gambar');
+
+
         $crud->columns('judul', 'tupoksi_kategori', 'konten', 'gambar');
 
         $crud->display_as('judul', 'Judul');
@@ -35,7 +37,9 @@ class Tupoksi extends CI_Controller
         $crud->display_as('konten', 'Konten');
         $crud->display_as('gambar', 'Gambar');
 
-        $crud->set_relation('tupoksi_kategori', 'profile_tupoksi_kategori', 'kategori_tupoksi');
+        $crud->set_relation('tupoksi_kategori', 'profile_tupoksi_kategori', 'kategori_tupoksi', array('atasan' => '0'));
+
+        // $crud->where('profile_tupoksi_kategori.atasan', 3);
 
         // $crud->required_fields('tupoksi_kategori', 'konten', 'gambar');
 
