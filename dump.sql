@@ -383,8 +383,9 @@ DROP TABLE IF EXISTS `profile_tupoksi_kategori`;
 CREATE TABLE `profile_tupoksi_kategori` (
   `id_tupoksi_kategori` int(11) NOT NULL AUTO_INCREMENT,
   `kategori_tupoksi` varchar(50) NOT NULL DEFAULT '',
+  `atasan` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_tupoksi_kategori`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -393,7 +394,7 @@ CREATE TABLE `profile_tupoksi_kategori` (
 
 LOCK TABLES `profile_tupoksi_kategori` WRITE;
 /*!40000 ALTER TABLE `profile_tupoksi_kategori` DISABLE KEYS */;
-INSERT INTO `profile_tupoksi_kategori` VALUES (1,'Diskominfo'),(2,'Kepala Dinas'),(3,'Sekretariat'),(4,'Bidang Komunikasi & Pos'),(5,'Bidang Teknologi Informatika'),(6,'Bidang Statistik'),(7,'Bidang Informasi & Publikasi');
+INSERT INTO `profile_tupoksi_kategori` VALUES (1,'Diskominfo','0'),(2,'Kepala Dinas','0'),(3,'Sekretariat','0'),(4,'Bidang Komunikasi & Pos','0'),(5,'Bidang Teknologi Informatika','0'),(6,'Bidang Statistik','0'),(7,'Bidang Informasi & Publikasi','0'),(8,'Sub Bagian Umum Dan Kepegawaian','3'),(9,'Sub Bagian Keuangan','3'),(10,'Sub Bagian Perencanaan Dan Pelaporan','3');
 /*!40000 ALTER TABLE `profile_tupoksi_kategori` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -664,4 +665,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-08 11:28:17
+-- Dump completed on 2021-06-08 14:17:09
