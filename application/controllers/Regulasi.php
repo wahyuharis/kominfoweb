@@ -19,6 +19,7 @@ class Regulasi extends CI_Controller
         $content_data = [];
 
         $search = $this->input->get('search_regulasi');
+        $slug = $this->input->get('slug');
 
         $berita_kanan = $this->db->where('deleted_at', null)
             ->select('feeds.*,users.fullname')
@@ -33,11 +34,23 @@ class Regulasi extends CI_Controller
         $limit = 5;
         $start = page_to_start($page, $limit);
 
-        $regulasi_list = $this->db->where('deleted_at', null)
-            ->group_start()
-            ->or_like('nama_produk', $search)
-            ->or_like('nomor', $search)
-            ->group_end()
+
+        $where = " ISNULL( regulasi.deleted_at )
+        AND (
+        regulasi.nama_produk LIKE '%" . $this->db->escape_str($search) . "%'
+        or
+        regulasi.nomor LIKE '%" . $this->db->escape_str($search) . "%'
+        )
+         ";
+
+        if (strlen($slug) > 0) {
+            $where .= "AND
+            regulasi_kategori.slug= " . $this->db->escape($slug) . " ";
+        }
+
+
+        $regulasi_list = $this->db
+            ->where($where)
             ->select('regulasi.*,regulasi_kategori.nama_kategori')
             ->join('regulasi_kategori', 'regulasi_kategori.id_kategori=regulasi.id_kategori')
             ->order_by('id_regulasi', 'desc')
@@ -46,8 +59,8 @@ class Regulasi extends CI_Controller
             ->result_array();
 
 
-
         $total_row = $this->db->where('deleted_at', null)
+            // ->where('regulasi_kategori.slug', $slug)
             ->group_start()
             ->or_like('nama_produk', $search)
             ->or_like('nomor', $search)
