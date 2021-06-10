@@ -1,19 +1,45 @@
--- MySQL dump 10.16  Distrib 10.1.36-MariaDB, for Win32 (AMD64)
+-- MariaDB dump 10.17  Distrib 10.4.13-MariaDB, for Win64 (AMD64)
 --
 -- Host: localhost    Database: db_infokom
 -- ------------------------------------------------------
--- Server version	10.1.36-MariaDB
+-- Server version	10.4.13-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `__ci_sessions`
+--
+
+DROP TABLE IF EXISTS `__ci_sessions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `__ci_sessions` (
+  `id` varchar(128) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` int(10) unsigned NOT NULL DEFAULT 0,
+  `data` blob NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `ci_sessions_timestamp` (`timestamp`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__ci_sessions`
+--
+
+LOCK TABLES `__ci_sessions` WRITE;
+/*!40000 ALTER TABLE `__ci_sessions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `__ci_sessions` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `downloads`
@@ -60,13 +86,13 @@ CREATE TABLE `feeds` (
   `deskripsi` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `kata_kunci` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `content` longtext COLLATE utf8_unicode_ci,
+  `content` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
   `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `view` int(11) DEFAULT '0',
+  `view` int(11) DEFAULT 0,
   `penanggungjawab` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `jam` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `slug` (`slug`)
@@ -136,6 +162,31 @@ INSERT INTO `galleries` VALUES (2,'Gallery','slogan 3B','c0ef8-b80a4c73-68d5-4ce
 UNLOCK TABLES;
 
 --
+-- Table structure for table `galleries_child`
+--
+
+DROP TABLE IF EXISTS `galleries_child`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `galleries_child` (
+  `id_galeries_child` int(11) NOT NULL AUTO_INCREMENT,
+  `id_galeries` int(11) DEFAULT NULL,
+  `token` varchar(200) DEFAULT NULL,
+  `image` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id_galeries_child`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `galleries_child`
+--
+
+LOCK TABLES `galleries_child` WRITE;
+/*!40000 ALTER TABLE `galleries_child` DISABLE KEYS */;
+/*!40000 ALTER TABLE `galleries_child` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `halaman`
 --
 
@@ -147,7 +198,7 @@ CREATE TABLE `halaman` (
   `kategori` enum('Personil Diskominfo','Sejarah Dinas','Struktur Organisasi','Tupoksi','Visi Misi') NOT NULL,
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `gambar` varchar(255) NOT NULL,
@@ -174,7 +225,7 @@ DROP TABLE IF EXISTS `header`;
 CREATE TABLE `header` (
   `id_header` int(11) NOT NULL AUTO_INCREMENT,
   `header_name` varchar(50) DEFAULT NULL,
-  `content` text,
+  `content` text DEFAULT NULL,
   `image` varchar(200) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
@@ -232,13 +283,13 @@ CREATE TABLE `profile_penghargaan` (
   `deskripsi` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `kata_kunci` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `content` longtext COLLATE utf8_unicode_ci,
+  `content` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
   `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `view` int(11) DEFAULT '0',
+  `view` int(11) DEFAULT 0,
   `penanggungjawab` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `jam` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id_penghargaan`) USING BTREE,
   UNIQUE KEY `slug` (`slug`)
@@ -267,8 +318,8 @@ CREATE TABLE `profile_personil` (
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_personil`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -297,8 +348,8 @@ CREATE TABLE `profile_sejarah_dinas` (
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_sejarah_dinas`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -326,8 +377,8 @@ CREATE TABLE `profile_struktur_organisasi` (
   `kategori` enum('Personil Diskominfo','Sejarah Dinas','Struktur Organisasi','Tupoksi','Visi Misi') NOT NULL,
   `judul` varchar(255) NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_struktur_organisasi`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -352,12 +403,12 @@ DROP TABLE IF EXISTS `profile_tupoksi`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `profile_tupoksi` (
   `id_tupoksi` int(11) NOT NULL AUTO_INCREMENT,
-  `tupoksi_kategori` int(11) NOT NULL DEFAULT '0',
+  `tupoksi_kategori` int(11) NOT NULL DEFAULT 0,
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_tupoksi`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -411,8 +462,8 @@ CREATE TABLE `profile_visi_misi` (
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_visi_misi`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -441,10 +492,10 @@ CREATE TABLE `profiles` (
   `headline` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sub_headline` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `counter` text COLLATE utf8_unicode_ci,
-  `featured` text COLLATE utf8_unicode_ci,
-  `pages` longtext COLLATE utf8_unicode_ci,
-  `social_media` text COLLATE utf8_unicode_ci,
+  `counter` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `featured` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `pages` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `social_media` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
@@ -476,8 +527,8 @@ CREATE TABLE `regulasi` (
   `tanggal_terbit` date NOT NULL,
   `upload_file` varchar(255) DEFAULT NULL,
   `document` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_regulasi`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
@@ -665,4 +716,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-10 10:21:59
+-- Dump completed on 2021-06-10 17:16:11
