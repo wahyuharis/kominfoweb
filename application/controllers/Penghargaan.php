@@ -28,7 +28,7 @@ class Penghargaan extends CI_Controller
 
 
         $page = $this->input->get('page');
-        $limit = 5;
+        $limit = 3;
         $start = page_to_start($page, $limit);
 
         $penghargaan_list = $this->db->where('deleted_at', null)
@@ -38,7 +38,7 @@ class Penghargaan extends CI_Controller
             ->group_end()
             ->select('profile_penghargaan.*,users.fullname')
             ->join('users', 'users.id=profile_penghargaan.user_id', 'left')
-            ->order_by('id', 'desc')
+            ->order_by('id_penghargaan', 'desc')
             ->limit($limit, intval($start))
             ->get('profile_penghargaan')
             ->result_array();
@@ -76,7 +76,7 @@ class Penghargaan extends CI_Controller
         $content_data = [];
 
         $penghargaan = $this->db
-            ->select('profile_penghargaan.*,users.id,users.fullname')
+            ->select('profile_penghargaan.*,users.fullname')
             ->where('deleted_at', null)
             ->where('slug', $slug)
             ->join('users', 'users.id=profile_penghargaan.user_id', 'left')
@@ -86,7 +86,7 @@ class Penghargaan extends CI_Controller
         $penghargaan_next = $this->db
             ->select('profile_penghargaan.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('profile_penghargaan.id_penghargaan <', $penghargaan->id)
+            ->where('profile_penghargaan.id_penghargaan <', $penghargaan->id_penghargaan)
             ->join('users', 'users.id=profile_penghargaan.user_id', 'left')
             ->order_by('profile_penghargaan.id_penghargaan', 'desc')
             ->get('profile_penghargaan')
@@ -95,7 +95,7 @@ class Penghargaan extends CI_Controller
         $penghargaan_prev = $this->db
             ->select('profile_penghargaan.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('profile_penghargaan.id_penghargaan >', $penghargaan->id)
+            ->where('profile_penghargaan.id_penghargaan >', $penghargaan->id_penghargaan)
             ->join('users', 'users.id=profile_penghargaan.user_id', 'left')
             ->order_by('profile_penghargaan.id_penghargaan', 'desc')
             ->get('profile_penghargaan')
@@ -116,8 +116,6 @@ class Penghargaan extends CI_Controller
             ->result_array();
 
         // print_r2($penghargaan);
-
-
 
         $content_data['penghargaan'] = $penghargaan;
         $content_data['penghargaan_next'] = $penghargaan_next;

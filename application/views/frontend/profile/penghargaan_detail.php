@@ -2,11 +2,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 posts-list">
+                <h2>
+                    <?= $penghargaan->title ?>
+                </h2>
+                <br>
                 <div class="single-post">
-                    <h2>
-                        <?= $penghargaan->title ?>
-                    </h2>
-                    <br>
                     <div class="feature-img">
                         <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $penghargaan->image) ?>" alt="">
                     </div>
@@ -42,18 +42,18 @@
                                 <?php if (!is_null($penghargaan_prev)) { ?>
 
                                     <div class="thumb">
-                                        <a href="<?= base_url('blog/detail/' . $penghargaan_prev->slug) ?>">
+                                        <a href="<?= base_url('penghargaan/detail/' . $penghargaan_prev->slug) ?>">
                                             <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $penghargaan_prev->image) ?>" alt="">
                                         </a>
                                     </div>
                                     <div class="arrow">
-                                        <a href="<?= base_url('blog/detail/' . $penghargaan_prev->slug) ?>">
+                                        <a href="<?= base_url('penghargaan/detail/' . $penghargaan_prev->slug) ?>">
                                             <span class="lnr text-white ti-arrow-left"></span>
                                         </a>
                                     </div>
                                     <div class="detials hover-show" style="max-width: 174px;">
                                         <p>Prev Post</p>
-                                        <a href="<?= base_url('blog/detail/' . $penghargaan_prev->slug) ?>">
+                                        <a href="<?= base_url('penghargaan/detail/' . $penghargaan_prev->slug) ?>">
                                             <h4 class="long-title"><?= $penghargaan_prev->title ?></h4>
                                             <h4 class="short-title"><?= substr($penghargaan_prev->title, 0, 20) ?> ... </h4>
                                         </a>
