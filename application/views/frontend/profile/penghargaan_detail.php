@@ -2,30 +2,31 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 posts-list">
-                <div class="blog_details">
-                    <h2>
-                        <?= $tupoksi->judul ?>
-                    </h2>
-                    <br>
-                    <div class="single-post">
-                        <div class="feature-img">
-                            <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $tupoksi->gambar) ?>" alt="">
-                        </div>
+                <h2>
+                    <?= $penghargaan->title ?>
+                </h2>
+                <br>
+                <div class="single-post">
+                    <div class="feature-img">
+                        <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $penghargaan->image) ?>" alt="">
+                    </div>
+                    <div class="blog_details">
 
-                        <!-- <ul class="blog-info-link mt-3 mb-4">
-                            <li><a href="#"><i class="fa fa-user"></i> <?= $berita_detail->fullname ?></a></li>
-                            <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($berita_detail->date)  ?></a></li> -->
+                        <ul class="blog-info-link mt-3 mb-4">
+                            <li><a href="#"><i class="fa fa-user"></i> <?= $penghargaan->fullname ?></a></li>
+                            <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($penghargaan->date)  ?></a></li>
                         </ul>
                         <br>
 
-                        <?= $tupoksi->konten ?>
+                        <?= $penghargaan->content ?>
+
 
                     </div>
                 </div>
                 <div class="navigation-top">
                     <div class="d-sm-flex justify-content-between text-center">
                         <p class="like-info"><span class="align-middle"><i class="fa fa-eye"></i></span>
-                            <?= $tupoksi->judul ?>
+                            <?= $penghargaan->view ?>
                             kali dilihat </p>
                         <div class="col-sm-4 text-center my-2 my-sm-0">
                             <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
@@ -35,14 +36,58 @@
                             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                         </ul>
                     </div>
-
                     <div class="navigation-area">
                         <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
+                                <?php if (!is_null($penghargaan_prev)) { ?>
 
+                                    <div class="thumb">
+                                        <a href="<?= base_url('penghargaan/detail/' . $penghargaan_prev->slug) ?>">
+                                            <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $penghargaan_prev->image) ?>" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="arrow">
+                                        <a href="<?= base_url('penghargaan/detail/' . $penghargaan_prev->slug) ?>">
+                                            <span class="lnr text-white ti-arrow-left"></span>
+                                        </a>
+                                    </div>
+                                    <div class="detials hover-show" style="max-width: 174px;">
+                                        <p>Prev Post</p>
+                                        <a href="<?= base_url('penghargaan/detail/' . $penghargaan_prev->slug) ?>">
+                                            <h4 class="long-title"><?= $penghargaan_prev->title ?></h4>
+                                            <h4 class="short-title"><?= substr($penghargaan_prev->title, 0, 20) ?> ... </h4>
+                                        </a>
+                                    </div>
+                                <?php } ?>
+
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+                                <?php if (!is_null($penghargaan_next)) { ?>
+
+                                    <div class="detials hover-show" style="max-width: 174px;">
+                                        <p>Next Post</p>
+                                        <a href="<?= base_url('penghargaan/detail/' . $penghargaan_next->slug) ?>">
+                                            <h4 class="long-title"><?= $penghargaan_next->title ?></h4>
+                                            <h4 class="short-title"><?= substr($penghargaan_next->title, 0, 20) ?> ... </h4>
+                                        </a>
+                                    </div>
+                                    <div class="arrow">
+                                        <a href="<?= base_url('penghargaan/detail/' . $penghargaan_next->slug) ?>">
+                                            <span class="lnr text-white ti-arrow-right"></span>
+                                        </a>
+                                    </div>
+                                    <div class="thumb">
+                                        <a href="<?= base_url('penghargaan/detail/' . $penghargaan_next->slug) ?>">
+                                            <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $penghargaan_next->image) ?>" alt="">
+                                        </a>
+                                    </div>
+                                <?php } ?>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!--kalau dihapus berita kanan pindah bawah-->
+
+
             </div>
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
