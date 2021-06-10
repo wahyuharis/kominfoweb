@@ -12,10 +12,10 @@
                             <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $sejarah_dinas->gambar) ?>" alt="">
                         </div>
 
-                        <!-- <ul class="blog-info-link mt-3 mb-4">
-                            <li><a href="#"><i class="fa fa-user"></i> <?= $berita_detail->fullname ?></a></li>
-                            <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($berita_detail->date)  ?></a></li> -->
-                        </ul>
+                        <ul class="blog-info-link mt-3 mb-4">
+                            <li><a href="#"><i class="fa fa-user"></i> </a></li>
+                            <li><a href="#"><i class="fa fa-calendar"></i> </a></li> 
+                         </ul>
                         <br>
 
                         <?= $sejarah_dinas->konten ?>
@@ -94,11 +94,22 @@
 </section>
 <script>
     $(document).ready(function() {
-        $('.blog_details').find('p').css('font-family', '"Roboto", sans-serif');
-        $('.blog_details').find('span').css('font-family', '"Roboto", sans-serif');
-        $('.blog_details').find('table').addClass('table');
-        $('.blog_details').find('table').addClass('table-bordered');
-        $('.blog_details').find('table').removeAttr('border');
+        $('.single-post').find('p').css('font-family','"Roboto", sans-serif');
+         $('.single-post').find('span').css('font-family','"Roboto", sans-serif');
+         $('.single-post').find('ul').css('font-family','"Roboto", sans-serif');
+         $('.single-post').find('li').css('font-family','"Roboto", sans-serif');
+
+         $('.single-post').find('p').css('color','#506172');
+         $('.single-post').find('span').css('color','#506172');
+         $('.single-post').find('ul').css('color','#506172');
+         $('.single-post').find('li').css('color','#506172');
+
+         // #506172
+
+
+         $('.blog_details').find('table').addClass('table');
+         $('.blog_details').find('table').addClass('table-bordered');
+         $('.blog_details').find('table').removeAttr('border');
 
     });
 </script>

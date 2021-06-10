@@ -140,6 +140,17 @@
       $(document).ready(function() {
          $('.blog_details').find('p').css('font-family','"Roboto", sans-serif');
          $('.blog_details').find('span').css('font-family','"Roboto", sans-serif');
+         $('.blog_details').find('ul').css('font-family','"Roboto", sans-serif');
+         $('.blog_details').find('li').css('font-family','"Roboto", sans-serif');
+
+         $('.blog_details').find('p').css('color','#506172');
+         $('.blog_details').find('span').css('color','#506172');
+         $('.blog_details').find('ul').css('color','#506172');
+         $('.blog_details').find('li').css('color','#506172');
+
+         // #506172
+
+
          $('.blog_details').find('table').addClass('table');
          $('.blog_details').find('table').addClass('table-bordered');
          $('.blog_details').find('table').removeAttr('border');

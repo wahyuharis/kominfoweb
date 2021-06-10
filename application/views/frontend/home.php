@@ -117,7 +117,7 @@
                         <h3>Berita Pemkab Terbaru</h3>
                     </div>
 
-                    <div class="data-list" data-autoscroll>
+                    <div class="data-list" data-autoscroll style="height: 800px;">
                         <?php foreach ($berita_kanan as $bkanan) : ?>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
