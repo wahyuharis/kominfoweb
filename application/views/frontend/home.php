@@ -215,11 +215,11 @@
             </div>
             <div class="col-lg-4">
                 <!-- Section Tittle -->
-                <div class="section-tittle mb-40">
+                <!-- <div class="section-tittle mb-40">
                     <h3>Jumlah Pengikut</h3>
-                </div>
+                </div> -->
                 <!-- Flow Socail -->
-                <div class="single-follow mb-45">
+                <!-- <div class="single-follow mb-45">
                     <div class="single-box">
                         <div class="follow-us d-flex align-items-center">
                             <div class="follow-social">
@@ -258,15 +258,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="section-tittle mb-40">
                     <h3>Kumpulan Video</h3>
                 </div>
                 <!-- New Poster -->
-                <div class="news-poster">
-                    <center>
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/videoseries?list=PLDDx9qSJIISMesf6jENuYDzYgJHt7RHou" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </center>
+                <div id="youtube-video" class="news-poster" >
+
                 </div>
             </div>
         </div>
@@ -312,13 +310,10 @@
         </div>
     </div>
 </div>
-<!-- End Weekly-News -->
-<!-- Start Youtube -->
-
-<!-- End Start youtube -->
-<!--  Recent Articles start -->
-
-<!--Recent Articles End -->
-<!--Start pagination -->
-
-<!-- End pagination  -->
+<script>
+    $(document).ready(function() {
+        $.get('<?=base_url('youtube')?>', function(data, status) {
+            $('#youtube-video').html(data);
+        });
+    });
+</script>

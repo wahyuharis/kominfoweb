@@ -285,13 +285,17 @@ h6 a {
 	color: inherit
 }
 
-ul {
+.main-menu ul {
 	margin: 0px;
 	padding: 0px
 }
 
+.header-info-left ul,.header-info-right ul{
+	margin: 0px;
+}
+
 li {
-	list-style: none
+	/* list-style: none */
 }
 
 hr {
