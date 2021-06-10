@@ -10,8 +10,8 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        // $("#custom_add").prependTo(".header-tools");
-        // $("#custom_add").removeClass("hidden");
+        $("#custom_add").prependTo(".header-tools");
+        $("#custom_add").removeClass("hidden");
         <?php if ($state == 'edit' || $state == "add") { ?>
 
             

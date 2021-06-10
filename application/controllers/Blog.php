@@ -79,6 +79,8 @@ class Blog extends CI_Controller
         $content_data = [];
 
 
+        // print_r2($slug);
+
         $berita_kanan = $this->db->where('deleted_at', null)
             ->select('feeds.*,users.fullname')
             ->join('users', 'users.id=feeds.user_id', 'left')

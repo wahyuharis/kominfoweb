@@ -31,17 +31,10 @@ class Tupoksi extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-        // print_r2($tupoksi);
-
-
         $content_data['tupoksi'] = $tupoksi;
         $content_data['berita_kanan'] = $berita_kanan;
 
-        // $view_data['description'] = $this->description;
-        // $view_data['keywords'] = $this->keywords;
         $view_data['content'] = $this->load->view('frontend/profile/tupoksi', $content_data, true);
-
-        // print_r2($view_data);
 
         $this->load->view('frontend/template', $view_data);
     }
