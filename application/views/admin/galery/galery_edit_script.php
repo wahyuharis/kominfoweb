@@ -127,4 +127,55 @@
             return ele != value;
         });
     }
+
+    $('#form-1').submit(function(e) {
+        e.preventDefault();
+        Loading = new SubmitLoading('#submit-button');
+        Loading.write();
+
+        $.ajax({
+            url: '<?= base_url('admin/galery/submit/') ?>',
+            type: 'post',
+            data: new FormData(this),
+            contentType: false,
+            processData: false,
+            cache: false,
+            success: function(data) {
+                setTimeout(function() {
+                    Loading.rewrite();
+                }, 200);
+                if (!data.succes) {
+                    toastr.error(data.message);
+
+                    error = data.error;
+                    petik = '"';
+
+                    for (var key in error) {
+                        console.log(key + " " + error[key]);
+                        $('input[name=' + petik + key + petik + '], select[name=' + petik + key + petik + '],textarea[name=' + petik + key + petik + ' ]').parent().addClass('has-error');
+
+                        $('input[name=' + petik + key + petik + '], select[name=' + petik + key + petik + '],textarea[name=' + petik + key + petik + ' ]').focusout(function() {
+                            var input = $(this).val();
+                            if (input.length > 0) {
+                                $(this).parent().removeClass('has-error');
+                            }
+                        });
+                    }
+
+                } else if (data.succes) {
+                    primary = '';
+                    if (primary.trim().length > 0) {
+                        toastr.info(data.message, 'informasi');
+                    } else {
+                        window.location.href = '<?=base_url('admin/galery/')?>';
+                    }
+                } else {
+                    toastr.error("Terjadi Kesalahan");
+                }
+            },
+            error: function(xhr, res) {
+                alert("Gagal Mengunggah");
+            }
+        });
+    });
 </script>

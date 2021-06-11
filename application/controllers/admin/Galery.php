@@ -169,6 +169,7 @@ class Galery extends CI_Controller
         $content_data['primary_id'] = $id;
         $content_data['caption'] = '';
         $content_data['image'] = '';
+        $content_data['image2'] = '[]';
 
         if (!empty(trim($id))) {
             $db = $this->db->where('galleries.id', $id)
@@ -179,10 +180,12 @@ class Galery extends CI_Controller
 
             $image2 = array();
             foreach ($db2->result_array() as $row) {
-                array_push($image2,$row['image']);
+                array_push($image2, $row['image']);
             }
 
-            $image2 = json_encode( $image2 );
+            $image2 = json_encode($image2);
+
+            // print_r2($image2);
 
             if ($db->num_rows() > 0) {
                 $result = $db->row_object();
@@ -203,5 +206,81 @@ class Galery extends CI_Controller
         $template_data['box'] = false;
 
         $this->load->view('admin/template', $template_data);
+    }
+
+    function submit()
+    {
+        $message = '';
+        $succes = true;
+        $data = array();
+        $error = array();
+        $post = $this->input->post();
+
+        $primary_id = ($post['primary_id']);
+
+        $this->load->library('form_validation');
+        $this->form_validation->set_data($post);
+
+        $this->form_validation->set_rules('caption', ucwords('caption'), 'trim|required');
+        $this->form_validation->set_rules('image', ucwords('image'), 'trim|required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $message = validation_errors();
+            $error = $this->form_validation->error_array();
+            $succes = false;
+        }
+
+
+
+
+        if ($succes) {
+            $insert['caption'] = $post['caption'];
+            $insert['image'] = $post['image'];
+            $image2 = json_decode($post['image2']);
+
+            // print_r2($image2);
+
+            if (empty(trim($primary_id))) {
+
+
+                $this->db->insert('galleries', $insert);
+                $insert_id=$this->db->insert_id();
+
+                $insert2 = array();
+                foreach ($image2 as $row) {
+                    $insert2['id_galeries'] = $insert_id;
+                    $insert2['image'] = $row;
+                    $this->db->insert('galleries_child', $insert2);
+                }
+
+                $message = "Data Berhasil disimpan";
+            } else {
+                $this->db->where('id', $primary_id);
+                $this->db->set($insert);
+                $this->db->update('galleries');
+
+                $this->db->delete('galleries_child', ['id_galeries' => $primary_id]);
+                $insert2 = array();
+                foreach ($image2 as $row) {
+                    $insert2['id_galeries'] = $primary_id;
+                    $insert2['image'] = $row;
+                    $this->db->insert('galleries_child', $insert2);
+                }
+            }
+        }
+
+        $this->session->set_flashdata('message_succes', $message);
+
+
+
+        $result = array(
+            'error' => $error,
+            'message' => $message,
+            'succes' => $succes,
+            'data' => $data,
+        );
+
+        header_json();
+        echo json_encode($result);
     }
 }
