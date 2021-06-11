@@ -123,16 +123,6 @@ class Galery extends CI_Controller
 
     function upload2()
     {
-
-        // $data=array('a','n');
-        // $this->session->set_userdata('temp_image',$data);
-        // $temp_image = $this->session->userdata('temp_image');
-        // if(is_array($temp_image)){
-        //     echo "true";
-        // }
-        // die();
-
-        // print_r2($_POST);
         $success = false;
         $message = "";
         $data = array();
@@ -145,8 +135,6 @@ class Galery extends CI_Controller
         if ($this->upload->do_upload('file')) {
             $success = true;
             $data = json_encode($this->upload->data());
-
-
         } else {
             $success = false;
             $message = $this->upload->display_errors();
@@ -182,16 +170,26 @@ class Galery extends CI_Controller
         $content_data['caption'] = '';
         $content_data['image'] = '';
 
-
-
         if (!empty(trim($id))) {
             $db = $this->db->where('galleries.id', $id)
                 ->get('galleries');
+
+            $db2 = $this->db->select('image')->where('id_galeries', $id)
+                ->get('galleries_child');
+
+            $image2 = array();
+            foreach ($db2->result_array() as $row) {
+                array_push($image2,$row['image']);
+            }
+
+            $image2 = json_encode( $image2 );
+
             if ($db->num_rows() > 0) {
                 $result = $db->row_object();
 
                 $content_data['caption'] = $result->caption;
                 $content_data['image'] = $result->image;
+                $content_data['image2'] = $image2;
             }
         }
 
