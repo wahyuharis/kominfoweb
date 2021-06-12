@@ -25,6 +25,9 @@ class Blog extends CI_Controller
         $crud = new grocery_CRUD();
         $crud->unset_bootstrap();
         $crud->unset_jquery();
+        $crud->unset_texteditor('content');
+        
+        // $crud->unset_jquery_ui();
         $crud->set_theme('bootstrap');
         //##### inisiasi ##################
 
@@ -38,6 +41,7 @@ class Blog extends CI_Controller
         $crud->display_as('image', 'Image');
         $crud->display_as('date', 'Tanggal');
         $crud->display_as('user_id', 'User');
+
 
         $crud->set_relation('user_id', 'users', 'email');
         $crud->callback_field('user_id', array($this, '_callback_user_id'));
@@ -54,7 +58,6 @@ class Blog extends CI_Controller
         $crud->callback_before_update(array($this, '_callback_before_update'));
         $crud->callback_before_insert(array($this, '_callback_before_update'));
 
-        // $crud->unset_texteditor('content');
 
         $output = $crud->render();
 
