@@ -24,9 +24,11 @@
     <link rel="stylesheet" href="<?= base_url() ?>lte/bower_components/jvectormap/jquery-jvectormap.css">
     <link rel="stylesheet" href="<?= base_url() ?>lte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>lte/bower_components/bootstrap-daterangepicker/daterangepicker.css">
-    <link rel="stylesheet" href="<?= base_url() ?>lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <!-- <link rel="stylesheet" href="<?= base_url() ?>lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"> -->
 
+    <link rel="stylesheet" href="<?= base_url() ?>node_modules/pace-js/themes/blue/pace-theme-loading-bar.css">
     <link rel="stylesheet" href="<?= base_url() ?>node_modules/toastr/build/toastr.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>node_modules/summernote/dist/summernote.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>lte/lte-custom.css">
 
     <?php if (isset($css_files)) : ?>
@@ -41,6 +43,10 @@
     <script src="<?= base_url() ?>lte/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="<?= base_url() ?>node_modules/slugify/slugify.js"></script>
     <script src="<?= base_url() ?>node_modules/toastr/build/toastr.min.js"></script>
+    <script src="<?= base_url() ?>node_modules/summernote/dist/summernote.min.js"></script>
+    <script src="<?= base_url() ?>node_modules/pace-js/pace.min.js"></script>
+
+
     <script src="<?= base_url() ?>assets/JQGrid.js"></script>
     <script src="<?= base_url() ?>assets/custom.js"></script>
 
@@ -567,7 +573,19 @@
             <?php if (strlen($this->session->flashdata('message_succes')) > 0) { ?>
                 toastr["success"]("<?= $this->session->flashdata('message_succes') ?>");
             <?php } ?>
-        })
+
+            $('.texteditor').summernote({
+                height: 400, // set editor height
+            });
+        });
+
+        $(document).ajaxSend(function() {
+            Pace.start();
+        }).ajaxComplete(function() {
+            Pace.stop();
+        }).ajaxError(function() {
+            Pace.stop();
+        });
     </script>
 </body>
 
