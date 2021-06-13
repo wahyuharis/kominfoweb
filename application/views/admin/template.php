@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>node_modules/pace-js/themes/blue/pace-theme-loading-bar.css">
     <link rel="stylesheet" href="<?= base_url() ?>node_modules/toastr/build/toastr.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>node_modules/summernote/dist/summernote.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>node_modules/dropzone/dist/min/dropzone.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>lte/lte-custom.css">
 
     <?php if (isset($css_files)) : ?>
@@ -49,6 +50,9 @@
     <script src="<?= base_url() ?>node_modules/toastr/build/toastr.min.js"></script>
     <script src="<?= base_url() ?>node_modules/summernote/dist/summernote.min.js"></script>
     <script src="<?= base_url() ?>node_modules/pace-js/pace.min.js"></script>
+    <script src="<?= base_url() ?>node_modules/bootbox/dist/bootbox.all.min.js"></script>
+    <script src="<?= base_url() ?>node_modules/dropzone/dist/min/dropzone.min.js"></script>
+
 
 
     <script src="<?= base_url() ?>assets/JQGrid.js"></script>

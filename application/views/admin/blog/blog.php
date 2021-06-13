@@ -3,70 +3,44 @@
         <?= $output ?>
     </div>
 </div>
+<div id="custom_add" class="floatL t5 hidden">
+    <a class="btn btn-primary" href="<?= base_url('admin/blog/add/') ?>"><i class="fa fa-plus"></i> &nbsp; Tambah Galeri</a>
+</div>
 
 <script>
-    $(document).ready(function() {
-        // alert('hello');
+    function delete_validation(id) {
 
-        
-        $('input[name=title]').keyup(function() {
-            judul = $(this).val();
-            judul = slugify(judul);
-            $('input[name=slug]').val(judul);
-        });
-
-
-        $('textarea[name=content]').summernote({
-            height: 300, // set editor height
-            callbacks: {
-                onImageUpload: function(image) {
-                    uploadImage(image[0]);
+        bootbox.confirm({
+            message: "This is a confirm with custom button text and color! Do you like it?",
+            buttons: {
+                confirm: {
+                    label: 'Yes',
+                    className: 'btn-danger'
                 },
-                onMediaDelete: function(target) {
-                    deleteImage(target[0].src);
+            },
+            callback: function(result) {
+                // console.log('This was logged in the callback: ' + result);
+                if (result) {
+                    $.get("<?= base_url('admin/blog/delete/') ?>" + id, function(data) {
+                        // $(".result").html(data);
+                        // alert("Load was performed.");
+                        window.location.href = '<?= base_url('admin/blog/index') ?>';
+
+                    });
                 }
             }
         });
 
-        function uploadImage(image) {
-            var data = new FormData();
-            data.append("image", image);
-            $.ajax({
-                url: "<?= base_url('admin/summernote/upload/') ?>",
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: data,
-                type: "POST",
-                success: function(res) {
-                    // console.log(res)
-                    if (res.success) {
-                        res_data = JSON.parse(res.data);
-                        url = '<?= base_url('assets/uploads/files/') ?>' + res_data.file_name;
-                        $('textarea[name=content]').summernote("insertImage", url);
-                    } else {
-                        toastr.error(res.message);
-                    }
-                },
-                error: function(data) {
-                    console.log(data);
-                }
-            });
-        }
 
-        function deleteImage(src) {
-            $.ajax({
-                data: {
-                    src: src
-                },
-                type: "POST",
-                url: "<?= base_url('admin/summernote/delete/') ?>",
-                cache: false,
-                success: function(response) {
-                    console.log(response);
-                }
-            });
-        }
+    }
+
+    $(document).ready(function() {
+        // alert('hello');
+        $("#custom_add").prependTo(".header-tools");
+        $("#custom_add").removeClass("hidden");
+
+
+        
 
 
 
