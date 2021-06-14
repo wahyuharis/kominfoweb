@@ -263,7 +263,7 @@
                     <h3>Kumpulan Video</h3>
                 </div>
                 <!-- New Poster -->
-                <div id="youtube-video" class="news-poster" >
+                <div id="youtube-video" class="news-poster">
 
                 </div>
             </div>
@@ -312,7 +312,7 @@
 </div>
 <script>
     $(document).ready(function() {
-        $.get('<?=base_url('youtube')?>', function(data, status) {
+        $.get('<?= base_url('youtube') ?>', function(data, status) {
             $('#youtube-video').html(data);
         });
     });
