@@ -60,13 +60,13 @@ class Penghargaan extends CI_Controller
         // print_r2($output);
 
         $view_data['output'] = $output->output;
-        // $content = $this->load->view('admin/blog/blog', $view_data, true);
+        $content = $this->load->view('admin/penghargaan/penghargaan', $view_data, true);
 
-        $template_data['content'] = $output->output;
+        $template_data['content'] = $content;
         $template_data['content_title'] = $this->title;
         $template_data['js_files'] = $output->js_files;
         $template_data['css_files'] = $output->css_files;
-        $template_data['box'] = true;
+        $template_data['box'] = false;
 
         $this->load->view('admin/template', $template_data);
     }

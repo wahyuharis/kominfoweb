@@ -1,6 +1,10 @@
 h1, h2, h3, h4, h5, h6{
 	color:#2f3640;
 }
+
+.section-tittle h3{
+	color: #2f3640;
+}
 .header-area .header-bottom {
 	background: #0a68a1;
 	color: #ecf0f1;
@@ -298,6 +302,10 @@ h1, h2, h3, h4, h5, h6{
 .blog_details h2 {
 	margin-bottom: 1px
 }
+.blog-info-link{
+	padding: 0px;
+
+}
 .blog-info-link li{
 	list-style: none;
 }
@@ -459,6 +467,9 @@ h1, h2, h3, h4, h5, h6{
 a {
 	color: #212529;
 	font-weight: bold;
+}
+.blog-info-link li::after{
+	visibility: hidden;
 }
 
 /* .blog_area a:hover, .blog_area a :hover {

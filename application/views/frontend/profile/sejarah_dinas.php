@@ -12,10 +12,10 @@
                             <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $sejarah_dinas->gambar) ?>" alt="">
                         </div>
 
-                        <ul class="blog-info-link mt-3 mb-4">
+                        <!-- <ul class="blog-info-link mt-3 mb-4">
                             <li><a href="#"><i class="fa fa-user"></i> </a></li>
                             <li><a href="#"><i class="fa fa-calendar"></i> </a></li> 
-                         </ul>
+                         </ul> -->
                         <br>
 
                         <?= $sejarah_dinas->konten ?>
@@ -25,9 +25,9 @@
                 </div>
                 <div class="navigation-top">
                     <div class="d-sm-flex justify-content-between text-center">
-                        <p class="like-info"><span class="align-middle"><i class="fa fa-eye"></i></span>
+                        <!-- <p class="like-info"><span class="align-middle"><i class="fa fa-eye"></i></span>
                             <?= $sejarah_dinas->judul ?>
-                            kali dilihat </p>
+                            kali dilihat </p> -->
                         <div class="col-sm-4 text-center my-2 my-sm-0">
                             <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
                         </div>
