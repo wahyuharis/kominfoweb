@@ -271,8 +271,6 @@ class Galery extends CI_Controller
 
         $this->session->set_flashdata('message_succes', $message);
 
-
-
         $result = array(
             'error' => $error,
             'message' => $message,

@@ -32,19 +32,20 @@ class Dropzone extends CI_Controller
         echo json_encode($response);
     }
 
-    function delete(){
+    function delete()
+    {
         $success = false;
         $message = "";
         $data = array();
 
         // print_r2($_POST);
         // unlink()
-        $src=$this->input->post('src');
-        $src_array= explode('/',$src);
+        $src = $this->input->post('src');
+        $src_array = explode('/', $src);
 
-        $file=end($src_array);
+        $file = end($src_array);
 
-        unlink('./assets/uploads/files/'.$file);
+        unlink('./assets/uploads/files/' . $file);
 
         $response['success'] = $success;
         $response['message'] = $message;
@@ -55,6 +56,8 @@ class Dropzone extends CI_Controller
 
     function delete_image($file)
     {
-        unlink("./assets/uploads/files/" . $file);
+        if (!empty(trim($file))) {
+            unlink("./assets/uploads/files/" . $file);
+        }
     }
 }

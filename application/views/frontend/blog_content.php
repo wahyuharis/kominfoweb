@@ -6,22 +6,22 @@
                   <div class="feature-img">
                      <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $berita_detail->image) ?>" alt="">
                   </div>
+
                   <div class="blog_details">
                      <h2>
                         <?= $berita_detail->title ?>
                      </h2>
                      <br>
 
-                     <ul class="blog-info-link mt-3 mb-4">
-                        <li><a href="#"><i class="fa fa-user"></i> <?= $berita_detail->fullname ?></a></li>
-                        <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($berita_detail->date)  ?></a></li>
-                     </ul>
-                     <br>
 
                      <?= $berita_detail->content ?>
 
 
                   </div>
+                  <ul class="blog-info-link mt-3 mb-4">
+                     <li><a href="#"><i class="fa fa-user"></i> <?= $berita_detail->fullname ?></a></li>
+                     <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($berita_detail->date)  ?></a></li>
+                  </ul>
                </div>
                <div class="navigation-top">
                   <div class="d-sm-flex justify-content-between text-center">
@@ -138,15 +138,15 @@
    </section>
    <script>
       $(document).ready(function() {
-         $('.blog_details').find('p').css('font-family','"Roboto", sans-serif');
-         $('.blog_details').find('span').css('font-family','"Roboto", sans-serif');
-         $('.blog_details').find('ul').css('font-family','"Roboto", sans-serif');
-         $('.blog_details').find('li').css('font-family','"Roboto", sans-serif');
+         $('.blog_details').find('p').css('font-family', '"Roboto", sans-serif');
+         $('.blog_details').find('span').css('font-family', '"Roboto", sans-serif');
+         $('.blog_details').find('ul').css('font-family', '"Roboto", sans-serif');
+         $('.blog_details').find('li').css('font-family', '"Roboto", sans-serif');
 
-         $('.blog_details').find('p').css('color','#506172');
-         $('.blog_details').find('span').css('color','#506172');
-         $('.blog_details').find('ul').css('color','#506172');
-         $('.blog_details').find('li').css('color','#506172');
+         $('.blog_details').find('p').css('color', '#506172');
+         $('.blog_details').find('span').css('color', '#506172');
+         $('.blog_details').find('ul').css('color', '#506172');
+         $('.blog_details').find('li').css('color', '#506172');
 
          // #506172
 

@@ -242,17 +242,23 @@ function set_datatype($str)
 
 function is_date_dmy($tgl, $spliter = "/")
 {
-    $length = strlen($tgl);
-    $bool = false;
-    $split = str_split($tgl, 1);
+    $bool=false;
 
-    if ($length = 10 && $split[2] == $spliter && $split[5] == $spliter) {
-        if (intval($split[0] . "" . $split[1]) <= 31) {
-            if (intval($split[3] . "" . $split[4]) <= 12) {
-                $bool = true;
-            }
-        }
+    $tgl_arr=explode($spliter,$tgl);
+    $d=0;
+    $m=0;
+    $y=0;
+
+    if(isset($tgl_arr[0])){
+        $d=intval($tgl_arr[0]);
     }
+    if(isset($tgl_arr[1])){
+        $m=intval($tgl_arr[1]);
+    }
+    if(isset($tgl_arr[2])){
+        $y=intval($tgl_arr[2]);
+    }
+    $bool=checkdate($m, $d, $y);
     return $bool;
 }
 

@@ -12,10 +12,7 @@
                             <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $tupoksi->gambar) ?>" alt="">
                         </div>
 
-                        <!-- <ul class="blog-info-link mt-3 mb-4">
-                            <li><a href="#"><i class="fa fa-user"></i> <?= $berita_detail->fullname ?></a></li>
-                            <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($berita_detail->date)  ?></a></li> -->
-                        </ul>
+
                         <br>
 
                         <?= $tupoksi->konten ?>
@@ -24,9 +21,9 @@
                 </div>
                 <div class="navigation-top">
                     <div class="d-sm-flex justify-content-between text-center">
-                        <p class="like-info"><span class="align-middle"><i class="fa fa-eye"></i></span>
-                            <?= $tupoksi->judul ?>
-                            kali dilihat </p>
+                        <!-- <p class="like-info"><span class="align-middle"><i class="fa fa-eye"></i></span> -->
+                            <!-- <?= $tupoksi->judul ?> -->
+                            <!-- kali dilihat </p> -->
                         <div class="col-sm-4 text-center my-2 my-sm-0">
                             <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
                         </div>

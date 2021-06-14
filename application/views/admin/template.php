@@ -46,6 +46,10 @@
 
     <!-- Bootstrap 3.3.7 -->
     <script src="<?= base_url() ?>lte/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="<?= base_url() ?>lte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="<?= base_url() ?>lte/bower_components/moment/min/moment.min.js"></script>
+    <script src="<?= base_url() ?>lte/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+
     <script src="<?= base_url() ?>node_modules/slugify/slugify.js"></script>
     <script src="<?= base_url() ?>node_modules/toastr/build/toastr.min.js"></script>
     <script src="<?= base_url() ?>node_modules/summernote/dist/summernote.min.js"></script>
@@ -584,60 +588,9 @@
                 toastr["danger"]("<?= $this->session->flashdata('message_error') ?>");
             <?php } ?>
 
-            /*
-            $('.texteditor').summernote({
-                height: 300, // set editor height
-                callbacks: {
-                    onImageUpload: function(image) {
-                        uploadImage(image[0]);
-                    },
-                    onMediaDelete: function(target) {
-                        deleteImage(target[0].src);
-                    }
-                }
+            $('.datepicker').datepicker({
+                format: 'dd/mm/yyyy',
             });
-
-            function uploadImage(image) {
-                var data = new FormData();
-                data.append("image", image);
-                $.ajax({
-                    url: "<?= base_url('admin/summernote/upload/') ?>",
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    data: data,
-                    type: "POST",
-                    success: function(res) {
-                        // console.log(res)
-                        if (res.success) {
-                            res_data = JSON.parse(res.data);
-                            url = '<?= base_url('assets/uploads/files/') ?>' + res_data.file_name;
-                            $('.texteditor').summernote("insertImage", url);
-                        } else {
-                            toastr.error(res.message);
-                        }
-                    },
-                    error: function(data) {
-                        console.log(data);
-                    }
-                });
-            }
-
-            function deleteImage(src) {
-                $.ajax({
-                    data: {
-                        src: src
-                    },
-                    type: "POST",
-                    url: "<?= base_url('admin/summernote/delete/') ?>",
-                    cache: false,
-                    success: function(response) {
-                        console.log(response);
-                    }
-                });
-            }
-
-            */
         });
 
         $(document).ajaxSend(function() {

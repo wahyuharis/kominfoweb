@@ -1,5 +1,4 @@
 <?php
-
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Blog extends CI_Controller
@@ -11,7 +10,8 @@ class Blog extends CI_Controller
     {
         parent::__construct();
         $this->load->library('grocery_CRUD');
-
+        //    print_r2(  $this->session->userdata() );
+        //    die();
 
         $this->load->library('Auth');
         $auth = new Auth();
@@ -161,7 +161,7 @@ class Blog extends CI_Controller
         $content = "";
         $content_data = array();
         $content_data['primary_id'] = $id;
-        $content_data['date'] = '';
+        $content_data['date'] = date('d/m/Y');
         $content_data['title'] = '';
         $content_data['slug'] = '';
         $content_data['deskripsi'] = '';
@@ -193,5 +193,105 @@ class Blog extends CI_Controller
         $template_data['box'] = false;
 
         $this->load->view('admin/template', $template_data);
+    }
+
+    function submit()
+    {
+        $message = '';
+        $succes = true;
+        $data = array();
+        $error = array();
+        $post = $this->input->post();
+
+        $primary_id = trim($this->input->post('primary_id'));
+
+        $this->load->library('form_validation');
+        $this->form_validation->set_data($post);
+
+        $this->form_validation->set_rules('title', ucwords('title'), 'trim|required');
+        $this->form_validation->set_rules('date', ucwords('date'), 'callback_date_check');
+        $this->form_validation->set_rules('image', ucwords('image'), 'trim|required');
+        $this->form_validation->set_rules('slug', ucwords('slug'), 'callback_slug_check');
+        $this->form_validation->set_rules('content', ucwords('content'), 'trim|required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $message = validation_errors();
+            $error = $this->form_validation->error_array();
+            $succes = false;
+        }
+
+        if ($succes) {
+            $insert['title'] = $post['title'];
+            $insert['date'] = waktu_dmy_to_ymd($post['date']);
+            $insert['image'] = $post['image'];
+            $insert['slug'] = trim($post['slug']);
+            $insert['content'] = $post['content'];
+            $insert['deskripsi'] = $post['deskripsi'];
+            $insert['kata_kunci'] = $post['kata_kunci'];
+
+
+            if (empty(trim($primary_id))) {
+                $insert['user_id'] = $this->session->userdata('id');
+
+                $this->db->insert('feeds', $insert);
+                $insert_id = $this->db->insert_id();
+            } else {
+                $insert_id = $primary_id;
+                $this->db->where('id', $primary_id);
+                $this->db->set($insert);
+                $this->db->update('feeds');
+            }
+        }
+
+
+        $this->session->set_flashdata('message_succes', $message);
+
+        $result = array(
+            'error' => $error,
+            'message' => $message,
+            'succes' => $succes,
+            'data' => $data,
+        );
+
+        header_json();
+        echo json_encode($result);
+    }
+    public function slug_check($str)
+    {
+        $return = false;
+        $primary_id = trim($this->input->post('primary_id'));
+        $slug = '';
+        $this->db->where('slug', trim($str));
+        if (strlen($primary_id) > 0) {
+            $this->db->where('id!=', $primary_id);
+        }
+        $db = $this->db->get('feeds');
+
+        if ($db->num_rows() > 0) {
+            $slug = $db->row_object()->slug;
+        }
+
+        if (empty( trim($str))) {
+            $this->form_validation->set_message('slug_check', 'Field {field} kosong');
+        }
+        elseif (trim($slug) == trim($str)) {
+            $this->form_validation->set_message('slug_check', 'Field {field} harus bernilai unik');
+        } else {
+            $return = true;
+        }
+        return $return;
+    }
+
+    function date_check($str)
+    {
+        $return = false;
+
+        if(is_date_dmy($str)){
+            $return=true;
+        }else{
+            $this->form_validation->set_message('date_check', 'Field {field} Tidak Valid');
+        }
+
+        return $return;
     }
 }

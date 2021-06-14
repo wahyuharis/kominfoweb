@@ -174,7 +174,8 @@
                 }
             },
             error: function(xhr, res) {
-                alert("Gagal Mengunggah");
+                // alert("Gagal Mengunggah");
+                toastr.error("Terjadi Kesalahan");
             }
         });
     });
