@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-8 mb-5 mb-lg-0">
 
-            
+
                 <div class="section-tittle mb-30">
                     <h2>BERITA</h2>
                 </div>
@@ -32,9 +32,9 @@
                                 <ul class="blog-info-link">
                                     <li><a href="#"><i class="fa fa-user"></i> <?= strtoupper($beritabl['fullname']) ?></a></li>
                                     <li><a href="#"><i class="fa fa-calendar"></i> <?php
-                                        $var = date_create($beritabl['date']);
-                                        echo date_format($var, "d/m/Y");
-                                        ?></a></li>
+                                                                                    $var = date_create($beritabl['date']);
+                                                                                    echo date_format($var, "d/m/Y");
+                                                                                    ?></a></li>
                                 </ul>
                             </div>
                         </article>
@@ -49,7 +49,7 @@
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
                     <aside class="single_sidebar_widget search_widget">
-                        <form action="<?=base_url('blog')?>" method="get">
+                        <form action="<?= base_url('blog') ?>" method="get">
                             <div class="form-group">
                                 <div class="input-group mb-3">
                                     <input type="text" name="search" class="form-control" placeholder='Search Keyword' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
@@ -115,8 +115,10 @@
 
 
                     <aside class="single_sidebar_widget instagram_feeds">
-                        <h4 class="widget_title">Instagram Feeds</h4>
-                        <iframe src="https://snapwidget.com/embed/940247" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; height:510px"></iframe>
+                        <h4 class="widget_title">Kumpulan Video</h4>
+                        <div id="youtube-video">
+
+                        </div>
                     </aside>
                 </div>
             </div>
@@ -124,3 +126,10 @@
     </div>
 </section>
 <!--================Blog Area =================-->
+<script>
+    $(document).ready(function() {
+        $.get('<?= base_url('youtube') ?>', function(data, status) {
+            $('#youtube-video').html(data);
+        });
+    });
+</script>
