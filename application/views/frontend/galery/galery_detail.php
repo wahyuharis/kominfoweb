@@ -6,13 +6,13 @@
                 <h2>Galery
                 </h2>
                 <div class="row">
-                    <div class="col-md-12">
-                        <img src="<?= base_url('assets/uploads/files/' . $galeri_foto_header) ?>" alt="Lights" style="width:100%;height:150px">
+                    <div class="col-md-12 mb-5">
+                        <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $galeri_foto_header) ?>" >
                     </div>
                 </div>
                 <div class="row">
                     <?php foreach ($galeri_foto_detal as $row) { ?>
-                        <div class="col-md-4" >
+                        <div class="col-md-4 mb-3" >
                             <img src="<?= base_url('assets/uploads/files/' . $row['image']) ?>" alt="Lights" style="width:100%;height:150px">
                             </a>
                         </div>

@@ -62,9 +62,6 @@ class Blog extends CI_Controller
 
         $this->pagination->initialize($config);
 
-
-        // print_r2($berita_blog_list);
-
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['berita_blog_list'] = $berita_blog_list;
         $content_data['pagination'] = $this->pagination->create_links();

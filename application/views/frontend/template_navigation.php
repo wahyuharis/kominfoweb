@@ -59,7 +59,7 @@
             <li><a href="#">Layanan</a></li>
             <li><a href="#">Dokumen Media</a>
                 <ul class="submenu">
-                    <li><a href="<?= base_url('galeri_foto/') ?>">Album Galeri</a></li>
+                    <li><a href="<?= base_url('galery/') ?>">Album Galeri</a></li>
                     <li><a href="#">Album Video</a></li>
                     <li><a href="#">Album Majalah/Publikasi</a></li>
                 </ul>
