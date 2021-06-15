@@ -5,22 +5,20 @@
             <div class="col-lg-8">
                 <h2>Galery
                 </h2>
-                <!-- <div class="blog_details"> -->
-                    <div class="row">
-                        <?php foreach ($galeri_foto as $row) { ?>
-                            <div class="col-md-4" style="height: 300px;">
-                                <a href="<?=base_url('galery/detail/'.$row['id'])?>" >
-                                <img src="<?= base_url('assets/uploads/files/' . $row['image']) ?>" alt="Lights" style="width:100%;height:150px">
-                                <p><?= $row['caption'] ?></p>
-                                </a>
-                            </div>
-                        <?php } ?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="<?= base_url('assets/uploads/files/' . $galeri_foto_header) ?>" alt="Lights" style="width:100%;height:150px">
                     </div>
+                </div>
+                <div class="row">
+                    <?php foreach ($galeri_foto_detal as $row) { ?>
+                        <div class="col-md-4" >
+                            <img src="<?= base_url('assets/uploads/files/' . $row['image']) ?>" alt="Lights" style="width:100%;height:150px">
+                            </a>
+                        </div>
+                    <?php } ?>
+                </div>
 
-                <!-- </div> -->
-                <nav class="blog-pagination justify-content-center d-flex">
-                    <?= $pagination ?>
-                </nav>
             </div>
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
