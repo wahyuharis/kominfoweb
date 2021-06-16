@@ -184,7 +184,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li class="<?php if (strtolower($this->uri->segment(2)) == 'blog') echo 'active' ?>"><a href="<?= base_url() ?>admin/blog"><i class="fa fa-circle-o"></i> Berita</a></li>
-                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'agenda') echo 'active' ?>"><a href="<?= base_url() ?>admin/blog"><i class="fa fa-circle-o"></i> Agenda</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'agenda') echo 'active' ?>"><a href="#"><i class="fa fa-circle-o"></i> Agenda</a></li>
                         </ul>
                     </li>
 
