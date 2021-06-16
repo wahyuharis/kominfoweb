@@ -19,6 +19,7 @@ class Penghargaan extends CI_Controller
         $search = $this->input->get('search');
 
         $berita_kanan = $this->db->where('deleted_at', null) //berita di sebelah kanan
+            ->where('category', 'Berita')
             ->select('feeds.*,users.fullname')
             ->join('users', 'users.id=feeds.user_id')
             ->order_by('id', 'desc')

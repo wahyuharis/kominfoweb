@@ -128,7 +128,7 @@
 
                   <aside class="single_sidebar_widget instagram_feeds">
                      <h4 class="widget_title">Kumpulan Video</h4>
-                     <div id="youtube-video" >
+                     <div id="youtube-video">
 
                      </div>
                   </aside>
@@ -150,16 +150,21 @@
          $('.blog_details').find('ul').css('color', '#506172');
          $('.blog_details').find('li').css('color', '#506172');
 
-         // #506172
-
-
          $('.blog_details').find('table').addClass('table');
          $('.blog_details').find('table').addClass('table-bordered');
          $('.blog_details').find('table').removeAttr('border');
 
+         $('.blog_details').find('img').each(function(index, value){
+            // console.log(index+" "+$(this).attr('src') );
+            src=$(this).attr('src');
+            $(this).wrap( '<a href="'+src+'" data-fancybox="images" data-caption="foto - '+(index+1)+'"></a>' );
+         });
+
          $.get('<?= base_url('youtube') ?>', function(data, status) {
             $('#youtube-video').html(data);
-        });
+         });
+
+
 
       });
    </script>

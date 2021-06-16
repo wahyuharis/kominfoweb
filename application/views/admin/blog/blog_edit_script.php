@@ -9,6 +9,7 @@
 
         $('textarea[name=content]').summernote({
             height: 300, // set editor height
+            tabDisable: true,
             callbacks: {
                 onImageUpload: function(image) {
                     uploadImage(image[0]);

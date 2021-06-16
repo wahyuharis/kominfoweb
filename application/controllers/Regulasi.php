@@ -22,6 +22,7 @@ class Regulasi extends CI_Controller
         $slug = $this->input->get('slug');
 
         $berita_kanan = $this->db->where('deleted_at', null)
+            ->where('category', 'Berita')
             ->select('feeds.*,users.fullname')
             ->join('users', 'users.id=feeds.user_id')
             ->order_by('id', 'desc')

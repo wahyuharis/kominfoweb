@@ -21,6 +21,7 @@ class Blog extends CI_Controller
         $search = $this->input->get('search');
 
         $berita_kanan = $this->db->where('deleted_at', null)
+            ->where('category', 'Berita')
             ->select('feeds.*,users.fullname')
             ->join('users', 'users.id=feeds.user_id')
             ->order_by('id', 'desc')
@@ -34,6 +35,7 @@ class Blog extends CI_Controller
         $start = page_to_start($page, $limit);
 
         $berita_blog_list = $this->db->where('deleted_at', null)
+            ->where('category', 'Berita')
             ->group_start()
             ->or_like('title', $search)
             ->or_like('content', $search)
@@ -48,6 +50,7 @@ class Blog extends CI_Controller
 
 
         $total_row = $this->db->where('deleted_at', null)
+            ->where('category', 'Berita')
             ->group_start()
             ->or_like('title', $search)
             ->or_like('content', $search)
@@ -79,6 +82,7 @@ class Blog extends CI_Controller
         // print_r2($slug);
 
         $berita_kanan = $this->db->where('deleted_at', null)
+            ->where('category', 'Berita')
             ->select('feeds.*,users.fullname')
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->order_by('id', 'desc')
@@ -89,6 +93,7 @@ class Blog extends CI_Controller
         $berita_detail = $this->db
             ->select('feeds.*,users.fullname')
             ->where('deleted_at', null)
+            ->where('category','Berita')
             ->where('slug', $slug)
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->get('feeds')
@@ -100,6 +105,7 @@ class Blog extends CI_Controller
         $berita_detail_next = $this->db
             ->select('feeds.*,users.fullname')
             ->where('deleted_at', null)
+            ->where('category','Berita')
             ->where('feeds.id < ', $berita_detail->id)
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->order_by('feeds.id', 'desc')
@@ -109,6 +115,7 @@ class Blog extends CI_Controller
         $berita_detail_prev = $this->db
             ->select('feeds.*,users.fullname')
             ->where('deleted_at', null)
+            ->where('category','Berita')
             ->where('feeds.id > ', $berita_detail->id)
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->order_by('feeds.id', 'desc')

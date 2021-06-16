@@ -32,16 +32,16 @@ class Blog extends CI_Controller
                     $key = $kf;
                 }
             }
-            unset($_POST['search_field'][$key]);
-            unset($_POST['search_text'][$key]);
+            if (strlen($key) > 0) {
+                $tanggal = $search_text[$key];
+                unset($_POST['search_field'][$key]);
+                unset($_POST['search_text'][$key]);
+            }
             if (count($_POST['search_field']) < 1) {
                 unset($_POST['search_field']);
                 unset($_POST['search_text']);
             }
-            $tanggal = $search_text[$key];
         }
-
-
 
 
         //##### inisiasi ##################
@@ -61,7 +61,7 @@ class Blog extends CI_Controller
             $crud->like("date_format(date,'%d/%m/%Y')", $tanggal);
         }
 
-        $crud->columns('actions', 'id', 'title', 'slug', 'deskripsi', 'kata_kunci', 'date', 'user_id');
+        $crud->columns('actions', 'id', 'category','title', 'date', 'user_id');
         $crud->fields('title', 'slug', 'deskripsi', 'kata_kunci', 'image', 'content',  'date', 'user_id');
         $crud->display_as('category', 'Kategori');
         $crud->display_as('title', 'Judul');
@@ -271,10 +271,9 @@ class Blog extends CI_Controller
             $slug = $db->row_object()->slug;
         }
 
-        if (empty( trim($str))) {
+        if (empty(trim($str))) {
             $this->form_validation->set_message('slug_check', 'Field {field} kosong');
-        }
-        elseif (trim($slug) == trim($str)) {
+        } elseif (trim($slug) == trim($str)) {
             $this->form_validation->set_message('slug_check', 'Field {field} harus bernilai unik');
         } else {
             $return = true;
@@ -286,9 +285,9 @@ class Blog extends CI_Controller
     {
         $return = false;
 
-        if(is_date_dmy($str)){
-            $return=true;
-        }else{
+        if (is_date_dmy($str)) {
+            $return = true;
+        } else {
             $this->form_validation->set_message('date_check', 'Field {field} Tidak Valid');
         }
 

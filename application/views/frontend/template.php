@@ -55,9 +55,14 @@ if (!isset($keywords)) {
     <link rel="stylesheet" href="<?= base_url() ?>template_kominfo/assets/css/slick.css">
     <link rel="stylesheet" href="<?= base_url() ?>template_kominfo/assets/css/nice-select.css">
     <link rel="stylesheet" href="<?= base_url() ?>template_kominfo/assets/css/style.css">
+    <link rel="stylesheet" href="<?= base_url() ?>node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
+    
     <link rel="stylesheet" href="<?= base_url() ?>template_kominfo/assets/css/custom.css">
 
-    <script src="<?= base_url() ?>template_kominfo/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- <script src="<?= base_url() ?>template_kominfo/assets/js/vendor/jquery-1.12.4.min.js"></script> -->
+    <script src="<?= base_url() ?>node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="<?= base_url() ?>node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
+    
 </head>
 
 <body>

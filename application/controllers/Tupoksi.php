@@ -29,6 +29,7 @@ class Tupoksi extends CI_Controller
 
 
         $berita_kanan = $this->db->where('deleted_at', null)
+            ->where('category', 'Berita')
             ->select('feeds.*,users.fullname')
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->order_by('id', 'desc')

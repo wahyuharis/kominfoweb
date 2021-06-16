@@ -17,6 +17,7 @@ class Galery extends CI_Controller
         $content_data = [];
 
         $berita_kanan = $this->db->where('deleted_at', null)
+            ->where('category', 'Berita')
             ->select('feeds.*,users.fullname')
             ->join('users', 'users.id=feeds.user_id')
             ->order_by('id', 'desc')
@@ -68,6 +69,7 @@ class Galery extends CI_Controller
         $content_data = [];
 
         $berita_kanan = $this->db->where('deleted_at', null)
+            ->where('category', 'Berita')
             ->select('feeds.*,users.fullname')
             ->join('users', 'users.id=feeds.user_id')
             ->order_by('id', 'desc')
@@ -76,6 +78,7 @@ class Galery extends CI_Controller
             ->result_array();
 
         $galeri_foto_header = $this->db->select('*')
+            ->where('id', $id)
             ->get('galleries')
             ->row_object()->image;
 
