@@ -1,13 +1,13 @@
--- MariaDB dump 10.17  Distrib 10.4.13-MariaDB, for Win64 (AMD64)
+-- MySQL dump 10.16  Distrib 10.1.36-MariaDB, for Win32 (AMD64)
 --
 -- Host: localhost    Database: db_infokom
 -- ------------------------------------------------------
--- Server version	10.4.13-MariaDB
+-- Server version	10.1.36-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `__ci_sessions`;
 CREATE TABLE `__ci_sessions` (
   `id` varchar(128) NOT NULL,
   `ip_address` varchar(45) NOT NULL,
-  `timestamp` int(10) unsigned NOT NULL DEFAULT 0,
+  `timestamp` int(10) unsigned NOT NULL DEFAULT '0',
   `data` blob NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   KEY `ci_sessions_timestamp` (`timestamp`) USING BTREE
@@ -38,6 +38,7 @@ CREATE TABLE `__ci_sessions` (
 
 LOCK TABLES `__ci_sessions` WRITE;
 /*!40000 ALTER TABLE `__ci_sessions` DISABLE KEYS */;
+INSERT INTO `__ci_sessions` VALUES ('bu5hl6pder5lkujm6bvd8rskrmc2qah1','::1',1623911957,'__ci_last_regenerate|i:1623911933;id|s:2:\"16\";user_level_id|s:1:\"1\";email|s:15:\"admin@admin.com\";fullname|s:13:\"Administrator\";password|s:32:\"21232f297a57a5a743894a0e4a801fc3\";created_at|N;updated_at|N;user_level|s:13:\"Administrator\";'),('hj2sc3keoct1d5tf13i6ttml9kb5pfla','::1',1623910352,'__ci_last_regenerate|i:1623910352;id|s:2:\"16\";user_level_id|s:1:\"1\";email|s:15:\"admin@admin.com\";fullname|s:13:\"Administrator\";password|s:32:\"21232f297a57a5a743894a0e4a801fc3\";created_at|N;updated_at|N;user_level|s:13:\"Administrator\";'),('q242orsano807bql9e089ucat8rj9kfg','::1',1623911413,'__ci_last_regenerate|i:1623911413;id|s:2:\"16\";user_level_id|s:1:\"1\";email|s:15:\"admin@admin.com\";fullname|s:13:\"Administrator\";password|s:32:\"21232f297a57a5a743894a0e4a801fc3\";created_at|N;updated_at|N;user_level|s:13:\"Administrator\";'),('ss8ti0mvlurqqb5vcfm621or6mco70fs','::1',1623911933,'__ci_last_regenerate|i:1623911933;id|s:2:\"16\";user_level_id|s:1:\"1\";email|s:15:\"admin@admin.com\";fullname|s:13:\"Administrator\";password|s:32:\"21232f297a57a5a743894a0e4a801fc3\";created_at|N;updated_at|N;user_level|s:13:\"Administrator\";');
 /*!40000 ALTER TABLE `__ci_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,13 +87,13 @@ CREATE TABLE `feeds` (
   `date` date DEFAULT NULL,
   `deskripsi` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `kata_kunci` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `content` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` longtext COLLATE utf8_unicode_ci,
   `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `view` int(11) DEFAULT 0,
+  `view` int(11) DEFAULT '0',
   `penanggungjawab` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `jam` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE KEY `slug` (`slug`)
@@ -121,7 +122,7 @@ CREATE TABLE `galleries` (
   `category` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'Gallery',
   `caption` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
@@ -173,7 +174,7 @@ CREATE TABLE `halaman` (
   `kategori` enum('Personil Diskominfo','Sejarah Dinas','Struktur Organisasi','Tupoksi','Visi Misi') NOT NULL,
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `gambar` varchar(255) NOT NULL,
@@ -200,7 +201,7 @@ DROP TABLE IF EXISTS `header`;
 CREATE TABLE `header` (
   `id_header` int(11) NOT NULL AUTO_INCREMENT,
   `header_name` varchar(50) DEFAULT NULL,
-  `content` text DEFAULT NULL,
+  `content` text,
   `image` varchar(200) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
@@ -258,13 +259,13 @@ CREATE TABLE `profile_penghargaan` (
   `deskripsi` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `kata_kunci` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `content` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` longtext COLLATE utf8_unicode_ci,
   `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `view` int(11) DEFAULT 0,
+  `view` int(11) DEFAULT '0',
   `penanggungjawab` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `jam` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` datetime DEFAULT current_timestamp(),
-  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id_penghargaan`) USING BTREE,
   UNIQUE KEY `slug` (`slug`)
@@ -292,8 +293,8 @@ CREATE TABLE `profile_personil` (
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_personil`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -322,8 +323,8 @@ CREATE TABLE `profile_sejarah_dinas` (
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_sejarah_dinas`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -351,8 +352,8 @@ CREATE TABLE `profile_struktur_organisasi` (
   `kategori` enum('Personil Diskominfo','Sejarah Dinas','Struktur Organisasi','Tupoksi','Visi Misi') NOT NULL,
   `judul` varchar(255) NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_struktur_organisasi`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -377,12 +378,12 @@ DROP TABLE IF EXISTS `profile_tupoksi`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `profile_tupoksi` (
   `id_tupoksi` int(11) NOT NULL AUTO_INCREMENT,
-  `tupoksi_kategori` int(11) NOT NULL DEFAULT 0,
+  `tupoksi_kategori` int(11) NOT NULL DEFAULT '0',
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_tupoksi`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -394,7 +395,7 @@ CREATE TABLE `profile_tupoksi` (
 
 LOCK TABLES `profile_tupoksi` WRITE;
 /*!40000 ALTER TABLE `profile_tupoksi` DISABLE KEYS */;
-INSERT INTO `profile_tupoksi` VALUES (3,1,'Tugas Pokok Dan Fungsi Diskominfo','<p>\n	<font color=\"#000000\" face=\"Arial, Helvetica, Tahoma, Verdana, sans-serif\">&nbsp;</font></p>\n','aa863-lnrv_b2ys_180305.jpg','2021-06-10 12:06:50','2021-06-08 01:14:53',NULL),(4,2,'Tugas Pokok Dan Fungsi Kepala Dinas','<p>\n	<font color=\"#000000\" face=\"Arial, Helvetica, Tahoma, Verdana, sans-serif\">&nbsp;</font></p>\n','5bd27-lnrv_b2ys_180305.jpg','2021-06-10 12:06:14','2021-06-08 04:10:41',NULL),(5,3,'Tugas Pokok Dan Fungsi Sekretariat','<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px;\">\n	<tbody>\n		<tr>\n			<td style=\"text-align: center;\">\n				<strong>No</strong></td>\n			<td style=\"text-align: center;\">\n				<strong>Jabatan</strong></td>\n		</tr>\n		<tr>\n			<td style=\"text-align: center;\">\n				1</td>\n			<td style=\"text-align: center;\">\n				Sub Bagian Umum dan Kepegawaian</td>\n		</tr>\n		<tr>\n			<td style=\"text-align: center;\">\n				2</td>\n			<td style=\"text-align: center;\">\n				Sub Bagian Keuangan</td>\n		</tr>\n		<tr>\n			<td style=\"text-align: center;\">\n				3</td>\n			<td style=\"text-align: center;\">\n				Sub Bagian Perencanaan dan Pelaporan</td>\n		</tr>\n	</tbody>\n</table>\n<p>\n	&nbsp;</p>\n','da13d-lnrv_b2ys_180305.jpg','2021-06-10 12:05:47','2021-06-08 04:20:48',NULL),(6,6,'Tugas Pokok Dan Fungsi Bidang Statistik','<p>\n	<span style=\"color: rgb(0, 0, 0); font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif;\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris.</span></p>\n','da13d-lnrv_b2ys_180305.jpg','2021-06-10 12:08:00','2021-06-08 04:21:49',NULL),(7,5,'Tugas Pokok Dan Fungsi Bidang Teknologi Informatika','<p>\n	<span style=\"color: rgb(0, 0, 0); font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif;\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris.</span></p>\n','da13d-lnrv_b2ys_180305.jpg','2021-06-10 12:08:01','2021-06-08 04:22:31',NULL),(8,7,'Tugas Pokok Dan Fungsi Bidang Informasi Dan Publikasi','<p>\n	<span style=\"color: rgb(0, 0, 0); font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif;\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris.</span></p>\n','da13d-lnrv_b2ys_180305.jpg','2021-06-10 12:08:02','2021-06-08 04:23:24',NULL),(9,4,'Tugas Pokok Dan Fungsi','<p>\n	<span style=\"color: rgb(0, 0, 0); font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif;\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris.</span></p>\n','da13d-lnrv_b2ys_180305.jpg','2021-06-10 12:08:03','2021-06-08 04:24:50',NULL);
+INSERT INTO `profile_tupoksi` VALUES (3,1,'Tugas Pokok Dan Fungsi Diskominfo','<p>\n	<strong><font color=\"#000000\" face=\"Arial, Helvetica, Tahoma, Verdana, sans-serif\">Tugas :</font></strong></p>\n<p>\n	<font color=\"#000000\" face=\"Arial, Helvetica, Tahoma, Verdana, sans-serif\">melaksanakan urusan pemerintahan yang menjadi kewenangan daerah di bidang komunikasi dan informatika, urusan pemerintah di bidang statistik dan urusan pemerintahan di bidang persandian.</font></p>\n<p>\n	&nbsp;</p>\n<p>\n	<strong><font color=\"#000000\" face=\"Arial, Helvetica, Tahoma, Verdana, sans-serif\">Fungsi :</font></strong></p>\n<p>\n	<font color=\"#000000\" face=\"Arial, Helvetica, Tahoma, Verdana, sans-serif\">1. merumuskan pelaksanaan kebijakan di bidang pengelolaan opini dan aspirasi publik di lingkup pemerintah Kabupaten Jember, pengelolaan informasi untuk mendukung kebijakan nasional dan pemerintah Kabupaten Jember, penyediaan konten lintas sektoral dan pengelolaan media&nbsp; komunikasi publik, pelayanan informasi publik, layanan hubungan media, penguatan kapasitas sumber daya komunikasi publik dan penyediaan akses informasi, layanan infrastruktur dasar data center, disaster recovery center dan TIK, layanan manajemen data dan informasi e-Government, integrasi layanan publik dan kepemerintahan, layanan keamanan informasi e-Government, layanan sistem komunikasi intra pemerintah Kabupaten Jember, layanan pengembangan dan pengelolaan aplikasi generik dan spesifik dan suplemen yang terintegrasi, penyelenggaraan ekosistem&nbsp; TIK Smart City, layanan nama domain dan sub domain bagi lembaga, peleyenan publik dan kegiatan, penyelenggaraan Government Chief Information Officer (GCIO) Kabupaten Jember, pengembangan sumber daya TIK pemerintah dan mesyarakat lingkup Kabupaten Jember.</font></p>\n<p>\n	<font color=\"#000000\" face=\"Arial, Helvetica, Tahoma, Verdana, sans-serif\">2. pelaksanaan evaluasi dan pelaporan di bidang pengelolaan opini dan&nbsp;</font></p>\n','e8c19-logo-kominfo-copy.jpg','2021-06-17 06:12:31','2021-06-08 01:14:53',NULL),(4,2,'Tugas Pokok Dan Fungsi Kepala Dinas','<p>\n	<font color=\"#000000\" face=\"Arial, Helvetica, Tahoma, Verdana, sans-serif\">&nbsp;</font></p>\n','5bd27-lnrv_b2ys_180305.jpg','2021-06-10 12:06:14','2021-06-08 04:10:41',NULL),(5,3,'Tugas Pokok Dan Fungsi Sekretariat','<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width:500px;\">\n	<tbody>\n		<tr>\n			<td style=\"text-align: center;\">\n				<strong>No</strong></td>\n			<td style=\"text-align: center;\">\n				<strong>Jabatan</strong></td>\n		</tr>\n		<tr>\n			<td style=\"text-align: center;\">\n				1</td>\n			<td style=\"text-align: center;\">\n				<a href=\"http://hh\">Sub Bagian Umum dan Kepegawaian</a></td>\n		</tr>\n		<tr>\n			<td style=\"text-align: center;\">\n				2</td>\n			<td style=\"text-align: center;\">\n				<a href=\"http://hgg\">Sub Bagian Keuangan</a></td>\n		</tr>\n		<tr>\n			<td style=\"text-align: center;\">\n				3</td>\n			<td style=\"text-align: center;\">\n				<a href=\"http://ggg\">Sub Bagian Perencanaan dan Pelaporan</a></td>\n		</tr>\n	</tbody>\n</table>\n<p>\n	&nbsp;</p>\n','da13d-lnrv_b2ys_180305.jpg','2021-06-17 06:32:00','2021-06-08 04:20:48',NULL),(6,6,'Tugas Pokok Dan Fungsi Bidang Statistik','<p>\n	<span style=\"color: rgb(0, 0, 0); font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif;\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris.</span></p>\n','da13d-lnrv_b2ys_180305.jpg','2021-06-10 12:08:00','2021-06-08 04:21:49',NULL),(7,5,'Tugas Pokok Dan Fungsi Bidang Teknologi Informatika','<p>\n	<span style=\"color: rgb(0, 0, 0); font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif;\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris.</span></p>\n','da13d-lnrv_b2ys_180305.jpg','2021-06-10 12:08:01','2021-06-08 04:22:31',NULL),(8,7,'Tugas Pokok Dan Fungsi Bidang Informasi Dan Publikasi','<p>\n	<span style=\"color: rgb(0, 0, 0); font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif;\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris.</span></p>\n','da13d-lnrv_b2ys_180305.jpg','2021-06-10 12:08:02','2021-06-08 04:23:24',NULL),(9,4,'Tugas Pokok Dan Fungsi','<p>\n	<span style=\"color: rgb(0, 0, 0); font-family: Arial, Helvetica, Tahoma, Verdana, sans-serif;\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris.</span></p>\n','da13d-lnrv_b2ys_180305.jpg','2021-06-10 12:08:03','2021-06-08 04:24:50',NULL);
 /*!40000 ALTER TABLE `profile_tupoksi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -436,8 +437,8 @@ CREATE TABLE `profile_visi_misi` (
   `judul` varchar(255) NOT NULL,
   `konten` text NOT NULL,
   `gambar` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_visi_misi`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
@@ -466,10 +467,10 @@ CREATE TABLE `profiles` (
   `headline` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `sub_headline` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `counter` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `featured` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `pages` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
-  `social_media` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `counter` text COLLATE utf8_unicode_ci,
+  `featured` text COLLATE utf8_unicode_ci,
+  `pages` longtext COLLATE utf8_unicode_ci,
+  `social_media` text COLLATE utf8_unicode_ci,
   `created_at` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `updated_at` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
@@ -501,8 +502,8 @@ CREATE TABLE `regulasi` (
   `tanggal_terbit` date NOT NULL,
   `upload_file` varchar(255) DEFAULT NULL,
   `document` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_regulasi`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
@@ -690,4 +691,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-06-16 14:28:55
+-- Dump completed on 2021-06-17 13:39:46
