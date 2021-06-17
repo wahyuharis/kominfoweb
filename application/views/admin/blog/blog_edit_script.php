@@ -1,5 +1,19 @@
 <script>
     $(document).ready(function() {
+        $('select[name=category]').change(function() {
+            value = $(this).val();
+            if(value=='Draft'){
+                $('#date-publish').show();
+            }else{
+                $('#date-publish').hide();
+
+            }
+        });
+        var category=$('select[name=category]').val();
+        if(category=='Draft'){
+            $('#date-publish').show();
+        }
+
         $('input[name=title]').keyup(function() {
             judul = $(this).val();
             judul = slugify(judul);

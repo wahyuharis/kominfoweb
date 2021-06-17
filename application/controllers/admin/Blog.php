@@ -61,13 +61,14 @@ class Blog extends CI_Controller
             $crud->like("date_format(date,'%d/%m/%Y')", $tanggal);
         }
 
-        $crud->columns('actions', 'id', 'category','title', 'date', 'user_id');
+        $crud->columns('actions', 'id', 'category', 'title', 'date', 'date_publish','user_id');
         $crud->fields('title', 'slug', 'deskripsi', 'kata_kunci', 'image', 'content',  'date', 'user_id');
-        $crud->display_as('category', 'Kategori');
+        $crud->display_as('category', 'Type');
         $crud->display_as('title', 'Judul');
         $crud->display_as('content', 'Konten');
         $crud->display_as('image', 'Image');
         $crud->display_as('date', 'Tanggal');
+        $crud->display_as('date_publish', 'Jadwal Publikasi');
         $crud->display_as('user_id', 'User');
         // $crud->unset_operations();
         $crud->unset_add();
@@ -78,6 +79,7 @@ class Blog extends CI_Controller
         $crud->set_relation('user_id', 'users', 'email');
         $crud->callback_field('user_id', array($this, '_callback_user_id'));
         $crud->callback_column('actions', array($this, '_callback_actions'));
+        $crud->callback_column('category', array($this, '_callback_category'));
 
         $crud->set_subject('Blog');
         $crud->set_field_upload('image', 'assets/uploads/files');
@@ -106,6 +108,20 @@ class Blog extends CI_Controller
         $template_data['box'] = False;
 
         $this->load->view('admin/template', $template_data);
+    }
+
+    function _callback_category($value, $row){
+        $html="";
+
+        if(trim($value)=='Berita'){
+            $html.='<span class="label label-primary" >'.$value.'</span>';
+        }else{
+            $html.='<span class="label label-warning" >'.$value.'</span>';
+
+        }
+
+        return $html;
+
     }
 
     function _callback_user_id($value = '', $primary_key = null)
@@ -162,12 +178,16 @@ class Blog extends CI_Controller
         $content_data = array();
         $content_data['primary_id'] = $id;
         $content_data['date'] = date('d/m/Y');
+        $content_data['date_publish'] ='';
+        $content_data['category'] = 'Berita';
         $content_data['title'] = '';
         $content_data['slug'] = '';
         $content_data['deskripsi'] = '';
         $content_data['kata_kunci'] = '';
         $content_data['content'] = '';
         $content_data['image'] = '';
+        $content_data['category'] = '';
+        $content_data['category_opt'] = array('Berita' => 'Berita', 'Draft' => 'Draft');
 
         if (!empty(trim($id))) {
             $db =  $this->db
@@ -176,6 +196,9 @@ class Blog extends CI_Controller
 
             if ($db->num_rows() > 0) {
                 $content_data['date'] = waktu_ymd_to_dmy($db->row_object()->date);
+                $content_data['date_publish'] =waktu_ymd_to_dmy($db->row_object()->date_publish);
+                $content_data['category'] = $db->row_object()->category;
+
                 $content_data['title'] = $db->row_object()->title;
                 $content_data['slug'] = $db->row_object()->slug;
                 $content_data['deskripsi'] = $db->row_object()->deskripsi;
@@ -203,6 +226,8 @@ class Blog extends CI_Controller
         $error = array();
         $post = $this->input->post();
 
+        // print_r2($post);
+
         $primary_id = trim($this->input->post('primary_id'));
 
         $this->load->library('form_validation');
@@ -214,6 +239,10 @@ class Blog extends CI_Controller
         $this->form_validation->set_rules('slug', ucwords('slug'), 'callback_slug_check');
         $this->form_validation->set_rules('content', ucwords('content'), 'trim|required');
 
+        if ($this->input->post('category') == 'Draft') {
+            $this->form_validation->set_rules('date_publish', ucwords('Jadwal Publikasi'), 'trim|required');
+        }
+
         if ($this->form_validation->run() == FALSE) {
             $message = validation_errors();
             $error = $this->form_validation->error_array();
@@ -223,12 +252,13 @@ class Blog extends CI_Controller
         if ($succes) {
             $insert['title'] = $post['title'];
             $insert['date'] = waktu_dmy_to_ymd($post['date']);
+            $insert['date_publish'] = waktu_dmy_to_ymd($post['date_publish']);
             $insert['image'] = $post['image'];
             $insert['slug'] = trim($post['slug']);
             $insert['content'] = $post['content'];
             $insert['deskripsi'] = $post['deskripsi'];
             $insert['kata_kunci'] = $post['kata_kunci'];
-
+            $insert['category'] = $post['category'];
 
             if (empty(trim($primary_id))) {
                 $insert['user_id'] = $this->session->userdata('id');
