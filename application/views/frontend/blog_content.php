@@ -155,7 +155,6 @@
          $('.blog_details').find('table').removeAttr('border');
 
          $('.blog_details').find('img').each(function(index, value){
-            // console.log(index+" "+$(this).attr('src') );
             src=$(this).attr('src');
             $(this).wrap( '<a href="'+src+'" data-fancybox="images" data-caption="foto - '+(index+1)+'"></a>' );
          });
