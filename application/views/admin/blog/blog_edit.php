@@ -8,9 +8,9 @@
                     <label for="title">Title</label>
                     <input type="text" id="title" name="title" value="<?= $title ?>" class="form-control" placeholder="title">
                 </div>
-                <div class="form-group hidden">
+                <div class="form-group">
                     <label for="date">Date</label>
-                    <input type="text" id="date" readonly="true" name="date" value="<?= $date ?>" class="form-control" placeholder="Date">
+                    <input type="text" id="date"  name="date" value="<?= $date ?>" class="form-control datepicker" placeholder="Date">
                 </div>
                 <div class="form-group">
                     <label for="category">Type</label>

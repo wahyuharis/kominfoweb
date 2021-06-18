@@ -10,7 +10,7 @@ class Blog extends CI_Controller
     {
         parent::__construct();
         $this->load->library('grocery_CRUD');
-        //    print_r2(  $this->session->userdata() );
+        //    print_r2(  $this->session->flashdata() );
         //    die();
 
         $this->load->library('Auth');
@@ -61,7 +61,7 @@ class Blog extends CI_Controller
             $crud->like("date_format(date,'%d/%m/%Y')", $tanggal);
         }
 
-        $crud->columns('actions', 'id', 'category', 'title', 'date', 'date_publish','user_id');
+        $crud->columns('actions', 'id', 'category', 'title', 'date', 'date_publish', 'user_id');
         $crud->fields('title', 'slug', 'deskripsi', 'kata_kunci', 'image', 'content',  'date', 'user_id');
         $crud->display_as('category', 'Type');
         $crud->display_as('title', 'Judul');
@@ -93,6 +93,8 @@ class Blog extends CI_Controller
         $crud->callback_before_update(array($this, '_callback_before_update'));
         $crud->callback_before_insert(array($this, '_callback_before_update'));
 
+        $crud->order_by('id', 'desc');
+
 
         $output = $crud->render();
 
@@ -110,18 +112,17 @@ class Blog extends CI_Controller
         $this->load->view('admin/template', $template_data);
     }
 
-    function _callback_category($value, $row){
-        $html="";
+    function _callback_category($value, $row)
+    {
+        $html = "";
 
-        if(trim($value)=='Berita'){
-            $html.='<span class="label label-primary" >'.$value.'</span>';
-        }else{
-            $html.='<span class="label label-warning" >'.$value.'</span>';
-
+        if (trim($value) == 'Berita') {
+            $html .= '<span class="label label-primary" >' . $value . '</span>';
+        } else {
+            $html .= '<span class="label label-warning" >' . $value . '</span>';
         }
 
         return $html;
-
     }
 
     function _callback_user_id($value = '', $primary_key = null)
@@ -142,15 +143,28 @@ class Blog extends CI_Controller
     public function _callback_actions($value, $row)
     {
 
-        $html = '<div style="width:120px" >';
+        $html = '<div style="width:220px" >';
         $html .= "<a class='btn btn-xs btn-warning' href='" . base_url('admin/blog/edit/' . $row->id) . "'>
         <i class='fa fa-pencil'></i>
         edit</a> ";
 
-        $html .= "<a class='btn btn-xs btn-danger'  " .
+        $html .= " <a class='btn btn-xs btn-danger'  " .
             ' href="#" onclick="delete_validation(' . $row->id . ')" > ' .
             "<i class='fa fa-trash'></i>" .
-            "delete</a>";
+            "delete</a> ";
+
+        // if ($row->category == 'Berita') {
+        $html .= " <a class='btn btn-xs btn-default' href='" . base_url('admin/blog/up/' . $row->id) . "'>
+            <i class='fa fa-chevron-circle-up'></i>
+            UP</a> ";
+
+        $html .= "<a class='btn btn-xs btn-default' href='" . base_url('admin/blog/down/' . $row->id) . "'>
+            <i class='fa fa-chevron-circle-down'></i>
+            DOWN</a> ";
+        // }
+
+
+
         $html .= '</div>';
 
         return $html;
@@ -161,6 +175,8 @@ class Blog extends CI_Controller
             ->set(['deleted_at' => date('Y-m-d H:i:s')])
             ->where('id', $id)
             ->update('feeds');
+
+        $this->session->set_flashdata('message_succes','berhasil menghapus');
     }
 
     function add()
@@ -178,7 +194,7 @@ class Blog extends CI_Controller
         $content_data = array();
         $content_data['primary_id'] = $id;
         $content_data['date'] = date('d/m/Y');
-        $content_data['date_publish'] ='';
+        $content_data['date_publish'] = '';
         $content_data['category'] = 'Berita';
         $content_data['title'] = '';
         $content_data['slug'] = '';
@@ -196,7 +212,7 @@ class Blog extends CI_Controller
 
             if ($db->num_rows() > 0) {
                 $content_data['date'] = waktu_ymd_to_dmy($db->row_object()->date);
-                $content_data['date_publish'] =waktu_ymd_to_dmy($db->row_object()->date_publish);
+                $content_data['date_publish'] = waktu_ymd_to_dmy($db->row_object()->date_publish);
                 $content_data['category'] = $db->row_object()->category;
 
                 $content_data['title'] = $db->row_object()->title;
@@ -322,5 +338,91 @@ class Blog extends CI_Controller
         }
 
         return $return;
+    }
+
+    function down($id)
+    {
+        $db = $this->db->where('id<', $id)
+            ->where('deleted_at', null)
+            ->order_by('id', 'desc')
+            ->limit(1)
+            ->get('feeds');
+
+        $db2 = $this->db->where('id', $id)
+            ->where('deleted_at', null)
+            ->get('feeds');
+
+        $down = false;
+        $current = false;
+
+        if ($db->num_rows() > 0 && $db2->num_rows() > 0) {
+            $down = $db->row_array();
+            $current = $db2->row_array();
+
+            $id_down = $down['id'];
+            $id_current = $current['id'];
+
+            $down['id'] = $id_current;
+            $current['id'] = $id_down;
+
+            if ($current['date'] != $down['date']) {
+                $this->session->set_flashdata('message_error', 'Maaf Tanggal Yang diturunkan Harus Sama');
+            } else {
+                $this->db->trans_start();
+
+                $this->db->delete('feeds', array('id' => $id_down));
+                $this->db->delete('feeds', array('id' => $id_current));
+
+                $this->db->insert('feeds', $down);
+                $this->db->insert('feeds', $current);
+
+                $this->db->trans_complete();
+            }
+        }
+
+        redirect('admin/blog');
+    }
+    function up($id)
+    {
+        $db = $this->db->where('id>', $id)
+            ->where('deleted_at', null)
+            ->order_by('id', 'asc')
+            ->limit(1)
+            ->get('feeds');
+
+        $db2 = $this->db->where('id', $id)
+            ->where('deleted_at', null)
+            ->get('feeds');
+
+        $up = false;
+        $current = false;
+
+        if ($db->num_rows() > 0 && $db2->num_rows() > 0) {
+            $up = $db->row_array();
+            $current = $db2->row_array();
+
+            $id_up = $up['id'];
+            $id_current = $current['id'];
+
+
+            $up['id'] = $id_current;
+            $current['id'] = $id_up;
+
+            if ($current['date'] != $up['date']) {
+                $this->session->set_flashdata('message_error', 'Maaf Tanggal Yang dinaikan Harus Sama');
+            } else {
+                $this->db->trans_start();
+
+                $this->db->delete('feeds', array('id' => $id_up));
+                $this->db->delete('feeds', array('id' => $id_current));
+
+                $this->db->insert('feeds', $up);
+                $this->db->insert('feeds', $current);
+
+                $this->db->trans_complete();
+            }
+        }
+
+        redirect('admin/blog');
     }
 }

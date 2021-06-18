@@ -585,7 +585,7 @@
             <?php } ?>
 
             <?php if (strlen($this->session->flashdata('message_error')) > 0) { ?>
-                toastr["danger"]("<?= $this->session->flashdata('message_error') ?>");
+                toastr["error"]("<?= $this->session->flashdata('message_error') ?>");
             <?php } ?>
 
             $('.datepicker').datepicker({
