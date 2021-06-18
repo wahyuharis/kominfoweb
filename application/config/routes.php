@@ -55,4 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route['content/(:any)'] = 'content/index/';
 // $route['admin/struktur_organisasi/'] = 'admin/struktur_organisasi/index/edit/1';
 
+// $route['admin/edit_profile/(:any)'] = 'admin/profile/index/edit/$1';
+
 $route['logout'] = 'login/logout';
