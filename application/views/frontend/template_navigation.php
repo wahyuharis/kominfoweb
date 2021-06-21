@@ -20,11 +20,11 @@
                             <li><a href="<?= base_url('tupoksi/index/' . $id = 1) ?>">Diskominfo</a></li>
                             <li><a href="<?= base_url('tupoksi/index/' . $id = 2) ?>">Kepala Dinas</a></li>
                             <li><a href="<?= base_url('tupoksi/index/' . $id = 3) ?>">Sekretariat</a></li>
-                            <li><a href="<?= base_url('tupoksi/index/' . $id = 4) ?>">Bidang Komunikasi & Pos</a></li>
-                            <li><a href="<?= base_url('tupoksi/index/' . $id = 5) ?>">Bidang Teknologi Informatika</a>
+                            <li><a href="<?= base_url('tupoksi/index/' . $id = 4) ?>">Bidang Aspirasi Dan Layanan Informasi Publik </a></li>
+                            <li><a href="<?= base_url('tupoksi/index/' . $id = 5) ?>">Bidang Layanan Media Komunikasi Publik</a>
                             </li>
-                            <li><a href="<?= base_url('tupoksi/index/' . $id = 6) ?>">Bidang Statistik</a></li>
-                            <li><a href="<?= base_url('tupoksi/index/' . $id = 7) ?>">Bidang Informasi & Publikasi</a>
+                            <li><a href="<?= base_url('tupoksi/index/' . $id = 6) ?>">Bidang Pengembangan Smart City Dan Statistik</a></li>
+                            <li><a href="<?= base_url('tupoksi/index/' . $id = 7) ?>">Bidang Infrastruktur Teknologi Informasi Komunikas</a>
                             </li>
                         </ul>
                     </li>
