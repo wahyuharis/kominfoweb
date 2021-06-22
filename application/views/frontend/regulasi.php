@@ -47,7 +47,7 @@
                                 <td><?= $row['nama_kategori'] ?></td>
                                 <td><?= $row['nama_produk'] ?></td>
                                 <td><?= $row['nomor'] ?></td>
-                                <td> <a href="<?= base_url('assets/uploads/files/' . $row['document']) ?>"> Unduh </a> </td>
+                                <td> <a href="<?= base_url('assets/uploads/files/' . $row['document']) ?>" target="_blank"> Unduh </a> </td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>
