@@ -242,23 +242,23 @@ function set_datatype($str)
 
 function is_date_dmy($tgl, $spliter = "/")
 {
-    $bool=false;
+    $bool = false;
 
-    $tgl_arr=explode($spliter,$tgl);
-    $d=0;
-    $m=0;
-    $y=0;
+    $tgl_arr = explode($spliter, $tgl);
+    $d = 0;
+    $m = 0;
+    $y = 0;
 
-    if(isset($tgl_arr[0])){
-        $d=intval($tgl_arr[0]);
+    if (isset($tgl_arr[0])) {
+        $d = intval($tgl_arr[0]);
     }
-    if(isset($tgl_arr[1])){
-        $m=intval($tgl_arr[1]);
+    if (isset($tgl_arr[1])) {
+        $m = intval($tgl_arr[1]);
     }
-    if(isset($tgl_arr[2])){
-        $y=intval($tgl_arr[2]);
+    if (isset($tgl_arr[2])) {
+        $y = intval($tgl_arr[2]);
     }
-    $bool=checkdate($m, $d, $y);
+    $bool = checkdate($m, $d, $y);
     return $bool;
 }
 
@@ -377,5 +377,36 @@ function getFirstParagraph($paragraph)
         $incr++;
     }
 
-    return $paragraph_arr[$first_paragraph];
+    return strip_tags($paragraph_arr[$first_paragraph]);
+}
+
+
+function getFirstword($paragraph)
+{
+    $paragraph_arr = explode('.', $paragraph);
+
+
+    $paragraph_arr2 = array();
+    $first_paragraph = 0;
+    $found = false;
+    $incr = 0;
+    foreach ($paragraph_arr as $row) {
+        $row = str_replace('<p>', '', $row);
+        if (!$found) {
+            if (strlen(trim(html_entity_decode(strip_tags($row))))  > 0) {
+                $found = true;
+                $first_paragraph = $incr;
+                // array_push($first_paragraph,$incr);
+                // echo strlen($buff) ." - $incr <br>";
+            }
+        }
+        array_push($paragraph_arr2, $row);
+        $incr++;
+    }
+
+    $word="";
+    // $word = strstr($paragraph_arr[$first_paragraph], '>', false);
+    // $word = strstr($word, '<', false);
+
+    return $word;
 }

@@ -31,6 +31,13 @@ class Home extends CI_Controller
             ->get('feeds')
             ->result_array();
 
+        // header_text();
+        // echo getFirstword($berita_kanan[5]['content']);
+
+        // die();
+        // print_r2($berita_kanan[2]);
+
+
         $berita_tengah = $this->db->where('deleted_at', null)
             ->where('category', 'Berita')
             // ->where(" feeds.date between '".date('Y-m-01')."' and '".date('Y-m-t')."' ")
@@ -41,7 +48,7 @@ class Home extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-        
+
         $berita_bawah = $this->db->where('deleted_at', null)
             ->where('category', 'Berita')
             ->select('feeds.*,users.fullname')

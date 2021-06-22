@@ -31,10 +31,13 @@
                                 <p><?= getFirstParagraph($beritabl['content']) ?></p>
                                 <ul class="blog-info-link">
                                     <li><a href="#"><i class="fa fa-user"></i> <?= strtoupper($beritabl['fullname']) ?></a></li>
-                                    <li><a href="#"><i class="fa fa-calendar"></i> <?php
-                                                                                    $var = date_create($beritabl['date']);
-                                                                                    echo date_format($var, "d/m/Y");
-                                                                                    ?></a></li>
+                                    <li><a href="#"><i class="fa fa-calendar"></i>
+                                            <?php
+                                            $var = date_create($beritabl['date']);
+                                            echo date_format($var, "d/m/Y");
+                                            ?>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </article>

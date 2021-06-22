@@ -6,6 +6,7 @@ class Youtube extends CI_Controller
 {
     private $description = "";
     private $keywords = "";
+    private $api_key="AIzaSyAcw4tP_3mVA7N6aWKox2uukpJMA03oQKY";
 
     public function __construct()
     {
@@ -14,64 +15,68 @@ class Youtube extends CI_Controller
 
     public function index()
     {
+        $html = "";
+
         $json = $this->api_excute();
         $json2 = $this->api_excute2();
         $array = json_decode($json, true);
         $array2 = json_decode($json2, true);
 
+        // print_r2($json);
 
-        $item = $array['items'];
-        $item2 = $array2['items'];
+        if (isset($array['items'])) {
 
-        // print_r2($item2);
+            $item = $array['items'];
+            $item2 = $array2['items'];
 
-        $html = "";
 
-        $channel_id = "";
-        if (isset($item2[0]['id'])) {
-            $channel_id = $item2[0]['id'];
-        }
-        $logo = "";
-        if (isset($item2[0]['snippet'])) {
+            $html = "";
 
-            $logo = $item2[0]['snippet']['thumbnails']['high']['url'];
-        }
-        // print_r2( $logo);
-        // die();
-        // $logo = "";
+            $channel_id = "";
+            if (isset($item2[0]['id'])) {
+                $channel_id = $item2[0]['id'];
+            }
+            $logo = "";
+            if (isset($item2[0]['snippet'])) {
 
-        $html .= '<div class="row">'.
-        // '<a href="https://www.youtube.com/channel/' . $channel_id . '" >' .
-            '<div class="col-3">'.
-            '<img style="
+                $logo = $item2[0]['snippet']['thumbnails']['high']['url'];
+            }
+
+            $html .= '<div class="row">' .
+                // '<a href="https://www.youtube.com/channel/' . $channel_id . '" >' .
+                '<div class="col-3">' .
+                '<img style="
             height: 70px;
             width: 70px;
             display: inline-block;
             padding: 0;
         " src="' . $logo . '">' .
 
-            '</div>'.
-            '<div class="col-9">'.
-            '<i class="fab fa-youtube text-danger"></i> PEMKAB JEMBER'.
-            '<br><a href="https://www.youtube.com/channel/' . $channel_id . '?sub_confirmation=1" class="genric-btn danger">'.
-            '<i class="far fa-bell"></i> Subscribe</a>'.
+                '</div>' .
+                '<div class="col-9">' .
+                '<i class="fab fa-youtube text-danger"></i> PEMKAB JEMBER' .
+                '<br><a href="https://www.youtube.com/channel/' . $channel_id . '?sub_confirmation=1" class="genric-btn danger">' .
+                '<i class="far fa-bell"></i> Subscribe</a>' .
 
-            '</div>'.
-           
-            
-            // '</a>'.
-       ' </div>';
+                '</div>' .
 
-        foreach ($item as $row) {
-            $html .= "<br>";
-            $html .= '<iframe width="100%" height="200" src="https://www.youtube.com/embed/' . $row['id']['videoId'] . '" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+
+                // '</a>'.
+                ' </div>';
+
+            foreach ($item as $row) {
+                $html .= "<br>";
+                $html .= '<iframe width="100%" height="200" src="https://www.youtube.com/embed/' . $row['id']['videoId'] . '" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            }
         }
+
+
         echo $html;
     }
 
     function api_excute()
     {
-        $api_key = 'AIzaSyBd99g6-BfjaU17WEynd6Pm2degLWzmB_Y';
+        $api_key = $this->api_key;
         $channel_id = 'UC4zRmZ8mI7OV9cL8MhroopA';
         $video_show = 3;
         $url = 'https://www.googleapis.com/youtube/v3/search?'
@@ -94,7 +99,8 @@ class Youtube extends CI_Controller
 
     function api_excute2()
     {
-        $api_key = 'AIzaSyBd99g6-BfjaU17WEynd6Pm2degLWzmB_Y';
+        $api_key = $this->api_key;
+
         $channel_id = 'UC4zRmZ8mI7OV9cL8MhroopA';
         $url = "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&" .
             "id=" . $channel_id .
