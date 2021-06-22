@@ -33,6 +33,7 @@ class Home extends CI_Controller
 
         $berita_tengah = $this->db->where('deleted_at', null)
             ->where('category', 'Berita')
+            // ->where(" feeds.date between '".date('Y-m-01')."' and '".date('Y-m-t')."' ")
             ->select('feeds.*,users.fullname')
             ->join('users', 'users.id=feeds.user_id')
             ->order_by('view', 'desc')
@@ -40,6 +41,7 @@ class Home extends CI_Controller
             ->get('feeds')
             ->result_array();
 
+        
         $berita_bawah = $this->db->where('deleted_at', null)
             ->where('category', 'Berita')
             ->select('feeds.*,users.fullname')

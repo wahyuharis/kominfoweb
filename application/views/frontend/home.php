@@ -127,7 +127,7 @@
                                     <span class="color3">News</span>
                                     <h4 class="short-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= substr($bkanan['title'], 0, 50) ?>...</a></h4>
                                     <h4 class="long-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= $bkanan['title'] ?></a></h4>
-                                    <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($btengah['date']) ?></p>
+                                    <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bkanan['date']) ?></p>
                                 </div>
                             </div>
                         <?php endforeach; ?>
