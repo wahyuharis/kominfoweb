@@ -381,32 +381,27 @@ function getFirstParagraph($paragraph)
 }
 
 
-function getFirstword($paragraph)
+function getFirstword($text)
 {
-    $paragraph_arr = explode('.', $paragraph);
+    $ci=&get_instance();
+    $word='';
 
+    $ci->load->library('simpledom/simple_html_dom.php');
 
-    $paragraph_arr2 = array();
-    $first_paragraph = 0;
-    $found = false;
-    $incr = 0;
-    foreach ($paragraph_arr as $row) {
-        $row = str_replace('<p>', '', $row);
-        if (!$found) {
-            if (strlen(trim(html_entity_decode(strip_tags($row))))  > 0) {
-                $found = true;
-                $first_paragraph = $incr;
-                // array_push($first_paragraph,$incr);
-                // echo strlen($buff) ." - $incr <br>";
-            }
-        }
-        array_push($paragraph_arr2, $row);
-        $incr++;
-    }
+    // error_reporting(0);
+    $html= str_get_html($text);
 
-    $word="";
-    // $word = strstr($paragraph_arr[$first_paragraph], '>', false);
-    // $word = strstr($word, '<', false);
+    // if(isset($html->find('p')[0])){
+    //     $word=$html->find('p')[0]->text();
+    // }elseif(isset($html->find('div')[0])){
+    //     $word=$html->find('div')[0]->text();
+    // }
+
+    print_r2($text);
+    $html->find('div');
+    
+    $word=strip_tags($word);
+    error_reporting(E_ALL);
 
     return $word;
 }

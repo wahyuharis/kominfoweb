@@ -32,10 +32,11 @@ class Home extends CI_Controller
             ->result_array();
 
         // header_text();
-        // echo getFirstword($berita_kanan[5]['content']);
+        // echo getFirstword($berita_kanan[6]['content']);
 
         // die();
-        // print_r2($berita_kanan[2]);
+        // print_r2(  $berita_kanan[2]);
+
 
 
         $berita_tengah = $this->db->where('deleted_at', null)
