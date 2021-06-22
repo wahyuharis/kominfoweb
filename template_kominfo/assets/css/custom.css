@@ -479,3 +479,22 @@ a {
 	text-decoration: none;
 	transition: .4s;
 } */
+
+.tombolcari{
+	background-color: #0a68a1;
+	padding-right: 15px;
+	padding-left: 15px;
+	cursor: pointer;
+	border: none;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+	background-color: #F2faff;
+ }
+
+ .table-striped > thead > tr {
+	 background-color: #1a8ac1;
+	 color: white;
+	 /* text-align: center; */
+ }
+

@@ -4,7 +4,6 @@
         <div class="row">
             <div class="col-lg-8 mb-5 mb-lg-0">
 
-
                 <div class="section-tittle mb-30">
                     <h2>REGULASI</h2>
                 </div>
@@ -18,9 +17,9 @@
                             <form action="<?=base_url('regulasi')?>" method="get">
                                 <div class="form-group">
                                     <div class="input-group mb-3">
-                                        <input type="text" name="search_regulasi" class="form-control" placeholder='Search Regulasi' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
+                                        <input type="text" name="search_regulasi" class="form-control" placeholder='Cari Regulasi' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cari Regulasi'">
                                         <div class="input-group-append">
-                                            <button class="btns genric-btn info" type="submit"><i class="ti-search"></i></button>
+                                            <button class="tombolcari" type="submit"><i class="ti-search"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -29,31 +28,31 @@
 
 
                     </div>
-                    <table class="table">
+                    <div class="table-responsive">
+                    <table class="table table-striped">
                         <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Kategori</th>
-                                <th>Produk Hukum</th>
-                                <th>Nomor</th>
-                                <th>Tanggal Terbit</th>
-                                <th>Document</th>
-                            </tr>
+                        <tr>
+                            <th>No</th>
+                            <th>Kategori</th>
+                            <th>Produk Hukum</th>
+                            <th>Nomor</th>
+                            
+                            <th>Dokumen</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($regulasi_list as $row) : ?>
-                                <tr>
-                                    <td>#</td>
-                                    <td><?= $row['nama_kategori'] ?></td>
-                                    <td><?= $row['nama_produk'] ?></td>
-                                    <td><?= $row['nomor'] ?></td>
-                                    <td><?= $row['tanggal_terbit'] ?></td>
-                                    <td> <a href="<?= base_url('assets/uploads/files/' . $row['document']) ?>"> Unduh </a> </td>
-                                </tr>
+                        <?php $no = 1; foreach ($regulasi_list as $row) : ?>
+                            <tr>
+                                <td><?php echo $no++; ?></td>
+                                <td><?= $row['nama_kategori'] ?></td>
+                                <td><?= $row['nama_produk'] ?></td>
+                                <td><?= $row['nomor'] ?></td>
+                                <td> <a href="<?= base_url('assets/uploads/files/' . $row['document']) ?>" target="_blank"> Unduh </a> </td>
+                            </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
-
+                    </div>
                     <nav class="blog-pagination justify-content-center d-flex">
                         <?= $pagination ?>
                     </nav>
@@ -66,13 +65,13 @@
                         <form action="<?= base_url('blog') ?>" method="get">
                             <div class="form-group">
                                 <div class="input-group mb-3">
-                                    <input type="text" name="search" class="form-control" placeholder='Search Keyword' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Keyword'">
+                                    <input type="text" name="search" class="form-control" placeholder='Cari Berita' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cari Berita'">
                                     <div class="input-group-append">
-                                        <button class="btns" type="submit"><i class="ti-search"></i></button>
+                                        <button class="btns" type="reset" title="Reset"><i class="ti-close"></i></button>
                                     </div>
                                 </div>
                             </div>
-                            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Search</button>
+                            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Cari</button>
                         </form>
                     </aside>
 

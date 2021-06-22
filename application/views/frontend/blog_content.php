@@ -92,17 +92,17 @@
             <div class="col-lg-4">
                <div class="blog_right_sidebar">
                   <aside class="single_sidebar_widget search_widget">
-                     <form action="<?= base_url('blog') ?>" method="get">
-                        <div class="form-group">
-                                 <div class="input-group mb-3">
+                        <form action="<?= base_url('blog') ?>" method="get">
+                            <div class="form-group">
+                                <div class="input-group mb-3">
                                     <input type="text" name="search" class="form-control" placeholder='Cari Berita' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cari Berita'">
                                     <div class="input-group-append">
                                         <button class="btns" type="reset" title="Reset"><i class="ti-close"></i></button>
                                     </div>
                                 </div>
-                        </div>
-                        <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Search</button>
-                     </form>
+                            </div>
+                            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Cari</button>
+                        </form>
                   </aside>
 
 
