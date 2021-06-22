@@ -91,19 +91,19 @@
 
                                 <div class="carousel-item active">
 
-                                    <a href="#" target="_blank"> <img src="<?= base_url() ?>template_kominfo/assets/img/banner/produk hukum.png" alt="" width="330" height="100"> </a>
+                                    <a href="#" target="_blank"> <img src="<?= base_url() ?>template_kominfo/assets/img/banner/bangkit.png" alt="" width="365px" height="125px"> </a>
 
                                 </div>
 
                                 <div class="carousel-item">
 
-                                    <a href="#" target="_blank"> <img src="<?= base_url() ?>template_kominfo/assets/img/banner/bangga.png" alt="" width="330" height="100">
+                                    <a href="#" target="_blank"> <img src="<?= base_url() ?>template_kominfo/assets/img/banner/paskah.png" alt="" width="365px" height="125px">
                                     </a>
 
                                 </div>
                                 <div class="carousel-item">
 
-                                    <a href="#" target="_blank"> <img src="<?= base_url() ?>template_kominfo/assets/img/banner/kartini.png" alt="" width="330" height="100">
+                                    <a href="#" target="_blank"> <img src="<?= base_url() ?>template_kominfo/assets/img/banner/panc.png" alt="" width="365px" height="125px">
                                     </a>
                                 </div>
                             </div>
@@ -296,7 +296,7 @@
                                     <div class="weekly2-caption">
                                         <div class="weekly2-caption">
                                             <span class="color1"></span>
-                                            <h4><?= $link_row['title'] ?></h4>
+                                            <h6><?= $link_row['title'] ?></h6>
                                         </div>
 
                                     </div>
