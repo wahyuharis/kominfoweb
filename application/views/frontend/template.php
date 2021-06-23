@@ -96,11 +96,10 @@ if (!isset($keywords)) {
                         </div>
                     </div>
                 </div>
-
-                <div class="header-mid d-none d-md-block" style="background-image: url('<?= base_url() ?>template_kominfo/assets/img/banner/header.png'); height: 130px;">
+                <!-- background-image: url('<?= base_url() ?>template_kominfo/assets/img/banner/header.png'); background-size: cover; -->
+                <div class="header-mid d-none d-md-block" style="">
                     <div class="container">
                         <div class="row d-flex align-items-center">
-                            <!-- Logo -->
                             <div class="col-2">
                                 <div class="logo">
                                     <a href="#"><img src="<?= base_url('assets/uploads/files/' . $header->logo_header_atas->image) ?>" alt="" width="100%"></a>
@@ -111,12 +110,11 @@ if (!isset($keywords)) {
                                 <?= $header->logo_header_atas->content ?>
                             </div>
                             <div class="col-2">
-
                             </div>
-
                         </div>
                     </div>
-
+                    <div class="header-mid-cover" style="background-image: url('<?= base_url('assets/uploads/files/'.$header->banner->image) ?>'); background-size: cover;">
+                    </div>
                 </div>
                 <div class="header-bottom header-sticky">
                     <div class="container">

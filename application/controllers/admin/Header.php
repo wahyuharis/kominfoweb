@@ -28,6 +28,8 @@ class Header extends CI_Controller
         $crud->set_theme('bootstrap');
         $crud->set_table('header');
         $crud->unset_delete();
+
+        $crud->unset_add();
         
         $crud->columns('header_name', 'content', 'image','description');
         $crud->fields('header_name', 'content', 'image','description');
