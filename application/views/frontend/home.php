@@ -39,7 +39,7 @@
                                             <img style="height: 500px;" src="<?= base_url('assets/uploads/files/' . $slide['image']) ?>" alt="Second slide">
                                             <div class="trend-top-cap">
                                                 <!-- <span>Appetizers</span> -->
-                                                <h2><a href="<?=base_url('blog/detail/'.$slide['slug'])?>"><?= ($slide['title']) ?></a></h2>
+                                                <h2><a href="<?= base_url('blog/detail/' . $slide['slug']) ?>"><?= ($slide['title']) ?></a></h2>
                                                 <p></p>
                                             </div>
                                         </div>
@@ -61,7 +61,7 @@
 
                     <!-- Trending Bottom -->
                     <div class="section-tittle mb-40">
-                        <h3>Berita Pemkab Terpopuler</h3>
+                        <h3>Berita Terpopuler</h3>
                     </div>
                     <div class="trending-bottom">
                         <div class="row">
@@ -85,35 +85,33 @@
                 <!-- Riht content -->
                 <div class="col-lg-4">
 
-                    <div class="trand-right-single d-flex">
-                        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-                            <div class="carousel-inner">
-
-                                <div class="carousel-item active">
-
-                                    <a href="#" target="_blank"> <img src="<?= base_url() ?>template_kominfo/assets/img/banner/bangkit.png" alt="" width="365px" height="125px"> </a>
-
+                    <div id="carousel-kanan" class="carousel slide mb-40" data-ride="carousel">
+                        <ul class="carousel-indicators">
+                            <?php $i_slide = 0; ?>
+                            <?php foreach ($slider as $srow) : ?>
+                                <li data-target="#carousel-kanan" data-slide-to="<?=$i_slide?>" class="<?php if($i_slide < 1) echo "active" ?>"></li>
+                                <?php $i_slide++; ?>
+                            <?php endforeach; ?>
+                        </ul>
+                        <div class="carousel-inner">
+                            <?php $i_slide = 0; ?>
+                            <?php foreach ($slider as $srow) : ?>
+                                <div class="carousel-item <?php if ($i_slide < 1) echo "active"  ?>">
+                                    <img width="100%" height="200px" src="<?= base_url('assets/uploads/files/' . $srow['image']) ?>" alt="">
                                 </div>
+                                <?php $i_slide++; ?>
+                            <?php endforeach; ?>
 
-                                <div class="carousel-item">
-
-                                    <a href="#" target="_blank"> <img src="<?= base_url() ?>template_kominfo/assets/img/banner/paskah.png" alt="" width="365px" height="125px">
-                                    </a>
-
-                                </div>
-                                <div class="carousel-item">
-
-                                    <a href="#" target="_blank"> <img src="<?= base_url() ?>template_kominfo/assets/img/banner/panc.png" alt="" width="365px" height="125px">
-                                    </a>
-                                </div>
-                            </div>
                         </div>
-
-
-
+                        <a class="carousel-control-prev" href="#carousel-kanan" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel-kanan" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
                     </div>
 
-                    <div class="section-tittle mb-40">
+                    <div class="section-tittle mb-5">
                         <h3>Berita Pemkab Terbaru</h3>
                     </div>
 
