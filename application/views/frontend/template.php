@@ -113,7 +113,7 @@ if (!isset($keywords)) {
                             </div>
                         </div>
                     </div>
-                    <div class="header-mid-cover" style="background-image: url('<?= base_url('assets/uploads/files/'.$header->banner->image) ?>'); background-size: cover;">
+                    <div class="header-mid-cover" style="background-image: url('<?= base_url('assets/uploads/files/'.$header->banner->image) ?>'); background-size: 100% 100%;">
                     </div>
                 </div>
                 <div class="header-bottom header-sticky">
