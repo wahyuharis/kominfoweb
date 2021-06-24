@@ -506,4 +506,18 @@ a {
 	 color: white;
 	 /* text-align: center; */
  }
+ .whats-news-area .news-poster img, .about-area .news-poster img, .contact-section .news-poster img{
+	padding: 0px;
+ }
+
+ .news-poster a:hover{
+	 color: #1a8ac1;
+ }
+
+ .news-poster a  img.img-fluid{
+	 transition: opacity .5s;
+ }
+ .news-poster a  img.img-fluid:hover{
+	 opacity: 0.5;
+ }
 
