@@ -58,11 +58,6 @@ h1, h2, h3, h4, h5, h6{
 	color: #ecf0f1;
 }
 
-.main-header .main-menu ul li:hover>a {
-	color: #fff;
-	text-shadow: 0 0 1px #ecf0f1;
-}
-
 .main-header .main-menu ul ul.submenu {
 	/* background-color: #0a68a1; */
 	/* border-top:  10px solid #353b48;  */
@@ -151,14 +146,16 @@ h1, h2, h3, h4, h5, h6{
 	background: #0066fe;
 }
 
+.main-header .main-menu ul li {
+	transition: background .5s, color .5s;
+}
 .main-header .main-menu ul li:hover {
+	color: #ecf0f1;
 	background: #07456b;
 	z-index: 99;
-	/* transition-delay: 1s; */
-	/* delays for 1 second */
-	/* -webkit-transition-delay: 1s; */
-	/* for Safari & Chrome */
+	text-shadow: 0 0 1px #ecf0f1;
 }
+
 
 .slicknav_menu .slicknav_icon-bar {
 	color: #ecf0f1 !important;
