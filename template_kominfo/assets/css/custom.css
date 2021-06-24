@@ -27,10 +27,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .genric-btn.danger:hover, .genric-btn.danger a :hover, .genric-btn.danger > i:hover {
-	/* color: #f44a40;
-    border: 1px solid #f44a40;
-	-webkit-text-fill-color:none;
-    background: #fff; */
 	color: #f44a40;
 	background: #fff;
 	-webkit-background-clip: none;
