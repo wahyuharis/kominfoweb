@@ -22,8 +22,8 @@
                 <div class="navigation-top">
                     <div class="d-sm-flex justify-content-between text-center">
                         <!-- <p class="like-info"><span class="align-middle"><i class="fa fa-eye"></i></span> -->
-                            <!-- <?= $tupoksi->judul ?> -->
-                            <!-- kali dilihat </p> -->
+                        <!-- <?= $tupoksi->judul ?> -->
+                        <!-- kali dilihat </p> -->
                         <div class="col-sm-4 text-center my-2 my-sm-0">
                             <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
                         </div>
@@ -79,8 +79,12 @@
                     </aside>
 
                     <aside class="single_sidebar_widget instagram_feeds">
-                        <h4 class="widget_title">Instagram Feeds</h4>
-                        <iframe src="https://snapwidget.com/embed/940247" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; height:510px"></iframe>
+                        <div class="section-tittle mb-40">
+                            <h3>Kumpulan Video</h3>
+                        </div>
+                        <!-- New Poster -->
+                        <div id="youtube-video" class="news-poster">
+                        </div>
                     </aside>
 
                 </div>
@@ -95,6 +99,10 @@
         $('.blog_details').find('table').addClass('table');
         $('.blog_details').find('table').addClass('table-bordered');
         $('.blog_details').find('table').removeAttr('border');
+
+        $.get('<?= base_url('youtube') ?>', function(data, status) {
+            $('#youtube-video').html(data);
+        });
 
     });
 </script>

@@ -12,7 +12,7 @@
                             <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $struktur_organisasi->gambar) ?>" alt="">
                         </div>
 
-                      
+
                         <br>
                         <!-- 
                         <?= $struktur_organisasi->konten ?> -->
@@ -80,8 +80,12 @@
                     </aside>
 
                     <aside class="single_sidebar_widget instagram_feeds">
-                        <h4 class="widget_title">Instagram Feeds</h4>
-                        <iframe src="https://snapwidget.com/embed/940247" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; height:510px"></iframe>
+                        <div class="section-tittle mb-40">
+                            <h3>Kumpulan Video</h3>
+                        </div>
+                        <!-- New Poster -->
+                        <div id="youtube-video" class="news-poster">
+                        </div>
                     </aside>
 
                 </div>
@@ -96,6 +100,10 @@
         $('.blog_details').find('table').addClass('table');
         $('.blog_details').find('table').addClass('table-bordered');
         $('.blog_details').find('table').removeAttr('border');
+
+        $.get('<?= base_url('youtube') ?>', function(data, status) {
+            $('#youtube-video').html(data);
+        });
 
     });
 </script>

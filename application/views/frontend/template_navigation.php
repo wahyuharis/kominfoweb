@@ -2,12 +2,12 @@
     <nav>
         <ul id="navigation">
             <li><a href="<?= base_url() ?>">Beranda</a></li>
-            <li><a href="#">Berita</a>
-                <ul class="submenu">
+            <li><a href="<?= base_url('blog') ?>">Berita</a>
+                <!-- <ul class="submenu">
                     <li class=""><a href="<?= base_url('blog') ?>">Berita</a></li>
                     <li class=""><a href="#">Agenda</a></li>
                     <li class=""><a href="#">Artikel</a></li>
-                </ul>
+                </ul> -->
             </li>
 
             <li><a href="#">Profil</a>

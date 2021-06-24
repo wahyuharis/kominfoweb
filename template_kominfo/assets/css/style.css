@@ -2688,9 +2688,7 @@ hr {
 	}
 }
 
-.main-header .main-menu ul li:hover>a {
-	color: #fc3f00
-}
+
 
 .main-header .main-menu ul ul.submenu {
 	position: absolute;
