@@ -527,10 +527,10 @@ a {
 	color: #1a8ac1;
 }
 
-.news-poster a img.img-fluid {
+.ytb-row img.img-fluid {
 	transition: opacity .5s;
 }
 
-.news-poster a img.img-fluid:hover {
+.ytb-row img.img-fluid:hover {
 	opacity: 0.5;
 }
