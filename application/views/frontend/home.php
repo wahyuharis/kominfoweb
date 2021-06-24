@@ -115,7 +115,7 @@
                         <h3>Berita Pemkab Terbaru</h3>
                     </div>
 
-                    <div class="data-list" data-autoscroll style="height: 800px;">
+                    <div class="data-list" data-autoscroll style="height: 300px;">
                         <?php foreach ($berita_kanan as $bkanan) : ?>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
@@ -130,6 +130,27 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
+                    <br/><br/>
+                    <div class="section-tittle mb-5">
+                        <h3>Berita PPID Terbaru</h3>
+                    </div>
+
+                    <div class="data-list" data-autoscroll style="height: 300px;">
+                        <?php foreach ($berita_kanan as $bkanan) : ?>
+                            <div class="trand-right-single d-flex">
+                                <div class="trand-right-img">
+                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="">
+                                </div>
+                                <div class="trand-right-cap hover-show">
+                                    <span class="color3">News</span>
+                                    <h4 class="short-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= substr($bkanan['title'], 0, 50) ?>...</a></h4>
+                                    <h4 class="long-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= $bkanan['title'] ?></a></h4>
+                                    <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bkanan['date']) ?></p>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                   <br/>
                 </div>
             </div>
         </div>
