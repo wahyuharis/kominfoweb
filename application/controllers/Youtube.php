@@ -7,7 +7,7 @@ class Youtube extends CI_Controller
 {
     private $description = "";
     private $keywords = "";
-    private $api_key = "AIzaSyCWjOMvnmHjdCMpD6p67kjVeZb7By1nPno";
+    private $api_key = "AIzaSyB8T0nxkU5LOpmEd4TgLdY4-U1HqqXgi7g";
 
     public function __construct()
     {
