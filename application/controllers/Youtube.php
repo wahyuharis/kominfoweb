@@ -24,7 +24,7 @@ class Youtube extends CI_Controller
 
         // print_r2($json);
 
-        if (isset($array['items'])) {
+        if (isset($array['items']) && isset($array2['items'])) {
 
             $item = $array['items'];
             $item2 = $array2['items'];
@@ -52,14 +52,14 @@ class Youtube extends CI_Controller
                 border-radius: 50px;
                 padding: 0;
                 " src="' . $logo . '">' .
-                '</a>'.
+                '</a>' .
 
 
                 '</div>' .
                 '<div class="col-9">' .
                 '<a href="https://www.youtube.com/channel/' . $channel_id . '" >' .
                 '<i class="fab fa-youtube text-danger"></i> PEMKAB JEMBER' .
-                '</a>'.
+                '</a>' .
                 '<br><a href="https://www.youtube.com/channel/' . $channel_id . '?sub_confirmation=1" class="genric-btn danger">' .
                 '<i class="far fa-bell"></i> Subscribe</a>' .
                 '</div>' .
@@ -68,20 +68,34 @@ class Youtube extends CI_Controller
             $html .= '<div class="row ytb-row" style="display:none">';
             foreach ($item as $row) {
                 $html .= '<div class="col-6 mb-10">'
-                    .'<a href="https://www.youtube.com/watch?v='. $row['id']['videoId'].'" >'
+                    . '<a href="https://www.youtube.com/watch?v=' . $row['id']['videoId'] . '" >'
                     . '<img class="img-fluid" width="100%" src="' . $row['snippet']['thumbnails']['default']['url'] . '">'
-                    .'</a>'
+                    . '</a>'
                     . '</div>';
-
             }
             $html .= '</div>';
-            $html.='<script>
+            $html .= '<script>
             $(".ytb-row").ready(function(){
                 $(".ytb-row").fadeIn("slow");
             });
             </script>';
+        } elseif(isset($array['error'])) {
+            $html.='<div class="row">'
+            .'<div class="col-12">'
+            .'<div class="alert alert-danger" role="alert">
+                '.$array['error']['message'].'
+              </div>'
+            .'</div>'
+            .'</div>';
+        }else{
+            $html.='<div class="row">'
+            .'<div class="col-12">'
+            .'<div class="alert alert-danger" role="alert">
+                Terjadi Kesalahan Periksa Koneksi Anda
+              </div>'
+            .'</div>'
+            .'</div>';
         }
-
 
         echo $html;
     }
