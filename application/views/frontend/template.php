@@ -97,7 +97,7 @@ if (!isset($keywords)) {
                     </div>
                 </div>
                 <!-- background-image: url('<?= base_url() ?>template_kominfo/assets/img/banner/header.png'); background-size: cover; -->
-                <div class="header-mid d-none d-md-block" style="">
+                <div class="header-mid d-none d-md-block">
                     <div class="container">
                         <div class="row d-flex align-items-center">
                             <div class="col-2">
