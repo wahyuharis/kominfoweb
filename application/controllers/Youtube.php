@@ -69,7 +69,7 @@ class Youtube extends CI_Controller
             foreach ($item as $row) {
                 $html .= '<div class="col-6 mb-10">'
                     .'<a href="https://www.youtube.com/watch?v='. $row['id']['videoId'].'" >'
-                    . '<img class="img-fluid" src="' . $row['snippet']['thumbnails']['default']['url'] . '">'
+                    . '<img class="img-fluid" width="100%" src="' . $row['snippet']['thumbnails']['default']['url'] . '">'
                     .'</a>'
                     . '</div>';
 
