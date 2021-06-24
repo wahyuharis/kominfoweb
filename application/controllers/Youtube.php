@@ -79,22 +79,28 @@ class Youtube extends CI_Controller
                 $(".ytb-row").fadeIn("slow");
             });
             </script>';
-        } elseif(isset($array['error'])) {
-            $html.='<div class="row">'
-            .'<div class="col-12">'
-            .'<div class="alert alert-danger" role="alert">
-                '.$array['error']['message'].'
+        } elseif (isset($array['error'])) {
+            $message_error = $array['error']['message'];
+
+            // header_text();
+            // print_r2($message_error);
+            $message_error = str_replace('href="', 'href="https://developers.google.com/', $message_error);
+
+            $html .= '<div class="row">'
+                . '<div class="col-12">'
+                . '<div class="alert alert-danger" role="alert">
+                ' . $message_error . '
               </div>'
-            .'</div>'
-            .'</div>';
-        }else{
-            $html.='<div class="row">'
-            .'<div class="col-12">'
-            .'<div class="alert alert-danger" role="alert">
+                . '</div>'
+                . '</div>';
+        } else {
+            $html .= '<div class="row">'
+                . '<div class="col-12">'
+                . '<div class="alert alert-danger" role="alert">
                 Terjadi Kesalahan Periksa Koneksi Anda
               </div>'
-            .'</div>'
-            .'</div>';
+                . '</div>'
+                . '</div>';
         }
 
         echo $html;
