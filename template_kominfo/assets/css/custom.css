@@ -19,6 +19,14 @@ h1, h2, h3, h4, h5, h6{
 	
 }
 
+.blog_area a:hover, .blog_area a :hover {
+	background: -webkit-linear-gradient(131deg, #0a68a1 0%, #0a68a1 99%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-decoration: none;
+	transition: .4s
+}
+
 .section-tittle h3{
 	color: #2f3640;
 }
@@ -306,13 +314,7 @@ h1, h2, h3, h4, h5, h6{
 	text-align: justify;
 }
 
-.blog_area a:hover, .blog_area a :hover {
-	background: -webkit-linear-gradient(131deg, #0a68a1 0%, #0a68a1 99%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	text-decoration: none;
-	transition: .4s
-}
+
 
 .blog_details h2 {
 	margin-bottom: 1px
