@@ -1,4 +1,5 @@
 <?php
+use Google\Service;
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -6,7 +7,7 @@ class Youtube extends CI_Controller
 {
     private $description = "";
     private $keywords = "";
-    private $api_key = "AIzaSyAeOMg3BF6fAVenyx3UYMgSBnSVCyKiM5M";
+    private $api_key = "AIzaSyCWjOMvnmHjdCMpD6p67kjVeZb7By1nPno";
 
     public function __construct()
     {
@@ -148,4 +149,6 @@ class Youtube extends CI_Controller
         curl_close($ch);
         return $result;
     }
+
+
 }
