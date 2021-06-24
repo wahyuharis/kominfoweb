@@ -3,7 +3,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .header-area .header-mid {
-	padding: 9px 0px;
+	padding: 25px 0px;
 	background: linear-gradient(to right, rgb(0 0 0 / 86%) , rgb(0 0 0 / 52%));
 	position: relative;
 }
@@ -15,7 +15,8 @@ h1, h2, h3, h4, h5, h6{
 	position: absolute;
 	top:0px;
 	left: 0px;
-	z-index: -1;
+	z-index: -1; 
+	
 }
 
 .section-tittle h3{
@@ -215,7 +216,8 @@ h1, h2, h3, h4, h5, h6{
 .header-area .header-mid .logo img {
 	width: 83px;
 	height: 100%;
-	margin-top: 16px;
+	margin-top: 12px;
+	margin-bottom: 12px;
 }
 
 .header-area .header-mid .logo {
