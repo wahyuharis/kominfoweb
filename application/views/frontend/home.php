@@ -72,7 +72,7 @@
                                             <img src="<?= base_url('assets/uploads/files/' . $btengah['image']) ?>" alt="">
                                         </div>
                                         <div class="trend-bottom-cap">
-                                            <span class="color1">Hot News <?= $btengah['view'] ?> view </span>
+                                            <span class="color1"><?= $btengah['view'] ?> viewers </span>
                                             <h4><a href="<?= base_url('blog/detail/' . $btengah['slug']) ?>"><?= $btengah['title'] ?></a></h4>
                                             <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($btengah['date']) ?></p>
                                         </div>
