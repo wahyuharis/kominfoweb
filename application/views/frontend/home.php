@@ -36,7 +36,7 @@
                                 <div class="carousel-item <?php if ($i < 1) echo 'active' ?>">
                                     <div class="trending-top mb-30">
                                         <div class="trend-top-img">
-                                            <img style="height: 500px;" src="<?= base_url('assets/uploads/files/' . $slide['image']) ?>" alt="Second slide">
+                                            <img src="<?= base_url('assets/uploads/files/' . $slide['image']) ?>" alt="Second slide">
                                             <div class="trend-top-cap">
                                                 <!-- <span>Appetizers</span> -->
                                                 <h2><a href="<?= base_url('blog/detail/' . $slide['slug']) ?>"><?= ($slide['title']) ?></a></h2>
@@ -72,7 +72,7 @@
                                             <img src="<?= base_url('assets/uploads/files/' . $btengah['image']) ?>" alt="">
                                         </div>
                                         <div class="trend-bottom-cap">
-                                            <span class="color1"><?= $btengah['view'] ?> viewers </span>
+                                            <span class="color1"><?= $btengah['view'] ?> dilihat </span>
                                             <h4><a href="<?= base_url('blog/detail/' . $btengah['slug']) ?>"><?= $btengah['title'] ?></a></h4>
                                             <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($btengah['date']) ?></p>
                                         </div>
@@ -122,7 +122,7 @@
                                     <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="">
                                 </div>
                                 <div class="trand-right-cap hover-show">
-                                    <span class="color3">News</span>
+                                    <span class="color3">Berita</span>
                                     <h4 class="short-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= substr($bkanan['title'], 0, 50) ?>...</a></h4>
                                     <h4 class="long-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= $bkanan['title'] ?></a></h4>
                                     <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bkanan['date']) ?></p>
@@ -142,7 +142,7 @@
                                     <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="">
                                 </div>
                                 <div class="trand-right-cap hover-show">
-                                    <span class="color3">News</span>
+                                    <span class="color3">Berita</span>
                                     <h4 class="short-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= substr($bkanan['title'], 0, 50) ?>...</a></h4>
                                     <h4 class="long-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= $bkanan['title'] ?></a></h4>
                                     <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bkanan['date']) ?></p>
@@ -203,7 +203,7 @@
                                                         <img src="<?= base_url('assets/uploads/files/' . $bbawah['image']) ?>" alt="">
                                                     </div>
                                                     <div class="what-cap hover-show">
-                                                        <span class="color1">NEWS</span>
+                                                        <span class="color1">BERITA</span>
                                                         <h4 class="short-title"><a href="<?= base_url('blog/detail/' . $bbawah['slug']) ?>"><?= substr($bbawah['title'], 0, 50) ?>...</a></h4>
                                                         <h4 class="long-title"><a href="<?= base_url('blog/detail/' . $bbawah['slug']) ?>"><?= $bbawah['title'] ?></a></h4>
                                                     </div>
