@@ -21,7 +21,6 @@ if (!isset($keywords)) {
 
 
 ?>
-
 <!doctype html>
 <html lang="id">
 
@@ -282,6 +281,7 @@ if (!isset($keywords)) {
     <script src="<?= base_url() ?>template_kominfo/assets/js/plugins.js"></script>
     <script src="<?= base_url() ?>template_kominfo/assets/js/main.js"></script>
     <script src="<?= base_url() ?>template_kominfo/assets/js/jquery.autoscroll.js" type="text/javascript" charset="utf-8"></script>
+    <?php require_once 'visitor.php' ?>
 </body>
 
 </html>

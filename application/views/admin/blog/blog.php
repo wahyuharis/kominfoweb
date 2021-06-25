@@ -34,11 +34,5 @@
         // alert('hello');
         $("#custom_add").prependTo(".header-tools");
         $("#custom_add").removeClass("hidden");
-
-
-
-
-
-
     });
 </script>

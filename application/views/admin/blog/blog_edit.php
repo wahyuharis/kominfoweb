@@ -2,7 +2,6 @@
     <form role="form" method="post" id="form-1">
         <input type="hidden" name="primary_id" value="<?= $primary_id ?>">
         <div class="box-body">
-
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="title">Title</label>

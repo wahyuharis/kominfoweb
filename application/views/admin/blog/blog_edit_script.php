@@ -2,15 +2,15 @@
     $(document).ready(function() {
         $('select[name=category]').change(function() {
             value = $(this).val();
-            if(value=='Draft'){
+            if (value == 'Draft') {
                 $('#date-publish').show();
-            }else{
+            } else {
                 $('#date-publish').hide();
 
             }
         });
-        var category=$('select[name=category]').val();
-        if(category=='Draft'){
+        var category = $('select[name=category]').val();
+        if (category == 'Draft') {
             $('#date-publish').show();
         }
 
@@ -26,10 +26,15 @@
             tabDisable: true,
             callbacks: {
                 onImageUpload: function(image) {
-                    uploadImage(image[0]);
+                    // console.log(image.length);
+                    for (var i = 0; i < image.length; i++) {
+                        uploadImage(image[i]);
+                    }
                 },
                 onMediaDelete: function(target) {
-                    deleteImage(target[0].src);
+                    for(var i=0;i<target.length;i++){
+                        deleteImage(target[i].src);
+                    }
                 }
             }
         });
