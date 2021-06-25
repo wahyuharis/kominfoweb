@@ -81,7 +81,7 @@ class Youtube extends CI_Controller
             });
             </script>';
 
-            $this->db->update('youtube',array('content'=>$html),array('id'=>1));
+            $this->db->insert('youtube',array('content'=>$html));
 
         } elseif (isset($array['error'])) {
             $message_error = $array['error']['message'];
@@ -98,7 +98,7 @@ class Youtube extends CI_Controller
             //     . '</div>'
             //     . '</div>';
 
-            $html.=$this->db->where('id',1)->get('youtube')->row_object()->content;     
+            $html.=$this->db->order_by('id','desc')->get('youtube')->row_object()->content;     
         } else {
             // $html .= '<div class="row">'
             //     . '<div class="col-12">'
@@ -107,8 +107,7 @@ class Youtube extends CI_Controller
             //   </div>'
             //     . '</div>'
             //     . '</div>';
-            $html.=$this->db->where('id',1)->get('youtube')->row_object()->content;     
-
+            $html.=$this->db->order_by('id','desc')->get('youtube')->row_object()->content;     
         }
 
         echo $html;

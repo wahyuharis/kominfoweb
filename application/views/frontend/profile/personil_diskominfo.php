@@ -84,6 +84,9 @@
                         </div>
                         <!-- New Poster -->
                         <div id="youtube-video" class="news-poster">
+                            <div style="font-size: 50px;text-align: center;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
                         </div>
                     </aside>
 
@@ -100,7 +103,7 @@
         $('.blog_details').find('table').addClass('table-bordered');
         $('.blog_details').find('table').removeAttr('border');
 
-        
+
         $.get('<?= base_url('youtube') ?>', function(data, status) {
             $('#youtube-video').html(data);
         });

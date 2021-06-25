@@ -84,6 +84,9 @@
                         </div>
                         <!-- New Poster -->
                         <div id="youtube-video" class="news-poster">
+                            <div style="font-size: 50px;text-align: center;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
                         </div>
                     </aside>
 

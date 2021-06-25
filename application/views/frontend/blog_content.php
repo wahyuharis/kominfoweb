@@ -92,17 +92,17 @@
             <div class="col-lg-4">
                <div class="blog_right_sidebar">
                   <aside class="single_sidebar_widget search_widget">
-                        <form action="<?= base_url('blog') ?>" method="get">
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <input type="text" name="search" class="form-control" placeholder='Cari Berita' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cari Berita'">
-                                    <div class="input-group-append">
-                                        <button class="btns" type="reset" title="Reset"><i class="ti-close"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Cari</button>
-                        </form>
+                     <form action="<?= base_url('blog') ?>" method="get">
+                        <div class="form-group">
+                           <div class="input-group mb-3">
+                              <input type="text" name="search" class="form-control" placeholder='Cari Berita' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cari Berita'">
+                              <div class="input-group-append">
+                                 <button class="btns" type="reset" title="Reset"><i class="ti-close"></i></button>
+                              </div>
+                           </div>
+                        </div>
+                        <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Cari</button>
+                     </form>
                   </aside>
 
 
@@ -129,7 +129,9 @@
                   <aside class="single_sidebar_widget instagram_feeds">
                      <h4 class="widget_title">Kumpulan Video</h4>
                      <div id="youtube-video">
-
+                        <div style="font-size: 50px;text-align: center;">
+                           <i class="fas fa-spinner fa-spin"></i>
+                        </div>
                      </div>
                   </aside>
 
@@ -154,9 +156,9 @@
          $('.blog_details').find('table').addClass('table-bordered');
          $('.blog_details').find('table').removeAttr('border');
 
-         $('.blog_details').find('img').each(function(index, value){
-            src=$(this).attr('src');
-            $(this).wrap( '<a href="'+src+'" data-fancybox="images" data-caption="foto - '+(index+1)+'"></a>' );
+         $('.blog_details').find('img').each(function(index, value) {
+            src = $(this).attr('src');
+            $(this).wrap('<a href="' + src + '" data-fancybox="images" data-caption="foto - ' + (index + 1) + '"></a>');
          });
 
          $.get('<?= base_url('youtube') ?>', function(data, status) {

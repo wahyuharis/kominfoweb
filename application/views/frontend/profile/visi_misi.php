@@ -12,7 +12,7 @@
                             <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $visi_misi->gambar) ?>" alt="">
                         </div>
 
-                      
+
                         <br>
 
                         <?= $visi_misi->konten ?>
@@ -79,10 +79,11 @@
 
                     </aside>
 
-                    <aside class="single_sidebar_widget instagram_feeds">
-                        <h4 class="widget_title">Instagram Feeds</h4>
-                        <iframe src="https://snapwidget.com/embed/940247" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; height:510px"></iframe>
-                    </aside>
+                    <div id="youtube-video" class="news-poster">
+                        <div style="font-size: 50px;text-align: center;">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -96,6 +97,11 @@
         $('.blog_details').find('table').addClass('table');
         $('.blog_details').find('table').addClass('table-bordered');
         $('.blog_details').find('table').removeAttr('border');
+
+        $.get('<?= base_url('youtube') ?>', function(data, status) {
+            $('#youtube-video').html(data);
+        });
+
 
     });
 </script>

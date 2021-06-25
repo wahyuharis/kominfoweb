@@ -88,7 +88,7 @@
                         <ul class="carousel-indicators">
                             <?php $i_slide = 0; ?>
                             <?php foreach ($slider as $srow) : ?>
-                                <li data-target="#carousel-kanan" data-slide-to="<?=$i_slide?>" class="<?php if($i_slide < 1) echo "active" ?>"></li>
+                                <li data-target="#carousel-kanan" data-slide-to="<?= $i_slide ?>" class="<?php if ($i_slide < 1) echo "active" ?>"></li>
                                 <?php $i_slide++; ?>
                             <?php endforeach; ?>
                         </ul>
@@ -129,7 +129,7 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <br/>
+                    <br />
                     <div class="section-tittle">
                         <h3>Berita PPID Terbaru</h3>
                     </div>
@@ -149,7 +149,7 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
-                   <br/>
+                    <br />
                 </div>
             </div>
         </div>
@@ -282,7 +282,9 @@
                 </div>
                 <!-- New Poster -->
                 <div id="youtube-video" class="news-poster">
-
+                    <div style="font-size: 50px;text-align: center;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
                 </div>
             </div>
         </div>

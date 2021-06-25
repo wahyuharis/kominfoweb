@@ -120,7 +120,9 @@
                     <aside class="single_sidebar_widget instagram_feeds">
                         <h4 class="widget_title">Kumpulan Video</h4>
                         <div id="youtube-video">
-
+                            <div style="font-size: 50px;text-align: center;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
                         </div>
                     </aside>
                 </div>
