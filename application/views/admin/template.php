@@ -123,7 +123,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="<?=base_url('admin/profile/index/edit/'.$this->session->userdata('id'))?>" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="<?= base_url('admin/profile/index/edit/' . $this->session->userdata('id')) ?>" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="<?= base_url('logout') ?>" class="btn btn-default btn-flat">Sign out</a>
@@ -184,7 +184,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li class="<?php if (strtolower($this->uri->segment(2)) == 'blog') echo 'active' ?>"><a href="<?= base_url() ?>admin/blog"><i class="fa fa-circle-o"></i> Berita</a></li>
-                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'agenda') echo 'active' ?>"><a href="#"><i class="fa fa-circle-o"></i> Agenda</a></li>
+                            <!-- <li class="<?php if (strtolower($this->uri->segment(2)) == 'agenda') echo 'active' ?>"><a href="#"><i class="fa fa-circle-o"></i> Agenda</a></li> -->
                         </ul>
                     </li>
 

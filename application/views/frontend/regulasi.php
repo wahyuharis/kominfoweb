@@ -14,7 +14,7 @@
                         <div class="col-md-8"></div>
                         <div class="col-md-4">
 
-                            <form action="<?=base_url('regulasi')?>" method="get">
+                            <form action="<?= base_url('regulasi') ?>" method="get">
                                 <div class="form-group">
                                     <div class="input-group mb-3">
                                         <input type="text" name="search_regulasi" class="form-control" placeholder='Cari Regulasi' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cari Regulasi'">
@@ -29,29 +29,32 @@
 
                     </div>
                     <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Kategori</th>
-                            <th>Produk Hukum</th>
-                            <th>Nomor</th>
-                            
-                            <th>Dokumen</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php $no = 1; foreach ($regulasi_list as $row) : ?>
-                            <tr>
-                                <td><?php echo $no++; ?></td>
-                                <td><?= $row['nama_kategori'] ?></td>
-                                <td><?= $row['nama_produk'] ?></td>
-                                <td><?= $row['nomor'] ?></td>
-                                <td> <a href="<?= base_url('assets/uploads/files/' . $row['document']) ?>" target="_blank"> Unduh </a> </td>
-                            </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr style="vertical-align:middle">
+                                    <th style="text-align: center;">No</th>
+                                    <th style="text-align: center;">Kategori</th>
+                                    <th style="text-align: center;">Produk Hukum</th>
+                                    <th style="text-align: center;">Nomor</th>
+                                    <th style="text-align: center;">Terbit</th>
+
+                                    <th style="text-align: center;">Dokumen</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $no = 1;
+                                foreach ($regulasi_list as $row) : ?>
+                                    <tr>
+                                        <td><?php echo $no++; ?></td>
+                                        <td><?= $row['nama_kategori'] ?></td>
+                                        <td><?= $row['nama_produk'] ?></td>
+                                        <td><?= $row['nomor'] ?></td>
+                                        <td><?= $row['tanggal_terbit'] ?></td>
+                                        <td> <a href="<?= base_url('assets/uploads/files/' . $row['document']) ?>" target="_blank"> Unduh </a> </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
                     </div>
                     <nav class="blog-pagination justify-content-center d-flex">
                         <?= $pagination ?>
