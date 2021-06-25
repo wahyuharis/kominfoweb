@@ -80,6 +80,9 @@ class Youtube extends CI_Controller
                 $(".ytb-row").fadeIn("slow");
             });
             </script>';
+
+            $this->db->update('youtube',array('content'=>$html),array('id'=>1));
+
         } elseif (isset($array['error'])) {
             $message_error = $array['error']['message'];
 
@@ -87,21 +90,25 @@ class Youtube extends CI_Controller
             // print_r2($message_error);
             $message_error = str_replace('href="', 'href="https://developers.google.com/', $message_error);
 
-            $html .= '<div class="row">'
-                . '<div class="col-12">'
-                . '<div class="alert alert-danger" role="alert">
-                ' . $message_error . '
-              </div>'
-                . '</div>'
-                . '</div>';
+            // $html .= '<div class="row">'
+            //     . '<div class="col-12">'
+            //     . '<div class="alert alert-danger" role="alert">
+            //     ' . $message_error . '
+            //   </div>'
+            //     . '</div>'
+            //     . '</div>';
+
+            $html.=$this->db->where('id',1)->get('youtube')->row_object()->content;     
         } else {
-            $html .= '<div class="row">'
-                . '<div class="col-12">'
-                . '<div class="alert alert-danger" role="alert">
-                Terjadi Kesalahan Periksa Koneksi Anda
-              </div>'
-                . '</div>'
-                . '</div>';
+            // $html .= '<div class="row">'
+            //     . '<div class="col-12">'
+            //     . '<div class="alert alert-danger" role="alert">
+            //     Terjadi Kesalahan Periksa Koneksi Anda
+            //   </div>'
+            //     . '</div>'
+            //     . '</div>';
+            $html.=$this->db->where('id',1)->get('youtube')->row_object()->content;     
+
         }
 
         echo $html;
