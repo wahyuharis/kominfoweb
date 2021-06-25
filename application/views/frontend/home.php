@@ -40,7 +40,6 @@
                                             <div class="trend-top-cap">
                                                 <!-- <span>Appetizers</span> -->
                                                 <h2><a href="<?= base_url('blog/detail/' . $slide['slug']) ?>"><?= ($slide['title']) ?></a></h2>
-                                                <p></p>
                                             </div>
                                         </div>
                                     </div>

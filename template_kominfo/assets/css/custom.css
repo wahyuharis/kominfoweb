@@ -538,3 +538,94 @@ a {
 .trending-area .trending-main .trending-top .trend-top-img img {
 	height: 440px;
 }
+
+@media only screen and (min-width: 240px) and (max-width: 767px) {
+	.trending-area .trending-main .trending-top .trend-top-img img {
+		height: 20px;
+	}
+}
+
+@media (max-width: 767px) {
+	.trending-area .trending-main .trending-top .trend-top-img img {
+		height: 230px;
+	}
+}
+
+@media (max-width: 767px) {
+	.trending-area .trending-main .trending-top .trend-top-img .trend-top-cap {
+		bottom: -2px;
+		left: 15px;
+		right: 15px;
+	}
+}
+
+@media (max-width: 767px) {
+	.trending-area .trending-main .trending-top .trend-top-img .trend-top-cap h2 {
+		font-size: 15px;
+		text-align: center;
+	}
+}
+
+.trending-area .trending-main .trending-top .trend-top-img .trend-top-cap {
+	text-align: justify-all;
+	right: 15px;
+}
+
+@media  only screen and (min-width: 300px) and (max-width: 767px) {
+	.trending-area .trending-main .trending-bottom .single-bottom .trend-bottom-img img {
+		height: 190px;
+	}
+}
+
+@media only screen and (min-width: 400px) and (max-width: 767px) {
+	.trending-area .trending-main .trending-bottom .single-bottom .trend-bottom-img img {
+		height: 220px;
+	}
+}
+
+@media only screen and (min-width: 300px) and (max-width: 767px) {
+	.trending-area .trending-main .row .col-lg-4 .data-list {
+		width: 330px;
+	}
+}
+
+@media only screen and (min-width: 400px) and (max-width: 767px) {
+	.trending-area .trending-main .row .col-lg-4 .data-list {
+		width: 380px;
+	}
+}
+
+@media only screen and (min-width: 240px) and (max-width: 767px) {
+	.footer-area .footer-tittle iframe {
+		width: 250px;
+		height: 250px;
+	}
+}
+
+@media only screen and (min-width: 300px) and (max-width: 767px) {
+	.footer-area .footer-tittle iframe {
+		width: 290px;
+		height: 290px;
+	}
+}
+
+@media only screen and (min-width: 360px) and (max-width: 767px) {
+	.footer-area .footer-tittle iframe {
+		width: 330px;
+		height: 330px;
+	}
+}
+
+@media only screen and (min-width: 370px) and (max-width: 767px) {
+	.footer-area .footer-tittle iframe {
+		width: 345px;
+		height: 345px;
+	}
+}
+
+@media only screen and (min-width: 400px) and (max-width: 767px) {
+	.footer-area .footer-tittle iframe {
+		width: 380px;
+		height: 380px;
+	}
+}
