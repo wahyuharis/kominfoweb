@@ -111,11 +111,11 @@
                         </a>
                     </div>
 
-                    <div class="section-tittle mb-5">
+                    <div class="section-tittle">
                         <h3>Berita Pemkab Terbaru</h3>
                     </div>
 
-                    <div class="data-list" data-autoscroll style="height: 300px;">
+                    <div class="data-list" data-autoscroll>
                         <?php foreach ($berita_kanan as $bkanan) : ?>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
@@ -130,12 +130,12 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <br/><br/>
-                    <div class="section-tittle mb-5">
+                    <br/>
+                    <div class="section-tittle">
                         <h3>Berita PPID Terbaru</h3>
                     </div>
 
-                    <div class="data-list" data-autoscroll style="height: 300px;">
+                    <div class="data-list" data-autoscroll>
                         <?php foreach ($berita_kanan as $bkanan) : ?>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
