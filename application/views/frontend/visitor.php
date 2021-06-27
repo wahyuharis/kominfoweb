@@ -10,14 +10,16 @@
 
             $.get("<?= base_url('Log_visitor/index/') ?>" + user_id, function(data) {});
 
-            <?php
-            if (strtolower($ci->uri->segment(1)) == 'blog' && strtolower($ci->uri->segment(2)) == 'detail') {
-            ?>
-                $.get("<?= base_url('Log_visitor/count/'.$ci->uri->segment(3)) ?>" , function(data) {});
-            <?php
-            }
-            ?>
+
         }
+
+        <?php
+        if (strtolower($ci->uri->segment(1)) == 'blog' && strtolower($ci->uri->segment(2)) == 'detail') {
+        ?>
+            $.get("<?= base_url('Log_visitor/count/' . $ci->uri->segment(3)) . '/' ?>" + user_id, function(data) {});
+        <?php
+        }
+        ?>
 
     });
 </script>

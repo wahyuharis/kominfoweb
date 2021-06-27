@@ -70,6 +70,7 @@ class Blog extends CI_Controller
         $crud->display_as('date', 'Tanggal');
         $crud->display_as('date_publish', 'Jadwal Publikasi');
         $crud->display_as('user_id', 'User');
+        $crud->display_as('get_view(feeds.id)', 'View');
         // $crud->unset_operations();
         $crud->unset_add();
         $crud->unset_edit();
@@ -98,7 +99,8 @@ class Blog extends CI_Controller
 
         $output = $crud->render();
 
-        // print_r2($output);
+
+        // print_r2($this->db->last_query());
 
         $view_data['output'] = $output->output;
         $content = $this->load->view('admin/blog/blog', $view_data, true);

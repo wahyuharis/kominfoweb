@@ -12,7 +12,6 @@ class Home extends CI_Controller
         parent::__construct();
         $this->load->library('Auth');
 
-        $this->load->library('Auth');
         $auth = new Auth();
         $auth->is_logged_in();
     }
@@ -27,5 +26,19 @@ class Home extends CI_Controller
 
 
         $this->load->view('admin/template', $template_data);
+    }
+
+    function data(){
+        $sql="SELECT count(feeds.id) AS total FROM feeds
+        WHERE feeds.deleted_at IS NULL
+        AND
+        feeds.category='Berita'
+        limit 1";
+        $db=$this->db->query($sql);
+        $berita=$db->row_object()->total;
+
+        $sql="SELECT count(users.id) AS total FROM users";
+        $db=$this->db->query($sql);
+        $user=$db->row_object()->total;
     }
 }
