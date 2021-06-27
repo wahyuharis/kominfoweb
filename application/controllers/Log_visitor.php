@@ -31,7 +31,7 @@ class Log_visitor extends CI_Controller
         if ($db->num_rows() > 0 && $db2->num_rows() > 0) {
 
             $id_feeds = $db->row_object()->id;
-            $id_uniq_visitor=$db2->row_object()->id_uniq_visitor;
+            $id_uniq_visitor = $db2->row_object()->id_uniq_visitor;
 
 
             $this->db->where('uniq_visitor_feeds.id_feeds', $id_feeds);
@@ -42,16 +42,17 @@ class Log_visitor extends CI_Controller
 
             $view = 0;
             if ($db3->num_rows() < 1) {
-                $view = $db3->row_object()->view;
+                // $view = $db3->row_object()->view;
+
                 $insert = array();
-                $insert['view'] = $view + 1;
+                $insert['view'] =  1;
                 $insert['id_feeds'] = $id_feeds;
                 $insert['id_uniq_visitor'] = $id_uniq_visitor;
-    
+
                 $this->db->insert('uniq_visitor_feeds', $insert);
             }
 
-           
+
 
             // print_r2($res);
         }

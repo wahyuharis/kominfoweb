@@ -40,5 +40,21 @@ class Home extends CI_Controller
         $sql="SELECT count(users.id) AS total FROM users";
         $db=$this->db->query($sql);
         $user=$db->row_object()->total;
+
+        $sql="SELECT 
+        COUNT(uniq_visitor.id_uniq_visitor) AS visitors
+        FROM uniq_visitor
+        WHERE DATE_FORMAT(uniq_visitor.time_stamp, '%m-%Y') ='".date('m-Y')."'";
+        $db=$this->db->query($sql);
+        $visitors=$db->row_object()->visitors;
+
+
+        $data=array();
+        $data['berita']=$berita;
+        $data['user']=$user;
+        $data['visitors']=$visitors;
+
+        header_json();
+        echo json_encode($data);
     }
 }
