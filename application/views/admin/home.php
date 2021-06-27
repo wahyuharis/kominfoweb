@@ -19,7 +19,7 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
-                <h3  class="count"  id="users">0</h3>
+                <h3 class="count" id="users">0</h3>
 
                 <p>User Registrations</p>
             </div>
@@ -34,7 +34,7 @@
         <!-- small box -->
         <div class="small-box bg-red">
             <div class="inner">
-                <h3  class="count" id="visitor">0</h3>
+                <h3 class="count" id="visitor">0</h3>
 
                 <p>Unique Visitors</p>
             </div>
@@ -85,7 +85,23 @@
             $('#visitor').html(data.visitors);
 
             hitung();
+            generate_chart(data.visitor_arr);
         });
+
+
+
+        function generate_chart(data_arr) {
+            var area = new Morris.Area({
+                element: 'revenue-chart',
+                resize: true,
+                data: data_arr,
+                xkey: 'y',
+                ykeys: ['item1'],
+                labels: ['Pengunjung'],
+                lineColors: ['#a0d0e0'],
+                hideHover: 'auto'
+            });
+        }
 
         function hitung() {
             $('.count').each(function() {
