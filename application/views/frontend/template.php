@@ -121,12 +121,12 @@ if (!isset($keywords)) {
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                                 <!-- sticky -->
                                 <div class="sticky-logo">
-                                    <a href="#"><img src="<?= base_url('assets/uploads/files/' . $header->logo_header_sticky->image) ?>" alt=""></a>
+                                    <a href="#"><img src="<?= base_url() ?>template_kominfo/assets/img/logo/logo aja.png" alt=""></a>
                                 </div>
 
                                 <div class="sticky-logo title-logo">
-                                    Dinas Komunikasi dan Informatika<br>
-                                    Kabupaten Jember
+                                    <p>Dinas Komunikasi dan Informatika<br>
+                                    Kabupaten Jember</p>
                                 </div>
 
                                 <?php require_once 'template_navigation.php' ?>
@@ -168,7 +168,7 @@ if (!isset($keywords)) {
                             <div class="single-footer-caption">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="<?= base_url() ?>template_kominfo/assets/img/logo/putih.png" alt="" width="80%"></a>
+                                    <a href="index.html"><img src="<?= base_url() ?>template_kominfo/assets/img/logo/LOGO TEXT.png" alt="" width="80%"></a>
                                 </div>
                                 <div class="footer-tittle">
 
