@@ -26,13 +26,12 @@
             tabDisable: true,
             callbacks: {
                 onImageUpload: function(image) {
-                    // console.log(image.length);
                     for (var i = 0; i < image.length; i++) {
                         uploadImage(image[i]);
                     }
                 },
                 onMediaDelete: function(target) {
-                    for(var i=0;i<target.length;i++){
+                    for (var i = 0; i < target.length; i++) {
                         deleteImage(target[i].src);
                     }
                 }
@@ -42,7 +41,8 @@
         function uploadImage(image) {
             var data = new FormData();
             data.append("image", image);
-            Pace.start();
+            // Pace.start();
+            $('#spinner-global').show();
             $.ajax({
                 url: "<?= base_url('admin/summernote/upload/') ?>",
                 cache: false,
@@ -51,7 +51,6 @@
                 data: data,
                 type: "POST",
                 success: function(res) {
-                    // console.log(res)
                     if (res.success) {
                         res_data = JSON.parse(res.data);
                         url = '<?= base_url('assets/uploads/files/') ?>' + res_data.file_name;
@@ -59,11 +58,14 @@
                     } else {
                         toastr.error(res.message);
                     }
-                    Pace.stop();
+                    // Pace.stop();
+                    $('#spinner-global').hide();
+
                 },
                 error: function(data) {
                     console.log(data);
-                    Pace.stop();
+                    // Pace.stop();
+                    $('#spinner-global').hide();
                 }
             });
         }
@@ -109,6 +111,8 @@
         if (files.length > 0) {
             fd.append('file', files[0]);
 
+            // Pace.start();
+            $('#spinner-global').show();
             $.ajax({
                 url: '<?= base_url('admin/dropzone/upload/') ?>',
                 type: 'post',
@@ -135,9 +139,13 @@
                     } else {
                         alert(response['message']);
                     }
+                    // Pace.stop();
+                    $('#spinner-global').hide();
                 },
                 error: function(xhr, res) {
                     alert("Gagal Mengunggah");
+                    // Pace.stop();
+                    $('#spinner-global').hide();
                 }
             });
         } else {

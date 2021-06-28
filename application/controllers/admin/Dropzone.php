@@ -7,43 +7,35 @@ class Dropzone extends CI_Controller
     function upload()
     {
 
-        // print_r2($_FILES);
         $success = false;
         $message = "";
         $data = array();
 
         $config['upload_path']          = './assets/uploads/files';
         $config['allowed_types']        = 'gif|jpg|png|jpeg|GIF|JPG|PNG|JPEG';
-       
+
 
         $this->load->library('upload', $config);
 
         if ($this->upload->do_upload('file')) {
-            $success = true;
-            $data = json_encode($this->upload->data());
-            $hasil = json_decode($data);
-            $lebar = $hasil->image_width;
-            $tinggi = $hasil->image_height;
-            
-            if($lebar > "1500" || $tinggi > "1500") { // You can add your logic
-                $config_manip = array(
-                    'image_library' => 'gd2',
-                    'source_image' => './assets/uploads/files/'.$hasil->file_name,
-                    'new_image' => './assets/uploads/thumbnail/',
-                    'maintain_ratio' => TRUE,
-                    'create_thumb' => FALSE,
-                    'quality' => '80%',
-                    'width' => 1500,
-                    'height' => 1500
-                );
-                $this->load->library('image_lib', $config_manip);
-                if (!$this->image_lib->resize()) {
-                    echo $this->image_lib->display_errors();
-                }
-    
+
+            $upload_data=$this->upload->data();
+
+            if($upload_data['image_width'] > 1500 || $upload_data['image_height'] > 1500   ){
+                $config['image_library'] = 'gd2';
+                $config['source_image'] = $upload_data['full_path'];
+                $config['create_thumb'] = FALSE;
+                $config['maintain_ratio'] = TRUE;
+                $config['width']         = 1500;
+                $config['height']       = 1500;
+                $this->load->library('image_lib', $config);
+                $this->image_lib->resize();
                 $this->image_lib->clear();
             }
-            
+
+
+            $success = true;
+            $data = json_encode($this->upload->data());
         } else {
             $success = false;
             $message = $this->upload->display_errors();
@@ -85,6 +77,4 @@ class Dropzone extends CI_Controller
             unlink("./assets/uploads/thumbnail/" . $file);
         }
     }
-
-
 }

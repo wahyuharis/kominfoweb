@@ -18,30 +18,23 @@ class Summernote extends CI_Controller
         $this->load->library('upload', $config);
 
         if ($this->upload->do_upload('image')) {
+
+            $upload_data=$this->upload->data();
+
+            // if($upload_data['image_width'] > 1500 || $upload_data['image_height'] > 1500   ){
+            //     $config['image_library'] = 'gd2';
+            //     $config['source_image'] = $upload_data['full_path'];
+            //     $config['create_thumb'] = FALSE;
+            //     $config['maintain_ratio'] = TRUE;
+            //     $config['width']         = 1500;
+            //     $config['height']       = 1500;
+            //     $this->load->library('image_lib', $config);
+            //     $this->image_lib->resize();
+            //     $this->image_lib->clear();
+            // }
+
             $success = true;
             $data = json_encode($this->upload->data());
-            $hasil = json_decode($data);
-            $lebar = $hasil->image_width;
-            $tinggi = $hasil->image_height;
-            
-            if($lebar > "1500" || $tinggi > "1500") { // You can add your logic
-                $config_manip = array(
-                    'image_library' => 'gd2',
-                    'source_image' => './assets/uploads/files/'.$hasil->file_name,
-                    'new_image' => './assets/uploads/thumbnail/',
-                    'maintain_ratio' => TRUE,
-                    'create_thumb' => FALSE,
-                    'quality' => '80%',
-                    'width' => 1500,
-                    'height' => 1500
-                );
-                $this->load->library('image_lib', $config_manip);
-                if (!$this->image_lib->resize()) {
-                    echo $this->image_lib->display_errors();
-                }
-    
-                $this->image_lib->clear();
-            }
         } else {
             $success = false;
             $message = $this->upload->display_errors();

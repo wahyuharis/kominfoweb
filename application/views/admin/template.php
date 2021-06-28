@@ -537,9 +537,12 @@
         <!-- Add the sidebar's background. This div must be placed
                  immediately after the control sidebar -->
         <div class="control-sidebar-bg"></div>
+
+        <!-- <div><i id="spinner" style="display: none;" class="fa fa-spinner fa-spin"></i></div> -->
     </div>
     <!-- ./wrapper -->
 
+    <div id="spinner-global" style="display: none;" ><i class="fa fa-spinner fa-spin"></i></div>
 
     <!-- SlimScroll -->
     <script src="<?= base_url() ?>lte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
