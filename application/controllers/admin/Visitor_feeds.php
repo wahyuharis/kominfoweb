@@ -54,7 +54,7 @@ class Visitor_feeds extends CI_Controller
             'feeds.id',
             'feeds.id',
             'feeds.title',
-            'COUNT(uniq_visitor_feeds.`view`)'
+            'get_view(feeds.id)'
         );
 
         return $array;
@@ -68,14 +68,12 @@ class Visitor_feeds extends CI_Controller
         feeds.id,
         feeds.id as id2,
         feeds.title,
-        COUNT(uniq_visitor_feeds.`view`) AS vistor
+        get_view(feeds.id) AS `VIEW`
         FROM
         feeds
-        LEFT JOIN uniq_visitor_feeds
-        ON uniq_visitor_feeds.id_feeds=feeds.id
-        
-        GROUP BY feeds.id";
 
+        where 1
+        ";
         return $sql;
     }
 
@@ -120,6 +118,8 @@ class Visitor_feeds extends CI_Controller
                 }
             }
         }
+
+        // print_r2($sql);
 
         $total_row = $this->db->query("select count(*) as total from (" . $sql . ") as tb ")->row_array()['total'];
 
