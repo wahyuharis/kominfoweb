@@ -113,6 +113,16 @@ class Blog extends CI_Controller
         $this->description = $berita_detail->deskripsi;
         $this->keywords = $berita_detail->kata_kunci;
 
+        if(empty(trim($this->description))){
+            $this->description=getFirstParagraph2($berita_detail->content);
+        }
+
+        $keywords2=str_replace(' ',', ',$berita_detail->title);
+        // print_r2($keywords2);
+        if(empty(trim($this->keywords))){
+            $this->keywords=$keywords2;
+        }
+
         $berita_detail_next = $this->db
             ->select('feeds.*,users.fullname')
             ->where('deleted_at', null)
