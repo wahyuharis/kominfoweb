@@ -57,8 +57,15 @@
 
         // Check file selected or not
         if (files.length > 0) {
-            fd.append('file', files[0]);
+            // fd.append('file', files);
+
+            for (var i = 0; i < files.length; i++) {
+                fd.append('file_'+i, files[i]);
+            }
+
             fd.append('token', token_image);
+
+            // console.log(files);
 
             $.ajax({
                 url: '<?= base_url('admin/galery/upload2/') ?>',
@@ -68,7 +75,7 @@
                 processData: false,
                 success: function(response) {
                     if (response['success']) {
-                        output = JSON.parse(response.data);
+                        output = (response.data);
                         $('input[name=image_upload2]').val(null);
 
                         images = $('textarea[name=image2]').val();
@@ -76,7 +83,12 @@
                             images = '[]';
                         }
                         images = JSON.parse(images);
-                        images.push(output.file_name);
+                        
+                        // images.push(output.file_name);
+                        for(var i=0;i<output.length;i++){
+                            images.push(output[i].file_name);
+                        }
+
                         $('textarea[name=image2]').val(JSON.stringify(images));
                         generate_images();
                     } else {
@@ -167,7 +179,7 @@
                     if (primary.trim().length > 0) {
                         toastr.info(data.message, 'informasi');
                     } else {
-                        window.location.href = '<?=base_url('admin/galery/')?>';
+                        window.location.href = '<?= base_url('admin/galery/') ?>';
                     }
                 } else {
                     toastr.error("Terjadi Kesalahan");

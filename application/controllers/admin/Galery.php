@@ -127,18 +127,32 @@ class Galery extends CI_Controller
         $message = "";
         $data = array();
 
+        // print_r2($_FILES);
+
         $config['upload_path']          = './assets/uploads/files';
         $config['allowed_types']        = 'gif|jpg|png|jpeg|GIF|JPG|PNG|JPEG';
 
         $this->load->library('upload', $config);
 
-        if ($this->upload->do_upload('file')) {
-            $success = true;
-            $data = json_encode($this->upload->data());
-        } else {
-            $success = false;
-            $message = $this->upload->display_errors();
+        $i = 0;
+        foreach ($_FILES as $key => $files) {
+            if ($this->upload->do_upload($key)) {
+                $success = true;
+                array_push($data, $this->upload->data());
+            } else {
+                $success = false;
+                $message .= $this->upload->display_errors();
+            }
+            $i++;
         }
+
+        // if ($this->upload->do_upload('file')) {
+        //     $success = true;
+        //     $data = json_encode($this->upload->data());
+        // } else {
+        //     $success = false;
+        //     $message = $this->upload->display_errors();
+        // }
 
         $response['success'] = $success;
         $response['message'] = $message;
@@ -222,7 +236,7 @@ class Galery extends CI_Controller
         $this->form_validation->set_data($post);
 
         $this->form_validation->set_rules('caption', ucwords('caption'), 'trim|required');
-        $this->form_validation->set_rules('image', ucwords('image'), 'trim|required');
+        // $this->form_validation->set_rules('image', ucwords('image'), 'trim|required');
 
         if ($this->form_validation->run() == FALSE) {
             $message = validation_errors();
@@ -231,20 +245,20 @@ class Galery extends CI_Controller
         }
 
 
-
-
         if ($succes) {
-            $insert['caption'] = $post['caption'];
-            $insert['image'] = $post['image'];
-            $image2 = json_decode($post['image2']);
 
-            // print_r2($image2);
+            $image2 = json_decode($post['image2']);
+            
+            $insert['caption'] = $post['caption'];
+            if (!empty(trim($post['image']))) {
+                $insert['image'] = $post['image'];
+            }else{
+                $insert['image'] = $image2[0];
+            }
 
             if (empty(trim($primary_id))) {
-
-
                 $this->db->insert('galleries', $insert);
-                $insert_id=$this->db->insert_id();
+                $insert_id = $this->db->insert_id();
 
                 $insert2 = array();
                 foreach ($image2 as $row) {
