@@ -1,6 +1,9 @@
 <?php
 // use Carbon;
 
+// use \Html2Text\Html2Text;
+
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Blog extends CI_Controller
@@ -48,11 +51,12 @@ class Blog extends CI_Controller
             ->result_array();
 
         // print_r2($berita_blog_list);
-
         // header_text();
-        // echo( getFirstword('.') );
-
+        // $html = getFirstParagraph2($berita_blog_list[]['content']);
+        // echo $html;
+// echo $berita_blog_list[1]['content'];
         // die();
+
 
 
 

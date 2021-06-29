@@ -1,6 +1,7 @@
 <?php
 
 // use Carbon\Carbon;
+require_once APPPATH . 'libraries/html2text/vendor/autoload.php';
 
 function get_enum_values($table, $field)
 {
@@ -378,6 +379,29 @@ function getFirstParagraph($paragraph)
     }
 
     return strip_tags($paragraph_arr[$first_paragraph]);
+}
+
+function getFirstParagraph2($html)
+{
+    $output = "";
+    $html = new \Html2Text\Html2Text($html);
+
+    $text = $html->getText();  // Hello, "WORLD"
+
+    $i = 0;
+    $text_arr = explode("\n\n", $text);
+    // header_text();
+    while ($i < count($text_arr)) {
+        $text2 = $text_arr[$i];
+        if (strlen($text2) > 20) {
+            $output = $text_arr[$i];
+            $i = count($text_arr) + 1;
+        }
+
+        $i++;
+    }
+
+    return $output;
 }
 
 
