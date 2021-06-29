@@ -31,23 +31,20 @@ class Home extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-        // header_text();
-        // echo getFirstword($berita_kanan[6]['content']);
-
-        // die();
-        // print_r2(  $berita_kanan[2]);
-
 
 
         $berita_tengah = $this->db->where('deleted_at', null)
             ->where('category', 'Berita')
             // ->where(" feeds.date between '".date('Y-m-01')."' and '".date('Y-m-t')."' ")
-            ->select('feeds.*,users.fullname')
+            ->select('feeds.*,users.fullname,get_view(feeds.id) as view')
             ->join('users', 'users.id=feeds.user_id')
-            ->order_by('view', 'desc')
+            ->order_by('get_view(feeds.id)', 'desc')
             ->limit(3)
             ->get('feeds')
             ->result_array();
+
+            // header_text();
+            // print_r2($berita_tengah);
 
 
         $berita_bawah = $this->db->where('deleted_at', null)
@@ -62,9 +59,6 @@ class Home extends CI_Controller
         $link = $this->db->select('*')
             ->get('url')
             ->result_array();
-
-        // print_r2($link);
-
 
         $content_data['link'] = $link;
         $content_data['berita_kanan'] = $berita_kanan;
