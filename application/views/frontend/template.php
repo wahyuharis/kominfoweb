@@ -121,7 +121,7 @@ if (!isset($keywords)) {
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                                 <!-- sticky -->
                                 <div class="sticky-logo">
-                                    <a href="#"><img src="<?= base_url() ?>template_kominfo/assets/img/logo/logo aja.png" alt=""></a>
+                                    <a href="#"><img src="<?= base_url() ?>template_kominfo/assets/img/logo/logo ajaa outline.png" alt=""></a>
                                 </div>
 
                                 <div class="sticky-logo title-logo">
@@ -168,7 +168,7 @@ if (!isset($keywords)) {
                             <div class="single-footer-caption">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="<?= base_url() ?>template_kominfo/assets/img/logo/LOGO TEXT.png" alt="" width="80%"></a>
+                                    <a href="index.html"><img src="<?= base_url() ?>template_kominfo/assets/img/logo/LOGO TEXT 2 BARIS outline.png" alt="" width="80%"></a>
                                 </div>
                                 <div class="footer-tittle">
 
