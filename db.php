@@ -20,7 +20,7 @@ if ($argv[1] == 'export') {
     $mysqldump = $mysqlDir . DS . 'mysqldump';
     echo "\nBacking up database to {$dir} ";
     echo "\n...\n";
-    exec("{$mysqldump} --user={$user} --password={$pass} --host={$host} {$database} --result-file={$dir} 2>&1", $output);
+    exec("{$mysqldump} --routines=true --user={$user} --password={$pass} --host={$host} {$database} --result-file={$dir} 2>&1", $output);
 
     foreach ($output as $echo) {
         echo "\n";
