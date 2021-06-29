@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="<?= base_url() ?>node_modules/toastr/build/toastr.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>node_modules/summernote/dist/summernote.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>node_modules/dropzone/dist/min/dropzone.min.css">
+
+    <link rel="stylesheet" href="<?= base_url() ?>lte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>lte/lte-custom.css">
 
     <?php if (isset($css_files)) : ?>
@@ -57,7 +59,8 @@
     <script src="<?= base_url() ?>node_modules/bootbox/dist/bootbox.all.min.js"></script>
     <script src="<?= base_url() ?>node_modules/dropzone/dist/min/dropzone.min.js"></script>
 
-
+    <script src="<?= base_url() ?>lte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url() ?>lte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
     <script src="<?= base_url() ?>assets/JQGrid.js"></script>
     <script src="<?= base_url() ?>assets/custom.js"></script>
@@ -542,7 +545,7 @@
     </div>
     <!-- ./wrapper -->
 
-    <div id="spinner-global" style="display: none;" ><i class="fa fa-spinner fa-spin"></i></div>
+    <div id="spinner-global" style="display: none;"><i class="fa fa-spinner fa-spin"></i></div>
 
     <!-- SlimScroll -->
     <script src="<?= base_url() ?>lte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
