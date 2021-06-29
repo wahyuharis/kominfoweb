@@ -51,8 +51,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .header-sticky.sticky-bar.sticky .sticky-logo img {
 	height: 30px;
-	width: 60px;
-	margin-top: 0px;
+	width: 58px;
+	margin-top: 3px;
 }
 
 .header-sticky.sticky-bar.sticky .sticky-logo p {
@@ -76,9 +76,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-sticky.sticky-bar.sticky .title-logo {
-	font-size: 10px;
-	padding-top: 10px;
-	margin-left: -10px;
+	padding-top: 12px;
+	margin-left: -50px;
+}
+
+.header-sticky.sticky-bar.sticky .title-logo p{
+	font-size: 12px;
+	font-weight: 400;
 }
 
 .main-header .main-menu ul li a {
@@ -440,9 +444,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-area .header-top .header-info-right .header-social li a:hover {
-	color: #0097e6;
+	color: white;
 }
 
+.header-area .header-top .header-info-right .header-social a i.fa-twitter:hover {
+	color: #1DA1F2;
+}
+
+.header-area .header-top .header-info-right .header-social a i.fa-instagram:hover {
+	color: #E1306C;
+}
+
+.header-area .header-top .header-info-right .header-social a i.fa-youtube:hover {
+	color: #FF0000;
+}
 
 
 .footer-area .footer-social a i {
@@ -641,23 +656,42 @@ a {
 }
 
 @media only screen and (min-width: 360px) and (max-width: 420px) {
+	.trending-area .trending-main .row .col-lg-4 .carousel-indicators {
+		z-index: 1;
+	}
 
 	.sticky-logo{
 		float: left;
 
 	}
 
-	.sticky-logo img{
+	/* .sticky-logo img{
 	
 		width: 67px;
 		height: 35px;
 		margin-bottom: 0px;
+	} */
+
+	.sticky-logo.info-open img{
+		width: 67px;
+		height: 35px;
 	}
+	
 
 	.sticky-logo p {
 		color: white;
 		font-size: 12px;
-		line-height: 20px;
+		line-height: 16px;
 		margin-bottom: 0px;
+		/* display: none !important; */
 	}
+
+	.header-sticky.sticky-bar.sticky .title-logo{
+		display: block !important;
+		margin-right: 130px;
+		margin-bottom: 0px;
+		line-height: 18px;
+	}
+
+
 }
