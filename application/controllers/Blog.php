@@ -47,6 +47,13 @@ class Blog extends CI_Controller
             ->get('feeds')
             ->result_array();
 
+        // print_r2($berita_blog_list);
+
+        // header_text();
+        // echo( getFirstword('.') );
+
+        // die();
+
 
 
         $total_row = $this->db->where('deleted_at', null)
@@ -93,7 +100,7 @@ class Blog extends CI_Controller
         $berita_detail = $this->db
             ->select('feeds.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category','Berita')
+            ->where('category', 'Berita')
             ->where('slug', $slug)
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->get('feeds')
@@ -105,7 +112,7 @@ class Blog extends CI_Controller
         $berita_detail_next = $this->db
             ->select('feeds.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category','Berita')
+            ->where('category', 'Berita')
             ->where('feeds.id < ', $berita_detail->id)
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->order_by('feeds.id', 'desc')
@@ -115,7 +122,7 @@ class Blog extends CI_Controller
         $berita_detail_prev = $this->db
             ->select('feeds.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category','Berita')
+            ->where('category', 'Berita')
             ->where('feeds.id > ', $berita_detail->id)
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->order_by('feeds.id', 'desc')

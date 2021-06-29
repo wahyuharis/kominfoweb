@@ -383,25 +383,24 @@ function getFirstParagraph($paragraph)
 
 function getFirstword($text)
 {
-    $ci=&get_instance();
-    $word='';
+    $ci = &get_instance();
+    $word = "";
 
-    $ci->load->library('simpledom/simple_html_dom.php');
+    $text = strip_tags($text);
 
-    // error_reporting(0);
-    $html= str_get_html($text);
-
-    // if(isset($html->find('p')[0])){
-    //     $word=$html->find('p')[0]->text();
-    // }elseif(isset($html->find('div')[0])){
-    //     $word=$html->find('div')[0]->text();
-    // }
-
-    print_r2($text);
-    $html->find('div');
-    
-    $word=strip_tags($word);
-    error_reporting(E_ALL);
+    if (strpos($text, '.')) {
+        $arr_files = explode('.', $text);
+        $i = 0;
+        while ($i < count($arr_files)) {
+            if (strlen(trim($arr_files[$i])) < 20) {
+                //
+            } else {
+                $word = $arr_files[$i];
+                $i = count($arr_files) + 1;
+            }
+            $i++;
+        }
+    }
 
     return $word;
 }
