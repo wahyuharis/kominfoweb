@@ -74,7 +74,7 @@ class Dropzone extends CI_Controller
     {
         if (!empty(trim($file))) {
             unlink("./assets/uploads/files/" . $file);
-            unlink("./assets/uploads/thumbnail/" . $file);
+            // unlink("./assets/uploads/thumbnail/" . $file);
         }
     }
 }
