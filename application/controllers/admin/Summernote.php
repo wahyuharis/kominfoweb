@@ -60,7 +60,7 @@ class Summernote extends CI_Controller
         $file=end($src_array);
 
         unlink('./assets/uploads/files/'.$file);
-        unlink("./assets/uploads/thumbnail/" . $file);
+        // unlink("./assets/uploads/thumbnail/" . $file);
 
         $response['success'] = $success;
         $response['message'] = $message;
