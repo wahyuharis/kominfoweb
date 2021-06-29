@@ -60,7 +60,7 @@
 
 
                     <aside class="single_sidebar_widget popular_post_widget">
-                        <h3 class="widget_title">Berita Terbaru</h3>
+                        <h3 class="widget_title">Berita Pemkab Terbaru</h3>
                         <ul class="data-list" data-autoscroll>
                             <?php foreach ($berita_kanan as $bkanan) : ?>
                                 <div class="media post_item">
@@ -75,8 +75,23 @@
                                     </div>
                                 </div>
                             <?php endforeach; ?>
+                        </ul><br/>
+                        <h3 class="widget_title">Berita PPID Terbaru</h3>
+                        <ul class="data-list" data-autoscroll>
+                            <?php foreach ($berita_kanan as $bkanan) : ?>
+                                <div class="media post_item">
+                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" width="75px" height="65px" style="border-radius: 5px;">
+                                    <div class="media-body hover-show">
+                                        <span class="color2">Berita</span>
+                                        <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
+                                            <h3 class="short-title"><?= substr($bkanan['title'], 0, 50) ?>...</h3>
+                                            <h3 class="long-title"><?= ($bkanan['title']) ?></h3>
+                                        </a>
+                                        <p><?= waktu_ymd_to_dmy($bkanan['date']) ?></p>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
                         </ul>
-
                     </aside>
 
                     <aside class="single_sidebar_widget instagram_feeds">

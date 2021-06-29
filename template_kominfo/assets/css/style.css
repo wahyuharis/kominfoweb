@@ -4674,7 +4674,7 @@ hr {
 }
 
 .blog_right_sidebar .popular_post_widget .post_item .media-body h3 {
-	font-size: 16px;
+	font-size: 13px;
 	line-height: 20px;
 	margin-bottom: 2px;
 	transition: all 0.3s linear
@@ -4685,7 +4685,7 @@ hr {
 }
 
 .blog_right_sidebar .popular_post_widget .post_item .media-body p {
-	font-size: 14px;
+	font-size: 11px;
 	line-height: 21px;
 	margin-bottom: 0px
 }
