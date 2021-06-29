@@ -32,6 +32,8 @@
     <link rel="stylesheet" href="<?= base_url() ?>node_modules/dropzone/dist/min/dropzone.min.css">
 
     <link rel="stylesheet" href="<?= base_url() ?>lte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+    
     <link rel="stylesheet" href="<?= base_url() ?>lte/lte-custom.css">
 
     <?php if (isset($css_files)) : ?>
@@ -61,6 +63,12 @@
 
     <script src="<?= base_url() ?>lte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url() ?>lte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
 
     <script src="<?= base_url() ?>assets/JQGrid.js"></script>
     <script src="<?= base_url() ?>assets/custom.js"></script>
@@ -240,6 +248,31 @@
                         </a>
                     </li>
                     <!-- End Link Terkait -->
+
+                    <!-- Setting -->
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-line-chart"></i> <span>Visitor</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'visitor') echo 'active' ?>">
+                                <a href="<?= base_url('admin/visitor/') ?>">
+                                    <i class="fa fa-circle-o"></i>
+                                    visitor
+                                </a>
+                            </li>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'visitor_feeds') echo 'active' ?>">
+                                <a href="<?= base_url('admin/visitor_feeds/') ?>">
+                                    <i class="fa fa-circle-o"></i>
+                                    visitor berita
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- End Setting -->
 
                     <!-- Setting -->
                     <li class="treeview">

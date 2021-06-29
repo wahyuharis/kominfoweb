@@ -41,6 +41,12 @@ $CI = &get_instance();
 
                 },
             },
+            dom: "<'row'<'col-sm-2'l><'col-sm-4'B><'col-sm-6'f>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf'
+            ],
             "scrollX": true,
             "pagingType": "full",
             "order": [
@@ -61,12 +67,12 @@ $CI = &get_instance();
                 "searchable": false
             }, ],
             "preDrawCallback": function() {
-                $('#table-1 tbody').css('opacity', 0);
+                // $('#table-1 tbody').css('opacity', 0);
             },
             "drawCallback": function() {
-                $('#table-1 tbody').animate({
-                    opacity: '1'
-                });
+                // $('#table-1 tbody').animate({
+                //     opacity: '1'
+                // });
             }
         });
 
