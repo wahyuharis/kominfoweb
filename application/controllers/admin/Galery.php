@@ -244,11 +244,19 @@ class Galery extends CI_Controller
             $succes = false;
         }
 
+        $image2 = json_decode($post['image2']);
+        if(!isset($image2[0])){
+            $succes = false;
+            $error['image_upload2']="<p>Image Sub Kosong</p>";
+            $message .= "<p>Image Sub Kosong</p>";
+        }
+
+
 
         if ($succes) {
 
-            $image2 = json_decode($post['image2']);
-            
+            // $image2 = json_decode($post['image2']);
+
             $insert['caption'] = $post['caption'];
             if (!empty(trim($post['image']))) {
                 $insert['image'] = $post['image'];
