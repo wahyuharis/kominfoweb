@@ -21,18 +21,6 @@ class Summernote extends CI_Controller
 
             $upload_data=$this->upload->data();
 
-            // if($upload_data['image_width'] > 1500 || $upload_data['image_height'] > 1500   ){
-            //     $config['image_library'] = 'gd2';
-            //     $config['source_image'] = $upload_data['full_path'];
-            //     $config['create_thumb'] = FALSE;
-            //     $config['maintain_ratio'] = TRUE;
-            //     $config['width']         = 1500;
-            //     $config['height']       = 1500;
-            //     $this->load->library('image_lib', $config);
-            //     $this->image_lib->resize();
-            //     $this->image_lib->clear();
-            // }
-
             $success = true;
             $data = json_encode($this->upload->data());
         } else {
@@ -52,15 +40,12 @@ class Summernote extends CI_Controller
         $message = "";
         $data = array();
 
-        // print_r2($_POST);
-        // unlink()
         $src=$this->input->post('src');
         $src_array= explode('/',$src);
 
         $file=end($src_array);
 
         unlink('./assets/uploads/files/'.$file);
-        // unlink("./assets/uploads/thumbnail/" . $file);
 
         $response['success'] = $success;
         $response['message'] = $message;
