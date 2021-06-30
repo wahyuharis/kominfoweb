@@ -68,6 +68,26 @@
             // console.log(files);
             $('#spinner-global').show();
             $.ajax({
+                xhr: function() {
+                    var xhr = $.ajaxSettings.xhr();
+                    xhr.onprogress = function e() {
+                        // For downloads
+                        if (e.lengthComputable) {
+                            // console.log(e.loaded / e.total);
+                        }
+                    };
+                    xhr.upload.onprogress = function(e) {
+                        // For uploads
+                        if (e.lengthComputable) {
+                            // console.log(e.loaded / e.total);
+                            percent = (e.loaded / e.total) * 100;
+                            percent = percent.toFixed() + " %";
+                            // console.log(percent);
+                            $('#spinner-global-progress').html(percent);
+                        }
+                    };
+                    return xhr;
+                },
                 url: '<?= base_url('admin/galery/upload2/') ?>',
                 type: 'post',
                 data: fd,
@@ -92,14 +112,17 @@
                         $('textarea[name=image2]').val(JSON.stringify(images));
                         generate_images();
                         $('#spinner-global').hide();
+                        $('#spinner-global-progress').html('');
 
                     } else {
                         alert(response['message']);
                         $('#spinner-global').hide();
-
+                        $('#spinner-global-progress').html('');
                     }
                 },
                 error: function(xhr, res) {
+                    $('#spinner-global').hide();
+                    $('#spinner-global-progress').html('');
                     alert("Gagal Mengunggah");
                 }
             });

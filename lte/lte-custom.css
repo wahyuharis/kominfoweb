@@ -48,3 +48,7 @@
     margin-left: -100px;
     margin-top: -200px;
 }
+
+#spinner-global p{
+    font-size: 20px;
+}

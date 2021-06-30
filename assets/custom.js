@@ -26,6 +26,5 @@ function SubmitLoading(attr) {
     this.write_html=function(){
         $(self.attr).html(self.loading_content);
     }
-    
-
 }
+

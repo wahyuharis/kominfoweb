@@ -33,7 +33,7 @@
 
     <link rel="stylesheet" href="<?= base_url() ?>lte/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
-    
+
     <link rel="stylesheet" href="<?= base_url() ?>lte/lte-custom.css">
 
     <?php if (isset($css_files)) : ?>
@@ -578,7 +578,10 @@
     </div>
     <!-- ./wrapper -->
 
-    <div id="spinner-global" style="display: none;"><i class="fa fa-spinner fa-spin"></i></div>
+    <div id="spinner-global" style="display: none;">
+        <i class="fa fa-spinner fa-spin"></i>
+        <p id="spinner-global-progress"></p>
+    </div>
 
     <!-- SlimScroll -->
     <script src="<?= base_url() ?>lte/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
