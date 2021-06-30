@@ -35,7 +35,7 @@ class Home extends CI_Controller
 
         $berita_tengah = $this->db->where('deleted_at', null)
             ->where('category', 'Berita')
-            // ->where(" feeds.date between '".date('Y-m-01')."' and '".date('Y-m-t')."' ")
+            ->where(" MONTH(feeds.date)=MONTH(NOW()) AND YEAR(feeds.date)=YEAR(NOW()) ")
             ->select('feeds.*,users.fullname,get_view(feeds.id) as view')
             ->join('users', 'users.id=feeds.user_id')
             ->order_by('get_view(feeds.id)', 'desc')
