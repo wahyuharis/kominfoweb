@@ -80,7 +80,7 @@ if (!isset($keywords)) {
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left">
                                     <ul>
-                                        <li><img src="<?= base_url() ?>template_kominfo/assets/img/logo/header-black-logo.png" alt="">PEMERINTAH KABUPATEN JEMBER - DINAS KOMUNIKASI DAN INFORMATIKA </li>
+                                        <li><img style="width:38px; height:20px;" src="<?= base_url() ?>template_kominfo/assets/img/logo/logo ajaa outline.png" alt="">DINAS KOMUNIKASI DAN INFORMATIKA KABUPATEN JEMBER </li>
                                         <!-- <li><img src="assets/img/icon/header_icon1.png" alt=""></li> -->
                                     </ul>
                                 </div>
@@ -97,21 +97,21 @@ if (!isset($keywords)) {
                 </div>
                 <!-- background-image: url('<?= base_url() ?>template_kominfo/assets/img/banner/header.png'); background-size: cover; -->
                 <div class="header-mid d-none d-md-block">
-                    <div class="container">
+                    <!-- <div class="container">
                         <div class="row d-flex align-items-center">
                             <div class="col-2">
                                 <div class="logo">
-                                    <a href="#"><img src="<?= base_url('assets/uploads/files/' . $header->logo_header_atas->image) ?>" alt="" width="100%"></a>
+                                    <a href="#"><img src="//base_url('assets/uploads/files/' . $header->logo_header_atas->image) ini php" alt="" width="100%"></a>
                                 </div>
                             </div>
 
                             <div class="col-8 pt-4 header-text">
-                                <?= $header->logo_header_atas->content ?>
+                                $header->logo_header_atas->content ini php
                             </div>
                             <div class="col-2">
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="header-mid-cover" style="background-image: url('<?= base_url('assets/uploads/files/'.$header->banner->image) ?>'); background-size: 100% 100%;">
                     </div>
                 </div>
