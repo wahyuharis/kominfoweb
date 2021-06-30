@@ -177,7 +177,7 @@ if (!isset($keywords)) {
                                             Kabupaten Jember, Jawa Timur 68131<br>
                                             <strong>Email:</strong> diskominfo@jemberkab.go.id
                                             <br>
-                                            <strong>No. Telp:</strong> 0331-123xxx
+                                            <strong>No. Telp:</strong> (0331) 5102507
                                         </p>
                                         <p></p>
                                         <p></p>

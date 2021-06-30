@@ -265,7 +265,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .trending-area .trending-main .trand-right-single .trand-right-img img {
 	width: 120px;
-	height: 100px;
+	height: 85px;
 }
 
 /* .trending-area .trending-main .trand-right-single .trand-right-cap .long-title {
@@ -483,7 +483,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .trending-area .trending-main .trand-right-single .trand-right-cap h4 {
-	font-size: 16px;
+	font-size: 15px;
+	text-align: justify-all;
 }
 
 .trending-area .trending-main .trending-bottom .single-bottom .trend-bottom-img img {
@@ -491,7 +492,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .whats-news-area .whats-news-caption .single-what-news .what-img img, .about-area .whats-news-caption .single-what-news .what-img img, .contact-section .whats-news-caption .single-what-news .what-img img {
-	height: 229px;
+	height: 280px;
 }
 
 .carousel-item p {
@@ -565,7 +566,7 @@ a {
 }
 
 .trending-area .trending-main .trending-top .trend-top-img img {
-	height: 440px;
+	height: 500px;
 }
 
 @media only screen and (min-width: 240px) and (max-width: 300px) {
@@ -606,8 +607,14 @@ a {
 
 .trending-area .trending-main .trending-top .trend-top-img .trend-top-cap {
 	text-align: justify-all;
-	right: 15px;
+	right: 30px;
 }
+
+.trending-area .trending-main .trending-top .trend-top-img .trend-top-cap p {
+	font-size: 15px;
+	line-height: normal;
+}
+
 
 @media  only screen and (min-width: 300px) and (max-width: 767px) {
 	.trending-area .trending-main .trending-bottom .single-bottom .trend-bottom-img img {
