@@ -86,9 +86,9 @@ if (!isset($keywords)) {
                                 </div>
                                 <div class="header-info-right">
                                     <ul class="header-social">
-                                        <li><a href="https://twitter.com/kominfojember"><i class="fab fa-twitter"></i></a></li>
-                                        <li><a href="https://www.instagram.com/kominfojember/"><i class="fab fa-instagram"></i></a></li>
-                                        <li> <a href="#"><i class="fab fa-youtube"></i></a></li>
+                                        <li><a href="https://twitter.com/kominfojember" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                        <li> <a href="https://www.facebook.com/Dinas-Komunikasi-Informatika-Kabupaten-Jember-1911954692385233/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                                        <li><a href="https://www.instagram.com/kominfojember/" target="_blank"><i class="fab fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -185,9 +185,9 @@ if (!isset($keywords)) {
                                 </div>
                                 <!-- social -->
                                 <div class="footer-social">
-                                    <a href="https://twitter.com/kominfojember"><i class="fab fa-twitter"></i></a>
-                                    <a href="https://www.instagram.com/kominfojember/"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-youtube"></i></a>
+                                    <a href="https://twitter.com/kominfojember" target="_blank"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.facebook.com/Dinas-Komunikasi-Informatika-Kabupaten-Jember-1911954692385233/" target="_blank"><i class="fab fa-facebook" target="_blank"></i></a>
+                                    <a href="https://www.instagram.com/kominfojember/" target="_blank"><i class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>

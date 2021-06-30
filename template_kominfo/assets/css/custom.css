@@ -354,11 +354,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-area .footer-social a i:hover {
-	color: #0097e6;
+	color: white;
 }
 
-.footer-area .footer-social a i.fa-youtube:hover {
-	color: #c0392b;
+.footer-area .footer-social a i.fa-twitter:hover {
+	color: #1DA1F2;
+}
+
+.footer-area .footer-social a i.fa-facebook:hover {
+	color: #4267B2;
 }
 
 .footer-area .footer-social a i.fa-instagram:hover {
@@ -452,11 +456,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-area .header-top .header-info-right .header-social a i.fa-instagram:hover {
-	color: #E1306C;
+	color: #FF00AB;
 }
 
-.header-area .header-top .header-info-right .header-social a i.fa-youtube:hover {
-	color: #FF0000;
+.header-area .header-top .header-info-right .header-social a i.fa-facebook:hover {
+	color: #4267B2;
 }
 
 
