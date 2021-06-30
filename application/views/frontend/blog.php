@@ -28,7 +28,7 @@
                                 <a class="d-inline-block" href="<?= base_url('blog/detail/' . $beritabl['slug']) ?>">
                                     <h2><?= $beritabl['title'] ?></h2>
                                 </a>
-                                <p><?= getFirstParagraph($beritabl['content']) ?></p>
+                                <p><?= getFirstParagraph2($beritabl['content']) ?></p>
                                 <ul class="blog-info-link">
                                     <li><a href="#"><i class="fa fa-user"></i> <?= strtoupper($beritabl['fullname']) ?></a></li>
                                     <li><a href="#"><i class="fa fa-calendar"></i>

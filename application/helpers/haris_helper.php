@@ -1,6 +1,7 @@
 <?php
 
 // use Carbon\Carbon;
+require_once APPPATH . 'libraries/html2text/vendor/autoload.php';
 
 function get_enum_values($table, $field)
 {
@@ -380,28 +381,50 @@ function getFirstParagraph($paragraph)
     return strip_tags($paragraph_arr[$first_paragraph]);
 }
 
+function getFirstParagraph2($html)
+{
+    $output = "";
+    $html = new \Html2Text\Html2Text($html);
+
+    $text = $html->getText();  // Hello, "WORLD"
+
+    $i = 0;
+    $text_arr = explode("\n\n", $text);
+    // header_text();
+    while ($i < count($text_arr)) {
+        $text2 = $text_arr[$i];
+        if (strlen($text2) > 20) {
+            $output = $text_arr[$i];
+            $i = count($text_arr) + 1;
+        }
+
+        $i++;
+    }
+
+    return $output;
+}
+
 
 function getFirstword($text)
 {
-    $ci=&get_instance();
-    $word='';
+    $ci = &get_instance();
+    $word = "";
 
-    $ci->load->library('simpledom/simple_html_dom.php');
+    $text = strip_tags($text);
 
-    // error_reporting(0);
-    $html= str_get_html($text);
-
-    // if(isset($html->find('p')[0])){
-    //     $word=$html->find('p')[0]->text();
-    // }elseif(isset($html->find('div')[0])){
-    //     $word=$html->find('div')[0]->text();
-    // }
-
-    print_r2($text);
-    $html->find('div');
-    
-    $word=strip_tags($word);
-    error_reporting(E_ALL);
+    if (strpos($text, '.')) {
+        $arr_files = explode('.', $text);
+        $i = 0;
+        while ($i < count($arr_files)) {
+            if (strlen(trim($arr_files[$i])) < 20) {
+                //
+            } else {
+                $word = $arr_files[$i];
+                $i = count($arr_files) + 1;
+            }
+            $i++;
+        }
+    }
 
     return $word;
 }

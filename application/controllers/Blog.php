@@ -1,6 +1,9 @@
 <?php
 // use Carbon;
 
+// use \Html2Text\Html2Text;
+
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 class Blog extends CI_Controller
@@ -46,6 +49,14 @@ class Blog extends CI_Controller
             ->limit($limit, intval($start))
             ->get('feeds')
             ->result_array();
+
+        // print_r2($berita_blog_list);
+        // header_text();
+        // $html = getFirstParagraph2($berita_blog_list[]['content']);
+        // echo $html;
+// echo $berita_blog_list[1]['content'];
+        // die();
+
 
 
 
@@ -93,7 +104,7 @@ class Blog extends CI_Controller
         $berita_detail = $this->db
             ->select('feeds.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category','Berita')
+            ->where('category', 'Berita')
             ->where('slug', $slug)
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->get('feeds')
@@ -102,10 +113,20 @@ class Blog extends CI_Controller
         $this->description = $berita_detail->deskripsi;
         $this->keywords = $berita_detail->kata_kunci;
 
+        if(empty(trim($this->description))){
+            $this->description=getFirstParagraph2($berita_detail->content);
+        }
+
+        $keywords2=str_replace(' ',', ',$berita_detail->title);
+        // print_r2($keywords2);
+        if(empty(trim($this->keywords))){
+            $this->keywords=$keywords2;
+        }
+
         $berita_detail_next = $this->db
             ->select('feeds.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category','Berita')
+            ->where('category', 'Berita')
             ->where('feeds.id < ', $berita_detail->id)
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->order_by('feeds.id', 'desc')
@@ -115,7 +136,7 @@ class Blog extends CI_Controller
         $berita_detail_prev = $this->db
             ->select('feeds.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category','Berita')
+            ->where('category', 'Berita')
             ->where('feeds.id > ', $berita_detail->id)
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->order_by('feeds.id', 'desc')

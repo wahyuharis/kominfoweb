@@ -57,9 +57,16 @@
 
         // Check file selected or not
         if (files.length > 0) {
-            fd.append('file', files[0]);
+            // fd.append('file', files);
+
+            for (var i = 0; i < files.length; i++) {
+                fd.append('file_' + i, files[i]);
+            }
+
             fd.append('token', token_image);
 
+            // console.log(files);
+            $('#spinner-global').show();
             $.ajax({
                 url: '<?= base_url('admin/galery/upload2/') ?>',
                 type: 'post',
@@ -68,7 +75,7 @@
                 processData: false,
                 success: function(response) {
                     if (response['success']) {
-                        output = JSON.parse(response.data);
+                        output = (response.data);
                         $('input[name=image_upload2]').val(null);
 
                         images = $('textarea[name=image2]').val();
@@ -76,11 +83,20 @@
                             images = '[]';
                         }
                         images = JSON.parse(images);
-                        images.push(output.file_name);
+
+                        // images.push(output.file_name);
+                        for (var i = 0; i < output.length; i++) {
+                            images.push(output[i].file_name);
+                        }
+
                         $('textarea[name=image2]').val(JSON.stringify(images));
                         generate_images();
+                        $('#spinner-global').hide();
+
                     } else {
                         alert(response['message']);
+                        $('#spinner-global').hide();
+
                     }
                 },
                 error: function(xhr, res) {
@@ -99,7 +115,7 @@
         for (var i = 0; i < img_array.length; i++) {
             html_str += '<div class="col-sm-3">' +
                 '<img src="<?= base_url('/assets/uploads/files/') ?>' + img_array[i] + '" width="100" height="100" >' +
-                '<br><a href="#" class="btn btn-xs btn-danger delete_image_list" data-img="' + img_array[i] + '" >hapus</a>' +
+                '<br><span class="btn btn-xs btn-danger delete_image_list" data-img="' + img_array[i] + '" >hapus</span>' +
                 '</div>';
         }
         $('#image_container').html(html_str);
@@ -167,7 +183,7 @@
                     if (primary.trim().length > 0) {
                         toastr.info(data.message, 'informasi');
                     } else {
-                        window.location.href = '<?=base_url('admin/galery/')?>';
+                        window.location.href = '<?= base_url('admin/galery/') ?>';
                     }
                 } else {
                     toastr.error("Terjadi Kesalahan");

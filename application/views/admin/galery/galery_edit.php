@@ -15,11 +15,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="image_upload">Image *</label>
+                                <label for="image_upload">Image </label>
                                 <input type="hidden" name="image" id="image" value="<?= $image ?>">
                                 <br><img id="image_preview" src="#" style="display: none; max-width: 100px;max-height: 100px;">
                                 <br><a id="image_delete" href="#" class="btn btn-xs btn-danger" style="display: none;">hapus</a>
-                                <input type="file" name="image_upload" id="image_upload" class="form-control">
+                                <input  type="file" name="image_upload" id="image_upload" class="form-control">
                                 <script>
                                     $(document).ready(function() {
                                         img_def = $('#image').val();
@@ -48,7 +48,7 @@
                                 <textarea name="image2" id="image2" class="form-control hidden"><?=$image2?></textarea>
                                 <br><img id="image_preview2" src="#" style="display: none; max-width: 100px;max-height: 100px;">
                                 <br><a id="image_delete2" href="#" class="btn btn-xs btn-danger" style="display: none;">hapus</a>
-                                <input type="file" name="image_upload2" id="image_upload2" class="form-control">
+                                <input multiple type="file" name="image_upload2" id="image_upload2" class="form-control">
                                 <div id="image_container" class="row">
                                 </div>
                                 <!-- <br> -->

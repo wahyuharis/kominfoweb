@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '6add0adf5c1535ca24d335165fb665546023d896',
+    'reference' => '2f5caa7d72ce3a83d40a6f64eb1de2eb81df9973',
     'name' => '__root__',
   ),
   'versions' => 
@@ -44,7 +44,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '6add0adf5c1535ca24d335165fb665546023d896',
+      'reference' => '2f5caa7d72ce3a83d40a6f64eb1de2eb81df9973',
     ),
     'nesbot/carbon' => 
     array (
