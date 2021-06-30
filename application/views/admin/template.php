@@ -236,11 +236,22 @@
                     </li>
                     <!-- End Profil -->
 
-
-                    <li class="<?php if (strtolower($this->uri->segment(2)) == 'galery') echo 'active' ?>"><a href="<?= base_url() ?>admin/galery">
-                            <i class="fa fa-folder"></i> <span>Gallery</span>
+                     <!-- Gallery -->
+                     <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-folder"></i>
+                            <span>Gallery</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
                         </a>
+                        <ul class="treeview-menu">
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'galery') echo 'active' ?>"><a href="<?= base_url() ?>admin/galery"><i class="fa fa-circle-o"></i> Foto</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'video') echo 'active' ?>"><a href="<?= base_url() ?>admin/video"><i class="fa fa-circle-o"></i> Video</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'majalah') echo 'active' ?>"><a href="<?= base_url() ?>admin/majalah"><i class="fa fa-circle-o"></i> Majalah/Publikasi</a></li>
+                        </ul>
                     </li>
+                    <!-- End Gallery -->
 
                     <!-- LInk Terkait -->
                     <li class="<?php if (strtolower($this->uri->segment(2)) == 'link') echo 'active' ?>"><a href="<?= base_url() ?>admin/link">

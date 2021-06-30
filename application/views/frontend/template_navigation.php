@@ -61,7 +61,7 @@
                 <ul class="submenu">
                     <li><a href="<?= base_url('galery/') ?>">Album Galeri</a></li>
                     <li><a href="#">Album Video</a></li>
-                    <li><a href="#">Album Majalah/Publikasi</a></li>
+                    <li><a href="<?= base_url('majalah') ?>">Album Majalah/Publikasi</a></li>
                 </ul>
             </li>
         </ul>
