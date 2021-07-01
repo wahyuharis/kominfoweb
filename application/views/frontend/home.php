@@ -130,7 +130,7 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <br />
+                    <br/>
                     <div class="section-tittle">
                         <h3>Berita PPID Terbaru</h3>
                     </div>
@@ -150,7 +150,7 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <br />
+                    <br/>
                 </div>
             </div>
         </div>
