@@ -75,7 +75,7 @@ if (!isset($keywords)) {
         <div class="header-area">
             <div class="main-header">
                 <div class="header-top bg-custom-theme d-none d-md-block">
-                    <div class="container">
+                    <div class="container-kedua">
                         <div class="col-xl-12">
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left">
@@ -116,7 +116,7 @@ if (!isset($keywords)) {
                     </div>
                 </div>
                 <div class="header-bottom header-sticky">
-                    <div class="container">
+                    <div class="container-kedua">
                         <div class="row align-items-center">
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                                 <!-- sticky -->
@@ -161,8 +161,7 @@ if (!isset($keywords)) {
     <footer>
         <!-- Footer Start-->
         <div class="footer-area footer-padding fix">
-            <div class="container">
-                <div class="row d-flex justify-content-between">
+           <div class="row d-flex justify-content-between container-kedua">
                     <div class="col-xl-5 col-lg-5 col-md-7 col-sm-12">
                         <div class="single-footer-caption">
                             <div class="single-footer-caption">
@@ -213,7 +212,6 @@ if (!isset($keywords)) {
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
         <!-- footer-bottom aera -->
         <div class="footer-bottom-area">

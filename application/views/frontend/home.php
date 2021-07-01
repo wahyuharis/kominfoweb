@@ -1,7 +1,6 @@
 <!-- Trending Area Start -->
 <div class="trending-area fix">
-    <div class="container">
-        <div class="trending-main">
+<div class="trending-main container-kedua">
             <!-- Trending Tittle -->
             <div class="row">
                 <div class="col-lg-12">
@@ -154,7 +153,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 <!-- Trending Area End -->
 <!--   Weekly-News start -->
@@ -162,8 +160,7 @@
 <!-- End Weekly-News -->
 <!-- Whats New Start -->
 <section class="whats-news-area pt-50 pb-20">
-    <div class="container">
-        <div class="row">
+    <div class="row container-kedua">
             <div class="col-lg-8">
                 <div class="row d-flex justify-content-between">
                     <div class="col-lg-3 col-md-3">
@@ -289,7 +286,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </section>
 <!-- Whats New End -->
 <!--   Weekly2-News start -->
