@@ -133,6 +133,10 @@ h1, h2, h3, h4, h5, h6 {
 	top: 100%
 }
 
+.container-kedua {
+	margin : 0px 48px;
+}
+
 .trending-area .trending-main .trand-right-single .trand-right-cap span {
 	color: #ecf0f1;
 }
@@ -914,7 +918,14 @@ a {
 
 	
 
-	
+}
 
+
+@media (min-width: 1903px) {
+main{
+
+	width: 1900px;
+	margin: 0 auto;
+}
 
 }

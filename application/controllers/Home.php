@@ -14,6 +14,10 @@ class Home extends CI_Controller
 
     public function index()
     {
+        $this->load->model('Berita_model');
+        $berita_model=new Berita_model();
+
+
         $this->description = "Jl. Dewi Sartika No.54, Kepatihan, Kec. Kaliwates, Kabupaten Jember, Jawa Timur 68131
         Email: diskominfo@jemberkab.go.id
         No. Telp: 0331-123xxx";
@@ -32,20 +36,9 @@ class Home extends CI_Controller
             ->result_array();
 
 
-
-        $berita_tengah = $this->db->where('deleted_at', null)
-            ->where('category', 'Berita')
-            ->where(" MONTH(feeds.date)=MONTH(NOW()) AND YEAR(feeds.date)=YEAR(NOW()) ")
-            ->select('feeds.*,users.fullname,get_view(feeds.id) as view')
-            ->join('users', 'users.id=feeds.user_id')
-            ->order_by('get_view(feeds.id)', 'desc')
-            ->limit(3)
-            ->get('feeds')
-            ->result_array();
-
-            // header_text();
-            // print_r2($berita_tengah);
-
+        $berita_tengah = $berita_model->berita_terpopuler();
+        // header_text();
+        // print_r2($berita_tengah);
 
         $berita_bawah = $this->db->where('deleted_at', null)
             ->where('category', 'Berita')
