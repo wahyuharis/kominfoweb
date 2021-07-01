@@ -34,11 +34,11 @@
             </li>
             <li><a href="#">Informasi Publik</a>
                 <ul class="submenu">
-                    <li><a href="#">Profil PPID Kominfo</a></li>
-                    <li><a href="#">Informasi Berkala</a></li>
-                    <li><a href="#">Informasi Setiap Saat</a></li>
-                    <li><a href="#">Informasi Serta Merta</a></li>
-                    <li><a href="#">Permohonan Informasi</a></li>
+                    <li><a href="https://ppid.jemberkab.go.id/" target="_blank">Profil PPID Kominfo</a></li>
+                    <li><a href="https://ppid.jemberkab.go.id/informasi-berkala" target="_blank">Informasi Berkala</a></li>
+                    <li><a href="https://ppid.jemberkab.go.id/informasi-setiap-saat" target="_blank">Informasi Setiap Saat</a></li>
+                    <li><a href="https://ppid.jemberkab.go.id/informasi-dikecualikan" target="_blank">Informasi Dikecualikan</a></li>
+                    <li><a href="https://ppid.jemberkab.go.id/permohonan-informasi" target="_blank">Permohonan Informasi</a></li>
                 </ul>
             </li>
             <li><a href="<?= base_url('regulasi') ?>">Regulasi</a>
