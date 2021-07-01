@@ -188,13 +188,16 @@
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-newspaper-o"></i>
-                            <span>Berita</span>
+                            <span>Informasi</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
                             <li class="<?php if (strtolower($this->uri->segment(2)) == 'blog') echo 'active' ?>"><a href="<?= base_url() ?>admin/blog"><i class="fa fa-circle-o"></i> Berita</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'infografis') echo 'active' ?>"><a href="#"><i class="fa fa-circle-o"></i> Infografis</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'artikel') echo 'active' ?>"><a href="#"><i class="fa fa-circle-o"></i> Artikel</a></li>
+                            <li class="<?php if (strtolower($this->uri->segment(2)) == 'pengumuman') echo 'active' ?>"><a href="<?= base_url() ?>admin/pengumuman"><i class="fa fa-circle-o"></i> Pengumuman</a></li>
                             <!-- <li class="<?php if (strtolower($this->uri->segment(2)) == 'agenda') echo 'active' ?>"><a href="#"><i class="fa fa-circle-o"></i> Agenda</a></li> -->
                         </ul>
                     </li>
@@ -236,8 +239,8 @@
                     </li>
                     <!-- End Profil -->
 
-                     <!-- Gallery -->
-                     <li class="treeview">
+                    <!-- Gallery -->
+                    <li class="treeview">
                         <a href="#">
                             <i class="fa fa-folder"></i>
                             <span>Gallery</span>
