@@ -55,7 +55,7 @@
                     <li><a href="<?= base_url('regulasi?slug=se-bupati') ?>">SE Bupati</a></li>
                 </ul>
             </li>
-            <li><a href="#">Pengumuman</a></li>
+            <li><a href="<?= base_url('pengumuman') ?>">Pengumuman</a></li>
             <li><a href="#">Layanan</a></li>
             <li><a href="#">Dokumen Media</a>
                 <ul class="submenu">

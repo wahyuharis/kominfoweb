@@ -37,17 +37,17 @@ class Pengumuman extends CI_Controller
         $limit = 5;
         $start = page_to_start($page, $limit);
 
-        $berita_blog_list = $this->db->where('deleted_at', null)
-            ->where('category', 'Berita')
+        $pengumuman_list = $this->db->where('deleted_at', null)
+            ->where('category', 'Pengumuman')
             ->group_start()
             ->or_like('title', $search)
             ->or_like('content', $search)
             ->group_end()
-            ->select('feeds.*,users.fullname')
-            ->join('users', 'users.id=feeds.user_id', 'left')
+            ->select('pengumuman.*,users.fullname')
+            ->join('users', 'users.id=pengumuman.user_id', 'left')
             ->order_by('id', 'desc')
             ->limit($limit, intval($start))
-            ->get('feeds')
+            ->get('pengumuman')
             ->result_array();
 
         // print_r2($berita_blog_list);
@@ -61,26 +61,26 @@ class Pengumuman extends CI_Controller
 
 
         $total_row = $this->db->where('deleted_at', null)
-            ->where('category', 'Berita')
+            ->where('category', 'Pengumuman')
             ->group_start()
             ->or_like('title', $search)
             ->or_like('content', $search)
             ->group_end()
-            ->get('feeds')
+            ->get('pengumuman')
             ->num_rows();
 
         $this->load->library('pagination');
-        $config['base_url'] = base_url('blog/');
+        $config['base_url'] = base_url('pengumuman/');
         $config['total_rows'] = $total_row;
         $config['per_page'] = $limit;
 
         $this->pagination->initialize($config);
 
         $content_data['berita_kanan'] = $berita_kanan;
-        $content_data['berita_blog_list'] = $berita_blog_list;
+        $content_data['pengumuman_list'] = $pengumuman_list;
         $content_data['pagination'] = $this->pagination->create_links();
 
-        $view_data['content'] = $this->load->view('frontend/blog', $content_data, true);
+        $view_data['content'] = $this->load->view('frontend/pengumuman', $content_data, true);
 
         $this->load->view('frontend/template', $view_data);
     }
@@ -101,58 +101,58 @@ class Pengumuman extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-        $berita_detail = $this->db
-            ->select('feeds.*,users.fullname')
+        $pengumuman_detail = $this->db
+            ->select('pengumuman.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category', 'Berita')
+            ->where('category', 'Pengumuman')
             ->where('slug', $slug)
-            ->join('users', 'users.id=feeds.user_id', 'left')
-            ->get('feeds')
+            ->join('users', 'users.id=pengumuman.user_id', 'left')
+            ->get('pengumuman')
             ->row_object();
 
-        $this->description = $berita_detail->deskripsi;
-        $this->keywords = $berita_detail->kata_kunci;
+        $this->description = $pengumuman_detail->deskripsi;
+        $this->keywords = $pengumuman_detail->kata_kunci;
 
         if (empty(trim($this->description))) {
-            $this->description = getFirstParagraph2($berita_detail->content);
+            $this->description = getFirstParagraph2($pengumuman_detail->content);
         }
 
-        $keywords2 = str_replace(' ', ', ', $berita_detail->title);
+        $keywords2 = str_replace(' ', ', ', $pengumuman_detail->title);
         // print_r2($keywords2);
         if (empty(trim($this->keywords))) {
             $this->keywords = $keywords2;
         }
 
-        $berita_detail_next = $this->db
-            ->select('feeds.*,users.fullname')
+        $pengumuman_detail_next = $this->db
+            ->select('pengumuman.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category', 'Berita')
-            ->where('feeds.id < ', $berita_detail->id)
-            ->join('users', 'users.id=feeds.user_id', 'left')
-            ->order_by('feeds.id', 'desc')
-            ->get('feeds')
+            ->where('category', 'Pengumuman')
+            ->where('pengumuman.id < ', $pengumuman_detail->id)
+            ->join('users', 'users.id=pengumuman.user_id', 'left')
+            ->order_by('pengumuman.id', 'desc')
+            ->get('pengumuman')
             ->row_object();
 
-        $berita_detail_prev = $this->db
-            ->select('feeds.*,users.fullname')
+        $pengumuman_detail_prev = $this->db
+            ->select('pengumuman.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category', 'Berita')
-            ->where('feeds.id > ', $berita_detail->id)
-            ->join('users', 'users.id=feeds.user_id', 'left')
-            ->order_by('feeds.id', 'desc')
-            ->get('feeds')
+            ->where('category', 'Pengumuman')
+            ->where('pengumuman.id > ', $pengumuman_detail->id)
+            ->join('users', 'users.id=pengumuman.user_id', 'left')
+            ->order_by('pengumuman.id', 'desc')
+            ->get('pengumuman')
             ->row_object();
 
-        $content_data['berita_detail'] = $berita_detail;
-        $content_data['berita_detail_next'] = $berita_detail_next;
-        $content_data['berita_detail_prev'] = $berita_detail_prev;
+        $content_data['pengumuman_detail'] = $pengumuman_detail;
+        $content_data['pengumuman_detail_next'] = $pengumuman_detail_next;
+        $content_data['pengumuman_detail_prev'] = $pengumuman_detail_prev;
         $content_data['berita_kanan'] = $berita_kanan;
 
         $view_data['description'] = $this->description;
         $view_data['keywords'] = $this->keywords;
 
         // print_r2($view_data);
-        $view_data['content'] = $this->load->view('frontend/blog_content', $content_data, true);
+        $view_data['content'] = $this->load->view('frontend/pengumuman_content', $content_data, true);
 
         $this->load->view('frontend/template', $view_data);
     }
