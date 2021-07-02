@@ -57,10 +57,10 @@
             </li>
             <li><a href="#">Informasi</a>
                 <ul class="submenu">
-                    <li><a href="<?= base_url('galery/') ?>">Artikel</a></li>
-                    <li><a href="#">Pengumuman</a></li>
-                    <li><a href="<?= base_url('majalah') ?>">Infografis</a></li>
-                    <li><a href="<?= base_url('majalah') ?>">Agenda</a></li>
+                    <li><a href="<?= base_url('artikel') ?>">Artikel</a></li>
+                    <li><a href="<?= base_url('pengumuman') ?>">Pengumuman</a></li>
+                    <li><a href="<?= base_url('infografis') ?>">Infografis</a></li>
+                    <li><a href="<?= base_url('agenda') ?>">Agenda</a></li>
                 </ul>
             </li>
             <li><a href="#">Layanan</a></li>
