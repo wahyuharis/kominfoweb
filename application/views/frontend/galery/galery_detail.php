@@ -13,7 +13,7 @@
                 <div id="fancy-slide" class="row">
                     <?php foreach ($galeri_foto_detal as $row) { ?>
                         <div class="col-md-4 mb-3">
-                            <img src="<?= base_url('assets/uploads/files/' . $row['image']) ?>" alt="Lights" style="width:100%;height:150px">
+                            <img src="<?= base_url('assets/uploads/files/' . $row['image']) ?>" alt="Lights" style="width:100%;height:100%">
                             </a>
                         </div>
                     <?php } ?>
