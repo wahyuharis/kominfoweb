@@ -64,10 +64,10 @@
 
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Berita Pemkab Terbaru</h3>
-                        <ul class="data-list" data-autoscroll>
+                        <ul class="data-list2" data-autoscroll>
                             <?php foreach ($berita_kanan as $bkanan) : ?>
                                 <div class="media post_item">
-                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" width="65px" height="65px" style="border-radius: 5px;">
+                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                                     <div class="media-body hover-show">
                                         <span class="color2">See beach</span>
                                         <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
@@ -80,10 +80,10 @@
                             <?php endforeach; ?>
                         </ul><br/>
                         <h3 class="widget_title">Berita PPID Terbaru</h3>
-                        <ul class="data-list" data-autoscroll>
+                        <ul class="data-list2" data-autoscroll>
                             <?php foreach ($berita_kanan as $bkanan) : ?>
                                 <div class="media post_item">
-                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" width="75px" height="65px" style="border-radius: 5px;">
+                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                                     <div class="media-body hover-show">
                                         <span class="color2">Berita</span>
                                         <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">

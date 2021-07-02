@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-8 mb-5 mb-lg-0">
                 <div class="section-tittle mb-30">
-                    <h2>BERITA</h2>
+                    <h2>Berita</h2>
                 </div>
 
                 <div class="blog_left_sidebar">
@@ -69,7 +69,7 @@
                         <ul class="data-list2" data-autoscroll>
                             <?php foreach ($berita_kanan as $bkanan) : ?>
                                 <div class="media post_item">
-                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" width="75px" height="65px" style="border-radius: 5px;">
+                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                                     <div class="media-body hover-show">
                                         <span class="color2">Berita</span>
                                         <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
@@ -85,7 +85,7 @@
                         <ul class="data-list2" data-autoscroll>
                             <?php foreach ($berita_kanan as $bkanan) : ?>
                                 <div class="media post_item">
-                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" width="75px" height="65px" style="border-radius: 5px;">
+                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                                     <div class="media-body hover-show">
                                         <span class="color2">Berita</span>
                                         <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">

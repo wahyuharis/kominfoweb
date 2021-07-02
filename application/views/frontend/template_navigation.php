@@ -55,11 +55,18 @@
                     <li><a href="<?= base_url('regulasi?slug=se-bupati') ?>">SE Bupati</a></li>
                 </ul>
             </li>
-            <li><a href="#">Pengumuman</a></li>
+            <li><a href="#">Informasi</a>
+                <ul class="submenu">
+                    <li><a href="<?= base_url('galery/') ?>">Artikel</a></li>
+                    <li><a href="#">Pengumuman</a></li>
+                    <li><a href="<?= base_url('majalah') ?>">Infografis</a></li>
+                    <li><a href="<?= base_url('majalah') ?>">Agenda</a></li>
+                </ul>
+            </li>
             <li><a href="#">Layanan</a></li>
             <li><a href="#">Dokumen Media</a>
                 <ul class="submenu">
-                    <li><a href="<?= base_url('galery/') ?>">Album Galeri</a></li>
+                    <li><a href="<?= base_url('galery/') ?>">Album Foto</a></li>
                     <li><a href="#">Album Video</a></li>
                     <li><a href="<?= base_url('majalah') ?>">Album Majalah/Publikasi</a></li>
                 </ul>

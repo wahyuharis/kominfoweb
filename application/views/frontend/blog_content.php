@@ -54,8 +54,8 @@
                               <div class="detials hover-show" style="max-width: 174px;">
                                  <p>Prev Post</p>
                                  <a href="<?= base_url('blog/detail/' . $berita_detail_prev->slug) ?>">
-                                    <h4 class="long-title"><?= $berita_detail_prev->title ?></h4>
-                                    <h4 class="short-title"><?= substr($berita_detail_prev->title, 0, 20) ?> ... </h4>
+                                    <h6 class="long-title"><?= $berita_detail_prev->title ?></h6>
+                                    <h6 class="short-title"><?= substr($berita_detail_prev->title, 0, 20) ?> ... </h6>
                                  </a>
                               </div>
                            <?php } ?>
@@ -111,7 +111,7 @@
                      <ul class="data-list2" data-autoscroll>
                         <?php foreach ($berita_kanan as $bkanan) : ?>
                            <div class="media post_item">
-                              <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" width="65px" height="65px" style="border-radius: 5px;">
+                              <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                               <div class="media-body hover-show">
                                  <span class="color2">See beach</span>
                                  <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
@@ -127,7 +127,7 @@
                      <ul class="data-list2" data-autoscroll>
                         <?php foreach ($berita_kanan as $bkanan) : ?>
                            <div class="media post_item">
-                              <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" width="65px" height="65px" style="border-radius: 5px;">
+                              <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                               <div class="media-body hover-show">
                                  <span class="color2">See beach</span>
                                  <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">

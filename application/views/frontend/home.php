@@ -1,7 +1,7 @@
 <!-- Trending Area Start -->
 <div class="trending-area fix">
     <div class="container">
-    <div class="trending-main">
+        <div class="trending-main">
             <!-- Trending Tittle -->
             <div class="row">
                 <div class="col-lg-12">
