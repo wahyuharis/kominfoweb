@@ -3245,9 +3245,9 @@ hr {
 .whats-news-area .whats-news-caption .single-what-news .what-cap h4 a,
 .about-area .whats-news-caption .single-what-news .what-cap h4 a,
 .contact-section .whats-news-caption .single-what-news .what-cap h4 a {
-	font-size: 16px;
+	font-size: 15px;
 	font-weight: 500;
-	line-height: 1.4;
+	line-height: 1;
 }
 
 .whats-news-area .whats-news-caption .single-what-news .what-cap h4 a:hover,
@@ -3729,7 +3729,8 @@ hr {
 	color: #a8a8a8;
 	font-size: 15px;
 	margin-bottom: 50px;
-	line-height: 1.8
+	line-height: 1.8;
+	text-align: justify-all;
 }
 
 .footer-area .footer-pera.footer-pera2 p {
@@ -4675,10 +4676,11 @@ hr {
 }
 
 .blog_right_sidebar .popular_post_widget .post_item .media-body h3 {
-	font-size: 13px;
+	font-size: 15px;
 	line-height: 20px;
 	margin-bottom: 2px;
-	transition: all 0.3s linear
+	transition: all 0.3s linear;
+	text-align: justify-all;
 }
 
 .blog_right_sidebar .popular_post_widget .post_item .media-body a:hover {

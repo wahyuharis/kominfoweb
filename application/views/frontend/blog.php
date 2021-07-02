@@ -3,8 +3,6 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mb-5 mb-lg-0">
-
-
                 <div class="section-tittle mb-30">
                     <h2>BERITA</h2>
                 </div>
@@ -68,7 +66,7 @@
 
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Berita Pemkab Terbaru</h3>
-                        <ul class="data-list" data-autoscroll>
+                        <ul class="data-list2" data-autoscroll>
                             <?php foreach ($berita_kanan as $bkanan) : ?>
                                 <div class="media post_item">
                                     <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" width="75px" height="65px" style="border-radius: 5px;">
@@ -84,7 +82,7 @@
                             <?php endforeach; ?>
                         </ul><br/>
                         <h3 class="widget_title">Berita PPID Terbaru</h3>
-                        <ul class="data-list" data-autoscroll>
+                        <ul class="data-list2" data-autoscroll>
                             <?php foreach ($berita_kanan as $bkanan) : ?>
                                 <div class="media post_item">
                                     <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" width="75px" height="65px" style="border-radius: 5px;">
