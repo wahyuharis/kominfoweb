@@ -47,12 +47,12 @@
                     <li><a href="<?= base_url('regulasi?slug=peraturan-presiden') ?>">Peraturan Presiden</a></li>
                     <li><a href="<?= base_url('regulasi?slug=peraturan-menteri') ?>">Peraturan Menteri</a></li>
                     <li><a href="<?= base_url('regulasi?slug=peraturan-gubernur') ?>">Peraturan Gubernur</a></li>
-                    <li><a href="<?= base_url('regulasi?slug=peraturan-bupati') ?>">Peraturan Bupati</a></li>
                     <li><a href="<?= base_url('regulasi?slug=peraturan-daerah') ?>">Peraturan Daerah</a></li>
-                    <li><a href="<?= base_url('regulasi?slug=sk-bupati') ?>">SK Bupati</a></li>
+                    <li><a href="<?= base_url('regulasi?slug=peraturan-bupati') ?>">Peraturan Bupati</a></li>
                     <li><a href="<?= base_url('regulasi?slug=se-presiden') ?>">SE Presiden</a></li>
                     <li><a href="<?= base_url('regulasi?slug=se-gubernur') ?>">SE Gubernur</a></li>
                     <li><a href="<?= base_url('regulasi?slug=se-bupati') ?>">SE Bupati</a></li>
+                    <li><a href="<?= base_url('regulasi?slug=sk-bupati') ?>">SK Bupati</a></li>
                 </ul>
             </li>
             <li><a href="#">Informasi</a>

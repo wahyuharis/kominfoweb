@@ -54,8 +54,8 @@
                            <div class="detials hover-show" style="max-width: 174px;">
                               <p>Prev Post</p>
                               <a href="<?= base_url('pengumuman/detail/' . $pengumuman_detail_prev->slug) ?>">
-                                 <h4 class="long-title"><?= $pengumuman_detail_prev->title ?></h4>
-                                 <h4 class="short-title"><?= substr($pengumuman_detail_prev->title, 0, 20) ?> ... </h4>
+                                 <h6 class="long-title"><?= $pengumuman_detail_prev->title ?></h6>
+                                 <h6 class="short-title"><?= substr($pengumuman_detail_prev->title, 0, 20) ?> ... </h6>
                               </a>
                            </div>
                         <?php } ?>
@@ -67,8 +67,8 @@
                            <div class="detials hover-show" style="max-width: 174px;">
                               <p>Next Post</p>
                               <a href="<?= base_url('pengumuman/detail/' . $pengumuman_detail_next->slug) ?>">
-                                 <h4 class="long-title"><?= $pengumuman_detail_next->title ?></h4>
-                                 <h4 class="short-title"><?= substr($pengumuman_detail_next->title, 0, 20) ?> ... </h4>
+                                 <h6 class="long-title"><?= $pengumuman_detail_next->title ?></h6>
+                                 <h6 class="short-title"><?= substr($pengumuman_detail_next->title, 0, 20) ?> ... </h6>
                               </a>
                            </div>
                            <div class="arrow">
@@ -108,10 +108,10 @@
 
                <aside class="single_sidebar_widget popular_post_widget">
                   <h3 class="widget_title">Berita Pemkab Terbaru</h3>
-                  <ul class="data-list" data-autoscroll>
+                  <ul class="data-list2" data-autoscroll>
                      <?php foreach ($berita_kanan as $bkanan) : ?>
                         <div class="media post_item">
-                           <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" width="65px" height="65px" style="border-radius: 5px;">
+                           <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                            <div class="media-body hover-show">
                               <span class="color2">See beach</span>
                               <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
@@ -124,10 +124,10 @@
                      <?php endforeach; ?>
                   </ul><br />
                   <h3 class="widget_title">Berita PPID Terbaru</h3>
-                  <ul class="data-list" data-autoscroll>
+                  <ul class="data-list2" data-autoscroll>
                      <?php foreach ($berita_kanan as $bkanan) : ?>
                         <div class="media post_item">
-                           <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" width="65px" height="65px" style="border-radius: 5px;">
+                           <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                            <div class="media-body hover-show">
                               <span class="color2">See beach</span>
                               <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">

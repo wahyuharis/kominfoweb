@@ -33,11 +33,7 @@
                         </ul>
                     </div>
 
-                    <div class="navigation-area">
-                        <div class="row">
-
-                        </div>
-                    </div>
+                   
                 </div>
                 <!--kalau dihapus berita kanan pindah bawah-->
             </div>
