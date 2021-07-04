@@ -202,7 +202,7 @@ if (!isset($keywords)) {
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
                         <div class="single-footer-caption mb-50 mt-60">
-                            <div class="footer-tittle">
+                            <div class="footer-tittle pengunjung">
                                 <h4>Pengunjung</h4>
                                 <p>Hari ini: <strong>41</strong><br>
                                     Minggu ini: <strong>1006</strong><br>

@@ -10,7 +10,7 @@
                         <?php foreach ($galeri_foto as $row) { ?>
                             <div class="col-md-4 hehe">
                                 <a href="<?= base_url('galery/detail/' . $row['id']) ?>">
-                                    <img src="<?= base_url('assets/uploads/files/' . $row['image']) ?>" alt="Lights" style="width:100%;height:160px">
+                                    <img src="<?= base_url('assets/uploads/files/' . $row['image']) ?>" alt="Lights" style="width:100%">
                                     <p><?= $row['caption'] ?></p>
                                 </a>
                             </div>

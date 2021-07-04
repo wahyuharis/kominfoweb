@@ -31,7 +31,7 @@
                     <?php $no = 1;
                     foreach ($majalah_list as $row) : ?>
                     <h5><?= $row['nama_majalah'] ?></h5>
-                    <iframe src="<?= base_url('assets/uploads/files/' . $row['document']) ?>" width="750px" height="400px"></iframe>
+                    <embed type="application/pdf" src="<?= base_url('assets/uploads/files/' . $row['document']) ?>" width="750px" height="400px"></embed>
                     <br> <br>
                     <?php endforeach; ?>
                     <nav class="blog-pagination justify-content-center d-flex">
@@ -62,7 +62,7 @@
                         <ul class="data-list2" data-autoscroll>
                             <?php foreach ($berita_kanan as $bkanan) : ?>
                                 <div class="media post_item">
-                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" width="65px" height="65px" style="border-radius: 5px;">
+                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                                     <div class="media-body hover-show">
                                         <span class="color2">See beach</span>
                                         <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
@@ -78,7 +78,7 @@
                         <ul class="data-list2" data-autoscroll>
                             <?php foreach ($berita_kanan as $bkanan) : ?>
                                 <div class="media post_item">
-                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" width="75px" height="65px" style="border-radius: 5px;">
+                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                                     <div class="media-body hover-show">
                                         <span class="color2">Berita</span>
                                         <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
