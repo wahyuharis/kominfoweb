@@ -41,6 +41,8 @@ class Regulasi extends CI_Controller
         regulasi.nama_produk LIKE '%" . $this->db->escape_str($search) . "%'
         or
         regulasi.nomor LIKE '%" . $this->db->escape_str($search) . "%'
+        or
+        regulasi.tanggal_terbit LIKE '%" . $this->db->escape_str($search) . "%'
         )
          ";
 
