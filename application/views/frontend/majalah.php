@@ -5,7 +5,7 @@
             <div class="col-lg-8 mb-5 mb-lg-0">
 
                 <div class="section-tittle mb-30">
-                    <h2>MAJALAH</h2>
+                    <h2>Majalah</h2>
                 </div>
 
                 <div class="blog_left_sidebar">

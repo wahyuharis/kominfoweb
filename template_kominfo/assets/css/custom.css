@@ -702,6 +702,11 @@ a {
 		height: 230px;
 	}
 
+	.blog_left_sidebar video{
+		width: 330px;
+		height: 230px;
+	}
+
 	.trending-area .trending-main .trending-top .trend-top-img .trend-top-cap h2 {
 		font-size: 15px;
 		text-align: center;
@@ -804,6 +809,11 @@ a {
 	}
 
 	.blog_left_sidebar embed{
+		width: 520px;
+		height: 250px;
+	}
+
+	.blog_left_sidebar video{
 		width: 520px;
 		height: 250px;
 	}
