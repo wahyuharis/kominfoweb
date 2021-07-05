@@ -43,7 +43,7 @@ class Penghargaan extends CI_Controller
             ->limit($limit, intval($start))
             ->get('profile_penghargaan')
             ->result_array();
-
+        $slider = $this->db->get('sliders')->result_array();
 
 
         $total_row = $this->db->where('deleted_at', null)
@@ -66,6 +66,7 @@ class Penghargaan extends CI_Controller
 
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['penghargaan_list'] = $penghargaan_list;
+        $content_data['slider'] = $slider;
         $content_data['pagination'] = $this->pagination->create_links();
 
         $view_data['content'] = $this->load->view('frontend/profile/penghargaan', $content_data, true);
@@ -115,6 +116,8 @@ class Penghargaan extends CI_Controller
             ->limit(10)
             ->get('feeds')
             ->result_array();
+        
+        $slider = $this->db->get('sliders')->result_array();
 
         // print_r2($penghargaan);
 
@@ -122,6 +125,7 @@ class Penghargaan extends CI_Controller
         $content_data['penghargaan_next'] = $penghargaan_next;
         $content_data['penghargaan_prev'] = $penghargaan_prev;
         $content_data['berita_kanan'] = $berita_kanan;
+        $content_data['slider'] = $slider;
 
         // $view_data['description'] = $this->description;
         // $view_data['keywords'] = $this->keywords;

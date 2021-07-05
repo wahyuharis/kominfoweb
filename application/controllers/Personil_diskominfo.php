@@ -27,10 +27,11 @@ class Personil_diskominfo extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-
+        $slider = $this->db->get('sliders')->result_array();
 
         $content_data['personil'] = $personil;
         $content_data['berita_kanan'] = $berita_kanan;
+        $content_data['slider'] = $slider;
 
         $view_data['content'] = $this->load->view('frontend/profile/personil_diskominfo', $content_data, true);
 

@@ -37,8 +37,11 @@ class Tupoksi extends CI_Controller
             ->get('feeds')
             ->result_array();
 
+        $slider = $this->db->get('sliders')->result_array();
+
         $content_data['tupoksi'] = $tupoksi;
         $content_data['berita_kanan'] = $berita_kanan;
+        $content_data['slider'] = $slider;
         // $content_data['bawahan'] = $bawahan;
 
         $view_data['content'] = $this->load->view('frontend/profile/tupoksi', $content_data, true);

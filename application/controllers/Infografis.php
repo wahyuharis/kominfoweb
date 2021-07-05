@@ -58,7 +58,7 @@ class Infografis extends CI_Controller
         // die();
 
 
-
+        $slider = $this->db->get('sliders')->result_array();
 
         $total_row = $this->db->where('deleted_at', null)
             ->where('category', 'Infografis')
@@ -78,6 +78,7 @@ class Infografis extends CI_Controller
 
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['infografis_list'] = $infografis_list;
+        $content_data['slider'] = $slider;
         $content_data['pagination'] = $this->pagination->create_links();
 
         $view_data['content'] = $this->load->view('frontend/infografis', $content_data, true);
@@ -109,7 +110,7 @@ class Infografis extends CI_Controller
             ->join('users', 'users.id=infografis.user_id', 'left')
             ->get('infografis')
             ->row_object();
-
+        $slider = $this->db->get('sliders')->result_array();
         $this->description = $infografis_detail->deskripsi;
         $this->keywords = $infografis_detail->kata_kunci;
 
@@ -147,6 +148,7 @@ class Infografis extends CI_Controller
         $content_data['infografis_detail_next'] = $infografis_detail_next;
         $content_data['infografis_detail_prev'] = $infografis_detail_prev;
         $content_data['berita_kanan'] = $berita_kanan;
+        $content_data['slider'] = $slider;
 
         $view_data['description'] = $this->description;
         $view_data['keywords'] = $this->keywords;

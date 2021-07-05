@@ -57,7 +57,7 @@ class Pengumuman extends CI_Controller
         // echo $berita_blog_list[1]['content'];
         // die();
 
-
+        $slider = $this->db->get('sliders')->result_array();
 
 
         $total_row = $this->db->where('deleted_at', null)
@@ -78,6 +78,7 @@ class Pengumuman extends CI_Controller
 
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['pengumuman_list'] = $pengumuman_list;
+        $content_data['slider'] = $slider;
         $content_data['pagination'] = $this->pagination->create_links();
 
         $view_data['content'] = $this->load->view('frontend/pengumuman', $content_data, true);
@@ -109,6 +110,7 @@ class Pengumuman extends CI_Controller
             ->join('users', 'users.id=pengumuman.user_id', 'left')
             ->get('pengumuman')
             ->row_object();
+        $slider = $this->db->get('sliders')->result_array();
 
         $this->description = $pengumuman_detail->deskripsi;
         $this->keywords = $pengumuman_detail->kata_kunci;
@@ -147,6 +149,7 @@ class Pengumuman extends CI_Controller
         $content_data['pengumuman_detail_next'] = $pengumuman_detail_next;
         $content_data['pengumuman_detail_prev'] = $pengumuman_detail_prev;
         $content_data['berita_kanan'] = $berita_kanan;
+        $content_data['slider'] = $slider;
 
         $view_data['description'] = $this->description;
         $view_data['keywords'] = $this->keywords;

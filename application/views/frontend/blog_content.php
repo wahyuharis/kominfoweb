@@ -11,17 +11,17 @@
                      <h2>
                         <?= $berita_detail->title ?>
                      </h2>
-                     <br>
+                     
+                     <ul class="blog-info-link mt-3 mb-4">
+                     <li><a href="#"><i class="fa fa-user"></i> <?= $berita_detail->fullname ?></a></li>
+                     <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($berita_detail->date)  ?></a></li>
+                     </ul>
 
 
                      <?= $berita_detail->content ?>
 
 
                   </div>
-                  <ul class="blog-info-link mt-3 mb-4">
-                     <li><a href="#"><i class="fa fa-user"></i> <?= $berita_detail->fullname ?></a></li>
-                     <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($berita_detail->date)  ?></a></li>
-                  </ul>
                </div>
                <div class="navigation-top">
                   <div class="d-sm-flex justify-content-between text-center">
@@ -127,7 +127,7 @@
                            <div class="media post_item">
                               <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                               <div class="media-body hover-show">
-                                 <span class="color2">See beach</span>
+                                 <span class="color2">Berita</span>
                                  <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
                                     <h3 class="short-title"><?= substr($bkanan['title'], 0, 50) ?>...</h3>
                                     <h3 class="long-title"><?= ($bkanan['title']) ?></h3>
@@ -143,7 +143,7 @@
                            <div class="media post_item">
                               <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                               <div class="media-body hover-show">
-                                 <span class="color2">See beach</span>
+                                 <span class="color2">Berita</span>
                                  <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
                                     <h3 class="short-title"><?= substr($bkanan['title'], 0, 50) ?>...</h3>
                                     <h3 class="long-title"><?= ($bkanan['title']) ?></h3>

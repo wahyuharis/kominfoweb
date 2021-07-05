@@ -27,11 +27,13 @@ class Visi_misi extends CI_Controller
             ->get('feeds')
             ->result_array();
 
+        $slider = $this->db->get('sliders')->result_array();
         // print_r2($visi_misi);
 
 
         $content_data['visi_misi'] = $visi_misi;
         $content_data['berita_kanan'] = $berita_kanan;
+        $content_data['slider'] = $slider;
 
         // $view_data['description'] = $this->description;
         // $view_data['keywords'] = $this->keywords;

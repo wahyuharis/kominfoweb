@@ -79,7 +79,7 @@
                                 <div class="media post_item">
                                     <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                                     <div class="media-body hover-show">
-                                        <span class="color2">See beach</span>
+                                        <span class="color2">Berita</span>
                                         <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
                                             <h3 class="short-title"><?= substr($bkanan['title'], 0, 50) ?>...</h3>
                                             <h3 class="long-title"><?= ($bkanan['title']) ?></h3>

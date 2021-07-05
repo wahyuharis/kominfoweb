@@ -57,7 +57,7 @@ class Artikel extends CI_Controller
         // echo $berita_blog_list[1]['content'];
         // die();
 
-
+        $slider = $this->db->get('sliders')->result_array();
 
 
         $total_row = $this->db->where('deleted_at', null)
@@ -78,6 +78,7 @@ class Artikel extends CI_Controller
 
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['artikel_list'] = $artikel_list;
+        $content_data['slider'] = $slider;
         $content_data['pagination'] = $this->pagination->create_links();
 
         $view_data['content'] = $this->load->view('frontend/artikel', $content_data, true);
@@ -142,11 +143,14 @@ class Artikel extends CI_Controller
             ->order_by('artikel.id', 'desc')
             ->get('artikel')
             ->row_object();
+        
+        $slider = $this->db->get('sliders')->result_array();
 
         $content_data['artikel_detail'] = $artikel_detail;
         $content_data['artikel_detail_next'] = $artikel_detail_next;
         $content_data['artikel_detail_prev'] = $artikel_detail_prev;
         $content_data['berita_kanan'] = $berita_kanan;
+        $content_data['slider'] = $slider;
 
         $view_data['description'] = $this->description;
         $view_data['keywords'] = $this->keywords;

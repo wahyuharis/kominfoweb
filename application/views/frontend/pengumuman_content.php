@@ -11,17 +11,17 @@
                   <h2>
                      <?= $pengumuman_detail->title ?>
                   </h2>
-                  <br>
 
+                  <ul class="blog-info-link mt-3 mb-4">
+                  <li><a href="#"><i class="fa fa-user"></i> <?= $pengumuman_detail->fullname ?></a></li>
+                  <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($pengumuman_detail->date)  ?></a></li>
+                  </ul>
 
                   <?= $pengumuman_detail->content ?>
 
 
                </div>
-               <ul class="blog-info-link mt-3 mb-4">
-                  <li><a href="#"><i class="fa fa-user"></i> <?= $pengumuman_detail->fullname ?></a></li>
-                  <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($pengumuman_detail->date)  ?></a></li>
-               </ul>
+               
             </div>
             <div class="navigation-top">
                <div class="d-sm-flex justify-content-between text-center">
@@ -92,17 +92,31 @@
          <div class="col-lg-4">
             <div class="blog_right_sidebar">
                <aside class="single_sidebar_widget search_widget">
-                  <form action="<?= base_url('pengumuman') ?>" method="get">
-                     <div class="form-group">
-                        <div class="input-group mb-3">
-                           <input type="text" name="search" class="form-control" placeholder='Cari Pengumuman' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cari Pengumuman'">
-                           <div class="input-group-append">
-                              <button class="btns" type="reset" title="Reset"><i class="ti-close"></i></button>
-                           </div>
+               <div id="carousel-kanan" class="carousel slide" data-ride="carousel">
+                        <ul class="carousel-indicators">
+                            <?php $i_slide = 0; ?>
+                            <?php foreach ($slider as $srow) : ?>
+                                <li data-target="#carousel-kanan" data-slide-to="<?= $i_slide ?>" class="<?php if ($i_slide < 1) echo "active" ?>"></li>
+                                <?php $i_slide++; ?>
+                            <?php endforeach; ?>
+                        </ul>
+                        <div class="carousel-inner">
+                            <?php $i_slide = 0; ?>
+                            <?php foreach ($slider as $srow) : ?>
+                                <div class="carousel-item <?php if ($i_slide < 1) echo "active"  ?>">
+                                    <img width="100%" height="180px" src="<?= base_url('assets/uploads/files/' . $srow['image']) ?>" alt="">
+                                </div>
+                                <?php $i_slide++; ?>
+                            <?php endforeach; ?>
+
                         </div>
-                     </div>
-                     <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Cari</button>
-                  </form>
+                        <a class="carousel-control-prev" href="#carousel-kanan" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel-kanan" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+                    </div>
                </aside>
 
 
@@ -113,7 +127,7 @@
                         <div class="media post_item">
                            <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                            <div class="media-body hover-show">
-                              <span class="color2">See beach</span>
+                              <span class="color2">Berita</span>
                               <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
                                  <h3 class="short-title"><?= substr($bkanan['title'], 0, 50) ?>...</h3>
                                  <h3 class="long-title"><?= ($bkanan['title']) ?></h3>
@@ -129,7 +143,7 @@
                         <div class="media post_item">
                            <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                            <div class="media-body hover-show">
-                              <span class="color2">See beach</span>
+                              <span class="color2">Berita</span>
                               <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
                                  <h3 class="short-title"><?= substr($bkanan['title'], 0, 50) ?>...</h3>
                                  <h3 class="long-title"><?= ($bkanan['title']) ?></h3>

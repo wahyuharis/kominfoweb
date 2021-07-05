@@ -30,7 +30,7 @@ class Regulasi extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-
+        $slider = $this->db->get('sliders')->result_array();
         $page = $this->input->get('page');
         $limit = 5;
         $start = page_to_start($page, $limit);
@@ -82,6 +82,7 @@ class Regulasi extends CI_Controller
 
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['regulasi_list'] = $regulasi_list;
+        $content_data['slider'] = $slider;
         $content_data['pagination'] = $this->pagination->create_links();
 
         $view_data['content'] = $this->load->view('frontend/regulasi', $content_data, true);
@@ -89,59 +90,5 @@ class Regulasi extends CI_Controller
         $this->load->view('frontend/template', $view_data);
     }
 
-    function detail($slug)
-    {
-        $content_data = [];
 
-
-        $berita_kanan = $this->db->where('deleted_at', null)
-            ->select('feeds.*,users.fullname')
-            ->join('users', 'users.id=feeds.user_id', 'left')
-            ->order_by('id', 'desc')
-            ->limit(10)
-            ->get('feeds')
-            ->result_array();
-
-        $berita_detail = $this->db
-            ->select('feeds.*,users.fullname')
-            ->where('deleted_at', null)
-            ->where('slug', $slug)
-            ->join('users', 'users.id=feeds.user_id', 'left')
-            ->get('feeds')
-            ->row_object();
-
-        $this->description = $berita_detail->deskripsi;
-        $this->keywords = $berita_detail->kata_kunci;
-
-        $berita_detail_next = $this->db
-            ->select('feeds.*,users.fullname')
-            ->where('deleted_at', null)
-            ->where('feeds.id < ', $berita_detail->id)
-            ->join('users', 'users.id=feeds.user_id', 'left')
-            ->order_by('feeds.id', 'desc')
-            ->get('feeds')
-            ->row_object();
-
-        $berita_detail_prev = $this->db
-            ->select('feeds.*,users.fullname')
-            ->where('deleted_at', null)
-            ->where('feeds.id > ', $berita_detail->id)
-            ->join('users', 'users.id=feeds.user_id', 'left')
-            ->order_by('feeds.id', 'desc')
-            ->get('feeds')
-            ->row_object();
-
-        $content_data['berita_detail'] = $berita_detail;
-        $content_data['berita_detail_next'] = $berita_detail_next;
-        $content_data['berita_detail_prev'] = $berita_detail_prev;
-        $content_data['berita_kanan'] = $berita_kanan;
-
-        $view_data['description'] = $this->description;
-        $view_data['keywords'] = $this->keywords;
-
-        // print_r2($view_data);
-        $view_data['content'] = $this->load->view('frontend/blog_content', $content_data, true);
-
-        $this->load->view('frontend/template', $view_data);
-    }
 }
