@@ -52,7 +52,7 @@ class Video extends CI_Controller
             ->group_end()
             ->get('galleries_video')
             ->num_rows();
-
+        $slider = $this->db->get('sliders')->result_array();
         $this->load->library('pagination');
         $config['base_url'] = base_url('video/');
         $config['total_rows'] = $total_row;
@@ -64,6 +64,7 @@ class Video extends CI_Controller
 
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['video_list'] = $video_list;
+        $content_data['slider'] = $slider;
         $content_data['pagination'] = $this->pagination->create_links();
 
         $view_data['content'] = $this->load->view('frontend/galery/video', $content_data, true);
@@ -93,9 +94,10 @@ class Video extends CI_Controller
             ->where('id_galleries_video', $id)
             ->get('galleries_video')
             ->result_array();
-
+        $slider = $this->db->get('sliders')->result_array();
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['detail_video'] = $thumb;
+        $content_data['slider'] = $slider;
 
         $view_data['description'] = $this->description;
         $view_data['keywords'] = $this->keywords;

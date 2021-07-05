@@ -24,7 +24,7 @@ class Galery extends CI_Controller
             ->limit(10)
             ->get('feeds')
             ->result_array();
-
+        $slider = $this->db->get('sliders')->result_array();
 
 
         $page = $this->input->get('page');
@@ -53,7 +53,7 @@ class Galery extends CI_Controller
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['galeri_foto'] = $galeri_foto;
         $content_data['pagination'] = $this->pagination->create_links();
-
+        $content_data['slider'] = $slider;
 
         $view_data['description'] = $this->description;
         $view_data['keywords'] = $this->keywords;
@@ -86,10 +86,13 @@ class Galery extends CI_Controller
             ->where('id_galeries', $id)
             ->get('galleries_child')
             ->result_array();
+        
+        $slider = $this->db->get('sliders')->result_array();
 
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['galeri_foto_detal'] = $galeri_foto_detail;
         $content_data['galeri_foto_header'] = $galeri_foto_header;
+        $content_data['slider'] = $slider;
 
         $view_data['description'] = $this->description;
         $view_data['keywords'] = $this->keywords;
