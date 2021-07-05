@@ -633,6 +633,10 @@ a {
 	height: 160px;
 }
 
+.trending-area .trending-main .row .col-lg-4 .carousel-indicators {
+	z-index: 1;
+}
+
 @media only screen and (min-width: 360px) and (max-width: 400px) {
 	.trending-area .trending-main .row .col-lg-4 .data-list {
 		width: 330px;
@@ -737,6 +741,10 @@ a {
 	.blog_area .col-lg-8 .col-md-4 video{
 		height: 180px;
 		width: 330px;
+	}
+
+	.blog_right_sidebar .search_widget .carousel-inner .carousel-item img{
+		height: 160px;
 	}
 }
 
@@ -858,6 +866,10 @@ a {
 	.blog_area .col-lg-8 .col-md-4 video{
 		height: 250px;
 		width: 520px;
+	}
+
+	.blog_right_sidebar .search_widget .carousel-inner .carousel-item img{
+		height: 250px;
 	}
 }
 

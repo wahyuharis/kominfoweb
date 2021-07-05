@@ -29,9 +29,13 @@ class Sejarah_dinas extends CI_Controller
 
         // print_r2($sejarah_dinas);
 
+        $slider = $this->db->get('sliders')->result_array();
 
         $content_data['sejarah_dinas'] = $sejarah_dinas;
         $content_data['berita_kanan'] = $berita_kanan;
+        $content_data['slider'] = $slider;
+
+
 
         // $view_data['description'] = $this->description;
         // $view_data['keywords'] = $this->keywords;

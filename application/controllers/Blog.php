@@ -32,6 +32,7 @@ class Blog extends CI_Controller
             ->get('feeds')
             ->result_array();
 
+        $slider = $this->db->get('sliders')->result_array();
 
         $page = $this->input->get('page');
         $limit = 5;
@@ -79,6 +80,7 @@ class Blog extends CI_Controller
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['berita_blog_list'] = $berita_blog_list;
         $content_data['pagination'] = $this->pagination->create_links();
+        $content_data['slider'] = $slider;
 
         $view_data['content'] = $this->load->view('frontend/blog', $content_data, true);
 
@@ -89,7 +91,7 @@ class Blog extends CI_Controller
     {
         $content_data = [];
 
-
+        $slider = $this->db->get('sliders')->result_array();
         // print_r2($slug);
 
         $berita_kanan = $this->db->where('deleted_at', null)
@@ -147,6 +149,7 @@ class Blog extends CI_Controller
         $content_data['berita_detail_next'] = $berita_detail_next;
         $content_data['berita_detail_prev'] = $berita_detail_prev;
         $content_data['berita_kanan'] = $berita_kanan;
+        $content_data['slider'] = $slider;
 
         $view_data['description'] = $this->description;
         $view_data['keywords'] = $this->keywords;
