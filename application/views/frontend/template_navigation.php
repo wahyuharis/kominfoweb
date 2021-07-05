@@ -24,7 +24,7 @@
                             <li><a href="<?= base_url('tupoksi/index/' . $id = 5) ?>">Bidang Layanan Media Komunikasi Publik</a>
                             </li>
                             <li><a href="<?= base_url('tupoksi/index/' . $id = 6) ?>">Bidang Pengembangan Smart City Dan Statistik</a></li>
-                            <li><a href="<?= base_url('tupoksi/index/' . $id = 7) ?>">Bidang Infrastruktur Teknologi Informasi Komunikas</a>
+                            <li><a href="<?= base_url('tupoksi/index/' . $id = 7) ?>">Bidang Infrastruktur Teknologi Informasi Komunikasi</a>
                             </li>
                         </ul>
                     </li>
@@ -66,8 +66,8 @@
             <li><a href="#">Layanan</a></li>
             <li><a href="#">Dokumen Media</a>
                 <ul class="submenu">
-                    <li><a href="<?= base_url('galery/') ?>">Album Foto</a></li>
-                    <li><a href="#">Album Video</a></li>
+                    <li><a href="<?= base_url('galery') ?>">Album Foto</a></li>
+                    <li><a href="<?= base_url('video') ?>">Album Video</a></li>
                     <li><a href="<?= base_url('majalah') ?>">Album Majalah/Publikasi</a></li>
                 </ul>
             </li>

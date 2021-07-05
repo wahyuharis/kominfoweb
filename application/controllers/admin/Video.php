@@ -41,10 +41,14 @@ class Video extends CI_Controller
         $crud->set_theme('bootstrap');
         $crud->set_table('galleries_video');
         $crud->set_subject('Video');
-        $crud->required_fields('nama_video');
+        $crud->required_fields('nama_video','thumbnail_video','url_video');
         $crud->set_rules('nama video', 'nama_video', 'trim|required');
+        $crud->set_rules('thumbnail video', 'thumbnail_video', 'required');
+        $crud->set_rules('url video', 'url_video', 'required');
         $crud->set_field_upload('url_video','assets/uploads/files');
+        $crud->set_field_upload('thumbnail_video','assets/uploads/files');
         $crud->callback_before_upload(array($this,'_callback_before_upload'));
+        $crud->callback_before_upload(array($this,'_callback_before_upload_img'));
 
         $output = $crud->render();
 
@@ -68,6 +72,23 @@ class Video extends CI_Controller
     $return = true;
     } else {
     $return = "tipe file hanya boleh mp3, mkv, mp4, dan avi";
+    }
+    }
+    return $return;
+    }
+
+    function _callback_before_upload_img($files_to_upload, $field_info)
+    {
+    $return = false;
+    if ($field_info->field_name == 'thumbnail_video') {
+    $file_type_image = array('jpg', 'jpeg', 'gif', 'png', 'JPG', 'JPEG','GIF','PNG');
+    $name = $files_to_upload[$field_info->encrypted_field_name]['name'];
+    $name_arr = explode('.', $name);
+    $type = strtolower(trim(end($name_arr)));
+    if (in_array($type, $file_type_image)) {
+    $return = true;
+    } else {
+    $return = "tipe file hanya boleh jpg, jpeg, gif, dan png";
     }
     }
     return $return;

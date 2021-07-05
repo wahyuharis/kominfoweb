@@ -31,7 +31,7 @@ class Video extends CI_Controller
 
 
         $page = $this->input->get('page');
-        $limit = 5;
+        $limit = 6;
         $start = page_to_start($page, $limit);
 
 
@@ -68,6 +68,40 @@ class Video extends CI_Controller
 
         $view_data['content'] = $this->load->view('frontend/galery/video', $content_data, true);
 
+        $this->load->view('frontend/template', $view_data);
+    }
+
+    function detail($id)
+    {
+        $content_data = [];
+
+        $berita_kanan = $this->db->where('deleted_at', null)
+            ->where('category', 'Berita')
+            ->select('feeds.*,users.fullname')
+            ->join('users', 'users.id=feeds.user_id')
+            ->order_by('id', 'desc')
+            ->limit(10)
+            ->get('feeds')
+            ->result_array();
+
+        $thumb = $this->db->select('*')
+        ->where('id_galleries_video', $id)
+        ->get('galleries_video')
+        ->row_object();
+
+        $detail_video = $this->db->select('*')
+            ->where('id_galleries_video', $id)
+            ->get('galleries_video')
+            ->result_array();
+
+        $content_data['berita_kanan'] = $berita_kanan;
+        $content_data['detail_video'] = $thumb;
+
+        $view_data['description'] = $this->description;
+        $view_data['keywords'] = $this->keywords;
+        $view_data['content'] = $this->load->view('frontend/galery/video_detail', $content_data, true);
+
+        // print_r2($view_data);
         $this->load->view('frontend/template', $view_data);
     }
 

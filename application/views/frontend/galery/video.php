@@ -2,46 +2,24 @@
 <section class="blog_area section-padding">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 mb-5 mb-lg-0">
-
-                <div class="section-tittle mb-30">
-                    <h2>Video</h2>
-                </div>
-
-                <div class="blog_left_sidebar">
-
-                    <div class="row mb-4 mt-1">
-                        <div class="col-md-8"></div>
-                        <div class="col-md-4">
-
-                            <form action="<?= base_url('video') ?>" method="get">
-                                <div class="form-group">
-                                    <div class="input-group mb-3">
-                                        <input type="text" name="search_video" class="form-control" placeholder='Cari Video' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cari Video'">
-                                        <div class="input-group-append">
-                                            <button class="tombolcari" type="submit"><i class="ti-search"></i></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-
+            <div class="col-lg-8">
+                <h2>Video</h2>
+                <div class="blog_details">
+                    <div class="row">
+                        <?php foreach ($video_list as $row) { ?>
+                            <div class="col-md-4 hehe">
+                                <a href="<?= base_url('video/detail/' . $row['id_galleries_video']) ?>">
+                                    <img src="<?= base_url('assets/uploads/files/' . $row['thumbnail_video']) ?>" alt="Lights" style="width:100%">
+                                    <p><?= $row['nama_video'] ?></p>
+                                </a>
+                            </div>
+                        <?php } ?>
                     </div>
-                    <?php $no = 1;
-                    foreach ($video_list as $row) : ?>
-                    <h5><?= $row['nama_video'] ?></h5>
-                    <br>
-                    <video controls="true" width="750px" height="400px">
-                        <source src="<?= base_url('assets/uploads/files/' . $row['url_video']) ?>" type="video/mp4" />
-                    </video>
-                    <br> <br>
-                    <?php endforeach; ?>
-                    <nav class="blog-pagination justify-content-center d-flex">
-                        <?= $pagination ?>
-                    </nav>
 
                 </div>
+                <nav class="blog-pagination justify-content-center d-flex">
+                    <?= $pagination ?>
+                </nav>
             </div>
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
@@ -96,25 +74,31 @@
                     </aside>
 
 
-                    <div id="youtube-video" class="news-poster">
-                        <div style="font-size: 50px;text-align: center;">
-                            <i class="fas fa-spinner fa-spin"></i>
+                    <aside class="single_sidebar_widget instagram_feeds">
+                        <div class="section-tittle mb-40">
+                            <h3>Kumpulan Video</h3>
                         </div>
-                    </div>
+                        <!-- New Poster -->
+                        <div id="youtube-video" class="news-poster">
+                            <div style="font-size: 50px;text-align: center;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </aside>
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!--================Blog Area =================-->
+
+
 <script>
     $(document).ready(function() {
-
 
         $.get('<?= base_url('youtube') ?>', function(data, status) {
             $('#youtube-video').html(data);
         });
-
 
     });
 </script>
