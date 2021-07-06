@@ -104,7 +104,7 @@ class Blog extends CI_Controller
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->get('feeds');
 
-        if($db->num_rows()){
+        if($db->num_rows() < 1){
             show_404();
             die();
         }
