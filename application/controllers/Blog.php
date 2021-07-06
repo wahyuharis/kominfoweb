@@ -51,15 +51,6 @@ class Blog extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-        // print_r2($berita_blog_list);
-        // header_text();
-        // $html = getFirstParagraph2($berita_blog_list[]['content']);
-        // echo $html;
-// echo $berita_blog_list[1]['content'];
-        // die();
-
-
-
 
         $total_row = $this->db->where('deleted_at', null)
             ->where('category', 'Berita')
@@ -103,26 +94,35 @@ class Blog extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-        $berita_detail = $this->db
+
+
+        $db = $this->db
             ->select('feeds.*,users.fullname')
             ->where('deleted_at', null)
             ->where('category', 'Berita')
             ->where('slug', $slug)
             ->join('users', 'users.id=feeds.user_id', 'left')
-            ->get('feeds')
-            ->row_object();
+            ->get('feeds');
+
+        if($db->num_rows()){
+            show_404();
+            die();
+        }
+
+        $berita_detail = $db->row_object();
+
 
         $this->description = $berita_detail->deskripsi;
         $this->keywords = $berita_detail->kata_kunci;
 
-        if(empty(trim($this->description))){
-            $this->description=getFirstParagraph2($berita_detail->content);
+        if (empty(trim($this->description))) {
+            $this->description = getFirstParagraph2($berita_detail->content);
         }
 
-        $keywords2=str_replace(' ',', ',$berita_detail->title);
+        $keywords2 = str_replace(' ', ', ', $berita_detail->title);
         // print_r2($keywords2);
-        if(empty(trim($this->keywords))){
-            $this->keywords=$keywords2;
+        if (empty(trim($this->keywords))) {
+            $this->keywords = $keywords2;
         }
 
         $berita_detail_next = $this->db
