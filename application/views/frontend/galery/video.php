@@ -7,7 +7,7 @@
                 <div class="blog_details">
                     <div class="row">
                         <?php foreach ($video_list as $row) { ?>
-                            <div class="col-md-4 hehe">
+                            <div class="col-md-4">
                                 <a href="<?= base_url('video/detail/' . $row['id_galleries_video']) ?>">
                                     <img src="<?= base_url('assets/uploads/files/' . $row['thumbnail_video']) ?>" alt="Lights" style="width:100%">
                                     <p><?= $row['nama_video'] ?></p>

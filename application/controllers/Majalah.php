@@ -29,7 +29,7 @@ class Majalah extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-
+        $slider = $this->db->get('sliders')->result_array();
         $page = $this->input->get('page');
         $limit = 5;
         $start = page_to_start($page, $limit);
@@ -73,6 +73,7 @@ class Majalah extends CI_Controller
 
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['majalah_list'] = $majalah_list;
+        $content_data['slider'] = $slider;
         $content_data['pagination'] = $this->pagination->create_links();
 
         $view_data['content'] = $this->load->view('frontend/majalah', $content_data, true);

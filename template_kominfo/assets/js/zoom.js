@@ -11,4 +11,8 @@ $(document).ready(function(){
         
     }
 
+    if (width == 640) {
+        document.body.style.zoom = "110%";
+    }
+
 });
