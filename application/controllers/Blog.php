@@ -11,6 +11,7 @@ class Blog extends CI_Controller
 
     private $description = "";
     private $keywords = "";
+    private $meta_img = "";
 
     public function __construct()
     {
@@ -111,9 +112,11 @@ class Blog extends CI_Controller
 
         $berita_detail = $db->row_object();
 
+        // print_r2($berita_detail);
 
         $this->description = $berita_detail->deskripsi;
         $this->keywords = $berita_detail->kata_kunci;
+        $this->meta_img = $berita_detail->image;
 
         if (empty(trim($this->description))) {
             $this->description = getFirstParagraph2($berita_detail->content);
@@ -153,6 +156,7 @@ class Blog extends CI_Controller
 
         $view_data['description'] = $this->description;
         $view_data['keywords'] = $this->keywords;
+        $view_data['meta_img'] = $this->meta_img;
 
         // print_r2($view_data);
         $view_data['content'] = $this->load->view('frontend/blog_content', $content_data, true);

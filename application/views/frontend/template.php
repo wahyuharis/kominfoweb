@@ -28,13 +28,21 @@ if (!isset($keywords)) {
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title><?= NAMA_APLIKASI ?> </title>
-    
+
     <?php if (isset($description) && !empty(trim($description))) { ?>
         <meta name="description" content="<?= $description ?>">
     <?php } ?>
 
     <?php if (isset($keywords) && !empty(trim($keywords))) {  ?>
         <meta name="keywords" content="<?= $keywords ?>">
+    <?php } ?>
+
+    <?php if (isset($meta_img) && !empty(trim($meta_img))) {  ?>
+        <meta name="image" content="<?=base_url('Image_ob/show/'.$meta_img)?>" />
+        <meta property="og:image" content="<?=base_url('Image_ob/show/'.$meta_img)?>">
+    <?php }else{ ?>
+        <meta name="image" content="<?=base_url('assets/uploads/files/0ae96-1db68-f271f-khhjsrydnljngsofhsjeysyhfx5d1g6hfl1wlvq9ow0ddp8szrfggsfy1s1x.jpeg')?>" />
+        <meta property="og:image" content="<?=base_url('assets/uploads/files/0ae96-1db68-f271f-khhjsrydnljngsofhsjeysyhfx5d1g6hfl1wlvq9ow0ddp8szrfggsfy1s1x.jpeg')?>">
     <?php } ?>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,13 +63,13 @@ if (!isset($keywords)) {
     <link rel="stylesheet" href="<?= base_url() ?>template_kominfo/assets/css/nice-select.css">
     <link rel="stylesheet" href="<?= base_url() ?>template_kominfo/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url() ?>node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
-    
+
     <link rel="stylesheet" href="<?= base_url() ?>template_kominfo/assets/css/custom.css">
 
     <!-- <script src="<?= base_url() ?>template_kominfo/assets/js/vendor/jquery-1.12.4.min.js"></script> -->
     <script src="<?= base_url() ?>node_modules/jquery/dist/jquery.min.js"></script>
     <script src="<?= base_url() ?>node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
-    
+
 </head>
 
 <body>
@@ -112,7 +120,7 @@ if (!isset($keywords)) {
                             </div>
                         </div>
                     </div> -->
-                    <div class="header-mid-cover" style="background-image: url('<?= base_url('assets/uploads/files/'.$header->banner->image) ?>'); background-size: 100% 100%;">
+                    <div class="header-mid-cover" style="background-image: url('<?= base_url('assets/uploads/files/' . $header->banner->image) ?>'); background-size: 100% 100%;">
                     </div>
                 </div>
                 <div class="header-bottom header-sticky">
@@ -121,12 +129,12 @@ if (!isset($keywords)) {
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                                 <!-- sticky -->
                                 <div class="sticky-logo">
-                                <a href="#"><img src="<?= base_url('assets/uploads/files/' . $header->logo_header_sticky->image) ?>" alt=""></a>
+                                    <a href="#"><img src="<?= base_url('assets/uploads/files/' . $header->logo_header_sticky->image) ?>" alt=""></a>
                                 </div>
 
                                 <div class="sticky-logo title-logo">
                                     <p>DISKOMINFO<br>
-                                    KABUPATEN JEMBER</p>
+                                        KABUPATEN JEMBER</p>
                                 </div>
 
                                 <?php require_once 'template_navigation.php' ?>
@@ -162,7 +170,7 @@ if (!isset($keywords)) {
         <!-- Footer Start-->
         <div class="footer-area footer-padding fix">
             <div class="container">
-            <div class="row d-flex justify-content-between">
+                <div class="row d-flex justify-content-between">
                     <div class="col-xl-5 col-lg-5 col-md-7 col-sm-12">
                         <div class="single-footer-caption">
                             <div class="single-footer-caption">
@@ -214,7 +222,7 @@ if (!isset($keywords)) {
                     </div>
                 </div>
             </div>
-                
+
         </div>
         <!-- footer-bottom aera -->
         <div class="footer-bottom-area">
@@ -282,7 +290,7 @@ if (!isset($keywords)) {
     <script src="<?= base_url() ?>template_kominfo/assets/js/plugins.js"></script>
     <script src="<?= base_url() ?>template_kominfo/assets/js/main.js"></script>
     <script src="<?= base_url() ?>template_kominfo/assets/js/jquery.autoscroll.js" type="text/javascript" charset="utf-8"></script>
-    <script src="<?= base_url() ?>template_kominfo/assets/js/zoom.js" ></script>
+    <script src="<?= base_url() ?>template_kominfo/assets/js/zoom.js"></script>
     <?php require_once 'visitor.php' ?>
 </body>
 
