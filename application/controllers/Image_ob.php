@@ -6,6 +6,7 @@ class Image_ob extends CI_Controller
     {
         parent::__construct();
     }
+    
 
     public function index()
     {
