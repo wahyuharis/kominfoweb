@@ -136,16 +136,16 @@
                     </div>
 
                     <div class="data-list" data-autoscroll>
-                        <?php foreach ($berita_kanan as $bkanan) : ?>
+                        <?php foreach ($berita_ppid['data'] as $bppid) : ?>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
-                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="">
+                                    <img src=" https://ppid.jemberkab.go.id/storage/<?=  $bppid['foto_berita'] ?>" alt="">
                                 </div>
                                 <div class="trand-right-cap hover-show">
                                     <span class="color3">Berita</span>
-                                    <h4 class="short-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= substr($bkanan['title'], 0, 50) ?>...</a></h4>
-                                    <h4 class="long-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= $bkanan['title'] ?></a></h4>
-                                    <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bkanan['date']) ?></p>
+                                    <h4 class="short-title"><a href=" https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank"><?= substr($bppid['judul_berita'], 0, 50) ?>...</a></h4>
+                                    <h4 class="long-title"><a href=" https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank"><?= $bppid['judul_berita'] ?></a></h4>
+                                    <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bppid['tanggal_berita']) ?></p>
                                 </div>
                             </div>
                         <?php endforeach; ?>
