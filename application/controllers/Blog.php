@@ -51,7 +51,7 @@ class Blog extends CI_Controller
             ->where('category', 'Berita')
             ->group_start()
             ->or_like('title', $search)
-            ->or_like('content', $search)
+            // ->or_like('content', $search)
             ->group_end()
             ->select('feeds.*,users.fullname')
             ->join('users', 'users.id=feeds.user_id', 'left')
@@ -65,7 +65,7 @@ class Blog extends CI_Controller
             ->where('category', 'Berita')
             ->group_start()
             ->or_like('title', $search)
-            ->or_like('content', $search)
+            // ->or_like('content', $search)
             ->group_end()
             ->get('feeds')
             ->num_rows();
