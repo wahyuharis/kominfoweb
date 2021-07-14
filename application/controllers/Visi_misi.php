@@ -26,6 +26,14 @@ class Visi_misi extends CI_Controller
             ->limit(10)
             ->get('feeds')
             ->result_array();
+            
+        $url_ppid="https://ppid.jemberkab.go.id/api/berita";
+        $get_url = file_get_contents($url_ppid);
+        //mengubah standar encoding
+        $content=utf8_encode($get_url);
+                
+        //mengubah data json menjadi data array asosiatif
+        $hasil=json_decode($content,true);
 
         $slider = $this->db->get('sliders')->result_array();
         // print_r2($visi_misi);
@@ -33,6 +41,7 @@ class Visi_misi extends CI_Controller
 
         $content_data['visi_misi'] = $visi_misi;
         $content_data['berita_kanan'] = $berita_kanan;
+        $content_data['berita_ppid'] = $hasil;
         $content_data['slider'] = $slider;
 
         // $view_data['description'] = $this->description;
