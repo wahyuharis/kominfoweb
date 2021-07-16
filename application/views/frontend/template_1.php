@@ -38,8 +38,8 @@ if (!isset($keywords)) {
     <?php } ?>
 
     <?php if (isset($meta_img) && !empty(trim($meta_img))) {  ?>
-        <meta name="image" content="<?=base_url($meta_img)  ?>" />
-        <meta property="og:image" content="<?=base_url($meta_img) ?>">
+        <meta name="image" content="<?=base_url('Image_ob/show/'.$meta_img)?>" />
+        <meta property="og:image" content="<?=base_url('Image_ob/show/'.$meta_img)?>">
     <?php }else{ ?>
         <meta name="image" content="<?=base_url('assets/uploads/files/0ae96-1db68-f271f-khhjsrydnljngsofhsjeysyhfx5d1g6hfl1wlvq9ow0ddp8szrfggsfy1s1x.jpeg')?>" />
         <meta property="og:image" content="<?=base_url('assets/uploads/files/0ae96-1db68-f271f-khhjsrydnljngsofhsjeysyhfx5d1g6hfl1wlvq9ow0ddp8szrfggsfy1s1x.jpeg')?>">
