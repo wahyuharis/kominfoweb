@@ -41,8 +41,8 @@ if (!isset($keywords)) {
         <meta name="image" content="<?=base_url($meta_img)  ?>" />
         <meta property="og:image" content="<?=base_url($meta_img) ?>">
     <?php }else{ ?>
-        <meta name="image" content="<?=base_url('assets/uploads/files/0ae96-1db68-f271f-khhjsrydnljngsofhsjeysyhfx5d1g6hfl1wlvq9ow0ddp8szrfggsfy1s1x.jpeg')?>" />
-        <meta property="og:image" content="<?=base_url('assets/uploads/files/0ae96-1db68-f271f-khhjsrydnljngsofhsjeysyhfx5d1g6hfl1wlvq9ow0ddp8szrfggsfy1s1x.jpeg')?>">
+        <meta name="image" content="<?=base_url('assets/kominfo.png')?>" />
+        <meta property="og:image" content="<?=base_url('assets/kominfo.png')?>">
     <?php } ?>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
