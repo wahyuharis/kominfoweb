@@ -105,7 +105,7 @@ class Blog extends CI_Controller
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->get('feeds');
 
-        if($db->num_rows() < 1){
+        if ($db->num_rows() < 1) {
             show_404();
             die();
         }
@@ -116,7 +116,9 @@ class Blog extends CI_Controller
 
         $this->description = $berita_detail->deskripsi;
         $this->keywords = $berita_detail->kata_kunci;
-        $this->meta_img = $berita_detail->image;
+        // $this->meta_img_resize($berita_detail->image);
+        $this->meta_img = 'assets/uploads/files/'.$berita_detail->image;
+
 
         if (empty(trim($this->description))) {
             $this->description = getFirstParagraph2($berita_detail->content);
@@ -162,5 +164,18 @@ class Blog extends CI_Controller
         $view_data['content'] = $this->load->view('frontend/blog_content', $content_data, true);
 
         $this->load->view('frontend/template', $view_data);
+    }
+
+    function meta_img_resize($image_name)
+    {
+        $path = "./assets/uploads/files/" . $image_name;
+        unlink('./assets/buff.jpeg');
+
+        $this->load->library('Image_moo');
+
+        $this->image_moo
+            ->load($path)
+            ->resize(100, 100)
+            ->save('./assets/buff.jpeg');
     }
 }
