@@ -291,6 +291,7 @@ if (!isset($keywords)) {
     <script src="<?= base_url() ?>template_kominfo/assets/js/main.js"></script>
     <script src="<?= base_url() ?>template_kominfo/assets/js/jquery.autoscroll.js" type="text/javascript" charset="utf-8"></script>
     <script src="<?= base_url() ?>template_kominfo/assets/js/zoom.js"></script>
+    <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
     <?php require_once 'visitor.php' ?>
 </body>
 

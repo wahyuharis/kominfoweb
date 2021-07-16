@@ -148,6 +148,8 @@
                            <i class="fas fa-spinner fa-spin"></i>
                         </div>
                      </div>
+
+                     <div id="gpr-kominfo-widget-container" class="mt-40"></div>
                   </aside>
 
                </div>
@@ -179,8 +181,6 @@
          $.get('<?= base_url('youtube') ?>', function(data, status) {
             $('#youtube-video').html(data);
          });
-
-
 
       });
    </script>

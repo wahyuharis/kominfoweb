@@ -53,7 +53,7 @@ class Home extends CI_Controller
             ->select('feeds.*,users.fullname')
             ->join('users', 'users.id=feeds.user_id')
             ->order_by('id', 'desc')
-            ->limit(4)
+            ->limit(8)
             ->get('feeds')
             ->result_array();
 

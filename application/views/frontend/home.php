@@ -40,7 +40,7 @@
                                             <div class="trend-top-cap">
                                                 <!-- <span>Appetizers</span> -->
                                                 <h2><a href="<?= base_url('blog/detail/' . $slide['slug']) ?>"><?= ($slide['title']) ?></a></h2>
-                                                <p><?=getFirstParagraph2($slide['content'])?></p>
+                                                <p><?= getFirstParagraph2($slide['content']) ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -130,7 +130,7 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <br/>
+                    <br />
                     <div class="section-tittle">
                         <h3>Berita PPID Terbaru</h3>
                     </div>
@@ -139,7 +139,7 @@
                         <?php foreach ($berita_ppid['data'] as $bppid) : ?>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
-                                    <img src=" https://ppid.jemberkab.go.id/storage/<?=  $bppid['foto_berita'] ?>" alt="">
+                                    <img src=" https://ppid.jemberkab.go.id/storage/<?= $bppid['foto_berita'] ?>" alt="">
                                 </div>
                                 <div class="trand-right-cap hover-show">
                                     <span class="color3">Berita</span>
@@ -150,12 +150,12 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
-                    <br/>
+                    <br />
                 </div>
             </div>
         </div>
     </div>
-        
+
 </div>
 <!-- Trending Area End -->
 <!--   Weekly-News start -->
@@ -163,8 +163,8 @@
 <!-- End Weekly-News -->
 <!-- Whats New Start -->
 <section class="whats-news-area pt-50 pb-20">
-<div class="container">
-<div class="row">
+    <div class="container">
+        <div class="row">
             <div class="col-lg-8">
                 <div class="row d-flex justify-content-between">
                     <div class="col-lg-3 col-md-3">
@@ -234,51 +234,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <!-- Section Tittle -->
-                <!-- <div class="section-tittle mb-40">
-                    <h3>Jumlah Pengikut</h3>
-                </div> -->
-                <!-- Flow Socail -->
-                <!-- <div class="single-follow mb-45">
-                    <div class="single-box">
-                        <div class="follow-us d-flex align-items-center">
-                            <div class="follow-social">
-                                <a href="#"><img src="<?= base_url() ?>template_kominfo/assets/img/news/icon-fb.png" alt=""></a>
-                            </div>
-                            <div class="follow-count">
-                                <span>8,045</span>
-                                <p>Fans</p>
-                            </div>
-                        </div>
-                        <div class="follow-us d-flex align-items-center">
-                            <div class="follow-social">
-                                <a href="#"><img src="<?= base_url() ?>template_kominfo/assets/img/news/icon-tw.png" alt=""></a>
-                            </div>
-                            <div class="follow-count">
-                                <span>8,045</span>
-                                <p>Fans</p>
-                            </div>
-                        </div>
-                        <div class="follow-us d-flex align-items-center">
-                            <div class="follow-social">
-                                <a href="#"><img src="<?= base_url() ?>template_kominfo/assets/img/news/icon-ins.png" alt=""></a>
-                            </div>
-                            <div class="follow-count">
-                                <span>8,045</span>
-                                <p>Fans</p>
-                            </div>
-                        </div>
-                        <div class="follow-us d-flex align-items-center">
-                            <div class="follow-social">
-                                <a href="#"><img src="<?= base_url() ?>template_kominfo/assets/img/news/icon-yo.png" alt=""></a>
-                            </div>
-                            <div class="follow-count">
-                                <span>8,045</span>
-                                <p>Fans</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+                
                 <div class="section-tittle mb-40">
                     <h3>Kumpulan Video</h3>
                 </div>
@@ -288,11 +244,14 @@
                         <i class="fas fa-spinner fa-spin"></i>
                     </div>
                 </div>
+
+                <div id="gpr-kominfo-widget-container" class="mt-40"></div>
+
             </div>
         </div>
-</div>
+    </div>
 
-        
+
 </section>
 <!-- Whats New End -->
 <!--   Weekly2-News start -->
