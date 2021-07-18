@@ -4,20 +4,26 @@
         <div class="box-body">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="title">Title</label>
+                    <label for="title">Judul</label>
                     <input type="text" id="title" name="title" value="<?= $title ?>" class="form-control" placeholder="title">
                 </div>
                 <div class="form-group">
                     <label for="date">Date</label>
                     <input type="text" id="date" name="date" value="<?= $date ?>" class="form-control datepicker" placeholder="Date">
                 </div>
+                <!-- <div class="form-group">
+                    <label for="category">Type</label>
+                    <?= form_dropdown('category', $category_opt, $category, ' id="category" class="form-control" ') ?>
+                </div> -->
+
+                <!-- <div id="date-publish" class="form-group" style="display: none;">
+                    <label for="date_publish">Jadwal Publikasi</label>
+                    <input type="text" id="date_publish" name="date_publish" value="<?= $date_publish ?>" class="form-control datepicker" placeholder="Date publish">
+                </div> -->
 
                 <div class="form-group">
-                    <label for="image_upload">Image </label>
-                    <input type="hidden" name="image" id="image" value="<?= $image ?>">
-                    <br><img id="image_preview" src="#" style="display: none; max-width: 100px;max-height: 100px;">
-                    <br><a id="image_delete" href="#" class="btn btn-xs btn-danger" style="display: none;">hapus</a>
-                    <input type="file" name="image_upload" id="image_upload" class="form-control">
+                    <label for="time">Waktu</label>
+                    <input type="time" name="waktu" id="waktu" value="<?= $waktu ?>">
                 </div>
             </div>
             <div class="col-md-6">
@@ -27,8 +33,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="slug">Deskripsi</label>
-                    <input type="text" id="deskripsi" name="deskripsi" value="<?= $deskripsi ?>" class="form-control" placeholder="deskripsi">
+                    <label for="slug">Keterangan</label>
+                    <input type="text" id="keterangan" name="keterangan" value="<?= $keterangan ?>" class="form-control" placeholder="deskripsi">
                 </div>
                 <div class="form-group">
                     <label for="slug">Kata kunci</label>
@@ -37,19 +43,25 @@
             </div>
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="slug">Content</label>
-                    <!-- <input type="text" id="content" name="content" class="form-control" placeholder="Content"> -->
-                    <textarea id="content" name="content" class="form-control"><?= $content ?></textarea>
+                    <label for="slug">Disposisi</label>
+                    <input type="text" id="disposisi" name="disposisi" value="<?= $disposisi ?>" class="form-control" placeholder="disposisi">
                 </div>
             </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="slug">Lokasi</label>
+                    <input type="text" id="lokasi" name="lokasi" valie="<?= $lokasi ?>" class="form-control" placeholder="lokasi">
+                </div>
+            </div>
+
         </div>
 
         <div class="box-footer">
             <div class="col-md-12">
                 <button id="submit-button" type="submit" class="btn btn-primary"><i class="fa fa-check-circle"></i> Simpan</button>
-                <a href="<?= base_url('admin/infografis/index') ?>" class="btn btn-default"><i class="fa fa-close"></i> Batal</a>
+                <a href="<?= base_url('admin/agenda/index') ?>" class="btn btn-default"><i class="fa fa-close"></i> Batal</a>
             </div>
         </div>
     </form>
 </div>
-<?php require_once "infografis_edit_script.php" ?>
+<?php require_once "agenda_edit_script.php" ?>

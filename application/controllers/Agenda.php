@@ -6,7 +6,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Infografis extends CI_Controller
+class Agenda extends CI_Controller
 {
 
     private $description = "";
@@ -24,7 +24,7 @@ class Infografis extends CI_Controller
         $search = $this->input->get('search');
 
         $berita_kanan = $this->db->where('deleted_at', null)
-            ->where('category', 'Berita')
+            ->where('category', 'Post')
             ->select('feeds.*,users.fullname')
             ->join('users', 'users.id=feeds.user_id')
             ->order_by('id', 'desc')
@@ -37,49 +37,45 @@ class Infografis extends CI_Controller
         $limit = 5;
         $start = page_to_start($page, $limit);
 
-        $infografis_list = $this->db->where('deleted_at', null)
+        $agenda_list = $this->db->where('deleted_at', null)
+            // ->where('category', 'Artikel')
             ->group_start()
             ->or_like('title', $search)
-            ->or_like('content', $search)
+            ->or_like('keterangan', $search)
             ->group_end()
-            ->select('infografis.*,users.fullname')
-            ->join('users', 'users.id=infografis.user_id', 'left')
+            ->select('agenda.*,users.fullname')
+            ->join('users', 'users.id=agenda.user_id', 'left')
             ->order_by('id', 'desc')
             ->limit($limit, intval($start))
-            ->get('infografis')
+            ->get('agenda')
             ->result_array();
-
-        // print_r2($berita_blog_list);
-        // header_text();
-        // $html = getFirstParagraph2($berita_blog_list[]['content']);
-        // echo $html;
-        // echo $berita_blog_list[1]['content'];
-        // die();
 
 
         $slider = $this->db->get('sliders')->result_array();
 
+
         $total_row = $this->db->where('deleted_at', null)
+            // ->where('category', 'Artikel')
             ->group_start()
             ->or_like('title', $search)
-            ->or_like('content', $search)
+            ->or_like('keterangan', $search)
             ->group_end()
-            ->get('infografis')
+            ->get('agenda')
             ->num_rows();
 
         $this->load->library('pagination');
-        $config['base_url'] = base_url('infografis/');
+        $config['base_url'] = base_url('agenda/');
         $config['total_rows'] = $total_row;
         $config['per_page'] = $limit;
 
         $this->pagination->initialize($config);
 
         $content_data['berita_kanan'] = $berita_kanan;
-        $content_data['infografis_list'] = $infografis_list;
+        $content_data['agenda_list'] = $agenda_list;
         $content_data['slider'] = $slider;
         $content_data['pagination'] = $this->pagination->create_links();
 
-        $view_data['content'] = $this->load->view('frontend/infografis', $content_data, true);
+        $view_data['content'] = $this->load->view('frontend/agenda', $content_data, true);
 
         $this->load->view('frontend/template', $view_data);
     }
@@ -92,7 +88,7 @@ class Infografis extends CI_Controller
         // print_r2($slug);
 
         $berita_kanan = $this->db->where('deleted_at', null)
-            ->where('category', 'Berita')
+            ->where('category', 'Post')
             ->select('feeds.*,users.fullname')
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->order_by('id', 'desc')
@@ -100,48 +96,54 @@ class Infografis extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-        $infografis_detail = $this->db
-            ->select('infografis.*,users.fullname')
+        $agenda_detail = $this->db
+            ->select('agenda.*,users.fullname')
             ->where('deleted_at', null)
+            // ->where('category', 'agenda')
             ->where('slug', $slug)
-            ->join('users', 'users.id=infografis.user_id', 'left')
-            ->get('infografis')
+            ->join('users', 'users.id=agenda.user_id', 'left')
+            ->get('agenda')
             ->row_object();
-        $slider = $this->db->get('sliders')->result_array();
-        $this->description = $infografis_detail->deskripsi;
-        $this->keywords = $infografis_detail->kata_kunci;
+
+
+        $this->description = $agenda_detail->keterangan;
+        $this->keywords = $agenda_detail->kata_kunci;
 
         if (empty(trim($this->description))) {
-            $this->description = getFirstParagraph2($infografis_detail->content);
+            $this->description = getFirstParagraph2($agenda_detail->content);
         }
 
-        $keywords2 = str_replace(' ', ', ', $infografis_detail->title);
+        $keywords2 = str_replace(' ', ', ', $agenda_detail->title);
         // print_r2($keywords2);
         if (empty(trim($this->keywords))) {
             $this->keywords = $keywords2;
         }
 
-        $infografis_detail_next = $this->db
-            ->select('infografis.*,users.fullname')
+        $agenda_detail_next = $this->db
+            ->select('agenda.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('infografis.id < ', $infografis_detail->id)
-            ->join('users', 'users.id=infografis.user_id', 'left')
-            ->order_by('infografis.id', 'desc')
-            ->get('infografis')
+            // ->where('category', 'agenda')
+            ->where('agenda.id < ', $agenda_detail->id)
+            ->join('users', 'users.id=agenda.user_id', 'left')
+            ->order_by('agenda.id', 'desc')
+            ->get('agenda')
             ->row_object();
 
-        $infografis_detail_prev = $this->db
-            ->select('infografis.*,users.fullname')
+        $agenda_detail_prev = $this->db
+            ->select('agenda.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('infografis.id > ', $infografis_detail->id)
-            ->join('users', 'users.id=infografis.user_id', 'left')
-            ->order_by('infografis.id', 'desc')
-            ->get('infografis')
+            // ->where('category', 'agenda')
+            ->where('agenda.id > ', $agenda_detail->id)
+            ->join('users', 'users.id=agenda.user_id', 'left')
+            ->order_by('agenda.id', 'desc')
+            ->get('agenda')
             ->row_object();
 
-        $content_data['infografis_detail'] = $infografis_detail;
-        $content_data['infografis_detail_next'] = $infografis_detail_next;
-        $content_data['infografis_detail_prev'] = $infografis_detail_prev;
+        $slider = $this->db->get('sliders')->result_array();
+
+        $content_data['agenda_detail'] = $agenda_detail;
+        $content_data['agenda_detail_next'] = $agenda_detail_next;
+        $content_data['agenda_detail_prev'] = $agenda_detail_prev;
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['slider'] = $slider;
 
@@ -149,7 +151,7 @@ class Infografis extends CI_Controller
         $view_data['keywords'] = $this->keywords;
 
         // print_r2($view_data);
-        $view_data['content'] = $this->load->view('frontend/infografis_content', $content_data, true);
+        $view_data['content'] = $this->load->view('frontend/agenda_content', $content_data, true);
 
         $this->load->view('frontend/template', $view_data);
     }

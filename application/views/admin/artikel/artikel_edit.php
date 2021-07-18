@@ -11,15 +11,7 @@
                     <label for="date">Date</label>
                     <input type="text" id="date" name="date" value="<?= $date ?>" class="form-control datepicker" placeholder="Date">
                 </div>
-                <div class="form-group">
-                    <label for="category">Type</label>
-                    <?= form_dropdown('category', $category_opt, $category, ' id="category" class="form-control" ') ?>
-                </div>
 
-                <div id="date-publish" class="form-group" style="display: none;">
-                    <label for="date_publish">Jadwal Publikasi</label>
-                    <input type="text" id="date_publish" name="date_publish" value="<?= $date_publish ?>" class="form-control datepicker" placeholder="Date publish">
-                </div>
 
                 <div class="form-group">
                     <label for="image_upload">Image </label>
