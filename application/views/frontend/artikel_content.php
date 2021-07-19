@@ -163,6 +163,8 @@
                   </div>
                </aside>
 
+               <div id="gpr-kominfo-widget-container" class="mt-40"></div>
+
             </div>
          </div>
       </div>

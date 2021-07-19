@@ -104,11 +104,19 @@
                         </ul>
                     </aside>
 
-                    <div id="youtube-video" class="news-poster">
-                        <div style="font-size: 50px;text-align: center;">
-                            <i class="fas fa-spinner fa-spin"></i>
+                    <aside class="single_sidebar_widget instagram_feeds">
+                        <div class="section-tittle mb-40">
+                        <h4 class="widget_title">Kumpulan Video</h4>
                         </div>
-                    </div>
+                        <!-- New Poster -->
+                        <div id="youtube-video" class="news-poster">
+                            <div style="font-size: 50px;text-align: center;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </aside>
+                    
+                    <div id="gpr-kominfo-widget-container" class="mt-40"></div>
 
                 </div>
             </div>
