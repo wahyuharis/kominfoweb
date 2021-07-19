@@ -119,7 +119,7 @@
                         <?php foreach ($berita_pemkab as $bpemkab) : ?>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
-                                    <img src="#" alt="">
+                                    <img src="<?= substr($bpemkab['post_content'],53,88) ?>" alt="">
                                 </div>
                                 <div class="trand-right-cap hover-show">
                                     <span class="color3">Berita</span>

@@ -43,7 +43,7 @@ class Home extends CI_Controller
         //mengubah data json menjadi data array asosiatif
         $hasil=json_decode($content,true);
 
-        $dsn = 'mysqli://root:@localhost/anmedia';
+        $dsn = 'mysqli://adminjbrkab:J3mberK@b2019@36.91.26.86/db_jbrkab';
         $db2 = $this->load->database($dsn, TRUE);
 
         // Select records from 2nd database
@@ -51,7 +51,7 @@ class Home extends CI_Controller
             ->select('*')
             ->order_by('ID', 'desc')
             ->limit(10)
-            ->get('jk_posts')
+            ->get('wp_posts')
             ->result_array();
 
 
