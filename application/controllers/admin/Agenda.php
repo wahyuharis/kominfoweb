@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Pengumuman extends CI_Controller
+class Agenda extends CI_Controller
 {
 
-    private $title = "Pengumuman";
+    private $title = "Agenda";
 
     public function __construct()
     {
@@ -54,21 +54,25 @@ class Pengumuman extends CI_Controller
         $crud->set_theme('bootstrap');
         //##### inisiasi ##################
 
-        $crud->set_table('pengumuman');
+        $crud->set_table('agenda');
 
         $crud->where('deleted_at', null);
         if (strlen($tanggal) > 0) {
             $crud->like("date_format(date,'%d/%m/%Y')", $tanggal);
         }
 
-        $crud->columns('actions', 'id', 'title', 'image', 'content', 'date', 'user_id');
-        $crud->fields('title', 'slug', 'deskripsi', 'kata_kunci', 'image', 'content',  'date', 'user_id');
+        $crud->columns('actions', 'id', 'title', 'date', 'disposisi', 'keterangan', 'waktu', 'lokasi', 'user_id');
+        $crud->fields('title', 'slug', 'date', 'disposisi', 'keterangan', 'kata_kunci', 'waktu', 'lokasi',  'user_id');
         $crud->display_as('title', 'Judul');
-        $crud->display_as('content', 'Konten');
-        $crud->display_as('image', 'Image');
         $crud->display_as('date', 'Tanggal');
+        $crud->display_as('disposisi', 'Disposisi');
+        $crud->display_as('keterangan', 'Keterangan');
+        $crud->display_as('kata_kunci', 'Kata Kunci');
+        $crud->display_as('waktu', 'Waktu (WIB)');
+        $crud->display_as('lokasi', 'Lokasi');
+
         $crud->display_as('user_id', 'User');
-        $crud->display_as('get_view(pengumuman.id)', 'View');
+        $crud->display_as('get_view(agenda.id)', 'View');
         // $crud->unset_operations();
         $crud->unset_add();
         $crud->unset_edit();
@@ -79,13 +83,12 @@ class Pengumuman extends CI_Controller
         $crud->callback_field('user_id', array($this, '_callback_user_id'));
         $crud->callback_column('actions', array($this, '_callback_actions'));
 
-        $crud->set_subject('Pengumuman');
-        $crud->set_field_upload('image', 'assets/uploads/files');
-        $crud->required_fields('title', 'slug', 'image', 'date');
+        $crud->set_subject('Agenda');
+        $crud->required_fields('title', 'slug', 'keterangan', 'date');
 
 
         if ($crud->getstate() == 'insert_validation') {
-            $crud->set_rules('slug', 'Slug', 'trim|required|is_unique[pengumuman.slug]');
+            $crud->set_rules('slug', 'Slug', 'trim|required|is_unique[agenda.slug]');
         }
 
         $crud->callback_before_update(array($this, '_callback_before_update'));
@@ -100,7 +103,7 @@ class Pengumuman extends CI_Controller
         // print_r2($this->db->last_query());
 
         $view_data['output'] = $output->output;
-        $content = $this->load->view('admin/pengumuman/pengumuman', $view_data, true);
+        $content = $this->load->view('admin/agenda/agenda', $view_data, true);
 
         $template_data['content'] = $content;
         $template_data['content_title'] = $this->title;
@@ -131,7 +134,7 @@ class Pengumuman extends CI_Controller
     {
 
         $html = '<div style="width:220px" >';
-        $html .= "<a class='btn btn-xs btn-warning' href='" . base_url('admin/pengumuman/edit/' . $row->id) . "'>
+        $html .= "<a class='btn btn-xs btn-warning' href='" . base_url('admin/agenda/edit/' . $row->id) . "'>
         <i class='fa fa-pencil'></i>
         edit</a> ";
 
@@ -139,7 +142,6 @@ class Pengumuman extends CI_Controller
             ' href="#" onclick="delete_validation(' . $row->id . ')" > ' .
             "<i class='fa fa-trash'></i>" .
             "delete</a> ";
-
         $html .= '</div>';
 
         return $html;
@@ -149,7 +151,7 @@ class Pengumuman extends CI_Controller
         $this->db
             ->set(['deleted_at' => date('Y-m-d H:i:s')])
             ->where('id', $id)
-            ->update('pengumuman');
+            ->update('agenda');
 
         $this->session->set_flashdata('message_succes', 'berhasil menghapus');
     }
@@ -169,32 +171,33 @@ class Pengumuman extends CI_Controller
         $content_data = array();
         $content_data['primary_id'] = $id;
         $content_data['date'] = date('d/m/Y');
+
         $content_data['title'] = '';
         $content_data['slug'] = '';
-        $content_data['deskripsi'] = '';
+        $content_data['keterangan'] = '';
         $content_data['kata_kunci'] = '';
-        $content_data['content'] = '';
-        $content_data['image'] = '';
+        $content_data['disposisi'] = '';
+        $content_data['waktu'] = '';
+        $content_data['lokasi'] = '';
 
         if (!empty(trim($id))) {
             $db =  $this->db
-                ->where('pengumuman.id', $id)
-                ->get('pengumuman');
+                ->where('agenda.id', $id)
+                ->get('agenda');
 
             if ($db->num_rows() > 0) {
                 $content_data['date'] = waktu_ymd_to_dmy($db->row_object()->date);
 
-
                 $content_data['title'] = $db->row_object()->title;
                 $content_data['slug'] = $db->row_object()->slug;
-                $content_data['deskripsi'] = $db->row_object()->deskripsi;
+                $content_data['keterangan'] = $db->row_object()->keterangan;
                 $content_data['kata_kunci'] = $db->row_object()->kata_kunci;
-                $content_data['image'] = $db->row_object()->image;
-                $content_data['content'] = $db->row_object()->content;
+                $content_data['waktu'] = $db->row_object()->waktu;
+                $content_data['disposisi'] = $db->row_object()->disposisi;
             }
         }
 
-        $content = $this->load->view('admin/pengumuman/pengumuman_edit', $content_data, true);
+        $content = $this->load->view('admin/agenda/agenda_edit', $content_data, true);
 
 
         $template_data['content'] = $content;
@@ -221,33 +224,30 @@ class Pengumuman extends CI_Controller
 
         $this->form_validation->set_rules('title', ucwords('title'), 'trim|required');
         $this->form_validation->set_rules('date', ucwords('date'), 'callback_date_check');
-        $this->form_validation->set_rules('image', ucwords('image'), 'trim|required');
-        $this->form_validation->set_rules('slug', ucwords('slug'), 'callback_slug_check');
-        $this->form_validation->set_rules('content', ucwords('content'), 'trim|required');
 
-        if ($this->form_validation->run() == FALSE) {
-            $message = validation_errors();
-            $error = $this->form_validation->error_array();
-            $succes = false;
-        }
+        $this->form_validation->set_rules('slug', ucwords('slug'), 'callback_slug_check');
+        $this->form_validation->set_rules('keterangan', ucwords('keterangan'), 'trim|required');
+
         if ($succes) {
             $insert['title'] = $post['title'];
             $insert['date'] = waktu_dmy_to_ymd($post['date']);
-            $insert['image'] = $post['image'];
+            $insert['waktu'] = $post['waktu'];
             $insert['slug'] = trim($post['slug']);
-            $insert['content'] = $post['content'];
-            $insert['deskripsi'] = $post['deskripsi'];
+            $insert['keterangan'] = $post['keterangan'];
+            $insert['disposisi'] = $post['disposisi'];
+            $insert['lokasi'] = $post['lokasi'];
+            $insert['kata_kunci'] = $post['kata_kunci'];
 
             if (empty(trim($primary_id))) {
                 $insert['user_id'] = $this->session->userdata('id');
 
-                $this->db->insert('pengumuman', $insert);
+                $this->db->insert('agenda', $insert);
                 $insert_id = $this->db->insert_id();
             } else {
                 $insert_id = $primary_id;
                 $this->db->where('id', $primary_id);
                 $this->db->set($insert);
-                $this->db->update('pengumuman');
+                $this->db->update('agenda');
             }
         }
 
@@ -273,7 +273,7 @@ class Pengumuman extends CI_Controller
         if (strlen($primary_id) > 0) {
             $this->db->where('id!=', $primary_id);
         }
-        $db = $this->db->get('pengumuman');
+        $db = $this->db->get('agenda');
 
         if ($db->num_rows() > 0) {
             $slug = $db->row_object()->slug;
@@ -300,91 +300,5 @@ class Pengumuman extends CI_Controller
         }
 
         return $return;
-    }
-
-    function down($id)
-    {
-        $db = $this->db->where('id<', $id)
-            ->where('deleted_at', null)
-            ->order_by('id', 'desc')
-            ->limit(1)
-            ->get('pengumuman');
-
-        $db2 = $this->db->where('id', $id)
-            ->where('deleted_at', null)
-            ->get('pengumuman');
-
-        $down = false;
-        $current = false;
-
-        if ($db->num_rows() > 0 && $db2->num_rows() > 0) {
-            $down = $db->row_array();
-            $current = $db2->row_array();
-
-            $id_down = $down['id'];
-            $id_current = $current['id'];
-
-            $down['id'] = $id_current;
-            $current['id'] = $id_down;
-
-            if ($current['date'] != $down['date']) {
-                $this->session->set_flashdata('message_error', 'Maaf Tanggal Yang diturunkan Harus Sama');
-            } else {
-                $this->db->trans_start();
-
-                $this->db->delete('pengumuman', array('id' => $id_down));
-                $this->db->delete('pengumuman', array('id' => $id_current));
-
-                $this->db->insert('pengumuman', $down);
-                $this->db->insert('pengumuman', $current);
-
-                $this->db->trans_complete();
-            }
-        }
-
-        redirect('admin/pengumuman');
-    }
-    function up($id)
-    {
-        $db = $this->db->where('id>', $id)
-            ->where('deleted_at', null)
-            ->order_by('id', 'asc')
-            ->limit(1)
-            ->get('pengumuman');
-
-        $db2 = $this->db->where('id', $id)
-            ->where('deleted_at', null)
-            ->get('pengumuman');
-
-        $up = false;
-        $current = false;
-
-        if ($db->num_rows() > 0 && $db2->num_rows() > 0) {
-            $up = $db->row_array();
-            $current = $db2->row_array();
-
-            $id_up = $up['id'];
-            $id_current = $current['id'];
-
-
-            $up['id'] = $id_current;
-            $current['id'] = $id_up;
-
-            if ($current['date'] != $up['date']) {
-                $this->session->set_flashdata('message_error', 'Maaf Tanggal Yang dinaikan Harus Sama');
-            } else {
-                $this->db->trans_start();
-
-                $this->db->delete('pengumuman', array('id' => $id_up));
-                $this->db->delete('pengumuman', array('id' => $id_current));
-
-                $this->db->insert('pengumuman', $up);
-                $this->db->insert('pengumuman', $current);
-
-                $this->db->trans_complete();
-            }
-        }
-
-        redirect('admin/pengumuman');
     }
 }

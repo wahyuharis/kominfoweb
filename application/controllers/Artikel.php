@@ -38,7 +38,7 @@ class Artikel extends CI_Controller
         $start = page_to_start($page, $limit);
 
         $artikel_list = $this->db->where('deleted_at', null)
-            ->where('category', 'Artikel')
+
             ->group_start()
             ->or_like('title', $search)
             ->or_like('content', $search)
@@ -61,7 +61,7 @@ class Artikel extends CI_Controller
 
 
         $total_row = $this->db->where('deleted_at', null)
-            ->where('category', 'Artikel')
+
             ->group_start()
             ->or_like('title', $search)
             ->or_like('content', $search)
@@ -105,7 +105,7 @@ class Artikel extends CI_Controller
         $artikel_detail = $this->db
             ->select('artikel.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category', 'Artikel')
+
             ->where('slug', $slug)
             ->join('users', 'users.id=artikel.user_id', 'left')
             ->get('artikel')
@@ -127,7 +127,7 @@ class Artikel extends CI_Controller
         $artikel_detail_next = $this->db
             ->select('artikel.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category', 'Artikel')
+
             ->where('artikel.id < ', $artikel_detail->id)
             ->join('users', 'users.id=artikel.user_id', 'left')
             ->order_by('artikel.id', 'desc')
@@ -137,13 +137,13 @@ class Artikel extends CI_Controller
         $artikel_detail_prev = $this->db
             ->select('artikel.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category', 'Artikel')
+
             ->where('artikel.id > ', $artikel_detail->id)
             ->join('users', 'users.id=artikel.user_id', 'left')
             ->order_by('artikel.id', 'desc')
             ->get('artikel')
             ->row_object();
-        
+
         $slider = $this->db->get('sliders')->result_array();
 
         $content_data['artikel_detail'] = $artikel_detail;

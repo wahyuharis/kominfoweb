@@ -99,7 +99,7 @@
         for (var i = 0; i < img_array.length; i++) {
             html_str += '<div class="col-sm-3">' +
                 '<video controls="true" width="150px" height="100px">' +
-                    '<source src="<?= base_url('/assets/uploads/files/') ?>' + img_array[i] + '" type="video/mp4" />' +
+                '<source src="<?= base_url('/assets/uploads/files/') ?>' + img_array[i] + '" type="video/mp4" />' +
                 '</video>' +
                 '<br><a href="#" class="btn btn-xs btn-danger delete_image_list" data-img="' + img_array[i] + '" >hapus</a>' +
                 '</div>';
@@ -169,7 +169,7 @@
                     if (primary.trim().length > 0) {
                         toastr.info(data.message, 'informasi');
                     } else {
-                        window.location.href = '<?=base_url('admin/video/')?>';
+                        window.location.href = '<?= base_url('admin/video/') ?>';
                     }
                 } else {
                     toastr.error("Terjadi Kesalahan");

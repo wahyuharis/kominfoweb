@@ -61,14 +61,12 @@ class Artikel extends CI_Controller
             $crud->like("date_format(date,'%d/%m/%Y')", $tanggal);
         }
 
-        $crud->columns('actions', 'id', 'category', 'title', 'date', 'date_publish', 'user_id');
+        $crud->columns('actions', 'id', 'title', 'date', 'image', 'content', 'user_id');
         $crud->fields('title', 'slug', 'deskripsi', 'kata_kunci', 'image', 'content',  'date', 'user_id');
-        $crud->display_as('category', 'Type');
         $crud->display_as('title', 'Judul');
         $crud->display_as('content', 'Konten');
         $crud->display_as('image', 'Image');
         $crud->display_as('date', 'Tanggal');
-        $crud->display_as('date_publish', 'Jadwal Publikasi');
         $crud->display_as('user_id', 'User');
         $crud->display_as('get_view(artikel.id)', 'View');
         // $crud->unset_operations();
@@ -80,7 +78,6 @@ class Artikel extends CI_Controller
         $crud->set_relation('user_id', 'users', 'email');
         $crud->callback_field('user_id', array($this, '_callback_user_id'));
         $crud->callback_column('actions', array($this, '_callback_actions'));
-        $crud->callback_column('category', array($this, '_callback_category'));
 
         $crud->set_subject('Artikel');
         $crud->set_field_upload('image', 'assets/uploads/files');
@@ -114,19 +111,6 @@ class Artikel extends CI_Controller
         $this->load->view('admin/template', $template_data);
     }
 
-    function _callback_category($value, $row)
-    {
-        $html = "";
-
-        if (trim($value) == 'Artikel') {
-            $html .= '<span class="label label-primary" >' . $value . '</span>';
-        } else {
-            $html .= '<span class="label label-warning" >' . $value . '</span>';
-        }
-
-        return $html;
-    }
-
     function _callback_user_id($value = '', $primary_key = null)
     {
         $field = '<input type="hidden" value="' . $this->session->userdata('id') . '" name="user_id" >';
@@ -154,17 +138,6 @@ class Artikel extends CI_Controller
             ' href="#" onclick="delete_validation(' . $row->id . ')" > ' .
             "<i class='fa fa-trash'></i>" .
             "delete</a> ";
-
-        // if ($row->category == 'Artikel') {
-        $html .= " <a class='btn btn-xs btn-default' href='" . base_url('admin/artikel/up/' . $row->id) . "'>
-            <i class='fa fa-chevron-circle-up'></i>
-            UP</a> ";
-
-        $html .= "<a class='btn btn-xs btn-default' href='" . base_url('admin/artikel/down/' . $row->id) . "'>
-            <i class='fa fa-chevron-circle-down'></i>
-            DOWN</a> ";
-        // }
-
 
 
         $html .= '</div>';
@@ -196,16 +169,12 @@ class Artikel extends CI_Controller
         $content_data = array();
         $content_data['primary_id'] = $id;
         $content_data['date'] = date('d/m/Y');
-        $content_data['date_publish'] = '';
-        $content_data['category'] = 'Artikel';
         $content_data['title'] = '';
         $content_data['slug'] = '';
         $content_data['deskripsi'] = '';
         $content_data['kata_kunci'] = '';
         $content_data['content'] = '';
         $content_data['image'] = '';
-        $content_data['category'] = '';
-        $content_data['category_opt'] = array('Artikel' => 'Artikel', 'Draft' => 'Draft');
 
         if (!empty(trim($id))) {
             $db =  $this->db
@@ -214,8 +183,6 @@ class Artikel extends CI_Controller
 
             if ($db->num_rows() > 0) {
                 $content_data['date'] = waktu_ymd_to_dmy($db->row_object()->date);
-                $content_data['date_publish'] = waktu_ymd_to_dmy($db->row_object()->date_publish);
-                $content_data['category'] = $db->row_object()->category;
 
                 $content_data['title'] = $db->row_object()->title;
                 $content_data['slug'] = $db->row_object()->slug;
@@ -257,26 +224,19 @@ class Artikel extends CI_Controller
         $this->form_validation->set_rules('slug', ucwords('slug'), 'callback_slug_check');
         $this->form_validation->set_rules('content', ucwords('content'), 'trim|required');
 
-        if ($this->input->post('category') == 'Draft') {
-            $this->form_validation->set_rules('date_publish', ucwords('Jadwal Publikasi'), 'trim|required');
-        }
-
         if ($this->form_validation->run() == FALSE) {
             $message = validation_errors();
             $error = $this->form_validation->error_array();
             $succes = false;
         }
-
         if ($succes) {
             $insert['title'] = $post['title'];
             $insert['date'] = waktu_dmy_to_ymd($post['date']);
-            $insert['date_publish'] = waktu_dmy_to_ymd($post['date_publish']);
             $insert['image'] = $post['image'];
             $insert['slug'] = trim($post['slug']);
             $insert['content'] = $post['content'];
             $insert['deskripsi'] = $post['deskripsi'];
             $insert['kata_kunci'] = $post['kata_kunci'];
-            $insert['category'] = $post['category'];
 
             if (empty(trim($primary_id))) {
                 $insert['user_id'] = $this->session->userdata('id');
@@ -340,91 +300,5 @@ class Artikel extends CI_Controller
         }
 
         return $return;
-    }
-
-    function down($id)
-    {
-        $db = $this->db->where('id<', $id)
-            ->where('deleted_at', null)
-            ->order_by('id', 'desc')
-            ->limit(1)
-            ->get('artikel');
-
-        $db2 = $this->db->where('id', $id)
-            ->where('deleted_at', null)
-            ->get('artikel');
-
-        $down = false;
-        $current = false;
-
-        if ($db->num_rows() > 0 && $db2->num_rows() > 0) {
-            $down = $db->row_array();
-            $current = $db2->row_array();
-
-            $id_down = $down['id'];
-            $id_current = $current['id'];
-
-            $down['id'] = $id_current;
-            $current['id'] = $id_down;
-
-            if ($current['date'] != $down['date']) {
-                $this->session->set_flashdata('message_error', 'Maaf Tanggal Yang diturunkan Harus Sama');
-            } else {
-                $this->db->trans_start();
-
-                $this->db->delete('artikel', array('id' => $id_down));
-                $this->db->delete('artikel', array('id' => $id_current));
-
-                $this->db->insert('artikel', $down);
-                $this->db->insert('artikel', $current);
-
-                $this->db->trans_complete();
-            }
-        }
-
-        redirect('admin/artikel');
-    }
-    function up($id)
-    {
-        $db = $this->db->where('id>', $id)
-            ->where('deleted_at', null)
-            ->order_by('id', 'asc')
-            ->limit(1)
-            ->get('artikel');
-
-        $db2 = $this->db->where('id', $id)
-            ->where('deleted_at', null)
-            ->get('artikel');
-
-        $up = false;
-        $current = false;
-
-        if ($db->num_rows() > 0 && $db2->num_rows() > 0) {
-            $up = $db->row_array();
-            $current = $db2->row_array();
-
-            $id_up = $up['id'];
-            $id_current = $current['id'];
-
-
-            $up['id'] = $id_current;
-            $current['id'] = $id_up;
-
-            if ($current['date'] != $up['date']) {
-                $this->session->set_flashdata('message_error', 'Maaf Tanggal Yang dinaikan Harus Sama');
-            } else {
-                $this->db->trans_start();
-
-                $this->db->delete('artikel', array('id' => $id_up));
-                $this->db->delete('artikel', array('id' => $id_current));
-
-                $this->db->insert('artikel', $up);
-                $this->db->insert('artikel', $current);
-
-                $this->db->trans_complete();
-            }
-        }
-
-        redirect('admin/artikel');
     }
 }

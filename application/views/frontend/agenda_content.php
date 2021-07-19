@@ -3,29 +3,31 @@
       <div class="row">
          <div class="col-lg-8 posts-list">
             <div class="single-post">
-               <div class="feature-img">
-                  <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $artikel_detail->image) ?>" alt="">
-               </div>
-
                <div class="blog_details">
                   <h2>
-                     <?= $artikel_detail->title ?>
+                     <?= $agenda_detail->title ?>
                   </h2>
 
                   <ul class="blog-info-link mt-3 mb-4">
-                     <li><a href="#"><i class="fa fa-user"></i> <?= $artikel_detail->fullname ?></a></li>
-                     <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($artikel_detail->date)  ?></a></li>
+                     <li><a href="#"><i class="fa fa-user"></i> <?= $agenda_detail->fullname ?></a></li>
+                     <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($agenda_detail->date)  ?></a></li>
                   </ul>
 
-                  <?= $artikel_detail->content ?>
-
+                  <div class="card text-center">
+                     <div class="card-body">
+                        <p class="card-text" style="text-align: left;"><b>Hari/Tanggal :</b> <?= $agenda_detail->date ?></p>
+                        <p class="card-text" style="text-align: left;"><b>Waktu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> <?= $agenda_detail->waktu ?></p>
+                        <p class="card-text" style="text-align: left;"><b>Lokasi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> <?= $agenda_detail->lokasi ?></p>
+                        <p class="card-text" style="text-align: left;"><b>Disposisi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> <?= $agenda_detail->disposisi ?></p>
+                        <p class="card-text" style="text-align: left;"><b>Keterangan &nbsp;:</b> <?= $agenda_detail->keterangan ?></p>
+                     </div>
+                  </div>
                </div>
-
             </div>
             <div class="navigation-top">
                <div class="d-sm-flex justify-content-between text-center">
                   <p class="like-info"><span class="align-middle"><i class="fa fa-eye"></i></span>
-                     <?= $artikel_detail->view ?>
+                     <?= $agenda_detail->view ?>
                      kali dilihat </p>
                   <div class="col-sm-4 text-center my-2 my-sm-0">
                      <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
@@ -38,48 +40,40 @@
                <div class="navigation-area">
                   <div class="row">
                      <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-                        <?php if (!is_null($artikel_detail_prev)) { ?>
+                        <?php if (!is_null($agenda_detail_prev)) { ?>
 
-                           <div class="thumb">
-                              <a href="<?= base_url('artikel/detail/' . $artikel_detail_prev->slug) ?>">
-                                 <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $artikel_detail_prev->image) ?>" alt="">
-                              </a>
-                           </div>
+
                            <div class="arrow">
-                              <a href="<?= base_url('artikel/detail/' . $artikel_detail_prev->slug) ?>">
+                              <a href="<?= base_url('agenda/detail/' . $agenda_detail_prev->slug) ?>">
                                  <span class="lnr text-white ti-arrow-left"></span>
                               </a>
                            </div>
                            <div class="detials hover-show" style="max-width: 174px;">
                               <p>Prev Post</p>
-                              <a href="<?= base_url('artikel/detail/' . $artikel_detail_prev->slug) ?>">
-                                 <h6 class="long-title"><?= $artikel_detail_prev->title ?></h6>
-                                 <h6 class="short-title"><?= substr($artikel_detail_prev->title, 0, 20) ?> ... </h6>
+                              <a href="<?= base_url('agenda/detail/' . $agenda_detail_prev->slug) ?>">
+                                 <h6 class="long-title"><?= $agenda_detail_prev->title ?></h6>
+                                 <h6 class="short-title"><?= substr($agenda_detail_prev->title, 0, 20) ?> ... </h6>
                               </a>
                            </div>
                         <?php } ?>
 
                      </div>
                      <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
-                        <?php if (!is_null($artikel_detail_next)) { ?>
+                        <?php if (!is_null($agenda_detail_next)) { ?>
 
                            <div class="detials hover-show" style="max-width: 174px;">
                               <p>Next Post</p>
-                              <a href="<?= base_url('artikel/detail/' . $artikel_detail_next->slug) ?>">
-                                 <h6 class="long-title"><?= $artikel_detail_next->title ?></h6>
-                                 <h6 class="short-title"><?= substr($artikel_detail_next->title, 0, 20) ?> ... </h6>
+                              <a href="<?= base_url('agenda/detail/' . $agenda_detail_next->slug) ?>">
+                                 <h6 class="long-title"><?= $agenda_detail_next->title ?></h6>
+                                 <h6 class="short-title"><?= substr($agenda_detail_next->title, 0, 20) ?> ... </h6>
                               </a>
                            </div>
                            <div class="arrow">
-                              <a href="<?= base_url('artikel/detail/' . $artikel_detail_next->slug) ?>">
+                              <a href="<?= base_url('agenda/detail/' . $agenda_detail_next->slug) ?>">
                                  <span class="lnr text-white ti-arrow-right"></span>
                               </a>
                            </div>
-                           <div class="thumb">
-                              <a href="<?= base_url('artikel/detail/' . $artikel_detail_next->slug) ?>">
-                                 <img class="img-fluid" src="<?= base_url('assets/uploads/files/' . $artikel_detail_next->image) ?>" alt="">
-                              </a>
-                           </div>
+
                         <?php } ?>
                      </div>
                   </div>

@@ -161,7 +161,8 @@ $config['composer_autoload'] = true;
 |
 */
 $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
-
+//$config['grocery_crud_file_upload_allow_file_types'] = 'gif|jpeg|jpg|png|tiff|doc|docx|txt|odt|xls|xlsx|pdf|ppt|pptx|pps|ppsx|mp3|m4a|ogg|wav|mp4|m4v|mov|wmv|flv|avi|mpg|ogv|3gp|3g2';
+//$config['grocery_crud_file_upload_max_file_size'] = '20GB';
 /*
 |--------------------------------------------------------------------------
 | Enable Query Strings

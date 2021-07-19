@@ -6,40 +6,38 @@
 
 
                 <div class="section-tittle mb-30">
-                    <h2>Artikel</h2>
+                    <h2 class="mt-2" style="text-align: center;">Agenda<br><br></h2>
                 </div>
 
                 <div class="blog_left_sidebar">
-
-                    <?php foreach ($artikel_list as $artikelx) : ?>
-                        <article class="blog_item">
-                            <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="<?= base_url('assets/uploads/files/' . $artikelx['image']) ?>" alt="">
-                                <span class="blog_item_date">
-                                    <h3><?php
-                                        $var = date_create($artikelx['date']);
-                                        echo date_format($var, "d");
-                                        ?></h3>
-                                    <p><?= bulan_indo(date_format($var, "m")) ?></p>
-                                </span>
+                    <?php foreach ($agenda_list as $agendax) : ?>
+                        <div class="card text-center">
+                            <div style="text-align: left;" class="card-header">
+                                <h4><?= $agendax['title']; ?></h4>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text" style="text-align: left;"><b>Hari/Tanggal :</b> <?= $agendax['date']; ?></p>
+                                <p class="card-text" style="text-align: left;"><b>Waktu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> <?= $agendax['waktu']; ?></p>
+                                <p class="card-text" style="text-align: left;"><b>Lokasi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> <?= $agendax['lokasi']; ?></p>
+                                <p class="card-text" style="text-align: left;"><b>Disposisi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> <?= $agendax['disposisi']; ?></p>
+                                <p class="card-text" style="text-align: left;"><b>Keterangan &nbsp;:</b> <?= substr($agendax['keterangan'], 0, 250); ?>.....</p>
+                                <a href="<?= base_url('agenda/detail/' . $agendax['slug']) ?>" class="btn btn-primary">Lihat Detail</a>
                             </div>
 
-                            <div class="blog_details">
-                                <a class="d-inline-block" href="<?= base_url('artikel/detail/' . $artikelx['slug']) ?>">
-                                    <h2><?= $artikelx['title'] ?></h2>
-                                </a>
-                                <p><?= getFirstParagraph2($artikelx['content']) ?></p>
-                                <ul class="blog-info-link">
-                                    <li><a href="#"><i class="fa fa-user"></i> <?= strtoupper($artikelx['fullname']) ?></a></li>
-                                    <li><a href="#"><i class="fa fa-calendar"></i>
-                                            <?php
-                                            $var = date_create($artikelx['date']);
-                                            echo date_format($var, "d/m/Y");
-                                            ?>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                        </div>
+                        <div class="blog_details">
+
+                            <ul class="blog-info-link">
+                                <li><a href="#"><i class="fa fa-user"></i> <?= strtoupper($agendax['fullname']) ?></a></li>
+                                <li><a href="#"><i class="fa fa-calendar"></i>
+                                        <?php
+                                        $var = date_create($agendax['date']);
+                                        echo date_format($var, "d/m/Y");
+                                        ?>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                         </article>
                     <?php endforeach; ?>
 
