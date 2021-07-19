@@ -27,20 +27,12 @@ class Sejarah_dinas extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-        $url_ppid="https://ppid.jemberkab.go.id/api/berita";
-        $get_url = file_get_contents($url_ppid);
-        //mengubah standar encoding
-        $content=utf8_encode($get_url);
-            
-        //mengubah data json menjadi data array asosiatif
-        $hasil=json_decode($content,true);
         // print_r2($sejarah_dinas);
 
         $slider = $this->db->get('sliders')->result_array();
 
         $content_data['sejarah_dinas'] = $sejarah_dinas;
         $content_data['berita_kanan'] = $berita_kanan;
-        $content_data['berita_ppid'] = $hasil;
         $content_data['slider'] = $slider;
 
 

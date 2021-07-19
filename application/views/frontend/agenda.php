@@ -6,27 +6,40 @@
 
 
                 <div class="section-tittle mb-30">
-                    <h2>Agenda</h2>
+                    <h2 class="mt-2" style="text-align: center;">Agenda<br><br></h2>
                 </div>
 
                 <div class="blog_left_sidebar">
-                <?php foreach ($agenda_list as $agendax) : ?>
-                <div class="w3-card-4" style="width:100%">
-                    <header class="w3-container w3-blue">
-                    <h3 class="agenda" style="color:white"><?= $agendax['title']; ?></h3>
-                    </header>
-                    <div class="w3-container w3-light-grey">
-                    <br>
-                    <p style="color:black"><b>Tanggal :</b> <?= $agendax['date']; ?> /
-                    <b>Pukul :</b> <?= $agendax['waktu']; ?> WIB<br>
-                    <b>Lokasi :</b> <?= $agendax['lokasi']; ?><br>
-                    <b>Disposisi :</b> <?= $agendax['disposisi']; ?><br>
-                    <b>Keterangan :</b> <?= substr($agendax['keterangan'], 0, 90); ?>...
-                    </p>
-                </div>
-                    <a href="<?= base_url('agenda/detail/' . $agendax['slug']) ?>" class="w3-button w3-block w3-blue-grey">Lihat Detail</a>
-                </div>   <br>     
-                <?php endforeach; ?>
+                    <?php foreach ($agenda_list as $agendax) : ?>
+                        <div class="card text-center">
+                            <div style="text-align: left;" class="card-header">
+                                <h4><?= $agendax['title']; ?></h4>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text" style="text-align: left;"><b>Hari/Tanggal :</b> <?= $agendax['date']; ?></p>
+                                <p class="card-text" style="text-align: left;"><b>Waktu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> <?= $agendax['waktu']; ?></p>
+                                <p class="card-text" style="text-align: left;"><b>Lokasi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> <?= $agendax['lokasi']; ?></p>
+                                <p class="card-text" style="text-align: left;"><b>Disposisi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> <?= $agendax['disposisi']; ?></p>
+                                <p class="card-text" style="text-align: left;"><b>Keterangan &nbsp;:</b> <?= substr($agendax['keterangan'], 0, 250); ?>.....</p>
+                                <a href="<?= base_url('agenda/detail/' . $agendax['slug']) ?>" class="btn btn-primary">Lihat Detail</a>
+                            </div>
+
+                        </div>
+                        <div class="blog_details">
+
+                            <ul class="blog-info-link">
+                                <li><a href="#"><i class="fa fa-user"></i> <?= strtoupper($agendax['fullname']) ?></a></li>
+                                <li><a href="#"><i class="fa fa-calendar"></i>
+                                        <?php
+                                        $var = date_create($agendax['date']);
+                                        echo date_format($var, "d/m/Y");
+                                        ?>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        </article>
+                    <?php endforeach; ?>
 
                     <nav class="blog-pagination justify-content-center d-flex">
                         <?= $pagination ?>
@@ -84,16 +97,16 @@
                         </ul><br />
                         <h3 class="widget_title">Berita PPID Terbaru</h3>
                         <ul class="data-list2" data-autoscroll>
-                            <?php foreach ($berita_ppid['data'] as $bppid) : ?>
+                            <?php foreach ($berita_kanan as $bkanan) : ?>
                                 <div class="media post_item">
-                                    <img src=" https://ppid.jemberkab.go.id/storage/<?= $bppid['foto_berita'] ?>" alt="post" style="border-radius: 5px;">
+                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
                                     <div class="media-body hover-show">
                                         <span class="color2">Berita</span>
-                                        <a href=" https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank">
-                                            <h3 class="short-title"><?= substr($bppid['judul_berita'], 0, 50) ?>...</h3>
-                                            <h3 class="long-title"><?= ($bppid['judul_berita']) ?></h3>
+                                        <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
+                                            <h3 class="short-title"><?= substr($bkanan['title'], 0, 50) ?>...</h3>
+                                            <h3 class="long-title"><?= ($bkanan['title']) ?></h3>
                                         </a>
-                                        <p><?= waktu_ymd_to_dmy($bppid['tanggal_berita']) ?></p>
+                                        <p><?= waktu_ymd_to_dmy($bkanan['date']) ?></p>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
@@ -108,8 +121,6 @@
                             </div>
                         </div>
                     </aside>
-
-                    <div id="gpr-kominfo-widget-container" class="mt-40"></div>
                 </div>
             </div>
         </div>
