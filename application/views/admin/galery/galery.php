@@ -20,26 +20,4 @@
 
         // alert('hello');
     });
-
-    function delete_validation(id) {
-
-        bootbox.confirm({
-            message: "This is a confirm with custom button text and color! Do you like it?",
-            buttons: {
-                confirm: {
-                    label: 'Yes',
-                    className: 'btn-danger'
-                },
-            },
-            callback: function(result) {
-                if (result) {
-                    $.get("<?= base_url('admin/galery/delete/') ?>" + id, function(data) {
-                        window.location.href = '<?= base_url('admin/galery/index') ?>';
-                    });
-                }
-            }
-        });
-
-
-        }
 </script>

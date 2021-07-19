@@ -13,16 +13,15 @@ class Dropzone extends CI_Controller
 
         $config['upload_path']          = './assets/uploads/files';
         $config['allowed_types']        = 'gif|jpg|png|jpeg|GIF|JPG|PNG|JPEG';
-        $config['file_name']        = date('Y-m-d') . "-" . uniqid().".jpg";
 
 
         $this->load->library('upload', $config);
 
         if ($this->upload->do_upload('file')) {
 
-            $upload_data = $this->upload->data();
+            $upload_data=$this->upload->data();
 
-            if ($upload_data['image_width'] > 1500 || $upload_data['image_height'] > 1500) {
+            if($upload_data['image_width'] > 1500 || $upload_data['image_height'] > 1500   ){
                 $config['image_library'] = 'gd2';
                 $config['source_image'] = $upload_data['full_path'];
                 $config['create_thumb'] = FALSE;
