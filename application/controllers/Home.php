@@ -43,6 +43,17 @@ class Home extends CI_Controller
         //mengubah data json menjadi data array asosiatif
         $hasil=json_decode($content,true);
 
+        $dsn = 'mysqli://root:@localhost/anmedia';
+        $db2 = $this->load->database($dsn, TRUE);
+
+        // Select records from 2nd database
+       $berita_pemkab =  $db2->where('post_status', 'publish')
+            ->select('*')
+            ->order_by('ID', 'desc')
+            ->limit(10)
+            ->get('jk_posts')
+            ->result_array();
+
 
         $berita_tengah = $berita_model->berita_terpopuler();
         // header_text();
@@ -64,6 +75,7 @@ class Home extends CI_Controller
         $content_data['link'] = $link;
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['berita_ppid'] = $hasil;
+        $content_data['berita_pemkab'] = $berita_pemkab;
         $content_data['berita_tengah'] = $berita_tengah;
         $content_data['berita_bawah'] = $berita_bawah;
         $content_data['slider'] = $slider;

@@ -106,7 +106,7 @@
 
                     <aside class="single_sidebar_widget instagram_feeds">
                         <div class="section-tittle mb-40">
-                            <h3>Kumpulan Video</h3>
+                        <h4 class="widget_title">Kumpulan Video</h4>
                         </div>
                         <!-- New Poster -->
                         <div id="youtube-video" class="news-poster">
@@ -115,7 +115,8 @@
                             </div>
                         </div>
                     </aside>
-
+                            
+                    <div id="gpr-kominfo-widget-container" class="mt-40"></div>
                 </div>
             </div>
         </div>
