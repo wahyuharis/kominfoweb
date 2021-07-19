@@ -91,16 +91,16 @@
                         </ul><br/>
                         <h3 class="widget_title">Berita PPID Terbaru</h3>
                         <ul class="data-list2" data-autoscroll>
-                            <?php foreach ($berita_kanan as $bkanan) : ?>
+                            <?php foreach ($berita_ppid['data'] as $bppid) : ?>
                                 <div class="media post_item">
-                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
+                                    <img src=" https://ppid.jemberkab.go.id/storage/<?= $bppid['foto_berita'] ?>" alt="post" style="border-radius: 5px;">
                                     <div class="media-body hover-show">
                                         <span class="color2">Berita</span>
-                                        <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
-                                            <h3 class="short-title"><?= substr($bkanan['title'], 0, 50) ?>...</h3>
-                                            <h3 class="long-title"><?= ($bkanan['title']) ?></h3>
+                                        <a href=" https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank">
+                                            <h3 class="short-title"><?= substr($bppid['judul_berita'], 0, 50) ?>...</h3>
+                                            <h3 class="long-title"><?= ($bppid['judul_berita']) ?></h3>
                                         </a>
-                                        <p><?= waktu_ymd_to_dmy($bkanan['date']) ?></p>
+                                        <p><?= waktu_ymd_to_dmy($bppid['tanggal_berita']) ?></p>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
@@ -110,7 +110,7 @@
 
                     <aside class="single_sidebar_widget instagram_feeds">
                         <div class="section-tittle mb-40">
-                            <h3>Kumpulan Video</h3>
+                        <h4 class="widget_title">Kumpulan Video</h4>
                         </div>
                         <!-- New Poster -->
                         <div id="youtube-video" class="news-poster">
@@ -119,7 +119,8 @@
                             </div>
                         </div>
                     </aside>
-
+                            
+                    <div id="gpr-kominfo-widget-container" class="mt-40"></div>
                 </div>
             </div>
         </div>

@@ -24,13 +24,21 @@ class Agenda extends CI_Controller
         $search = $this->input->get('search');
 
         $berita_kanan = $this->db->where('deleted_at', null)
-            ->where('category', 'Post')
-            ->select('feeds.*,users.fullname')
-            ->join('users', 'users.id=feeds.user_id')
-            ->order_by('id', 'desc')
-            ->limit(10)
-            ->get('feeds')
-            ->result_array();
+        ->where('category', 'Berita')
+        ->select('feeds.*,users.fullname')
+        ->join('users', 'users.id=feeds.user_id')
+        ->order_by('id', 'desc')
+        ->limit(10)
+        ->get('feeds')
+        ->result_array();
+
+        $url_ppid="https://ppid.jemberkab.go.id/api/berita";
+        $get_url = file_get_contents($url_ppid);
+        //mengubah standar encoding
+        $content=utf8_encode($get_url);
+                
+        //mengubah data json menjadi data array asosiatif
+        $hasil=json_decode($content,true);
 
 
         $page = $this->input->get('page');
@@ -50,6 +58,12 @@ class Agenda extends CI_Controller
             ->get('agenda')
             ->result_array();
 
+        // print_r2($berita_blog_list);
+        // header_text();
+        // $html = getFirstParagraph2($berita_blog_list[]['content']);
+        // echo $html;
+        // echo $berita_blog_list[1]['content'];
+        // die();
 
         $slider = $this->db->get('sliders')->result_array();
 
@@ -71,6 +85,7 @@ class Agenda extends CI_Controller
         $this->pagination->initialize($config);
 
         $content_data['berita_kanan'] = $berita_kanan;
+        $content_data['berita_ppid'] = $hasil;
         $content_data['agenda_list'] = $agenda_list;
         $content_data['slider'] = $slider;
         $content_data['pagination'] = $this->pagination->create_links();
@@ -88,13 +103,21 @@ class Agenda extends CI_Controller
         // print_r2($slug);
 
         $berita_kanan = $this->db->where('deleted_at', null)
-            ->where('category', 'Post')
-            ->select('feeds.*,users.fullname')
-            ->join('users', 'users.id=feeds.user_id', 'left')
-            ->order_by('id', 'desc')
-            ->limit(10)
-            ->get('feeds')
-            ->result_array();
+        ->where('category', 'Berita')
+        ->select('feeds.*,users.fullname')
+        ->join('users', 'users.id=feeds.user_id')
+        ->order_by('id', 'desc')
+        ->limit(10)
+        ->get('feeds')
+        ->result_array();
+
+        $url_ppid="https://ppid.jemberkab.go.id/api/berita";
+        $get_url = file_get_contents($url_ppid);
+        //mengubah standar encoding
+        $content=utf8_encode($get_url);
+                
+        //mengubah data json menjadi data array asosiatif
+        $hasil=json_decode($content,true);
 
         $agenda_detail = $this->db
             ->select('agenda.*,users.fullname')
@@ -105,12 +128,11 @@ class Agenda extends CI_Controller
             ->get('agenda')
             ->row_object();
 
-
         $this->description = $agenda_detail->keterangan;
         $this->keywords = $agenda_detail->kata_kunci;
 
         if (empty(trim($this->description))) {
-            $this->description = getFirstParagraph2($agenda_detail->content);
+            $this->description = getFirstParagraph2($agenda_detail->waktu);
         }
 
         $keywords2 = str_replace(' ', ', ', $agenda_detail->title);
@@ -145,6 +167,7 @@ class Agenda extends CI_Controller
         $content_data['agenda_detail_next'] = $agenda_detail_next;
         $content_data['agenda_detail_prev'] = $agenda_detail_prev;
         $content_data['berita_kanan'] = $berita_kanan;
+        $content_data['berita_ppid'] = $hasil;
         $content_data['slider'] = $slider;
 
         $view_data['description'] = $this->description;

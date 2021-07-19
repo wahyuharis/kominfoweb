@@ -12,17 +12,20 @@
                      <li><a href="#"><i class="fa fa-user"></i> <?= $agenda_detail->fullname ?></a></li>
                      <li><a href="#"><i class="fa fa-calendar"></i> <?= waktu_ymd_to_dmy($agenda_detail->date)  ?></a></li>
                   </ul>
+                  <div class="w3-card-2" style="width:100%">
 
-                  <div class="card text-center">
-                     <div class="card-body">
-                        <p class="card-text" style="text-align: left;"><b>Hari/Tanggal :</b> <?= $agenda_detail->date ?></p>
-                        <p class="card-text" style="text-align: left;"><b>Waktu &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> <?= $agenda_detail->waktu ?></p>
-                        <p class="card-text" style="text-align: left;"><b>Lokasi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> <?= $agenda_detail->lokasi ?></p>
-                        <p class="card-text" style="text-align: left;"><b>Disposisi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> <?= $agenda_detail->disposisi ?></p>
-                        <p class="card-text" style="text-align: left;"><b>Keterangan &nbsp;:</b> <?= $agenda_detail->keterangan ?></p>
+                     <div class="w3-container w3-light-grey">
+                        <br>
+                        <p><b>Tanggal :</b> <?= $agenda_detail->date ?> / <b>Pukul:</b> <?= $agenda_detail->waktu ?> WIB<br>
+                        <b>Lokasi :</b> <?= $agenda_detail->lokasi ?> <br>
+                        <b>Disposisi :</b> <?= $agenda_detail->disposisi ?><br>
+                        <b>Keterangan &nbsp;:</b> <?= $agenda_detail->keterangan ?>
+                        </p>
                      </div>
+   
                   </div>
                </div>
+
             </div>
             <div class="navigation-top">
                <div class="d-sm-flex justify-content-between text-center">
@@ -42,7 +45,14 @@
                      <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                         <?php if (!is_null($agenda_detail_prev)) { ?>
 
+<<<<<<< HEAD
+                           <div class="thumb">
+                              <a href="<?= base_url('agenda/detail/' . $agenda_detail_prev->slug) ?>">
+                              </a>
+                           </div>
+=======
 
+>>>>>>> intanp
                            <div class="arrow">
                               <a href="<?= base_url('agenda/detail/' . $agenda_detail_prev->slug) ?>">
                                  <span class="lnr text-white ti-arrow-left"></span>
@@ -73,7 +83,14 @@
                                  <span class="lnr text-white ti-arrow-right"></span>
                               </a>
                            </div>
+<<<<<<< HEAD
+                           <div class="thumb">
+                              <a href="<?= base_url('agenda/detail/' . $agenda_detail_next->slug) ?>">
+                              </a>
+                           </div>
+=======
 
+>>>>>>> intanp
                         <?php } ?>
                      </div>
                   </div>
@@ -132,6 +149,21 @@
                   </ul><br />
                   <h3 class="widget_title">Berita PPID Terbaru</h3>
                   <ul class="data-list2" data-autoscroll>
+<<<<<<< HEAD
+                              <?php foreach ($berita_ppid['data'] as $bppid) : ?>
+                                <div class="media post_item">
+                                    <img src=" https://ppid.jemberkab.go.id/storage/<?= $bppid['foto_berita'] ?>" alt="post" style="border-radius: 5px;">
+                                    <div class="media-body hover-show">
+                                        <span class="color2">Berita</span>
+                                        <a href=" https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank">
+                                            <h3 class="short-title"><?= substr($bppid['judul_berita'], 0, 50) ?>...</h3>
+                                            <h3 class="long-title"><?= ($bppid['judul_berita']) ?></h3>
+                                        </a>
+                                        <p><?= waktu_ymd_to_dmy($bppid['tanggal_berita']) ?></p>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+=======
                      <?php foreach ($berita_kanan as $bkanan) : ?>
                         <div class="media post_item">
                            <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
@@ -145,6 +177,7 @@
                            </div>
                         </div>
                      <?php endforeach; ?>
+>>>>>>> intanp
                   </ul>
                </aside>
 
@@ -157,6 +190,11 @@
                   </div>
                </aside>
 
+<<<<<<< HEAD
+               <div id="gpr-kominfo-widget-container" class="mt-40"></div>
+
+=======
+>>>>>>> intanp
             </div>
          </div>
       </div>

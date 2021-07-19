@@ -82,16 +82,20 @@ class Galery extends CI_Controller
 
 
     public function _callback_actions($value, $row)
-    {
-        $edit = "<a class='btn btn-xs btn-warning' href='" . base_url('admin/galery/edit/' . $row->id) . "'>
+    {   
+        $html = '<div style="width:220px" >';
+        $html .= "<a class='btn btn-xs btn-warning' href='" . base_url('admin/galery/edit/' . $row->id) . "'>
         <i class='fa fa-pencil'></i>
-        edit</a>";
+        edit</a> ";
 
-        $delete = " <a class='btn btn-xs btn-danger' href='" . base_url('admin/galery/delete/' . $row->id) . "'>
-        <i class='fa fa-trash'></i>
-        delete</a>";
+        $html .= " <a class='btn btn-xs btn-danger'  " .
+            ' href="#" onclick="delete_validation(' . $row->id . ')" > ' .
+            "<i class='fa fa-trash'></i>" .
+            "delete</a> ";
 
-        return $edit . " " . $delete;
+            $html .= '</div>';
+
+            return $html;
     }
 
 
@@ -302,5 +306,38 @@ class Galery extends CI_Controller
 
         header_json();
         echo json_encode($result);
+    }
+
+    public function delete($id){
+
+        $this->db->select('image');
+        $query = $this->db->get_where('galleries_child', array('id_galeries' => $id));
+        $images = $query->result_array();
+
+        $this->db->select('image');
+        $query = $this->db->get_where('galleries', array('id' => $id));
+        $images1 = $query->row();
+
+        // echo "$images1->image";
+        // foreach ($images as $value) {
+
+        //     echo "NIM : ".$value['id_galeries']."<br>";
+        //     echo "Nama : ".$value['image']."<br>";
+   
+        //  }
+        if (!empty($images1)){
+            unlink(FCPATH.'assets/uploads/files/'.$images1->image);
+            
+            $this->db->delete('galleries', array('id' => $id)); 
+        }
+
+        if (!empty($images)){
+            foreach ($images as $image) { 
+                unlink(FCPATH.'assets/uploads/files/'.$image['image']);
+            }
+            $this->db->delete('galleries_child', array('id_galeries' => $id)); 
+        } 
+
+        $this->session->set_flashdata('message_succes', 'berhasil menghapus');
     }
 }
