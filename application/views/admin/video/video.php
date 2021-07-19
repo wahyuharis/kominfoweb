@@ -14,7 +14,7 @@
         $("#custom_add").removeClass("hidden");
         <?php if ($state == 'edit' || $state == "add") { ?>
 
-            
+
 
         <?php } ?>
 

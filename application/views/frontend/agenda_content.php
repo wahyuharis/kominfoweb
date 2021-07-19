@@ -3,7 +3,6 @@
       <div class="row">
          <div class="col-lg-8 posts-list">
             <div class="single-post">
-
                <div class="blog_details">
                   <h2>
                      <?= $agenda_detail->title ?>
@@ -46,10 +45,14 @@
                      <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                         <?php if (!is_null($agenda_detail_prev)) { ?>
 
+<<<<<<< HEAD
                            <div class="thumb">
                               <a href="<?= base_url('agenda/detail/' . $agenda_detail_prev->slug) ?>">
                               </a>
                            </div>
+=======
+
+>>>>>>> intanp
                            <div class="arrow">
                               <a href="<?= base_url('agenda/detail/' . $agenda_detail_prev->slug) ?>">
                                  <span class="lnr text-white ti-arrow-left"></span>
@@ -80,10 +83,14 @@
                                  <span class="lnr text-white ti-arrow-right"></span>
                               </a>
                            </div>
+<<<<<<< HEAD
                            <div class="thumb">
                               <a href="<?= base_url('agenda/detail/' . $agenda_detail_next->slug) ?>">
                               </a>
                            </div>
+=======
+
+>>>>>>> intanp
                         <?php } ?>
                      </div>
                   </div>
@@ -142,6 +149,7 @@
                   </ul><br />
                   <h3 class="widget_title">Berita PPID Terbaru</h3>
                   <ul class="data-list2" data-autoscroll>
+<<<<<<< HEAD
                               <?php foreach ($berita_ppid['data'] as $bppid) : ?>
                                 <div class="media post_item">
                                     <img src=" https://ppid.jemberkab.go.id/storage/<?= $bppid['foto_berita'] ?>" alt="post" style="border-radius: 5px;">
@@ -155,6 +163,21 @@
                                     </div>
                                 </div>
                             <?php endforeach; ?>
+=======
+                     <?php foreach ($berita_kanan as $bkanan) : ?>
+                        <div class="media post_item">
+                           <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
+                           <div class="media-body hover-show">
+                              <span class="color2">Berita</span>
+                              <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
+                                 <h3 class="short-title"><?= substr($bkanan['title'], 0, 50) ?>...</h3>
+                                 <h3 class="long-title"><?= ($bkanan['title']) ?></h3>
+                              </a>
+                              <p><?= waktu_ymd_to_dmy($bkanan['date']) ?></p>
+                           </div>
+                        </div>
+                     <?php endforeach; ?>
+>>>>>>> intanp
                   </ul>
                </aside>
 
@@ -167,8 +190,11 @@
                   </div>
                </aside>
 
+<<<<<<< HEAD
                <div id="gpr-kominfo-widget-container" class="mt-40"></div>
 
+=======
+>>>>>>> intanp
             </div>
          </div>
       </div>

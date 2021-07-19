@@ -46,7 +46,6 @@ class Infografis extends CI_Controller
         $start = page_to_start($page, $limit);
 
         $infografis_list = $this->db->where('deleted_at', null)
-            ->where('category', 'Infografis')
             ->group_start()
             ->or_like('title', $search)
             ->or_like('content', $search)
@@ -69,7 +68,6 @@ class Infografis extends CI_Controller
         $slider = $this->db->get('sliders')->result_array();
 
         $total_row = $this->db->where('deleted_at', null)
-            ->where('category', 'Infografis')
             ->group_start()
             ->or_like('title', $search)
             ->or_like('content', $search)
@@ -122,7 +120,6 @@ class Infografis extends CI_Controller
         $infografis_detail = $this->db
             ->select('infografis.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category', 'Infografis')
             ->where('slug', $slug)
             ->join('users', 'users.id=infografis.user_id', 'left')
             ->get('infografis')
@@ -144,7 +141,6 @@ class Infografis extends CI_Controller
         $infografis_detail_next = $this->db
             ->select('infografis.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category', 'Infografis')
             ->where('infografis.id < ', $infografis_detail->id)
             ->join('users', 'users.id=infografis.user_id', 'left')
             ->order_by('infografis.id', 'desc')
@@ -154,7 +150,6 @@ class Infografis extends CI_Controller
         $infografis_detail_prev = $this->db
             ->select('infografis.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category', 'Infografis')
             ->where('infografis.id > ', $infografis_detail->id)
             ->join('users', 'users.id=infografis.user_id', 'left')
             ->order_by('infografis.id', 'desc')

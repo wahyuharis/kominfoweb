@@ -46,7 +46,6 @@ class Pengumuman extends CI_Controller
         $start = page_to_start($page, $limit);
 
         $pengumuman_list = $this->db->where('deleted_at', null)
-            ->where('category', 'Pengumuman')
             ->group_start()
             ->or_like('title', $search)
             ->or_like('content', $search)
@@ -69,7 +68,6 @@ class Pengumuman extends CI_Controller
 
 
         $total_row = $this->db->where('deleted_at', null)
-            ->where('category', 'Pengumuman')
             ->group_start()
             ->or_like('title', $search)
             ->or_like('content', $search)
@@ -122,7 +120,6 @@ class Pengumuman extends CI_Controller
         $pengumuman_detail = $this->db
             ->select('pengumuman.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category', 'Pengumuman')
             ->where('slug', $slug)
             ->join('users', 'users.id=pengumuman.user_id', 'left')
             ->get('pengumuman')
@@ -145,7 +142,6 @@ class Pengumuman extends CI_Controller
         $pengumuman_detail_next = $this->db
             ->select('pengumuman.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category', 'Pengumuman')
             ->where('pengumuman.id < ', $pengumuman_detail->id)
             ->join('users', 'users.id=pengumuman.user_id', 'left')
             ->order_by('pengumuman.id', 'desc')
@@ -155,7 +151,6 @@ class Pengumuman extends CI_Controller
         $pengumuman_detail_prev = $this->db
             ->select('pengumuman.*,users.fullname')
             ->where('deleted_at', null)
-            ->where('category', 'Pengumuman')
             ->where('pengumuman.id > ', $pengumuman_detail->id)
             ->join('users', 'users.id=pengumuman.user_id', 'left')
             ->order_by('pengumuman.id', 'desc')
