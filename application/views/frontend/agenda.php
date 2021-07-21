@@ -6,27 +6,27 @@
 
 
                 <div class="section-tittle mb-30">
-                    <h2>Agenda</h2>
+                    <h2>Agenda Intanp</h2>
                 </div>
 
                 <div class="blog_left_sidebar">
-                <?php foreach ($agenda_list as $agendax) : ?>
-                <div class="w3-card-4" style="width:100%">
-                    <header class="w3-container w3-blue">
-                    <h3 class="agenda" style="color:white"><?= $agendax['title']; ?></h3>
-                    </header>
-                    <div class="w3-container w3-light-grey">
-                    <br>
-                    <p style="color:black"><b>Tanggal :</b> <?= $agendax['date']; ?> /
-                    <b>Pukul :</b> <?= $agendax['waktu']; ?> WIB<br>
-                    <b>Lokasi :</b> <?= $agendax['lokasi']; ?><br>
-                    <b>Disposisi :</b> <?= $agendax['disposisi']; ?><br>
-                    <b>Keterangan :</b> <?= substr($agendax['keterangan'], 0, 90); ?>...
-                    </p>
-                </div>
-                    <a href="<?= base_url('agenda/detail/' . $agendax['slug']) ?>" class="w3-button w3-block w3-blue-grey">Lihat Detail</a>
-                </div>   <br>     
-                <?php endforeach; ?>
+                    <?php foreach ($agenda_list as $agendax) : ?>
+                        <div class="w3-card-4" style="width:100%">
+                            <header class="w3-container w3-blue">
+                                <h3 class="agenda" style="color:white"><?= $agendax['title']; ?></h3>
+                            </header>
+                            <div class="w3-container w3-light-grey">
+                                <br>
+                                <p style="color:black"><b>Tanggal :</b> <?= $agendax['date']; ?> /
+                                    <b>Pukul :</b> <?= $agendax['waktu']; ?> WIB<br>
+                                    <b>Lokasi :</b> <?= $agendax['lokasi']; ?><br>
+                                    <b>Disposisi :</b> <?= $agendax['disposisi']; ?><br>
+                                    <b>Keterangan :</b> <?= substr($agendax['keterangan'], 0, 90); ?>...
+                                </p>
+                            </div>
+                            <a href="<?= base_url('agenda/detail/' . $agendax['slug']) ?>" class="w3-button w3-block w3-blue-grey">Lihat Detail</a>
+                        </div> <br>
+                    <?php endforeach; ?>
 
                     <nav class="blog-pagination justify-content-center d-flex">
                         <?= $pagination ?>
