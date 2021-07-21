@@ -32,13 +32,6 @@ class Artikel extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-        $url_ppid="https://ppid.jemberkab.go.id/api/berita";
-        $get_url = file_get_contents($url_ppid);
-        //mengubah standar encoding
-        $content=utf8_encode($get_url);
-                
-        //mengubah data json menjadi data array asosiatif
-        $hasil=json_decode($content,true);
 
         $page = $this->input->get('page');
         $limit = 5;
@@ -84,7 +77,6 @@ class Artikel extends CI_Controller
         $this->pagination->initialize($config);
 
         $content_data['berita_kanan'] = $berita_kanan;
-        $content_data['berita_ppid'] = $hasil;
         $content_data['artikel_list'] = $artikel_list;
         $content_data['slider'] = $slider;
         $content_data['pagination'] = $this->pagination->create_links();
@@ -109,14 +101,6 @@ class Artikel extends CI_Controller
             ->limit(10)
             ->get('feeds')
             ->result_array();
-        
-        $url_ppid="https://ppid.jemberkab.go.id/api/berita";
-        $get_url = file_get_contents($url_ppid);
-        //mengubah standar encoding
-        $content=utf8_encode($get_url);
-                
-        //mengubah data json menjadi data array asosiatif
-        $hasil=json_decode($content,true);
 
         $artikel_detail = $this->db
             ->select('artikel.*,users.fullname')
@@ -166,7 +150,6 @@ class Artikel extends CI_Controller
         $content_data['artikel_detail_next'] = $artikel_detail_next;
         $content_data['artikel_detail_prev'] = $artikel_detail_prev;
         $content_data['berita_kanan'] = $berita_kanan;
-        $content_data['berita_ppid'] = $hasil;
         $content_data['slider'] = $slider;
 
         $view_data['description'] = $this->description;

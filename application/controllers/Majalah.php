@@ -29,14 +29,6 @@ class Majalah extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-        $url_ppid="https://ppid.jemberkab.go.id/api/berita";
-        $get_url = file_get_contents($url_ppid);
-        //mengubah standar encoding
-        $content=utf8_encode($get_url);
-            
-        //mengubah data json menjadi data array asosiatif
-        $hasil=json_decode($content,true);
-
         $slider = $this->db->get('sliders')->result_array();
         $page = $this->input->get('page');
         $limit = 5;
@@ -80,7 +72,6 @@ class Majalah extends CI_Controller
 
 
         $content_data['berita_kanan'] = $berita_kanan;
-        $content_data['berita_ppid'] = $hasil;
         $content_data['majalah_list'] = $majalah_list;
         $content_data['slider'] = $slider;
         $content_data['pagination'] = $this->pagination->create_links();

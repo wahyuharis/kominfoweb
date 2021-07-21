@@ -38,11 +38,11 @@ if (!isset($keywords)) {
     <?php } ?>
 
     <?php if (isset($meta_img) && !empty(trim($meta_img))) {  ?>
-        <meta name="image" content="<?=base_url($meta_img)  ?>" />
-        <meta property="og:image" content="<?=base_url($meta_img) ?>">
+        <meta name="image" content="<?=base_url('Image_ob/show/'.$meta_img)?>" />
+        <meta property="og:image" content="<?=base_url('Image_ob/show/'.$meta_img)?>">
     <?php }else{ ?>
-        <meta name="image" content="<?=base_url('assets/kominfo.png')?>" />
-        <meta property="og:image" content="<?=base_url('assets/kominfo.png')?>">
+        <meta name="image" content="<?=base_url('assets/uploads/files/0ae96-1db68-f271f-khhjsrydnljngsofhsjeysyhfx5d1g6hfl1wlvq9ow0ddp8szrfggsfy1s1x.jpeg')?>" />
+        <meta property="og:image" content="<?=base_url('assets/uploads/files/0ae96-1db68-f271f-khhjsrydnljngsofhsjeysyhfx5d1g6hfl1wlvq9ow0ddp8szrfggsfy1s1x.jpeg')?>">
     <?php } ?>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,7 +65,7 @@ if (!isset($keywords)) {
     <link rel="stylesheet" href="<?= base_url() ?>node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.css">
 
     <link rel="stylesheet" href="<?= base_url() ?>template_kominfo/assets/css/custom.css">
-    <link rel="stylesheet" href="<?= base_url() ?>template_kominfo/assets/css/custom-card.css">
+
     <!-- <script src="<?= base_url() ?>template_kominfo/assets/js/vendor/jquery-1.12.4.min.js"></script> -->
     <script src="<?= base_url() ?>node_modules/jquery/dist/jquery.min.js"></script>
     <script src="<?= base_url() ?>node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
@@ -291,7 +291,6 @@ if (!isset($keywords)) {
     <script src="<?= base_url() ?>template_kominfo/assets/js/main.js"></script>
     <script src="<?= base_url() ?>template_kominfo/assets/js/jquery.autoscroll.js" type="text/javascript" charset="utf-8"></script>
     <script src="<?= base_url() ?>template_kominfo/assets/js/zoom.js"></script>
-    <script type="text/javascript" src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js"></script>
     <?php require_once 'visitor.php' ?>
 </body>
 

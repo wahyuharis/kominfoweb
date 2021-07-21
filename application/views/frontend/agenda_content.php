@@ -25,7 +25,6 @@
 
                   </div>
                </div>
-
             </div>
             <div class="navigation-top">
                <div class="d-sm-flex justify-content-between text-center">

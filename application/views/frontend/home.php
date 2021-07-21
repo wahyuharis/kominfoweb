@@ -116,16 +116,16 @@
                     </div>
 
                     <div class="data-list" data-autoscroll>
-                        <?php foreach ($berita_pemkab as $bpemkab) : ?>
+                        <?php foreach ($berita_kanan as $bkanan) : ?>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
-                                    <img src="<?= substr($bpemkab['post_content'],53,88) ?>" alt="">
+                                    <img src="<?= substr($bpemkab['post_content'], 53, 88) ?>" alt="">
                                 </div>
                                 <div class="trand-right-cap hover-show">
                                     <span class="color3">Berita</span>
-                                    <h4 class="short-title"><a href="https://www.jemberkab.go.id/<?= $bpemkab['post_name'] ?>" target="_blank"><?= substr($bpemkab['post_title'], 0, 50) ?>...</a></h4>
-                                    <h4 class="long-title"><a href="https://www.jemberkab.go.id/<?= $bpemkab['post_name'] ?>" target="_blank"><?= $bpemkab['post_title'] ?></a></h4>
-                                    <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bpemkab['post_date']) ?></p>
+                                    <h4 class="short-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= substr($bkanan['title'], 0, 50) ?>...</a></h4>
+                                    <h4 class="long-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= $bkanan['title'] ?></a></h4>
+                                    <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bkanan['date']) ?></p>
                                 </div>
                             </div>
                         <?php endforeach; ?>
@@ -136,16 +136,16 @@
                     </div>
 
                     <div class="data-list" data-autoscroll>
-                        <?php foreach ($berita_ppid['data'] as $bppid) : ?>
+                        <?php foreach ($berita_kanan as $bkanan) : ?>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
-                                    <img src=" https://ppid.jemberkab.go.id/storage/<?= $bppid['foto_berita'] ?>" alt="">
+                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="">
                                 </div>
                                 <div class="trand-right-cap hover-show">
                                     <span class="color3">Berita</span>
-                                    <h4 class="short-title"><a href=" https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank"><?= substr($bppid['judul_berita'], 0, 50) ?>...</a></h4>
-                                    <h4 class="long-title"><a href=" https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank"><?= $bppid['judul_berita'] ?></a></h4>
-                                    <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bppid['tanggal_berita']) ?></p>
+                                    <h4 class="short-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= substr($bkanan['title'], 0, 50) ?>...</a></h4>
+                                    <h4 class="long-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= $bkanan['title'] ?></a></h4>
+                                    <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bkanan['date']) ?></p>
                                 </div>
                             </div>
                         <?php endforeach; ?>
@@ -234,7 +234,51 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                
+                <!-- Section Tittle -->
+                <!-- <div class="section-tittle mb-40">
+                    <h3>Jumlah Pengikut</h3>
+                </div> -->
+                <!-- Flow Socail -->
+                <!-- <div class="single-follow mb-45">
+                    <div class="single-box">
+                        <div class="follow-us d-flex align-items-center">
+                            <div class="follow-social">
+                                <a href="#"><img src="<?= base_url() ?>template_kominfo/assets/img/news/icon-fb.png" alt=""></a>
+                            </div>
+                            <div class="follow-count">
+                                <span>8,045</span>
+                                <p>Fans</p>
+                            </div>
+                        </div>
+                        <div class="follow-us d-flex align-items-center">
+                            <div class="follow-social">
+                                <a href="#"><img src="<?= base_url() ?>template_kominfo/assets/img/news/icon-tw.png" alt=""></a>
+                            </div>
+                            <div class="follow-count">
+                                <span>8,045</span>
+                                <p>Fans</p>
+                            </div>
+                        </div>
+                        <div class="follow-us d-flex align-items-center">
+                            <div class="follow-social">
+                                <a href="#"><img src="<?= base_url() ?>template_kominfo/assets/img/news/icon-ins.png" alt=""></a>
+                            </div>
+                            <div class="follow-count">
+                                <span>8,045</span>
+                                <p>Fans</p>
+                            </div>
+                        </div>
+                        <div class="follow-us d-flex align-items-center">
+                            <div class="follow-social">
+                                <a href="#"><img src="<?= base_url() ?>template_kominfo/assets/img/news/icon-yo.png" alt=""></a>
+                            </div>
+                            <div class="follow-count">
+                                <span>8,045</span>
+                                <p>Fans</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
                 <div class="section-tittle mb-40">
                     <h3>Kumpulan Video</h3>
                 </div>
@@ -244,8 +288,6 @@
                         <i class="fas fa-spinner fa-spin"></i>
                     </div>
                 </div>
-
-                <div id="gpr-kominfo-widget-container" class="mt-40"></div>
             </div>
         </div>
     </div>

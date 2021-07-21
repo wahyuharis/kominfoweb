@@ -31,14 +31,6 @@ class Pengumuman extends CI_Controller
             ->limit(10)
             ->get('feeds')
             ->result_array();
-        
-        $url_ppid="https://ppid.jemberkab.go.id/api/berita";
-        $get_url = file_get_contents($url_ppid);
-        //mengubah standar encoding
-        $content=utf8_encode($get_url);
-            
-        //mengubah data json menjadi data array asosiatif
-        $hasil=json_decode($content,true);
 
 
         $page = $this->input->get('page');
@@ -83,7 +75,6 @@ class Pengumuman extends CI_Controller
         $this->pagination->initialize($config);
 
         $content_data['berita_kanan'] = $berita_kanan;
-        $content_data['berita_ppid'] = $hasil;
         $content_data['pengumuman_list'] = $pengumuman_list;
         $content_data['slider'] = $slider;
         $content_data['pagination'] = $this->pagination->create_links();
@@ -108,14 +99,6 @@ class Pengumuman extends CI_Controller
             ->limit(10)
             ->get('feeds')
             ->result_array();
-        
-        $url_ppid="https://ppid.jemberkab.go.id/api/berita";
-        $get_url = file_get_contents($url_ppid);
-        //mengubah standar encoding
-        $content=utf8_encode($get_url);
-            
-        //mengubah data json menjadi data array asosiatif
-        $hasil=json_decode($content,true);
 
         $pengumuman_detail = $this->db
             ->select('pengumuman.*,users.fullname')
@@ -161,7 +144,6 @@ class Pengumuman extends CI_Controller
         $content_data['pengumuman_detail_next'] = $pengumuman_detail_next;
         $content_data['pengumuman_detail_prev'] = $pengumuman_detail_prev;
         $content_data['berita_kanan'] = $berita_kanan;
-        $content_data['berita_ppid'] = $hasil;
         $content_data['slider'] = $slider;
 
         $view_data['description'] = $this->description;
