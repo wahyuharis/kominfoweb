@@ -50,7 +50,7 @@
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
                     <aside class="single_sidebar_widget search_widget">
-                    <form action="<?= base_url('blog') ?>" method="get">
+                        <form action="<?= base_url('blog') ?>" method="get">
                             <div class="form-group">
                                 <div class="input-group mb-3">
                                     <input type="text" name="search" class="form-control" placeholder='Cari Berita' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cari Berita'">
@@ -80,7 +80,7 @@
                                     </div>
                                 </div>
                             <?php endforeach; ?>
-                        </ul><br/>
+                        </ul><br />
                         <h3 class="widget_title">Berita PPID Terbaru</h3>
                         <ul class="data-list2" data-autoscroll>
                             <?php foreach ($berita_ppid['data'] as $bppid) : ?>
@@ -99,7 +99,7 @@
                         </ul>
                     </aside>
 
-                    
+
 
                     <!-- <aside class="single_sidebar_widget tag_cloud_widget">
                         <h4 class="widget_title">Tag Berita</h4>
@@ -139,11 +139,12 @@
                                 <i class="fas fa-spinner fa-spin"></i>
                             </div>
                         </div>
-
-                        <div id="gpr-kominfo-widget-container" class="mt-40"></div>
                     </aside>
+                    <aside class="single_sidebar_widget newsletter_widget">
+                        <h4 class="widget_title">Lainnya</h4>
 
-                    <div id="gpr-kominfo-widget-container" class="mt-40"></div>
+                        <div id="gpr-kominfo-widget-container" class="mt-30"></div>
+                    </aside>
                 </div>
             </div>
         </div>

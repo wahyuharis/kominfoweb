@@ -123,8 +123,11 @@
                             </div>
                         </div>
                     </aside>
+                    <aside class="single_sidebar_widget newsletter_widget">
+                        <h4 class="widget_title">Lainnya</h4>
 
-                    <div id="gpr-kominfo-widget-container" class="mt-40"></div>
+                        <div id="gpr-kominfo-widget-container" class="mt-30"></div>
+                    </aside>
                 </div>
             </div>
         </div>

@@ -138,19 +138,19 @@
                   </ul><br />
                   <h3 class="widget_title">Berita PPID Terbaru</h3>
                   <ul class="data-list2" data-autoscroll>
-                           <?php foreach ($berita_ppid['data'] as $bppid) : ?>
-                                <div class="media post_item">
-                                    <img src=" https://ppid.jemberkab.go.id/storage/<?= $bppid['foto_berita'] ?>" alt="post" style="border-radius: 5px;">
-                                    <div class="media-body hover-show">
-                                        <span class="color2">Berita</span>
-                                        <a href=" https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank">
-                                            <h3 class="short-title"><?= substr($bppid['judul_berita'], 0, 50) ?>...</h3>
-                                            <h3 class="long-title"><?= ($bppid['judul_berita']) ?></h3>
-                                        </a>
-                                        <p><?= waktu_ymd_to_dmy($bppid['tanggal_berita']) ?></p>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
+                     <?php foreach ($berita_ppid['data'] as $bppid) : ?>
+                        <div class="media post_item">
+                           <img src=" https://ppid.jemberkab.go.id/storage/<?= $bppid['foto_berita'] ?>" alt="post" style="border-radius: 5px;">
+                           <div class="media-body hover-show">
+                              <span class="color2">Berita</span>
+                              <a href=" https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank">
+                                 <h3 class="short-title"><?= substr($bppid['judul_berita'], 0, 50) ?>...</h3>
+                                 <h3 class="long-title"><?= ($bppid['judul_berita']) ?></h3>
+                              </a>
+                              <p><?= waktu_ymd_to_dmy($bppid['tanggal_berita']) ?></p>
+                           </div>
+                        </div>
+                     <?php endforeach; ?>
                   </ul>
                </aside>
 
@@ -162,8 +162,11 @@
                      </div>
                   </div>
                </aside>
+               <aside class="single_sidebar_widget newsletter_widget">
+                  <h4 class="widget_title">Lainnya</h4>
 
-               <div id="gpr-kominfo-widget-container" class="mt-40"></div>
+                  <div id="gpr-kominfo-widget-container" class="mt-30"></div>
+               </aside>
 
             </div>
          </div>

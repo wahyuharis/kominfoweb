@@ -34,7 +34,7 @@
                         </ul>
                     </div>
 
-                    
+
                 </div>
                 <!--kalau dihapus berita kanan pindah bawah-->
             </div>
@@ -52,31 +52,31 @@
                             </div>
                             <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Cari</button>
                         </form> -->
-                    <div id="carousel-kanan" class="carousel slide" data-ride="carousel">
-                        <ul class="carousel-indicators">
-                            <?php $i_slide = 0; ?>
-                            <?php foreach ($slider as $srow) : ?>
-                                <li data-target="#carousel-kanan" data-slide-to="<?= $i_slide ?>" class="<?php if ($i_slide < 1) echo "active" ?>"></li>
-                                <?php $i_slide++; ?>
-                            <?php endforeach; ?>
-                        </ul>
-                        <div class="carousel-inner">
-                            <?php $i_slide = 0; ?>
-                            <?php foreach ($slider as $srow) : ?>
-                                <div class="carousel-item <?php if ($i_slide < 1) echo "active"  ?>">
-                                    <img width="100%" height="180px" src="<?= base_url('assets/uploads/files/' . $srow['image']) ?>" alt="">
-                                </div>
-                                <?php $i_slide++; ?>
-                            <?php endforeach; ?>
+                        <div id="carousel-kanan" class="carousel slide" data-ride="carousel">
+                            <ul class="carousel-indicators">
+                                <?php $i_slide = 0; ?>
+                                <?php foreach ($slider as $srow) : ?>
+                                    <li data-target="#carousel-kanan" data-slide-to="<?= $i_slide ?>" class="<?php if ($i_slide < 1) echo "active" ?>"></li>
+                                    <?php $i_slide++; ?>
+                                <?php endforeach; ?>
+                            </ul>
+                            <div class="carousel-inner">
+                                <?php $i_slide = 0; ?>
+                                <?php foreach ($slider as $srow) : ?>
+                                    <div class="carousel-item <?php if ($i_slide < 1) echo "active"  ?>">
+                                        <img width="100%" height="180px" src="<?= base_url('assets/uploads/files/' . $srow['image']) ?>" alt="">
+                                    </div>
+                                    <?php $i_slide++; ?>
+                                <?php endforeach; ?>
 
+                            </div>
+                            <a class="carousel-control-prev" href="#carousel-kanan" data-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel-kanan" data-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
                         </div>
-                        <a class="carousel-control-prev" href="#carousel-kanan" data-slide="prev">
-                            <span class="carousel-control-prev-icon"></span>
-                        </a>
-                        <a class="carousel-control-next" href="#carousel-kanan" data-slide="next">
-                            <span class="carousel-control-next-icon"></span>
-                        </a>
-                    </div>
                     </aside>
 
 
@@ -96,7 +96,7 @@
                                     </div>
                                 </div>
                             <?php endforeach; ?>
-                        </ul><br/>
+                        </ul><br />
                         <h3 class="widget_title">Berita PPID Terbaru</h3>
                         <ul class="data-list2" data-autoscroll>
                             <?php foreach ($berita_ppid['data'] as $bppid) : ?>
@@ -117,7 +117,7 @@
 
                     <aside class="single_sidebar_widget instagram_feeds">
                         <div class="section-tittle mb-40">
-                        <h4 class="widget_title">Kumpulan Video</h4>
+                            <h4 class="widget_title">Kumpulan Video</h4>
                         </div>
                         <!-- New Poster -->
                         <div id="youtube-video" class="news-poster">
@@ -126,8 +126,14 @@
                             </div>
                         </div>
                     </aside>
-                    
-                    <div id="gpr-kominfo-widget-container" class="mt-40"></div>
+
+                    <aside class="single_sidebar_widget newsletter_widget">
+                        <h4 class="widget_title">Lainnya</h4>
+
+                        <div id="gpr-kominfo-widget-container" class="mt-30"></div>
+                    </aside>
+
+
                 </div>
             </div>
         </div>

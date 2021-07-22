@@ -119,7 +119,7 @@
                         <?php foreach ($berita_pemkab as $bpemkab) : ?>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
-                                    <img src="<?= substr($bpemkab['post_content'],53,88) ?>" alt="">
+                                    <img src="<?= substr($bpemkab['post_content'], 53, 90) ?>" alt="">
                                 </div>
                                 <div class="trand-right-cap hover-show">
                                     <span class="color3">Berita</span>
@@ -234,7 +234,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                
+
                 <div class="section-tittle mb-40">
                     <h3>Kumpulan Video</h3>
                 </div>
@@ -244,8 +244,12 @@
                         <i class="fas fa-spinner fa-spin"></i>
                     </div>
                 </div>
+                <br>
+                <div class="section-tittle mb-20">
+                    <h3>Lainnya</h3>
+                </div>
 
-                <div id="gpr-kominfo-widget-container" class="mt-40"></div>
+                <div id="gpr-kominfo-widget-container" class="mt-20"></div>
             </div>
         </div>
     </div>

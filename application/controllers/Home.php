@@ -15,7 +15,7 @@ class Home extends CI_Controller
     public function index()
     {
         $this->load->model('Berita_model');
-        $berita_model=new Berita_model();
+        $berita_model = new Berita_model();
 
 
         $this->description = "Jl. Dewi Sartika No.54, Kepatihan, Kec. Kaliwates, Kabupaten Jember, Jawa Timur 68131
@@ -34,20 +34,21 @@ class Home extends CI_Controller
             ->limit(10)
             ->get('feeds')
             ->result_array();
-        
-        $url_ppid="https://ppid.jemberkab.go.id/api/berita";
+
+        $url_ppid = "https://ppid.jemberkab.go.id/api/berita";
         $get_url = file_get_contents($url_ppid);
         //mengubah standar encoding
-        $content=utf8_encode($get_url);
-    
+        $content = utf8_encode($get_url);
+
         //mengubah data json menjadi data array asosiatif
-        $hasil=json_decode($content,true);
+        $hasil = json_decode($content, true);
 
         $dsn = 'mysqli://adminjbrkab:J3mberK@b2019@36.91.26.86/db_jbrkab';
         $db2 = $this->load->database($dsn, TRUE);
 
         // Select records from 2nd database
-       $berita_pemkab =  $db2->where('post_status', 'publish')
+        $berita_pemkab =  $db2->where('post_status', 'publish')
+            ->where('post_type', 'post')
             ->select('*')
             ->order_by('ID', 'desc')
             ->limit(10)
