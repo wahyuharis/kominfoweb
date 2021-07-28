@@ -116,16 +116,16 @@
                     </div>
 
                     <div class="data-list" data-autoscroll>
-                        <?php foreach ($berita_pemkab as $bpemkab) : ?>
+                        <?php foreach ($berita_kanan as $bkanan) : ?>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
-                                    <img src="<?= substr($bpemkab['post_content'], 53, 90) ?>" alt="">
+                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="">
                                 </div>
                                 <div class="trand-right-cap hover-show">
                                     <span class="color3">Berita</span>
-                                    <h4 class="short-title"><a href="https://www.jemberkab.go.id/<?= $bpemkab['post_name'] ?>" target="_blank"><?= substr($bpemkab['post_title'], 0, 50) ?>...</a></h4>
-                                    <h4 class="long-title"><a href="https://www.jemberkab.go.id/<?= $bpemkab['post_name'] ?>" target="_blank"><?= $bpemkab['post_title'] ?></a></h4>
-                                    <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bpemkab['post_date']) ?></p>
+                                    <h4 class="short-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= substr($bkanan['title'], 0, 50) ?>...</a></h4>
+                                    <h4 class="long-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= $bkanan['title'] ?></a></h4>
+                                    <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($btengah['date']) ?></p>
                                 </div>
                             </div>
                         <?php endforeach; ?>
