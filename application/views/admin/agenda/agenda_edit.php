@@ -50,7 +50,7 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="slug">Lokasi</label>
-                    <input type="text" id="lokasi" name="lokasi" valie="<?= $lokasi ?>" class="form-control" placeholder="lokasi">
+                    <input type="text" id="lokasi" name="lokasi" value="<?= $lokasi ?>" class="form-control" placeholder="lokasi">
                 </div>
             </div>
 

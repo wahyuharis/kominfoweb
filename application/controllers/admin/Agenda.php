@@ -194,6 +194,7 @@ class Agenda extends CI_Controller
                 $content_data['kata_kunci'] = $db->row_object()->kata_kunci;
                 $content_data['waktu'] = $db->row_object()->waktu;
                 $content_data['disposisi'] = $db->row_object()->disposisi;
+                $content_data['lokasi'] = $db->row_object()->lokasi;
             }
         }
 
