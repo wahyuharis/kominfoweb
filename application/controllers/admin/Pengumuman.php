@@ -237,6 +237,7 @@ class Pengumuman extends CI_Controller
             $insert['slug'] = trim($post['slug']);
             $insert['content'] = $post['content'];
             $insert['deskripsi'] = $post['deskripsi'];
+            $insert['kata_kunci'] = $post['kata_kunci'];
 
             if (empty(trim($primary_id))) {
                 $insert['user_id'] = $this->session->userdata('id');
