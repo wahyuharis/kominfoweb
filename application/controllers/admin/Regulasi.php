@@ -34,9 +34,10 @@ class Regulasi extends CI_Controller
         $crud->set_field_upload('document', 'assets/uploads/files');
         $crud->required_fields();
 
-        $crud->set_relation('id_kategori','regulasi_kategori','nama_kategori');
+        $crud->set_relation('id_kategori', 'regulasi_kategori', 'nama_kategori');
 
         $crud->callback_before_upload(array($this, '_callback_upload'));
+        $crud->callback_before_delete(array($this, 'crud_delete_file'));
 
         $output = $crud->render();
 
@@ -63,5 +64,14 @@ class Regulasi extends CI_Controller
         }
 
         return $return;
+    }
+
+    public function crud_delete_file($primary_key)
+    {
+        $row = $this->db->where('id_regulasi', $primary_key)->get('regulasi')->row();
+
+        unlink('assets/uploads/files/' . $row->document);
+
+        return true;
     }
 }
