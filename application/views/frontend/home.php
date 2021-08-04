@@ -119,7 +119,7 @@
                         <?php foreach ($berita_pemkab as $bpemkab) : ?>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
-                                    <img src="<?= substr($bpemkab['post_content'],53,88) ?>" alt="">
+                                    <img src="<?= substr($bpemkab['post_content'], 53, 88) ?>" alt="">
                                 </div>
                                 <div class="trand-right-cap hover-show">
                                     <span class="color3">Berita</span>
@@ -134,22 +134,23 @@
                     <div class="section-tittle">
                         <h3>Berita PPID Terbaru</h3>
                     </div>
-
-                    <div class="data-list" data-autoscroll>
-                        <?php foreach ($berita_ppid['data'] as $bppid) : ?>
-                            <div class="trand-right-single d-flex">
-                                <div class="trand-right-img">
-                                    <img src=" https://ppid.jemberkab.go.id/storage/<?= $bppid['foto_berita'] ?>" alt="">
+                    <?php if (@count($berita_ppid['data']) > 0) { ?>
+                        <div class="data-list" data-autoscroll>
+                            <?php foreach ($berita_ppid['data'] as $bppid) : ?>
+                                <div class="trand-right-single d-flex">
+                                    <div class="trand-right-img">
+                                        <img src=" https://ppid.jemberkab.go.id/storage/<?= $bppid['foto_berita'] ?>" alt="">
+                                    </div>
+                                    <div class="trand-right-cap hover-show">
+                                        <span class="color3">Berita</span>
+                                        <h4 class="short-title"><a href=" https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank"><?= substr($bppid['judul_berita'], 0, 50) ?>...</a></h4>
+                                        <h4 class="long-title"><a href=" https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank"><?= $bppid['judul_berita'] ?></a></h4>
+                                        <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bppid['tanggal_berita']) ?></p>
+                                    </div>
                                 </div>
-                                <div class="trand-right-cap hover-show">
-                                    <span class="color3">Berita</span>
-                                    <h4 class="short-title"><a href=" https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank"><?= substr($bppid['judul_berita'], 0, 50) ?>...</a></h4>
-                                    <h4 class="long-title"><a href=" https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank"><?= $bppid['judul_berita'] ?></a></h4>
-                                    <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bppid['tanggal_berita']) ?></p>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php } ?>
                     <br />
                 </div>
             </div>
@@ -234,7 +235,7 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                
+
                 <div class="section-tittle mb-40">
                     <h3>Kumpulan Video</h3>
                 </div>

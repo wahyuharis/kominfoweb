@@ -38,11 +38,11 @@ if (!isset($keywords)) {
     <?php } ?>
 
     <?php if (isset($meta_img) && !empty(trim($meta_img))) {  ?>
-        <meta name="image" content="<?=base_url($meta_img)  ?>" />
-        <meta property="og:image" content="<?=base_url($meta_img) ?>">
-    <?php }else{ ?>
-        <meta name="image" content="<?=base_url('assets/kominfo.png')?>" />
-        <meta property="og:image" content="<?=base_url('assets/kominfo.png')?>">
+        <meta name="image" content="<?= base_url($meta_img)  ?>" />
+        <meta property="og:image" content="<?= base_url($meta_img) ?>">
+    <?php } else { ?>
+        <meta name="image" content="<?= base_url('assets/kominfo.png') ?>" />
+        <meta property="og:image" content="<?= base_url('assets/kominfo.png') ?>">
     <?php } ?>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -212,10 +212,10 @@ if (!isset($keywords)) {
                         <div class="single-footer-caption mb-50 mt-60">
                             <div class="footer-tittle pengunjung">
                                 <h4>Pengunjung</h4>
-                                <p>Hari ini: <strong>41</strong><br>
-                                    Minggu ini: <strong>1006</strong><br>
-                                    Bulan ini: <strong>4073</strong><br>
-                                    Total Pengunjung: <strong>28621</strong></p>
+                                <p>Hari ini: <strong><?= $visit['visitors']['now']; ?></strong><br>
+                                    Minggu ini: <strong><?= $visit['visitors']['week']; ?></strong><br>
+                                    Bulan ini: <strong><?= $visit['visitors']['month']; ?></strong><br>
+                                    Total Pengunjung: <strong><?= $visit['visitors']['all']; ?></strong></p>
                             </div>
 
                         </div>
