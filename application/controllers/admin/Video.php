@@ -40,6 +40,7 @@ class Video extends CI_Controller
         $crud->set_field_upload('url_video', 'assets/uploads/files', 'mp3|mkv|mp4|avi|mpg|mpeg|webm');
         $crud->set_field_upload('thumbnail_video', 'assets/uploads/files', 'jpg|jpeg|gif|png|JPG|JPEG|GIF|PNG');
         $crud->callback_before_upload(array($this, '_callback_before_upload'));
+        $crud->callback_before_delete(array($this, 'crud_delete_file'));
         //$crud->callback_before_upload(array($this, '_callback_before_upload_img'));
 
         $crud->display_as('url_video', 'File Video');
@@ -82,10 +83,13 @@ class Video extends CI_Controller
         return $return;
     }
 
-    // function _callback_before_upload_img($files_to_upload, $field_info)
-    // {
-    //     $return = false;
+    public function crud_delete_file($primary_key)
+    {
+        $row = $this->db->where('id_galleries_video', $primary_key)->get('galleries_video')->row();
 
-    //     return $return;
-    // }
+        unlink('assets/uploads/files/' . $row->thumbnail_video);
+        unlink('assets/uploads/files/' . $row->url_video);
+
+        return true;
+    }
 }

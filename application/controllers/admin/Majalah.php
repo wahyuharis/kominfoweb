@@ -36,6 +36,7 @@ class Majalah extends CI_Controller
         // $crud->set_rules('nama majalah', 'nama_majalah', 'trim|max_length[50]|required|is_unique[majalah.nama_majalah]');
 
         $crud->callback_before_upload(array($this, '_callback_upload'));
+        $crud->callback_before_delete(array($this, 'crud_delete_file'));
 
         $output = $crud->render();
 
@@ -62,5 +63,14 @@ class Majalah extends CI_Controller
         }
 
         return $return;
+    }
+
+    public function crud_delete_file($primary_key)
+    {
+        $row = $this->db->where('id_majalah', $primary_key)->get('majalah')->row();
+
+        unlink('assets/uploads/files/' . $row->document);
+
+        return true;
     }
 }

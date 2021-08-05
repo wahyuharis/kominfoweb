@@ -21,21 +21,21 @@ class Video extends CI_Controller
         $search = $this->input->get('search_video');
 
         $berita_kanan = $this->db->where('deleted_at', null)
-        ->where('category', 'Berita')
-        ->select('feeds.*,users.fullname')
-        ->join('users', 'users.id=feeds.user_id')
-        ->order_by('id', 'desc')
-        ->limit(10)
-        ->get('feeds')
-        ->result_array();
-    
-    $url_ppid="https://ppid.jemberkab.go.id/api/berita";
-    $get_url = file_get_contents($url_ppid);
-    //mengubah standar encoding
-    $content=utf8_encode($get_url);
-        
-    //mengubah data json menjadi data array asosiatif
-    $hasil=json_decode($content,true);
+            ->where('category', 'Berita')
+            ->select('feeds.*,users.fullname')
+            ->join('users', 'users.id=feeds.user_id')
+            ->order_by('id', 'desc')
+            ->limit(10)
+            ->get('feeds')
+            ->result_array();
+
+        $url_ppid = "https://ppid.jemberkab.go.id/api/berita";
+        $get_url = file_get_contents($url_ppid);
+        //mengubah standar encoding
+        $content = utf8_encode($get_url);
+
+        //mengubah data json menjadi data array asosiatif
+        $hasil = json_decode($content, true);
 
         $page = $this->input->get('page');
         $limit = 6;
@@ -92,19 +92,19 @@ class Video extends CI_Controller
             ->limit(10)
             ->get('feeds')
             ->result_array();
-        
-        $url_ppid="https://ppid.jemberkab.go.id/api/berita";
+
+        $url_ppid = "https://ppid.jemberkab.go.id/api/berita";
         $get_url = file_get_contents($url_ppid);
         //mengubah standar encoding
-        $content=utf8_encode($get_url);
-            
+        $content = utf8_encode($get_url);
+
         //mengubah data json menjadi data array asosiatif
-        $hasil=json_decode($content,true);
+        $hasil = json_decode($content, true);
 
         $thumb = $this->db->select('*')
-        ->where('id_galleries_video', $id)
-        ->get('galleries_video')
-        ->row_object();
+            ->where('id_galleries_video', $id)
+            ->get('galleries_video')
+            ->row_object();
 
         $detail_video = $this->db->select('*')
             ->where('id_galleries_video', $id)
@@ -123,6 +123,4 @@ class Video extends CI_Controller
         // print_r2($view_data);
         $this->load->view('frontend/template', $view_data);
     }
-
-
 }
