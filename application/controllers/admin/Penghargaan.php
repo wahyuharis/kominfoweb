@@ -52,6 +52,7 @@ class Penghargaan extends CI_Controller
 
         $crud->callback_before_update(array($this, '_callback_before_update'));
         $crud->callback_before_insert(array($this, '_callback_before_update'));
+        $crud->callback_before_delete(array($this, 'crud_delete_file'));
 
         // $crud->unset_texteditor('content');
 
@@ -84,5 +85,14 @@ class Penghargaan extends CI_Controller
     {
 
         return $post_array;
+    }
+
+    function crud_delete_file($primary_key)
+    {
+        $row = $this->db->where('id_penghargaan', $primary_key)->get('profile_penghargaan')->row();
+
+        unlink('assets/uploads/files/' . $row->image);
+
+        return true;
     }
 }
