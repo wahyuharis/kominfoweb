@@ -139,7 +139,7 @@ class Blog extends CI_Controller
 
 
         if (empty(trim($this->description))) {
-            $this->description = getFirstParagraph2($berita_detail->content);
+            $this->description = $berita_detail->title;
         }
 
         $keywords2 = str_replace(' ', ', ', $berita_detail->title);

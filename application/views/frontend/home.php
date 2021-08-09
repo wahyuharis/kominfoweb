@@ -177,10 +177,10 @@
                             <!--Nav Button  -->
                             <nav>
                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Berita</a>
-                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Agenda</a>
-                                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Artikel</a>
-                                    <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Infografis</a>
+                                    <a class="nav-item nav-link active" id="nav-blog-tab" data-toggle="tab" href="#nav-blog" role="tab" aria-controls="nav-blog" aria-selected="true">Berita</a>
+                                    <a class="nav-item nav-link" id="nav-agenda-tab" data-toggle="tab" href="#nav-agenda" role="tab" aria-controls="nav-agenda" aria-selected="false">Agenda</a>
+                                    <a class="nav-item nav-link" id="nav-artikel-tab" data-toggle="tab" href="#nav-artikel" role="tab" aria-controls="nav-artikel" aria-selected="false">Artikel</a>
+                                    <a class="nav-item nav-link" id="nav-infografis-tab" data-toggle="tab" href="#nav-infografis" role="tab" aria-controls="nav-infografis" aria-selected="false">Infografis</a>
                                 </div>
                             </nav>
                             <!--End Nav Button  -->
@@ -192,7 +192,7 @@
                         <!-- Nav Card -->
                         <div class="tab-content" id="nav-tabContent">
                             <!-- card one -->
-                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="tab-pane fade show active" id="nav-blog" role="tabpanel" aria-labelledby="nav-blog-tab">
                                 <div class="whats-news-caption">
                                     <div class="row">
 
@@ -216,15 +216,15 @@
                                 </div>
                             </div>
                             <!-- Card two -->
-                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <div class="tab-pane fade" id="nav-agenda" role="tabpanel" aria-labelledby="nav-agenda-tab">
 
                             </div>
                             <!-- Card three -->
-                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            <div class="tab-pane fade" id="nav-artikel" role="tabpanel" aria-labelledby="nav-artikel-tab">
 
                             </div>
                             <!-- card fure -->
-                            <div class="tab-pane fade" id="nav-last" role="tabpanel" aria-labelledby="nav-last-tab">
+                            <div class="tab-pane fade" id="nav-infografis" role="tabpanel" aria-labelledby="nav-infografis-tab">
 
                             </div>
 
