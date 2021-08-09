@@ -41,7 +41,7 @@
                     <li><a href="https://ppid.jemberkab.go.id/permohonan-informasi" target="_blank">Permohonan Informasi</a></li>
                 </ul>
             </li>
-            <li><a href="<?= base_url('regulasi') ?>">Regulasi</a>
+            <li><a href="#">Regulasi</a>
                 <ul class="submenu">
                     <li><a href="<?= base_url('regulasi?slug=undang-undang') ?>">Undang-undang</a></li>
                     <li><a href="<?= base_url('regulasi?slug=peraturan-presiden') ?>">Peraturan Presiden</a></li>
