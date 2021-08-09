@@ -27,10 +27,14 @@ if (!isset($keywords)) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?= NAMA_APLIKASI ?> </title>
 
-    <?php if (isset($description) && !empty(trim($description))) { ?>
-        <meta name="description" content="<?= $description ?>">
+    <?php if ($this->uri->segment('1') == 'blog' && $this->uri->segment('2') == 'detail') { ?>
+        <title><?= $description ?></title>
+    <?php } else { ?>
+        <title><?= NAMA_APLIKASI ?> </title>
+        <?php if (isset($description) && !empty(trim($description))) { ?>
+            <meta name="description" content="<?= $description ?>">
+        <?php } ?>
     <?php } ?>
 
     <?php if (isset($keywords) && !empty(trim($keywords))) {  ?>
@@ -212,10 +216,10 @@ if (!isset($keywords)) {
                         <div class="single-footer-caption mb-50 mt-60">
                             <div class="footer-tittle pengunjung">
                                 <h4>Pengunjung</h4>
-                                <p>Hari ini: <strong>41</strong><br>
-                                    Minggu ini: <strong>1006</strong><br>
-                                    Bulan ini: <strong>4073</strong><br>
-                                    Total Pengunjung: <strong>28621</strong></p>
+                                <p>Hari ini: <strong><?= $visit['visitors']['now']; ?></strong><br>
+                                    Minggu ini: <strong><?= $visit['visitors']['week']; ?></strong><br>
+                                    Bulan ini: <strong><?= $visit['visitors']['month']; ?></strong><br>
+                                    Total Pengunjung: <strong><?= $visit['visitors']['all']; ?></strong></p>
                             </div>
 
                         </div>
