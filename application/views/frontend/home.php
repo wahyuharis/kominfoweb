@@ -275,7 +275,7 @@
                         <?php foreach ($link  as $link_row) : ?>
 
                             <div class="weekly2-single">
-                                <a href="<?= $link_row['url'] ?>">
+                                <a href="<?= $link_row['url'] ?>" target="_blank">
                                     <div class="weekly2-img">
                                         <img src="<?= base_url('/assets/uploads/files/' . $link_row['icon']) ?>" alt="">
                                     </div>
