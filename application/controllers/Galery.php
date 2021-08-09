@@ -10,6 +10,7 @@ class Galery extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('kunjungan');
     }
 
     public function index()
@@ -24,13 +25,13 @@ class Galery extends CI_Controller
             ->limit(10)
             ->get('feeds')
             ->result_array();
-        $url_ppid="https://ppid.jemberkab.go.id/api/berita";
+        $url_ppid = "https://ppid.jemberkab.go.id/api/berita";
         $get_url = file_get_contents($url_ppid);
         //mengubah standar encoding
-        $content=utf8_encode($get_url);
-            
+        $content = utf8_encode($get_url);
+
         //mengubah data json menjadi data array asosiatif
-        $hasil=json_decode($content,true);
+        $hasil = json_decode($content, true);
 
         $slider = $this->db->get('sliders')->result_array();
 
@@ -63,6 +64,7 @@ class Galery extends CI_Controller
         $content_data['galeri_foto'] = $galeri_foto;
         $content_data['pagination'] = $this->pagination->create_links();
         $content_data['slider'] = $slider;
+        $content_data['visit'] = $this->data();
 
         $view_data['description'] = $this->description;
         $view_data['keywords'] = $this->keywords;
@@ -86,13 +88,13 @@ class Galery extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-        $url_ppid="https://ppid.jemberkab.go.id/api/berita";
+        $url_ppid = "https://ppid.jemberkab.go.id/api/berita";
         $get_url = file_get_contents($url_ppid);
         //mengubah standar encoding
-        $content=utf8_encode($get_url);
-            
+        $content = utf8_encode($get_url);
+
         //mengubah data json menjadi data array asosiatif
-        $hasil=json_decode($content,true);
+        $hasil = json_decode($content, true);
 
         $galeri_foto_header = $this->db->select('*')
             ->where('id', $id)
@@ -103,7 +105,7 @@ class Galery extends CI_Controller
             ->where('id_galeries', $id)
             ->get('galleries_child')
             ->result_array();
-        
+
         $slider = $this->db->get('sliders')->result_array();
 
         $content_data['berita_kanan'] = $berita_kanan;
@@ -111,6 +113,7 @@ class Galery extends CI_Controller
         $content_data['galeri_foto_detal'] = $galeri_foto_detail;
         $content_data['galeri_foto_header'] = $galeri_foto_header;
         $content_data['slider'] = $slider;
+        $content_data['visit'] = $this->data();
 
         $view_data['description'] = $this->description;
         $view_data['keywords'] = $this->keywords;
@@ -118,5 +121,47 @@ class Galery extends CI_Controller
 
         // print_r2($view_data);
         $this->load->view('frontend/template', $view_data);
+    }
+
+    function data()
+    {
+        $sql = "SELECT count(users.id) AS total FROM users";
+        $db = $this->db->query($sql);
+        $user = $db->row_object()->total;
+
+
+        $visitors['month'] = $this->kunjungan->bulan(); //$db->row_object()->visitors;
+
+
+        $visitors['week'] = $this->kunjungan->week(); //$db->row_object()->visitors;
+
+
+        $visitors['now'] = $this->kunjungan->now(); //$db->row_object()->visitors;
+
+        // $sql = "SELECT 
+        // COUNT(uniq_visitor.id_uniq_visitor) AS visitors
+        // FROM uniq_visitor";
+        // $db = $this->db->query($sql);
+        $visitors['all'] = $this->kunjungan->total(); //$db->row_object()->visitors;
+
+        $sql = "SELECT
+        DATE_FORMAT(uniq_visitor.time_stamp, '%Y-%m-%d') AS y,
+        COUNT(uniq_visitor.id_uniq_visitor) AS item1
+        FROM uniq_visitor
+        
+        GROUP BY DATE(uniq_visitor.time_stamp);";
+        $db = $this->db->query($sql);
+        $visitor_arr = $db->result_object();
+
+
+
+        $data = array();
+        $data['user'] = $user;
+        $data['visitors'] = $visitors;
+        $data['visitor_arr'] = $visitor_arr;
+
+        //header_json();
+        //echo json_encode($data);
+        return $data;
     }
 }

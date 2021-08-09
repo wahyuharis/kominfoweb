@@ -15,6 +15,7 @@ class Artikel extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('kunjungan');
     }
 
     public function index()
@@ -32,13 +33,13 @@ class Artikel extends CI_Controller
             ->get('feeds')
             ->result_array();
 
-        $url_ppid="https://ppid.jemberkab.go.id/api/berita";
+        $url_ppid = "https://ppid.jemberkab.go.id/api/berita";
         $get_url = file_get_contents($url_ppid);
         //mengubah standar encoding
-        $content=utf8_encode($get_url);
-                
+        $content = utf8_encode($get_url);
+
         //mengubah data json menjadi data array asosiatif
-        $hasil=json_decode($content,true);
+        $hasil = json_decode($content, true);
 
         $page = $this->input->get('page');
         $limit = 5;
@@ -88,6 +89,7 @@ class Artikel extends CI_Controller
         $content_data['artikel_list'] = $artikel_list;
         $content_data['slider'] = $slider;
         $content_data['pagination'] = $this->pagination->create_links();
+        $content_data['visit'] = $this->data();
 
         $view_data['content'] = $this->load->view('frontend/artikel', $content_data, true);
 
@@ -109,14 +111,14 @@ class Artikel extends CI_Controller
             ->limit(10)
             ->get('feeds')
             ->result_array();
-        
-        $url_ppid="https://ppid.jemberkab.go.id/api/berita";
+
+        $url_ppid = "https://ppid.jemberkab.go.id/api/berita";
         $get_url = file_get_contents($url_ppid);
         //mengubah standar encoding
-        $content=utf8_encode($get_url);
-                
+        $content = utf8_encode($get_url);
+
         //mengubah data json menjadi data array asosiatif
-        $hasil=json_decode($content,true);
+        $hasil = json_decode($content, true);
 
         $artikel_detail = $this->db
             ->select('artikel.*,users.fullname')
@@ -168,6 +170,7 @@ class Artikel extends CI_Controller
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['berita_ppid'] = $hasil;
         $content_data['slider'] = $slider;
+        $content_data['visit'] = $this->data();
 
         $view_data['description'] = $this->description;
         $view_data['keywords'] = $this->keywords;
@@ -176,5 +179,47 @@ class Artikel extends CI_Controller
         $view_data['content'] = $this->load->view('frontend/artikel_content', $content_data, true);
 
         $this->load->view('frontend/template', $view_data);
+    }
+
+    function data()
+    {
+        $sql = "SELECT count(users.id) AS total FROM users";
+        $db = $this->db->query($sql);
+        $user = $db->row_object()->total;
+
+
+        $visitors['month'] = $this->kunjungan->bulan(); //$db->row_object()->visitors;
+
+
+        $visitors['week'] = $this->kunjungan->week(); //$db->row_object()->visitors;
+
+
+        $visitors['now'] = $this->kunjungan->now(); //$db->row_object()->visitors;
+
+        // $sql = "SELECT 
+        // COUNT(uniq_visitor.id_uniq_visitor) AS visitors
+        // FROM uniq_visitor";
+        // $db = $this->db->query($sql);
+        $visitors['all'] = $this->kunjungan->total(); //$db->row_object()->visitors;
+
+        $sql = "SELECT
+        DATE_FORMAT(uniq_visitor.time_stamp, '%Y-%m-%d') AS y,
+        COUNT(uniq_visitor.id_uniq_visitor) AS item1
+        FROM uniq_visitor
+        
+        GROUP BY DATE(uniq_visitor.time_stamp);";
+        $db = $this->db->query($sql);
+        $visitor_arr = $db->result_object();
+
+
+
+        $data = array();
+        $data['user'] = $user;
+        $data['visitors'] = $visitors;
+        $data['visitor_arr'] = $visitor_arr;
+
+        //header_json();
+        //echo json_encode($data);
+        return $data;
     }
 }

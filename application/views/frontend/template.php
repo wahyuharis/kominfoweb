@@ -185,7 +185,7 @@ if (!isset($keywords)) {
                                 <div class="footer-tittle">
 
                                     <div class="footer-pera">
-                                        <p><strong>Alamat:</strong> Jl. Dewi Sartika No.54, Kepatihan, Kec. Kaliwates,
+                                        <p><strong>Alamat:</strong> Jl. Dewi Sartika No.54, Kepatihan, Kecamatan Kaliwates,
                                             Kabupaten Jember, Jawa Timur 68131<br>
                                             <strong>Email:</strong> diskominfo@jemberkab.go.id
                                             <br>
