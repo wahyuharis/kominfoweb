@@ -29,10 +29,10 @@
 
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-striped">
+                        <table class="table table-striped" width="100%" cellspacing="0" style="white-space: nowrap;">
                             <thead>
                                 <tr style="vertical-align:middle">
-                                    <th style="text-align: center;">No</th>
+
                                     <th style="text-align: center;">Kategori</th>
                                     <th style="text-align: center;">Produk Hukum</th>
                                     <th style="text-align: center;">Nomor</th>
@@ -45,7 +45,7 @@
                                 <?php $no = 1;
                                 foreach ($regulasi_list as $row) : ?>
                                     <tr>
-                                        <td><?php echo $no++; ?></td>
+
                                         <td><?= $row['nama_kategori'] ?></td>
                                         <td><?= $row['nama_produk'] ?></td>
                                         <td><?= $row['nomor'] ?></td>
