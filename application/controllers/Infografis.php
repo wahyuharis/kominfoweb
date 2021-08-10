@@ -104,7 +104,7 @@ class Infografis extends CI_Controller
 
         $berita_kanan = $this->db->where('deleted_at', null)
             ->where('category', 'Berita')
-            ->select('feeds.*,users.fullname')
+            ->select('feeds.*,users.fullname,get_view(feeds.id) as realview')
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->order_by('id', 'desc')
             ->limit(10)
@@ -120,7 +120,7 @@ class Infografis extends CI_Controller
         $hasil = json_decode($content, true);
 
         $infografis_detail = $this->db
-            ->select('infografis.*,users.fullname')
+            ->select('infografis.*,users.fullname,get_view(infografis.id) as realview')
             ->where('deleted_at', null)
             ->where('slug', $slug)
             ->join('users', 'users.id=infografis.user_id', 'left')
