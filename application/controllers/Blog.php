@@ -99,7 +99,7 @@ class Blog extends CI_Controller
 
         $berita_kanan = $this->db->where('deleted_at', null)
             ->where('category', 'Berita')
-            ->select('feeds.*,users.fullname')
+            ->select('feeds.*,users.fullname,get_view(feeds.id) as realview')
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->order_by('id', 'desc')
             ->limit(10)
@@ -116,7 +116,7 @@ class Blog extends CI_Controller
 
 
         $db = $this->db
-            ->select('feeds.*,users.fullname')
+            ->select('feeds.*,users.fullname,get_view(feeds.id) as realview')
             ->where('deleted_at', null)
             ->where('category', 'Berita')
             ->where('slug', $slug)

@@ -26,7 +26,7 @@
                <div class="navigation-top">
                   <div class="d-sm-flex justify-content-between text-center">
                      <p class="like-info"><span class="align-middle"><i class="fa fa-eye"></i></span>
-                        <?= $berita_detail->view ?>
+                        <?= $berita_detail->realview ?>
                         kali dilihat </p>
                      <div class="col-sm-4 text-center my-2 my-sm-0">
                         <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
