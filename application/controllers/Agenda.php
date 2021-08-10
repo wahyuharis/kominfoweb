@@ -106,7 +106,7 @@ class Agenda extends CI_Controller
 
         $berita_kanan = $this->db->where('deleted_at', null)
             ->where('category', 'Berita')
-            ->select('feeds.*,users.fullname')
+            ->select('feeds.*,users.fullname,get_view(feeds.id) as realview')
             ->join('users', 'users.id=feeds.user_id')
             ->order_by('id', 'desc')
             ->limit(10)
@@ -122,7 +122,7 @@ class Agenda extends CI_Controller
         $hasil = json_decode($content, true);
 
         $agenda_detail = $this->db
-            ->select('agenda.*,users.fullname')
+            ->select('agenda.*,users.fullname,get_view(agenda.id) as realview')
             ->where('deleted_at', null)
             // ->where('category', 'agenda')
             ->where('slug', $slug)
