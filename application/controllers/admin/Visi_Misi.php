@@ -30,7 +30,6 @@ class Visi_misi extends CI_Controller
 
         $crud->columns('judul', 'konten', 'gambar');
 
-        $crud->display_as('Kategori');
         $crud->display_as('judul', 'Judul');
         $crud->display_as('konten', 'Konten');
         $crud->display_as('gambar', 'Gambar');

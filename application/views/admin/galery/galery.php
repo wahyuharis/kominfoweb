@@ -14,7 +14,7 @@
         $("#custom_add").removeClass("hidden");
         <?php if ($state == 'edit' || $state == "add") { ?>
 
-            
+
 
         <?php } ?>
 
@@ -24,12 +24,16 @@
     function delete_validation(id) {
 
         bootbox.confirm({
-            message: "This is a confirm with custom button text and color! Do you like it?",
+            message: "Apakah anda yakin ingin menghapus data?",
             buttons: {
                 confirm: {
-                    label: 'Yes',
+                    label: 'Ya',
                     className: 'btn-danger'
                 },
+                cancel: {
+                    label: 'Tidak',
+                    className: 'btn-default'
+                }
             },
             callback: function(result) {
                 if (result) {
@@ -41,5 +45,5 @@
         });
 
 
-        }
+    }
 </script>
