@@ -33,6 +33,19 @@ class Galery extends CI_Controller
         //mengubah data json menjadi data array asosiatif
         $hasil = json_decode($content, true);
 
+        $dsn = 'mysqli://adminjbrkab:J3mberK@b2019@36.91.26.86/db_jbrkab';
+        $db2 = $this->load->database($dsn, TRUE);
+
+        // Select records from 2nd database
+        $berita_pemkab =  $db2->where('post_status', 'publish')
+            ->where('post_type', 'post')
+            ->like('post_content', '<img')
+            ->select('*')
+            ->order_by('ID', 'desc')
+            ->limit(10)
+            ->get('wp_posts')
+            ->result_array();
+
         $slider = $this->db->get('sliders')->result_array();
 
 
@@ -61,6 +74,7 @@ class Galery extends CI_Controller
 
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['berita_ppid'] = $hasil;
+        $content_data['berita_pemkab'] = $berita_pemkab;
         $content_data['galeri_foto'] = $galeri_foto;
         $content_data['pagination'] = $this->pagination->create_links();
         $content_data['slider'] = $slider;
@@ -96,6 +110,19 @@ class Galery extends CI_Controller
         //mengubah data json menjadi data array asosiatif
         $hasil = json_decode($content, true);
 
+        $dsn = 'mysqli://adminjbrkab:J3mberK@b2019@36.91.26.86/db_jbrkab';
+        $db2 = $this->load->database($dsn, TRUE);
+
+        // Select records from 2nd database
+        $berita_pemkab =  $db2->where('post_status', 'publish')
+            ->where('post_type', 'post')
+            ->like('post_content', '<img')
+            ->select('*')
+            ->order_by('ID', 'desc')
+            ->limit(10)
+            ->get('wp_posts')
+            ->result_array();
+
         $galeri_foto_header = $this->db->select('*')
             ->where('id', $id)
             ->get('galleries')
@@ -110,6 +137,7 @@ class Galery extends CI_Controller
 
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['berita_ppid'] = $hasil;
+        $content_data['berita_pemkab'] = $berita_pemkab;
         $content_data['galeri_foto_detal'] = $galeri_foto_detail;
         $content_data['galeri_foto_header'] = $galeri_foto_header;
         $content_data['slider'] = $slider;

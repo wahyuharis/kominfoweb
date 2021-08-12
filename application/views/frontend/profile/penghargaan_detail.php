@@ -122,16 +122,16 @@
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Berita Pemkab Terbaru</h3>
                         <ul class="data-list2" data-autoscroll>
-                            <?php foreach ($berita_kanan as $bkanan) : ?>
+                            <?php foreach ($berita_pemkab as $bpemkab) : ?>
                                 <div class="media post_item">
-                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="post" style="border-radius: 5px;">
+                                    <img src="<?= substr($bpemkab['post_content'], 53, 92) ?>" alt="post" style="border-radius: 5px;">
                                     <div class="media-body hover-show">
                                         <span class="color2">Berita</span>
-                                        <a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>">
-                                            <h3 class="short-title"><?= substr($bkanan['title'], 0, 50) ?>...</h3>
-                                            <h3 class="long-title"><?= ($bkanan['title']) ?></h3>
+                                        <a href="https://www.jemberkab.go.id/<?= $bpemkab['post_name'] ?>" target="_blank">
+                                            <h3 class="short-title"><?= substr($bpemkab['post_title'], 0, 50) ?>...</h3>
+                                            <h3 class="long-title"><?= ($bpemkab['post_title']) ?></h3>
                                         </a>
-                                        <p><?= waktu_ymd_to_dmy($bkanan['date']) ?></p>
+                                        <p><?= waktu_ymd_to_dmy($bpemkab['post_date']) ?></p>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
