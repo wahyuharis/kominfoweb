@@ -88,7 +88,7 @@ class Penghargaan extends CI_Controller
         $content_data = [];
 
         $penghargaan = $this->db
-            ->select('profile_penghargaan.*,users.fullname')
+            ->select('profile_penghargaan.*,users.fullname,get_view(profile_penghargaan.id_penghargaan) as realview')
             ->where('deleted_at', null)
             ->where('slug', $slug)
             ->join('users', 'users.id=profile_penghargaan.user_id', 'left')
@@ -120,7 +120,7 @@ class Penghargaan extends CI_Controller
         //     ->row_object();
 
         $berita_kanan = $this->db->where('deleted_at', null)
-            ->select('feeds.*,users.fullname')
+            ->select('feeds.*,users.fullname,get_view(feeds.id) as realview')
             ->join('users', 'users.id=feeds.user_id', 'left')
             ->order_by('id', 'desc')
             ->limit(10)

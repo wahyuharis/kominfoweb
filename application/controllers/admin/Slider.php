@@ -36,6 +36,7 @@ class Slider extends CI_Controller
         $crud->required_fields('headline', 'sub_headline', 'image');
 
         $crud->set_field_upload('image', 'assets/uploads/files');
+        $crud->callback_before_delete(array($this, 'crud_delete_file'));
 
         $crud->set_subject('Sliders');
 
@@ -47,5 +48,14 @@ class Slider extends CI_Controller
         $template_data['css_files'] = $output->css_files;
 
         $this->load->view('admin/template', $template_data);
+    }
+
+    public function crud_delete_file($primary_key)
+    {
+        $row = $this->db->where('id', $primary_key)->get('sliders')->row();
+
+        unlink('assets/uploads/files/' . $row->image);
+
+        return true;
     }
 }

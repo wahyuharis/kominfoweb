@@ -25,11 +25,7 @@ class Personil extends CI_Controller
 
         $crud->set_theme('bootstrap');
         $crud->set_table('profile_personil');
-        $crud->fields('judul', 'gambar','konten' );
-
-        $crud->unset_add();
-        $crud->unset_list();
-        $crud->unset_delete();
+        $crud->fields('judul', 'konten', 'gambar');
 
         $crud->columns('judul', 'konten', 'gambar');
 
@@ -37,11 +33,16 @@ class Personil extends CI_Controller
         $crud->display_as('konten', 'Konten');
         $crud->display_as('gambar', 'Gambar');
 
-        $crud->required_fields('judul', 'konten', 'gambar');
+        $crud->required_fields('judul', 'gambar');
 
         $crud->set_field_upload('gambar', 'assets/uploads/files');
 
-        $crud->set_subject('Personil');
+        $crud->set_subject($this->title);
+
+        $crud->unset_add();
+        $crud->unset_list();
+        $crud->unset_delete();
+        $crud->unset_back_to_list();
 
         $output = $crud->render();
 
