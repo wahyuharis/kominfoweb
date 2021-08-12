@@ -116,16 +116,16 @@
                     </div>
 
                     <div class="data-list" data-autoscroll>
-                        <?php foreach ($berita_kanan as $bkanan) : ?>
+                        <?php foreach ($berita_pemkab as $bpemkab) : ?>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
-                                    <img src="<?= base_url('assets/uploads/files/' . $bkanan['image']) ?>" alt="">
+                                    <img src="<?= substr($bpemkab['post_content'], 53, 92) ?>" alt="">
                                 </div>
                                 <div class="trand-right-cap hover-show">
                                     <span class="color3">Berita</span>
-                                    <h4 class="short-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= substr($bkanan['title'], 0, 50) ?>...</a></h4>
-                                    <h4 class="long-title"><a href="<?= base_url('blog/detail/' . $bkanan['slug']) ?>"><?= $bkanan['title'] ?></a></h4>
-                                    <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($btengah['date']) ?></p>
+                                    <h4 class="short-title"><a href="https://www.jemberkab.go.id/<?= $bpemkab['post_name'] ?>" target="_blank"><?= substr($bpemkab['post_title'], 0, 50) ?>...</a></h4>
+                                    <h4 class="long-title"><a href="https://www.jemberkab.go.id/<?= $bpemkab['post_name'] ?>" target="_blank"><?= $bpemkab['post_title'] ?></a></h4>
+                                    <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bpemkab['post_date']) ?></p>
                                 </div>
                             </div>
                         <?php endforeach; ?>
@@ -139,12 +139,12 @@
                         <?php foreach ($berita_ppid['data'] as $bppid) : ?>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
-                                    <img src=" https://ppid.jemberkab.go.id/storage/<?= $bppid['foto_berita'] ?>" alt="">
+                                    <img src="https://ppid.jemberkab.go.id/storage/<?= $bppid['foto_berita'] ?>" alt="">
                                 </div>
                                 <div class="trand-right-cap hover-show">
                                     <span class="color3">Berita</span>
-                                    <h4 class="short-title"><a href=" https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank"><?= substr($bppid['judul_berita'], 0, 50) ?>...</a></h4>
-                                    <h4 class="long-title"><a href=" https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank"><?= $bppid['judul_berita'] ?></a></h4>
+                                    <h4 class="short-title"><a href="https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank"><?= substr($bppid['judul_berita'], 0, 50) ?>...</a></h4>
+                                    <h4 class="long-title"><a href="https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank"><?= $bppid['judul_berita'] ?></a></h4>
                                     <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bppid['tanggal_berita']) ?></p>
                                 </div>
                             </div>

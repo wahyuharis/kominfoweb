@@ -637,6 +637,10 @@ a {
 	z-index: 1;
 }
 
+.blog_item_img .blog_item_date h3{
+	text-align: center;
+}
+
 @media only screen and (min-width: 280px) and (max-width: 299px) {
 
 	.header-sticky.sticky-bar.sticky .title-logo{

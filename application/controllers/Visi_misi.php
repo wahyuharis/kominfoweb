@@ -36,6 +36,19 @@ class Visi_misi extends CI_Controller
         //mengubah data json menjadi data array asosiatif
         $hasil = json_decode($content, true);
 
+        $dsn = 'mysqli://adminjbrkab:J3mberK@b2019@36.91.26.86/db_jbrkab';
+        $db2 = $this->load->database($dsn, TRUE);
+
+        // Select records from 2nd database
+        $berita_pemkab =  $db2->where('post_status', 'publish')
+            ->where('post_type', 'post')
+            ->like('post_content', '<img')
+            ->select('*')
+            ->order_by('ID', 'desc')
+            ->limit(10)
+            ->get('wp_posts')
+            ->result_array();
+
         $slider = $this->db->get('sliders')->result_array();
         // print_r2($visi_misi);
 
@@ -43,6 +56,7 @@ class Visi_misi extends CI_Controller
         $content_data['visi_misi'] = $visi_misi;
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['berita_ppid'] = $hasil;
+        $content_data['berita_pemkab'] = $berita_pemkab;
         $content_data['slider'] = $slider;
         $content_data['visit'] = $this->data();
 

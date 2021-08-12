@@ -41,6 +41,19 @@ class Artikel extends CI_Controller
         //mengubah data json menjadi data array asosiatif
         $hasil = json_decode($content, true);
 
+        $dsn = 'mysqli://adminjbrkab:J3mberK@b2019@36.91.26.86/db_jbrkab';
+        $db2 = $this->load->database($dsn, TRUE);
+
+        // Select records from 2nd database
+        $berita_pemkab =  $db2->where('post_status', 'publish')
+            ->where('post_type', 'post')
+            ->like('post_content', '<img')
+            ->select('*')
+            ->order_by('ID', 'desc')
+            ->limit(10)
+            ->get('wp_posts')
+            ->result_array();
+
         $page = $this->input->get('page');
         $limit = 5;
         $start = page_to_start($page, $limit);
@@ -86,6 +99,7 @@ class Artikel extends CI_Controller
 
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['berita_ppid'] = $hasil;
+        $content_data['berita_pemkab'] = $berita_pemkab;
         $content_data['artikel_list'] = $artikel_list;
         $content_data['slider'] = $slider;
         $content_data['pagination'] = $this->pagination->create_links();
@@ -119,6 +133,19 @@ class Artikel extends CI_Controller
 
         //mengubah data json menjadi data array asosiatif
         $hasil = json_decode($content, true);
+
+        $dsn = 'mysqli://adminjbrkab:J3mberK@b2019@36.91.26.86/db_jbrkab';
+        $db2 = $this->load->database($dsn, TRUE);
+
+        // Select records from 2nd database
+        $berita_pemkab =  $db2->where('post_status', 'publish')
+            ->where('post_type', 'post')
+            ->like('post_content', '<img')
+            ->select('*')
+            ->order_by('ID', 'desc')
+            ->limit(10)
+            ->get('wp_posts')
+            ->result_array();
 
         $artikel_detail = $this->db
             ->select('artikel.*,users.fullname,get_view(artikel.id) as realview')
@@ -169,6 +196,7 @@ class Artikel extends CI_Controller
         $content_data['artikel_detail_prev'] = $artikel_detail_prev;
         $content_data['berita_kanan'] = $berita_kanan;
         $content_data['berita_ppid'] = $hasil;
+        $content_data['berita_pemkab'] = $berita_pemkab;
         $content_data['slider'] = $slider;
         $content_data['visit'] = $this->data();
 
