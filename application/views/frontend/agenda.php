@@ -17,12 +17,36 @@
                             </header>
                             <div class="w3-container w3-light-grey">
                                 <br>
-                                <p style="color:black"><b>Tanggal :</b> <?= $agendax['date']; ?> /
-                                    <b>Pukul :</b> <?= $agendax['waktu']; ?> WIB<br>
-                                    <b>Lokasi :</b> <?= $agendax['lokasi']; ?><br>
-                                    <b>Disposisi :</b> <?= $agendax['disposisi']; ?><br>
-                                    <b>Keterangan :</b> <?= substr($agendax['keterangan'], 0, 90); ?>...
-                                </p>
+                                <div class="table-responsive">
+                                    <table>
+                                        <tr>
+                                            <td style="font-weight:bold">Tanggal</td>
+                                            <td>:</td>
+                                            <td><?= $agendax['date']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight:bold">Pukul</td>
+                                            <td>:</td>
+                                            <td><?= $agendax['waktu']; ?> WIB</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight:bold">Lokasi</td>
+                                            <td>:</td>
+                                            <td><?= $agendax['lokasi']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight:bold">Disposisi</td>
+                                            <td>:</td>
+                                            <td><?= $agendax['disposisi']; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight:bold">Keterangan</td>
+                                            <td>:</td>
+                                            <td style="text-align: justify;"><?= substr($agendax['keterangan'], 0, 90); ?> ...</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <br>
                             </div>
                             <a href="<?= base_url('agenda/detail/' . $agendax['slug']) ?>" class="w3-button w3-block w3-blue-grey">Lihat Detail</a>
                         </div> <br>
@@ -70,7 +94,7 @@
                         <ul class="data-list2" data-autoscroll>
                             <?php foreach ($berita_pemkab as $bpemkab) : ?>
                                 <div class="media post_item">
-                                    <img src="<?= substr($bpemkab['post_content'], 53, 92) ?>" alt="post" style="border-radius: 5px;">
+                                    <img src="<?= substr($bpemkab['post_content'], 53, 93) ?>" alt="post" style="border-radius: 5px;">
                                     <div class="media-body hover-show">
                                         <span class="color2">Berita</span>
                                         <a href="https://www.jemberkab.go.id/<?= $bpemkab['post_name'] ?>" target="_blank">

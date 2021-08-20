@@ -124,7 +124,7 @@
                   <ul class="data-list2" data-autoscroll>
                      <?php foreach ($berita_pemkab as $bpemkab) : ?>
                         <div class="media post_item">
-                           <img src="<?= substr($bpemkab['post_content'], 53, 92) ?>" alt="post" style="border-radius: 5px;">
+                           <img src="<?= substr($bpemkab['post_content'], 53, 93) ?>" alt="post" style="border-radius: 5px;">
                            <div class="media-body hover-show">
                               <span class="color2">Berita</span>
                               <a href="https://www.jemberkab.go.id/<?= $bpemkab['post_name'] ?>" target="_blank">
