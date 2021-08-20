@@ -32,16 +32,11 @@
                         <div class="carousel-inner">
 
                             <?php $i = 0; ?>
-                            <?php foreach ($berita_kanan as $slide) : ?>
+                            <?php foreach ($slider as $srow) : ?>
                                 <div class="carousel-item <?php if ($i < 1) echo 'active' ?>">
                                     <div class="trending-top mb-30">
                                         <div class="trend-top-img">
-                                            <img src="<?= base_url('assets/uploads/files/' . $slide['image']) ?>" alt="Second slide">
-                                            <div class="trend-top-cap">
-                                                <!-- <span>Appetizers</span> -->
-                                                <h2><a href="<?= base_url('blog/detail/' . $slide['slug']) ?>"><?= ($slide['title']) ?></a></h2>
-                                                <p><?= getFirstParagraph2($slide['content']) ?></p>
-                                            </div>
+                                            <img src="<?= base_url('assets/uploads/files/' . $srow['image']) ?>" alt="Second slide">
                                         </div>
                                     </div>
                                 </div>
@@ -61,20 +56,20 @@
 
                     <!-- Trending Bottom -->
                     <div class="section-tittle mb-40">
-                        <h3>Berita Terpopuler</h3>
+                        <h3>Berita Diskominfo Terbaru</h3>
                     </div>
                     <div class="trending-bottom">
                         <div class="row">
-                            <?php foreach ($berita_tengah as $btengah) : ?>
+                            <?php foreach ($berita_bawah as $bbawah) : ?>
                                 <div class="col-lg-4">
                                     <div class="single-bottom mb-35">
                                         <div class="trend-bottom-img mb-30">
-                                            <img src="<?= base_url('assets/uploads/files/' . $btengah['image']) ?>" alt="">
+                                            <img src="<?= base_url('assets/uploads/files/' . $bbawah['image']) ?>" alt="">
                                         </div>
                                         <div class="trend-bottom-cap">
-                                            <span class="color1"><?= $btengah['view'] ?> dilihat </span>
-                                            <h4><a href="<?= base_url('blog/detail/' . $btengah['slug']) ?>"><?= $btengah['title'] ?></a></h4>
-                                            <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($btengah['date']) ?></p>
+                                            <span class="color1">BERITA DISKOMINFO</span>
+                                            <h4><a href="<?= base_url('blog/detail/' . $bbawah['slug']) ?>"><?= $bbawah['title'] ?></a></h4>
+                                            <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bbawah['date']) ?></p>
                                         </div>
                                     </div>
                                 </div>
@@ -85,32 +80,6 @@
                 <!-- Riht content -->
                 <div class="col-lg-4">
 
-                    <div id="carousel-kanan" class="carousel slide mb-40" data-ride="carousel">
-                        <ul class="carousel-indicators">
-                            <?php $i_slide = 0; ?>
-                            <?php foreach ($slider as $srow) : ?>
-                                <li data-target="#carousel-kanan" data-slide-to="<?= $i_slide ?>" class="<?php if ($i_slide < 1) echo "active" ?>"></li>
-                                <?php $i_slide++; ?>
-                            <?php endforeach; ?>
-                        </ul>
-                        <div class="carousel-inner">
-                            <?php $i_slide = 0; ?>
-                            <?php foreach ($slider as $srow) : ?>
-                                <div class="carousel-item <?php if ($i_slide < 1) echo "active"  ?>">
-                                    <img width="100%" height="200px" src="<?= base_url('assets/uploads/files/' . $srow['image']) ?>" alt="">
-                                </div>
-                                <?php $i_slide++; ?>
-                            <?php endforeach; ?>
-
-                        </div>
-                        <a class="carousel-control-prev" href="#carousel-kanan" data-slide="prev">
-                            <span class="carousel-control-prev-icon"></span>
-                        </a>
-                        <a class="carousel-control-next" href="#carousel-kanan" data-slide="next">
-                            <span class="carousel-control-next-icon"></span>
-                        </a>
-                    </div>
-
                     <div class="section-tittle">
                         <h3>Berita Pemkab Terbaru</h3>
                     </div>
@@ -119,10 +88,10 @@
                         <?php foreach ($berita_pemkab as $bpemkab) : ?>
                             <div class="trand-right-single d-flex">
                                 <div class="trand-right-img">
-                                    <img src="<?= substr($bpemkab['post_content'], 53, 92) ?>" alt="">
+                                    <img src="<?= substr($bpemkab['post_content'], 53, 93) ?>" alt="">
                                 </div>
                                 <div class="trand-right-cap hover-show">
-                                    <span class="color3">Berita</span>
+                                    <span class="color3">Berita Pemkab</span>
                                     <h4 class="short-title"><a href="https://www.jemberkab.go.id/<?= $bpemkab['post_name'] ?>" target="_blank"><?= substr($bpemkab['post_title'], 0, 50) ?>...</a></h4>
                                     <h4 class="long-title"><a href="https://www.jemberkab.go.id/<?= $bpemkab['post_name'] ?>" target="_blank"><?= $bpemkab['post_title'] ?></a></h4>
                                     <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bpemkab['post_date']) ?></p>
@@ -142,7 +111,7 @@
                                     <img src="https://ppid.jemberkab.go.id/storage/<?= $bppid['foto_berita'] ?>" alt="">
                                 </div>
                                 <div class="trand-right-cap hover-show">
-                                    <span class="color3">Berita</span>
+                                    <span class="color3">Berita PPID</span>
                                     <h4 class="short-title"><a href="https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank"><?= substr($bppid['judul_berita'], 0, 50) ?>...</a></h4>
                                     <h4 class="long-title"><a href="https://ppid.jemberkab.go.id/berita-ppid/detail/<?= $bppid['slug'] ?>" target="_blank"><?= $bppid['judul_berita'] ?></a></h4>
                                     <p class="text-sm text-dark float-left"><?= waktu_ymd_to_dmy($bppid['tanggal_berita']) ?></p>
@@ -169,7 +138,7 @@
                 <div class="row d-flex justify-content-between">
                     <div class="col-lg-3 col-md-3">
                         <div class="section-tittle mb-30">
-                            <h3>Pilihan Topik</h3>
+                            <h3>Terpopuler</h3>
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-9">
@@ -178,7 +147,7 @@
                             <nav>
                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                     <a class="nav-item nav-link active" id="nav-blog-tab" data-toggle="tab" href="#nav-blog" role="tab" aria-controls="nav-blog" aria-selected="true">Berita</a>
-                                    <a class="nav-item nav-link" id="nav-agenda-tab" data-toggle="tab" href="#nav-agenda" role="tab" aria-controls="nav-agenda" aria-selected="false">Agenda</a>
+                                    <!-- <a class="nav-item nav-link" id="nav-agenda-tab" data-toggle="tab" href="#nav-agenda" role="tab" aria-controls="nav-agenda" aria-selected="false">Agenda</a> -->
                                     <a class="nav-item nav-link" id="nav-artikel-tab" data-toggle="tab" href="#nav-artikel" role="tab" aria-controls="nav-artikel" aria-selected="false">Artikel</a>
                                     <a class="nav-item nav-link" id="nav-infografis-tab" data-toggle="tab" href="#nav-infografis" role="tab" aria-controls="nav-infografis" aria-selected="false">Infografis</a>
                                 </div>
@@ -197,16 +166,16 @@
                                     <div class="row">
 
 
-                                        <?php foreach ($berita_bawah as $bbawah) : ?>
+                                        <?php foreach ($berita_tengah as $btengah) : ?>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="single-what-news mb-100">
                                                     <div class="what-img">
-                                                        <img src="<?= base_url('assets/uploads/files/' . $bbawah['image']) ?>" alt="">
+                                                        <img src="<?= base_url('assets/uploads/files/' . $btengah['image']) ?>" alt="">
                                                     </div>
                                                     <div class="what-cap hover-show">
-                                                        <span class="color1">BERITA</span>
-                                                        <h4 class="short-title"><a href="<?= base_url('blog/detail/' . $bbawah['slug']) ?>"><?= substr($bbawah['title'], 0, 50) ?>...</a></h4>
-                                                        <h4 class="long-title"><a href="<?= base_url('blog/detail/' . $bbawah['slug']) ?>"><?= $bbawah['title'] ?></a></h4>
+                                                        <span class="color1"><?= $btengah['view'] ?> dilihat </span>
+                                                        <h4 class="short-title"><a href="<?= base_url('blog/detail/' . $btengah['slug']) ?>"><?= substr($btengah['title'], 0, 50) ?>...</a></h4>
+                                                        <h4 class="long-title"><a href="<?= base_url('blog/detail/' . $btengah['slug']) ?>"><?= $btengah['title'] ?></a></h4>
                                                     </div>
                                                 </div>
                                             </div>
@@ -216,9 +185,9 @@
                                 </div>
                             </div>
                             <!-- Card two -->
-                            <div class="tab-pane fade" id="nav-agenda" role="tabpanel" aria-labelledby="nav-agenda-tab">
+                            <!-- <div class="tab-pane fade" id="nav-agenda" role="tabpanel" aria-labelledby="nav-agenda-tab">
 
-                            </div>
+                            </div> -->
                             <!-- Card three -->
                             <div class="tab-pane fade" id="nav-artikel" role="tabpanel" aria-labelledby="nav-artikel-tab">
 
