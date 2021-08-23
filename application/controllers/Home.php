@@ -50,7 +50,7 @@ class Home extends CI_Controller
         // Select records from 2nd database
         $berita_pemkab =  $db2->where('post_status', 'publish')
             ->where('post_type', 'post')
-            ->like('post_content', '<img')
+            ->like('post_content', '<img', 'after')
             ->select('*')
             ->order_by('ID', 'desc')
             ->limit(10)
