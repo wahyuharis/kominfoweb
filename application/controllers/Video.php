@@ -38,7 +38,7 @@ class Video extends CI_Controller
         //mengubah data json menjadi data array asosiatif
         $hasil = json_decode($content, true);
 
-        $dsn = 'mysqli://adminjbrkab:J3mberK@b2019@36.91.26.86/db_jbrkab';
+        $dsn = 'mysqli://adminjbrkab:J3mberK@b2019@103.124.69.136/db_jbrkab';
         $db2 = $this->load->database($dsn, TRUE);
 
         // Select records from 2nd database
@@ -117,7 +117,7 @@ class Video extends CI_Controller
         //mengubah data json menjadi data array asosiatif
         $hasil = json_decode($content, true);
 
-        $dsn = 'mysqli://adminjbrkab:J3mberK@b2019@36.91.26.86/db_jbrkab';
+        $dsn = 'mysqli://adminjbrkab:J3mberK@b2019@103.124.69.136/db_jbrkab';
         $db2 = $this->load->database($dsn, TRUE);
 
         // Select records from 2nd database

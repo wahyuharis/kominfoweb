@@ -37,7 +37,7 @@ class Sejarah_dinas extends CI_Controller
         $hasil = json_decode($content, true);
         // print_r2($sejarah_dinas);
 
-        $dsn = 'mysqli://adminjbrkab:J3mberK@b2019@36.91.26.86/db_jbrkab';
+        $dsn = 'mysqli://adminjbrkab:J3mberK@b2019@103.124.69.136/db_jbrkab';
         $db2 = $this->load->database($dsn, TRUE);
 
         // Select records from 2nd database
